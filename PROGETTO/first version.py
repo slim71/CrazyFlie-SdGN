@@ -313,7 +313,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                 last_position_send[2] - SUBTRACTED_HEIGHT,
                                 0)
                             SUBTRACTED_HEIGHT = SUBTRACTED_HEIGHT + \
-                                                DELTA_HEIGHT
+                                DELTA_HEIGHT
 
                         # close the connection with the log table:
                         lg_stab.stop()

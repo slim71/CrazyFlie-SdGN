@@ -239,6 +239,7 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma):
     # together with the matrix:
     return Matrix_homogeneous, last_gamma
 
+
 def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma):
     #We get the start orientation of the Drone from which we want to get the RPY angles
     Euler_XYZ= client.GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
@@ -288,7 +289,8 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma,
         # us, so we take it in consideration in the Matrix
         # in order to correctly convert between frames.
 
-        # We get the orientation of the Drone from which we want to get the Yaw angle
+        # We get the orientation of the Drone from which we want to get the
+        # Yaw angle
         Euler_XYZ = client.GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
         # We are interested only in the first part of the structure:
         Euler_radians = Euler_XYZ[0]
@@ -344,9 +346,9 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma,
 def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma,KALMAN_INCLUDE_QUATERNION):
 
     if KALMAN_INCLUDE_QUATERNION:
-        # In this case we don't need to take in consideration the orientation of
-        # the drone in the conversion betwwen frames because this will be Kalman
-        # Filter concern
+        # In this case we don't need to take in consideration the
+        # orientation of the drone in the conversion betwwen frames because
+        # this will be Kalman Filter concern
         gamma = 0
         last_gamma = 0
 
@@ -375,8 +377,9 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma,KALMAN_INCLUDE_
     # pitch angle:
     beta = 0
 
-    # We build the homogeneous rotation matrix that will convert the positions expressed in the Vicon reference system
-    # in positions expressed in the Body frame of the Drone
+    # We build the homogeneous rotation matrix that will convert the
+    # positions expressed in the Vicon reference system in positions
+    # expressed in the Body frame of the Drone
     R_x = np.array([[1 , 0, 0], [0, math.cos(alpha), -math.sin(alpha)], [0, math.sin(alpha), math.cos(alpha)]])
     R_y = np.array([[math.cos(beta), 0, math.sin(beta)], [0, 1, 0], [-math.sin(beta), 0, math.cos(beta)]])
     R_z = np.array([[math.cos(gamma), -math.sin(gamma), 0], [math.sin(gamma), math.cos(gamma), 0], [0, 0, 1]])
@@ -385,7 +388,8 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma,KALMAN_INCLUDE_
     Matrix_Rotation = np.transpose(Matrix_Rotation_xyz)
     Matrix_homogeneous = np.array([[Matrix_Rotation[0][0], Matrix_Rotation[0][1], Matrix_Rotation[0][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[0]], [Matrix_Rotation[1][0], Matrix_Rotation[1][1], Matrix_Rotation[1][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[1]], [Matrix_Rotation[2][0], Matrix_Rotation[2][1], Matrix_Rotation[2][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[2]], [0, 0, 0, 1]])
 
-    #In case we update the last value of the yaw angle (not null value) we update returning it toghether with the matrix:
+    # In case we update the last value of the yaw angle (not null value) we
+    # update returning it toghether with the matrix:
     return Matrix_homogeneous,last_gamma
 
 

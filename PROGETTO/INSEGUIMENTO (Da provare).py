@@ -430,7 +430,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                                    W_T_homogenous[1],
                                                    W_T_homogenous[2]])
 
-                            #We send the new setpoint:
+                            # We send the new setpoint:
                             cf.commander.send_position_setpoint(
                                 W_T_meters[0],
                                 W_T_meters[1],
@@ -438,29 +438,55 @@ with SyncCrazyflie(uri, cf) as scf:
                             last_position_send = W_T_meters
 
                             if MAKE_LOG_FILE:
-                                #We will use this information when we write in the log file:
-                                Euler_angles = client.GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
+                                # We will use this information when we write
+                                # in the log file:
+                                Euler_angles = \
+                                    client.GetSegmentGlobalRotationEulerXYZ(
+                                        Drone, Drone)
                                 Drone_orientation = Euler_angles[0]
 
-                            #We get the actual position of Drone expressend in the Vicon frame:
-                            D_T_tuple = client.GetSegmentGlobalTranslation( Drone, Drone )
+                            # We get the actual position of Drone expressend
+                            # in the Vicon frame:
+                            D_T_tuple = client.GetSegmentGlobalTranslation(
+                                Drone, Drone)
                             D_T_millimeters = D_T_tuple[0]
-                            D_T_meters = np.array([float(D_T_millimeters[0])/1000 , float(D_T_millimeters[1])/1000, float(D_T_millimeters[2])/1000])
+                            D_T_meters = np.array([
+                                float(D_T_millimeters[0])/1000,
+                                float(D_T_millimeters[1])/1000,
+                                float(D_T_millimeters[2])/1000
+                            ])
                             D_T_vicon = D_T_meters
 
-                            #if it is equal to [0,0,0], it meas that en error from vicon occurred so we use the last correct position instead of it.
-                            if(D_T_meters[0] == 0 and D_T_meters[1] == 0 and D_T_meters[2] == 0):
+                            # if it is equal to [0,0,0], it meas that en
+                            # error from vicon occurred so we use the last
+                            # correct position instead of it.
+                            if D_T_meters[0] == 0 and D_T_meters[1] == 0 and \
+                                    D_T_meters[2] == 0:
                                 D_T_meters = last_drone_position
-                            #otherwise we convert the position in the body frame before sending it for the update of the Kalman filter:
+                            # otherwise we convert the position in the body
+                            # frame before sending it for the update of the
+                            # Kalman filter:
                             else:
-                                D_T_homogenous = np.array([D_T_meters[0], D_T_meters[1], D_T_meters[2], 1])
-                                D_T_homogenous = np.dot(Matrix_homogeneous, np.transpose(D_T_homogenous))
-                                D_T_meters = np.array([D_T_homogenous[0], D_T_homogenous[1], D_T_homogenous[2]])
+                                D_T_homogenous = np.array([
+                                    D_T_meters[0],
+                                    D_T_meters[1],
+                                    D_T_meters[2],
+                                    1
+                                ])
+                                D_T_homogenous = np.dot(
+                                    Matrix_homogeneous,
+                                    np.transpose(D_T_homogenous))
+                                D_T_meters = np.array([
+                                    D_T_homogenous[0],
+                                    D_T_homogenous[1],
+                                    D_T_homogenous[2]
+                                ])
 
-                                #update the last correct value for the drone position:
+                                # update the last correct value for the
+                                # drone position:
                                 last_drone_position = D_T_meters
 
-                            if KALMAN_INCLUDE_QUATERNION: # TODO: double?
+                            if KALMAN_INCLUDE_QUATERNION:  # TODO: double?
                                 # Update the Kalman filter sending the last
                                 # measure of both the drone position and
                                 # orientation:

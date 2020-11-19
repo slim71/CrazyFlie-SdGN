@@ -90,7 +90,7 @@ args = parser.parse_args()
 
 # Create a VICON Client
 client = ViconDataStream.Client()
-i = 0 # TODO: redeclared?
+i = 0  # TODO: redeclared?
 
 # Connect to the VICON Server running on the same LAN
 client.Connect(VICON_IP + ":" + VICON_PORT)
@@ -222,7 +222,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                     last_drone_reference[
                                         2] - SUBTRACTED_HEIGHT, 0)
                                 SUBTRACTED_HEIGHT = SUBTRACTED_HEIGHT + \
-                                                    DELTA_HEIGHT
+                                    DELTA_HEIGHT
                             exit()
                     else:
                         # We pass from a Wand's position expressed in the
@@ -244,17 +244,18 @@ with SyncCrazyflie(uri, cf) as scf:
                                 [W_T_meters[0], W_T_meters[1], W_T_meters[2]])
 
                         if i == 1:
-                            Wand_Translation = np.dot(Matrix_Rotation,
-                                                     np.transpose(
-                                                         Wand_Translation))
+                            Wand_Translation = np.dot(
+                                Matrix_Rotation,
+                                np.transpose(Wand_Translation)
+                            )
                             print("Body translation: ", Wand_Translation)
                         # print("Drone reference: ", last_drone_reference)
                         last_drone_reference[0] = last_drone_reference[0] + \
-                                                  Wand_Translation[0]
+                            Wand_Translation[0]
                         last_drone_reference[1] = last_drone_reference[1] + \
-                                                  Wand_Translation[1]
+                            Wand_Translation[1]
                         last_drone_reference[2] = last_drone_reference[2] + \
-                                                  Wand_Translation[2]
+                            Wand_Translation[2]
                         print("New Drone reference: ",
                               last_drone_reference, "\n\n")
                         i = 1
