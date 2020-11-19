@@ -1,0 +1,63 @@
+\chapter*{File Definitivo}
+\addcontentsline{toc}{chapter}{File Definitivo}
+\section*{Inseguimento}
+\addcontentsline{toc}{section}{Inseguimento}
+
+\\
+\verb INSEGUIMENTO.py  costituisce il file definitivo ed è quello in cui abbiamo aggiunto dei flag in modo da ottenere un unico file in cui a seconda del loro valore (impostato prima dell'esecuzione e eventualmente modificato tra esecuzioni successive) otteniamo l'esecuzione di diversi rami del codice e che portano dunque all'esecuzione dell'esemperimento in diverse modalità: 
+\begin{itemize}
+    \item \verb MAKE_LOG_FILE: \\
+    Se questo flag è posto ad 1 l'esecuzione dell'esperimento produrrà un file di log in cui saranno salvate tutte le informazioni di interesse (riferimenti inviati al drone, misure di posizione del drone inviate al filtro di Kalman, posizione e orientazione fornite da Vicon...).
+     \item \verb KALMAN_INCLUDE_QUATERNION: \\
+     Se questo flag è posto ad 1 l'esecuzione prevederà che il drone riceva dal sistema Vicon oltre che all'informazione di posizione anche quella di orientamento (fornita per mezzo di quaternioni).
+     \item \verb ACTIVATE_KALMAN_DURING_TAKEOFF: \\
+     Se questo flag è posto ad 1 l'esperimento avrà luogo in modo che anche durante il decollo il drone riceva informazioni per l'aggiornamento del filtro di Kalman (posizione o posa a seconda del valore del precedente flag). 
+     \item \verb LOG_TEST_WITH_DISACTIVATED_THRUSTER: \\
+     Questo falg se abilitato consente di condirre esperimenti a mano libera, senza bisogno della wand e a "motori spenti" in modo da poter muovere il drone nello spazio semplicemente prendendolo in mano e guidandolo dove vogliamo. Durante questo tipo di esecuzione le informazioni raccolte dipenderanno dai valori assegnati ai flag precedenti. 
+\end{itemize}
+\\
+\\
+Facciamo presente che tutta la parte di relazione finora descritta è riferita al caso in cui i valori dei flag sono rispettivamente: 
+\begin{itemize}
+    \item \verb MAKE_LOG_FILE: 1 
+    \item \verb KALMAN_INCLUDE_QUATERNION: 0
+    \item \verb ACTIVATE_KALMAN_DURING_TAKEOFF: 0
+    \item \verb LOG_TEST_WITH_DISACTIVATED_THRUSTER: 0
+\end{itemize}
+\\
+Facciamo presente che dal codice si nota una prima sezione in cui oltre ai flag appena spiegati è possibile modificare quelle variabili che, a seconda di dove l'esperimento è condotto o di chi lo sta conducendo, potrebbero assumere valori diversi e che pertanto abbiamo reso "parametrici" in modo che possano essere semplicemente modificate una sola volta prima dell'esecuzione senza rendere necessarie modifiche interne al codice vero e proprio. A titolo di esempio, stiamo parlando di variabili come "nome associato agli oggetti nel sistema Vicon", "URL della connessione tra Crazyradio e Crazyflie", "IP e porta di connessione relative al sistema Vicon"...
+\\
+\section*{Relativo}
+\addcontentsline{toc}{section}{Relativo}
+\\
+In aggiunta al file \verb INSEGUIMENTO.py  abbiamo fornito un file analogo ma denominato \verb RELATIVO.py  e per cui vale tutto quanto detto finora ad eccezione del fatto che l'esecuzione non prevede l'inseguimento del moto della Wand ma il Drone, una volta decollato, a partire dalla sua posizione corrente insegue soltanto il moto relativo della Wand. Ad esempio, se la Wand “disegnerà” nello spazio un quadrato a partire dalla sua posizione iniziale, il Drone, a partire anch’esso dalla sua posizione iniziale (diversa ovviamente da quella della Wand) replicherà nello spazio il “disegno” del quadrato fatto dalla Wand. Il tutto in tempo reale ad una frequenza di 100 Hz.
+\\
+La trattazione di quest’ultima modalità non è riportata in quanto si basa esattamente sugli stessi concetti spiegati finora e validi per la prima modalità; l’unica differenza è costituita appunto dal riferimento di posizione inviato al drone che non è più coincidente con la nuova posizione della Wand ma diventa coincidente alla posizione attuale del Drone a cui viene sommata la \textbf{traslazione} che la Wand ha compiuto rispetto alla sua ultima posizione.
+\\
+\\
+\section*{Interfaccia}
+\addcontentsline{toc}{section}{Interfaccia}
+\\
+Come ulteriore possibile sviluppo forniamo un file \verb INTERFACCIA.py  in cui abbiamo implentato una prima semplicissima interfaccia da cui rendiamo possibile consultare un file README.txt (riportato nell'ultima sezione di questa relazione) in cui sono contenute le istruzioni su come poter essere in grado (come noi) a partire da zero di poter eseguire l’esperimento. Qui troviamo le indicazioni su come si deve predisporre l’ambiente, quali librerie dover installare, quali sono le osservazioni più importanti e la procedura da dover seguire per la corretta riuscita dell’esperimento. Da questa semplice interfaccia è inoltre possibile cliccare su un pulsante \verb START  ed eseguire quindi uno soltanto dei due file sopra descritti (\verb INSEGUIMENTO  , \verb RELATIVO  ). Precisiamo che, se eseguito così come è scritto, il file \verb INTERFACCIA.py  eseguirà soltanto un banale esempio di prova in cui viene calcolato randomicamente un numero intero per poi stamparlo nel form dopo un ciclo di attesa di molte iterazioni (questo per testare il fatto che click consecutivi successivi al primo sul pulsante start sono disabilitati dirante l'esecuzione del codice lanciato) . 
+\\
+Qualora si voglia utilizzare il file per eseguire l'esperimento vero e proprio si prega di leggere attentamente i vari commenti presenti tra le righe di codice e di seguire la procedura riportata nel file README.txt. 
+
+
+\section*{Possibili Sviluppi}
+\addcontentsline{toc}{section}{Possibili Sviluppi}
+\\
+Volendo pensare a possibili sviluppi futuri, le nostre idee sono state le seguenti: 
+\begin{itemize}
+    \item Sicuramente come prima cosa dovrebbe essere trovato un modo per poter inviare al Drone anche le misure di orientazione senza inficiare sulle performance del volo. Attualmente infatti volendo inviare al filtro di Kalman del Drone anche l'informazione dell'orientazione contenuta nei quaternioni (per poter quindi evitare di "pre-ruotare" le informazioni inviate e lasciare che il Drone stesso effettui questa correzione) otteniamo come risultato una instabilità durante il volo che ne causa la caduta immediata. 
+    \\
+    Tra gli elementi emersi durante l'analisi di questo problema e classificati come "possibili cause" facciamo presente che, come si può evincere plottando i file di log (presenti nella cartella /LOG) i valori dell'angolo di Pitch forniti dal Vicon e ottenuti dalla tabella di log del Drone risultano essere di segno opposto; inoltre, sempre dal confronto tra i valori forniti dal Vicon e quelli ottenuti dalla tabella di log del Drone, emergono vari ritardi più o meno marcati a seconda delle condizioni in cui si effettuano gli esperimenti. 
+    \item In secondo luogo si può pensare di estendere l'interfaccia in modo che contenga più pulsanti al fine di poter lanciare indifferentemente una tra le due versioni disponibili (inseguimento del moto assoluto e relativo) senza bisogno di attuare ogni volta la procedura di modifica dei nomi dei relativi file e dei relativi codici. 
+    \item Una volta implementati i punti precedenti si può pensare di replicare quanto appreso da questo esperimento per riprodurne uno che utilizzi non un solo drone ma una formazione. 
+\end{itemize}
+
+
+
+
+
+
+
