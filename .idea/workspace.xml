@@ -1,6 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cflib/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vicon_dssdk/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log files/Log_File_CrazyFlie_20201015_105731_ThrusterOff__KalmanDisabled.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log files/Log_File_CrazyFlie_20201015_112531_ThrusterOff__KalmanDuringTakeOff_KalmanWithQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cache/05C5AF70.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cache/1042AFA8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/bootloader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/bootloader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/bootloader/boottypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/bootloader/boottypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/bootloader/cloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/bootloader/cloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/console.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/console.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/extpos.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/extpos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/high_level_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/high_level_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/localization.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/localization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/mem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/mem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/param.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/param.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/platformservice.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/platformservice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/swarm.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/swarm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/syncCrazyflie.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/syncCrazyflie.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/syncLogger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/syncLogger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/toc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/toc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crazyflie/toccache.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/toccache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/crtpdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/crtpdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/crtpstack.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/crtpstack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/debugdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/debugdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/prrtdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/prrtdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/radiodriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/radiodriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/serialdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/serialdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/udpdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/udpdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/crtp/usbdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/usbdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/drivers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/drivers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/drivers/cfusb.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/drivers/cfusb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/drivers/crazyradio.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/drivers/crazyradio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/positioning/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/positioning/motion_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/motion_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/positioning/position_hl_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/position_hl_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/utils/callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/utils/callbacks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/utils/multiranger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/utils/multiranger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/cflib/utils/power_switch.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/utils/power_switch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/crazyfun/crazyfun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/install_vicon_dssdk.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/pip.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/uninstall_vicon_dssdk.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/CHANGES.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/MANIFEST.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/CoreClient3.py" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/CoreClient3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/CoreClient3.swig-python.cxx" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/CoreClient3.swig-python.cxx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/Documentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/Documentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/NEWS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/NEWS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/ViconDataStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/ViconDataStream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/ViconDataStreamSDK_CPP.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/ViconDataStreamSDK_CPP.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/_CoreClient3.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/_CoreClient3.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/crazyfun/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/boost_chrono-vc140-mt-x64-1_68.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/boost_chrono-vc140-mt-x64-1_68.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/boost_filesystem-vc140-mt-x64-1_68.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/boost_filesystem-vc140-mt-x64-1_68.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/boost_python27-vc140-mt-x64-1_68.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/boost_python27-vc140-mt-x64-1_68.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/boost_system-vc140-mt-x64-1_68.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/boost_system-vc140-mt-x64-1_68.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/boost_thread-vc140-mt-x64-1_68.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/boost_thread-vc140-mt-x64-1_68.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/python.exe" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/python.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/python3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/python3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/python37.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/python37.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/pythonw.exe" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/pythonw.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/vicon_dssdk/vicon_dssdk/vcruntime140.dll" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/vcruntime140.dll" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kWl86XzX63gMtYXKYaK7tHroUc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python projects/Global virtualenv" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\crazyfun" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\custom_modules" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.try">
+    <configuration name="crazyfun" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrazyFlie-SdGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\custom_modules\crazyfun.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrazyFlie-SdGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO/vicon_dssdk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/vicon_dssdk/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrazyFlie-SdGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/try.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.try" />
+        <item itemvalue="Python.crazyfun" />
+        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.setup" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="" />
+      <created>1605824066075</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605824066075</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="395" y="91" key="#Inspections" timestamp="1605906516813">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1605906516813" />
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1605908280838">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605908280838" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1605913841183">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605913841183" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1605913841183">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605913841183" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1605913841183">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605913841183" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1605913841183">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605913841183" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1605913940631">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605913940631" />
   </component>
 </project>

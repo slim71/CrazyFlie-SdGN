@@ -21,20 +21,23 @@ MAX_LOSS = 10
 # -----------------------------------------------------------------------------
 
 
-# This function resets the Kalman filter (before flying).
+# This function resets the Kalman Filter.
 def reset_estimator(cf):
     """
     Resets the estimator.
 
-        :param cf:
-        :return:
+        :param cf: estimator
+        :return: none
 
     """
 
+    # The reset command is active on rising edge, so setting from 0 to 1 resets
+    # the KF. We set it back to 0 so that next time the script is run it is
+    # already reset.
+    # https://forum.bitcraze.io/viewtopic.php?t=2746
     cf.param.set_value('kalman.resetEstimation', '1')
     time.sleep(0.1)
     cf.param.set_value('kalman.resetEstimation', '0')
-    # TODO: why double assignment?
 
 
 # This is the function used for consulting the log table

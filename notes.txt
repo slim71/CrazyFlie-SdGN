@@ -1,0 +1,32 @@
+- periodic recalibration needed to ensure good precision
+- fixed reference system:
+	"Vicon system"
+	room centre
+- asymmetric markers on Drone to ensure distinction from environment
+- sw objects linked to physical objects:
+	name/alias
+	body reference system -> initialized at desired position/orientation
+- purpose:
+	track following of Wand position
+- Wand position -> target
+- Kalman filter used
+- orientations with quaternions:
+	used in the project for ref. systems conversions
+	not fed to KF
+
+
+Basics
+- Tracker gets Drone and Wand position/orientation through cameras and markers
+- program on PC gets pos/or through Vicon-SSDK library
+- program on PC computes needed conversions
+- program on PC, through Crazyradio and Python libs for CRPT protocol:
+	feeds to the Drone a new target pos (from Wand pos)
+	feeds to the Drone KF input (own position)
+	
+
+Crazy Real Time Protocol (CRTP)
+- developed by Bitcraze
+- ACK
+- TX (Crazyradio on PC) and RX (Drone)
+
+- packet size: only data payload is considered

@@ -314,7 +314,7 @@ class Bootloader:
 
                     int(progress))
             else:
-                sys.stdout.write('.')
+                sys.stdout.write('')
                 sys.stdout.flush()
 
             # Flash when the complete buffers are full
