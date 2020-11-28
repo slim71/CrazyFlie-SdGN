@@ -60,3 +60,19 @@ REFERENCE SYSTEMS
 - measures supposed by the program as in a system (S_i) with:
     origin -> nav system   (or actually the frame is parallel?)
     frame -> rotated with actual yaw
+- Drone thinks to be in S_# (yaw=0 always)
+- Wand orientation irrelevant
+
+- Vicon gets Drone position in V
+- Drone position then converted to S_i
+- position of the Drone sent to KF only after take-off
+
+- Vicon gets P^v_vf (position after take-off, in V ref. sys, relative to V origin)
+- through the rotation matrix we get P^si_vf (after take-off, in S_i, relative to V origin)
+- this is sent to the Drone as a target to follow
+- once at goal position, through Vicon we get the actual yaw of the Drone and recompute the rotation matrix
+- repeat every 100Hz
+
+- once Wand is off, Vicon sends [0 0 0]
+- Drone remains in its current position without moving
+- if [0 0 0] is received a certain number of times, the Drone lands
