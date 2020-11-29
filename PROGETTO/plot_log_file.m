@@ -1,9 +1,12 @@
-%Change "filepath" with the correct path of the file you want to open
-filepath = "/LOG/Log_File_CrazyFlie_20201027_092159_ThrusterOn__KalmanDuringTakeOff_KalmanWithoutQuaternion";
+%% File loading
+% Change "filepath" with the correct path of the file you want to open
+filepath = ...
+    "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG\Log_File_CrazyFlie_20201015_105731_ThrusterOff__KalmanDisabled.txt";
 
 DATA = importdata(filepath);
 
-%Extract data:                          Variables meanings: 
+%% Data extraction
+% Extracted data                        Variables meaning 
 pos_sent_toKF = DATA(:,1:3);        %   D_T_meters[0:2]     --> posizione drone presa da vicon, ruotata e inviata al drone per l'aggiornamento del filtro di Kalman 
 quat_sent_toKF = DATA(:,4:7);       %   quaternion[0:2]     --> quaternioni per l'orientazione del drone presi da vicon e inviati (o non inviati) al drone per l'aggiornamento del filtro di Kalman
 vicon_xyz = DATA(:,8:10);           %   D_T_vicon[0:2]      --> Posizione drone presa da vicon, non ruotata
@@ -12,19 +15,67 @@ setpoint = DATA(:,14:17);           %   W_T_meters[0:2],0   --> setpoint inviato
 log_xyz = DATA(:,18:20);            %   log_pos_x, log_pos_y, log_pos_z --> posizione del drone presa dalla tabella di log del crazyflie
 log_rpy = DATA(:,21:23).*pi/180.0;  %   log_roll, log_pitch, log_yaw    --> orientazione del drone presa dalla tabella di log del crazyflie
 
+%% Analysis
+% Comparison between Vicon and LogTable RPY angles
+if exist('figure2') == 0  %#ok<*EXIST>
+    figure()
+else
+    figure2()
+end
 
+title("RPY angle comparison")
+% xlabel()
+% ylabel()
 
-%Confronto tra angoli RPY Vicon && angoli RPY Log Table 
-figure,
-subplot(3,1,1), plot(vicon_rpy(:,1),'r'); hold on; plot(log_rpy(:,1),'b'); hold off; grid on; legend('vicon','log');
-subplot(3,1,2), plot(vicon_rpy(:,2),'r'); hold on; plot(log_rpy(:,2),'b'); hold off; grid on; 
-subplot(3,1,3), plot(vicon_rpy(:,3),'r'); hold on; plot(log_rpy(:,3),'b'); hold off; grid on; 
+subplot(3,1,1)
+hold on
+grid on
+plot(vicon_rpy(:,1),'r')
+plot(log_rpy(:,1),'b')
+legend('Vicon','LogTable')
 
+subplot(3,1,2)
+hold on
+grid on
+plot(vicon_rpy(:,2),'r')
+plot(log_rpy(:,2),'b')
 
-%Confronto tra posizione XYZ Log Table && posizione XYZ Vicon && posizione XYZ inviata al filtro di Kalman (quella del Vicon ma roto-traslata)
+subplot(3,1,3)
+hold on
+grid on
+plot(vicon_rpy(:,3),'r')
+plot(log_rpy(:,3),'b')
 
-figure
-subplot(3,1,1), plot(log_xyz(:,1), 'b'); hold on; plot(vicon_xyz(:,1), 'r'); hold on; plot(pos_sent_toKF(:,1), 'g'); hold off; grid on; legend('log','vicon','kalman');
-subplot(3,1,2), plot(log_xyz(:,2), 'b'); hold on; plot(vicon_xyz(:,2), 'r'); hold on; plot(pos_sent_toKF(:,2), 'g'); hold off; grid on;
-subplot(3,1,3), plot(log_xyz(:,3), 'b'); hold on; plot(vicon_xyz(:,3), 'r'); hold on; plot(pos_sent_toKF(:,3), 'g'); hold off; grid on;
+% Comparison between Vicon, LogTable and sent-to-KF positions (XYZ)
+% (The last one is the Vicon one, but rototranslated)
+if exist('figure2') == 0
+    figure()
+else
+    figure2()
+end
 
+title("Positions comparison")
+% xlabel()
+% ylabel()
+
+subplot(3,1,1)
+hold on
+grid on
+plot(log_xyz(:,1), 'b')
+plot(vicon_xyz(:,1), 'r')
+plot(pos_sent_toKF(:,1), 'g')
+legend('LogTable','Vicon','Kalman')
+
+subplot(3,1,2)
+hold on
+grid on
+plot(log_xyz(:,2), 'b')
+plot(vicon_xyz(:,2), 'r')
+plot(pos_sent_toKF(:,2), 'g')
+
+subplot(3,1,3)
+hold on
+grid on
+plot(log_xyz(:,3), 'b')
+plot(vicon_xyz(:,3), 'r')
+plot(pos_sent_toKF(:,3), 'g')
