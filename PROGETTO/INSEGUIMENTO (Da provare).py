@@ -28,25 +28,24 @@ uri = 'radio://0/80/2M'  # Used for the connection with the drone
 # Set to 0 if you don't want to obtain the log file after the execution;
 # otherwise set to 1. The log file can be used by the matlab file "plot.m"
 MAKE_LOG_FILE = 1
+
 # Set to 1 if you want to send orientation together with the position
 # to the kalman filter.
 KALMAN_INCLUDE_QUATERNION = 0
-# We strictly recommend to don't send Kalman updates during the take off if
-# you use the MotionCommander (so maintain it set to zero)
+
+# We strictly recommend not to send Kalman updates during take-off if
+# you use the MotionCommander (so maintaining this set to zero)
 ACTIVATE_KALMAN_DURING_TAKEOFF = 0
-# Set to 1 if you want to do a test without make the Drone fly. In that case,
-# in order to get as more log-data as possible, we suggest to set the other
+
+# Set to 1 if you want to do a test without making the Drone fly. In that case,
+# in order to get as much log data as possible, we suggest to set the other
 # flags to these values:
-# LOG_TEST_THRUSTER_DEACTIVATED = 1 (Obviously)
 # MAKE_LOG_FILE = 1
 # KALMAN_INCLUDE_QUATERNION = 1
-# ACTIVATE_KALMAN_DURING_TAKEOFF = 1 (In this case there isn't a proper
-# "take-off phase" so if you don't enable this flag you never send information
-# to Kalman)
-
-
+# ACTIVATE_KALMAN_DURING_TAKEOFF = 1
+# (In this case there isn't a proper "take-off phase", so if you don't enable
+# this flag you never send information to Kalman)
 LOG_TEST_WITH_DEACTIVATED_THRUSTER = 0
-
 
 # -----------------------------------------------------------------------------
 # ----------------------------------VARIABLES----------------------------------

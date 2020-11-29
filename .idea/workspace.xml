@@ -22,8 +22,8 @@
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/Interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/Interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/interface_main_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/interface_main_file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606601897378</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added some notes">
+      <created>1606661546509</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606661546509</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Improved file format">
+      <created>1606661564977</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606661564977</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +207,8 @@
     <MESSAGE value="Readability improvements" />
     <MESSAGE value="Structure and readability improvements&#10;Added some notes" />
     <MESSAGE value="Added some notes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some notes" />
+    <MESSAGE value="Improved file format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved file format" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="91" key="#Inspections" timestamp="1605906516813">
@@ -208,10 +223,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="516" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1605992698279" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1606601895761">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1606661580950">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606601895761" />
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606661580950" />
     <state x="234" y="65" key="DiffContextDialog" timestamp="1605914157118">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
