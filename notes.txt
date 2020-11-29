@@ -76,3 +76,12 @@ REFERENCE SYSTEMS
 - once Wand is off, Vicon sends [0 0 0]
 - Drone remains in its current position without moving
 - if [0 0 0] is received a certain number of times, the Drone lands
+
+- INSEGUIMENTO: Drone follows Wand motion
+- RELATIVO: Drone replicates Wand movements in relation to its starting position after take-off; real-time, 100Hz
+- Interface.py and main: simple GUI to get a README file with all the info to follow the experiments; it lets the user
+    run one of the previously mentioned files; includes a test case of the loop
+
+POSSIBLE CAUSES OF THE PROBLEMS
+- Vicon and Drone use opposite signs for the orientation angles
+- lags
