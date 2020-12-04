@@ -138,10 +138,9 @@ client.SetAxisMapping(ViconDataStream.Client.AxisMapping.EForward,
 xAxis, yAxis, zAxis = client.GetAxisMapping()
 print('X Axis', xAxis, 'Y Axis', yAxis, 'Z Axis', zAxis)
 
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ----------------------------------MAIN
-# ----------------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# ----------------------------------MAIN---------------------------------------
+# -----------------------------------------------------------------------------
 
 
 # DRONE CONNECTION
@@ -154,9 +153,11 @@ with SyncCrazyflie(uri, cf) as scf:
     with MotionCommander(scf, default_height=0.55) as mc:
         print('TAKE OFF!')
         height_drone = 0
+        # Before "proper" take-off
         while height_drone < 0.5:
-            a = client.GetFrame()
-            b = client.GetFrameNumber()
+            a = client.GetFrame()  # get a Frame from the Vicon
+            b = client.GetFrameNumber()  # order number of the frame (1st, 2nd)
+            # Part (segment) of the Drone?
             D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
             D_T_millimeters = D_T_tuple[0]
             D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
@@ -169,15 +170,20 @@ with SyncCrazyflie(uri, cf) as scf:
         print(last_drone_reference)
         sdf = 0
 
+        # Continuously
         while 1:
 
+            # take_off currently set to 0
             if take_off == 0:  # take off already done
                 try:
                     if i == 1:
-                        print("Wand position: ", W_T_meters)
+                        print("Wand position: ", W_T_meters)  # ???
+
                     a = client.GetFrame()
-                    b = client.GetFrameNumber()  # It is necessary before
-                    # every time we want to call some "GetSegment..()"
+                    # It is necessary every time before calling
+                    # "GetSegment..()"
+                    b = client.GetFrameNumber()
+
                     Matrix_homogeneous, Matrix_Rotation, last_gamma = \
                         crazy.create_Matrix_Rotation(
                             client,
@@ -203,14 +209,18 @@ with SyncCrazyflie(uri, cf) as scf:
 
                     if (W_T_meters[0] == 0 and W_T_meters[1] == 0 and
                             W_T_meters[2] == 0):
-                        CONSECUTIVE_LOSS = CONSECUTIVE_LOSS + 1
+
+                        CONSECUTIVE_LOSS += 1
+                        # x, y, z, yaw
                         cf.commander.send_position_setpoint(
                             last_drone_reference[0], last_drone_reference[1],
                             last_drone_reference[2], 0)
+
                         if CONSECUTIVE_LOSS == crazy.MAX_LOSS:
                             # LANDING PHASE: We received MAX_LOSS consecutive
-                            # "null position" of the wand so we decide to
+                            # "null position" of the wand, so We decide to
                             # start landing.
+                            # TODO: land() with this
                             print("START LANDING: ", crazy.MAX_LOSS,
                                   " consecutive null position of the Wand have"
                                   " been received.")
@@ -298,7 +308,7 @@ with SyncCrazyflie(uri, cf) as scf:
                         #       last_drone_reference[2])
 
                 except ViconDataStream.DataStreamException as e:
-                    print('START LANDING: This error form Vicon occurred: \n',
+                    print('START LANDING: This error from Vicon occurred: \n',
                           e)
                     # LANDING PHASE: We received MAX_LOSS consecutive
                     # "null position" of the wand so we decide to start

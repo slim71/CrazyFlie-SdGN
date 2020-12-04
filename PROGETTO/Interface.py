@@ -1,15 +1,15 @@
 # -----------------------------------------------------------------------------
-# --------------------------------------------------------------IMPORT---------
+# ---------------------------------IMPORT--------------------------------------
 # -----------------------------------------------------------------------------
 from random import *
 import subprocess
 from PySide2 import QtWidgets
+import os
 
 # This is the import of the file where you wrote the code you want to execute.
-# The name of the file has to be "interface_main_file" because it will be
-# used also in other lines of this code.
+# The name of the file has to be "interface_main_file", because it will also be
+# used in other lines of this code.
 import interface_main_file
-
 
 # -----------------------------------------------------------------------------
 # -----------------------------VARIABLES---------------------------------------
@@ -18,8 +18,10 @@ import interface_main_file
 # "instruction".
 # In our case we call it "Readme.txt" but if you want to change it you just
 # have to change the value of this string:
-FILENAME = "README.txt"
-
+print(os.getcwd())
+#print(os.listdir())
+FILENAME = "\README.txt"#"C:\\Users\\User\\Documents\\GitHub\\CrazyFlie-SdGN\\PROGETTO\\README.txt"
+# TODO: check file opening
 
 # -----------------------------------------------------------------------------
 # ----------------------------GRAPHICS-----------------------------------------
@@ -119,6 +121,7 @@ class Dialog(QtWidgets.QDialog):
     def OpenFile(self):
         # This function open the file that shows the instructions to follow
         # before execute the experiment
+        print(FILENAME)
         subprocess.run(['open', FILENAME], check=True)
 
     # This is the function in which you have to insert the code you want to
