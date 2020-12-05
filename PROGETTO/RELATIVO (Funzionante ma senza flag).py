@@ -24,7 +24,7 @@ import numpy as np
 import cflib.utils
 import argparse
 import logging
-import crazyfun as crazy
+import own_module as crazy
 
 # -----------------------------------------------------------------------------
 # ----------------------------------SET UP-------------------------------------
@@ -54,7 +54,7 @@ SLEEP_TIME = 0.001  # [s]  Used for the management of the iterations
 ITERATIONS = WAIT_TIME / SLEEP_TIME  # Used to manage the iterations
 OFFSET = 0.3  # [m]  Security offset
 
-# TODO: move constants and settings to another file (crazyfun?)
+# TODO: move constants and settings to another file (own_module?)
 
 # Current number of consecutive loss in the acquisition of the wand position
 CONSECUTIVE_LOSS = 0

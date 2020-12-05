@@ -1,0 +1,63 @@
+                        setup:
+no log
+no orientation
+(no log for no thrusters)
+setup arrays for Drone ref pos (?)
+take-off = 1
+last pos to 000, yaw 0, height 0, quaternion 0000, last quat 0000
+sec offset, n loss, max loss, dHeight (?), subbed height, def height (unnec?)
+motion height (?), logtable par
+
+                        Vicon connection:
+some parsing
+create Vicon client, connect, set buffer, enable data (?), set streams
+frame rate, ref system
+
+                        flying:
+cf object, init pos, sync, reset KF
+context + take-off
+if normal
+    while height < def height:
+        get frame, get Drone translation in mm, get to m
+        get quaternion, get orientation from Vicon
+        create hom matrix and convert pos in body frame
+        send pos (+quat if KF) to estimator
+        update height
+    save pos, save setpoint
+    notify take-off end
+    while 1:
+        if take-off finished:
+            try
+                get frame, get Wand translation in mm, get to m
+                if 000
+                    pos = last pos, send xyz&yaw
+                    if reached max -> land
+                else
+                    if first or loss -> set 000
+                    else estimate translation (now-last) and update
+                loss = 0
+                if not first iter -> Wand pos in body
+                new setpoint
+                fist = 0
+                get Drone translation, convert it to m
+                if 000 -> pos = last pos
+                else pos in body & update last pos
+                get quat from Vicon
+                if KF+quat
+                    if quat 000 -> quat = last quat
+                    else quat = last quat
+                else -> recompute hom matrix
+                send setpoint, get rotation
+                if kf+quat -> send pos+quat to KF
+                else -> send pos to KF
+            except LANDING
+else
+    try
+        while 1
+            get frame, get Drone translation, get to m
+            store to Vicon, get to body
+            if KF+quat -> get quat
+            if KF on take-off
+                if KF+quat -> send pos+quat
+                else -> send pos
+    except LANDING

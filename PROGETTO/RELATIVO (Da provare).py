@@ -11,7 +11,7 @@ import numpy as np
 import cflib.utils
 import argparse
 import logging
-import crazyfun as crazy
+from own_module import crazyfun as crazy
 
 # -----------------------------------------------------------------------------
 # ----------------------------------SET UP-------------------------------------
@@ -25,67 +25,85 @@ Drone = "Crazyflie"  # Set the "Vicon name" of the object relative to the drone
 Wand = "Active Wand v2 (Origin Tracking)"
 uri = 'radio://0/80/2M'  # Used for the connection with the drone
 
-MAKE_LOG_FILE = 0  # Set to 0 if you don't want to obtain the log file after
-# the execution. Otherwise set to 1. The log file can be used by the matlab
-# file "plot.m"
-KALMAN_INCLUDE_QUATERNION = 0  # Set to 1 if you want to send orientation
-# together with the position to the kalman filter.
-ACTIVATE_KALMAN_DURING_TAKEOFF = 0  # We strictly recommend to don't send
-# Kalman updates during the take off if you use the MotionCommander (so
-# keep it set to zero)
-LOG_TEST_WITH_DEACTIVATED_THRUSTER = 0  # Set to 1 if you want to do a test
-# without make the Drone fly. In that case we suggest to set the other flags
-# to these values:
-# LOG_TEST_THRUSTER_DEACTIVATED = 1 (Obviously)
-# MAKE_LOG_FILE = 1
-# KALMAN_INCLUDE_QUATERNION = 1
-# ACTIVATE_KALMAN_DURING_TAKEOFF = 1
+# Set to 0 if you don't want to obtain the log file after
+# the execution. Otherwise set to 1.
+# The log file can be used by the MATLAB file "plot.m"
+MAKE_LOG_FILE = 0
+
+# Set to 1 if you want to send orientation together with the position to
+# the Kalman filter.
+KALMAN_INCLUDE_QUATERNION = 0
+
+# We strictly recommend not to send Kalman updates during take-off
+# if you use the MotionCommander (so keep it set to zero)
+ACTIVATE_KALMAN_DURING_TAKEOFF = 0
+
+# Set to 1 if you want to do a test without making the Drone fly.
+# In that case we suggest to set the other flags to these values:
+#   LOG_TEST_THRUSTER_DEACTIVATED = 1 (Obviously)
+#   MAKE_LOG_FILE = 1
+#   KALMAN_INCLUDE_QUATERNION = 1
+#   ACTIVATE_KALMAN_DURING_TAKEOFF = 1
+LOG_TEST_WITH_DEACTIVATED_THRUSTER = 0
 
 # -----------------------------------------------------------------------------
 # ----------------------------------VARIABLES----------------------------------
 # -----------------------------------------------------------------------------
 
+# TODO: T=Translation, W_T=Wand Translation?
 # Used in the generation of the position reference for the drone
 T_prec = np.array([0, 0, 0])
 # Used in the generation of the position reference for the drone
 W_T_prec = np.array([0, 0, 0])
+
 take_off = 1  # It will be set to 0 after the take off
-# It is updated in each iteration and it will be used
+
+# This is updated in each iteration and it will be used
 # as the starting point for the landing phase.
-last_position_send = np.array([0, 0, 0])
+last_position_sent = np.array([0, 0, 0])
+
 # Used to update the yaw angle of the Drone during the experiment
 last_gamma = 0
-# Current height of the Drone. It is used only in the take off phase.
+
+# Current height of the Drone. It is used only in the take-off phase.
 height_drone = 0
+
 # Used to store the orientation of the drone
 quaternion = np.array([0, 0, 0, 0])
 # Used in the updating of the orientation of the drone to the Kalman filter
 last_quaternion = np.array([0, 0, 0, 0])
 
-OFFSET = 0.3  # [m] Security offset
+# Security offset
+OFFSET = 0.3  # [m]
+
 # Max number of consecutive loss allowed during acquisition
 # of the position of the Wand or Drone
 MAX_LOSS = 10
+
 # Current number of consecutive loss in the acquisition of the wand position
 CONSECUTIVE_LOSS = 0
+
 # To be subtracted from the "z" component of the last position of the drone
 # during each iteration of the landing phase
+# TODO: why? cannot use/trust sensors?
 DELTA_HEIGHT = 0.01  # [m]
+
 # Sum of meters subtracted from the  "z" component of
 # the last position of the drone
 SUBTRACTED_HEIGHT = 0.01  # [m]
-# [m]  The height the drone has to reach at the end of the take off. This can't
+
+# The height the drone has to reach at the end of the take-off. This can't
 # be higher than the "MOTION_COMMANDER_DEFAULT_HEIGHT" used in the class of the
 # Motion Commander. We suggest to set it at least at 90% of its value.
-DEFAULT_HEIGHT = 0.5
-# [m]  #This is the default height used by the Motion Commander during take
-# off. If it has to be higher than DEFAULT_HEIGHT because we consider the take
-# off phase concluded once the drone reaches DEFAULT_HEIGHT, but this can't be
-# true if they are equal and maybe the Vicon observe a minor value
-# (due to noise)
-MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8
-# Used to indicate when the Drone is in the Take off Phase or not.
-# TODO: take_off goes here?
+DEFAULT_HEIGHT = 0.5  # [m]
+
+# This is the default height used by the Motion Commander during take-off.
+# It has to be higher than DEFAULT_HEIGHT because we consider the
+# take-off phase concluded once the drone reaches DEFAULT_HEIGHT, but this
+# can't be always true because the Vicon might observe another value due to
+# noise
+# TODO: isn't there the default value in the constructor?
+MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8  # [m]
 
 # Variables used to store the parameters of the Drone's log table (TOC)
 log_pos_x = 0.0
@@ -101,6 +119,7 @@ log_yaw = 0.0
 
 # Extracted from PyVicon Library
 print("CONNECTING WITH VICON TRACKER...")
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--hostname", "--" + VICON_IP + ":" + VICON_PORT)
 args = parser.parse_args()
@@ -112,11 +131,11 @@ client = ViconDataStream.Client()
 client.Connect(VICON_IP + ":" + VICON_PORT)
 print("Connected")
 
-# Check setting the buffer size works
+# Setting a buffer size to work with
 client.SetBufferSize(1000)
 print("Buffer created")
 
-# Enable all the data types
+# Enable all the data types TODO: why needed?
 client.EnableSegmentData()
 client.EnableMarkerData()
 client.EnableUnlabeledMarkerData()
@@ -134,6 +153,7 @@ print('Devices', client.IsDeviceDataEnabled())
 print('Centroids', client.IsCentroidDataEnabled())
 
 # Try setting the different stream modes
+# TODO: why needed? Which is used and which is the best?
 client.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPull)
 print('Get Frame Pull', client.GetFrame(), client.GetFrameNumber())
 client.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPullPreFetch)
@@ -147,7 +167,7 @@ print('Frame Rates')
 for frameRateName, frameRateValue in client.GetFrameRates().items():
     print(frameRateName, frameRateValue)
 
-# Reference system
+# Setting reference system
 client.SetAxisMapping(ViconDataStream.Client.AxisMapping.EForward,
                       ViconDataStream.Client.AxisMapping.ELeft,
                       ViconDataStream.Client.AxisMapping.EUp)
@@ -162,8 +182,8 @@ print('X Axis', xAxis, 'Y Axis', yAxis, 'Z Axis', zAxis)
 print('CONNECTING WITH DRONE...')
 
 if MAKE_LOG_FILE:
-    # we create the log file (with the correct name) where we print all the
-    # variable of interest
+    # we create a log file in which we print all the variable of interest
+    # TODO: make a better log file.
     filename = "Log_File_CrazyFlie_RELATIVE" + datetime.now().strftime(
         "%Y%m%d_%H%M%S")
     if LOG_TEST_WITH_DEACTIVATED_THRUSTER:
@@ -181,40 +201,45 @@ if MAKE_LOG_FILE:
 
     fdesc = open(filename + ".txt", "w")
 
+# TODO: to move in the if above, since it's for logging purposes?
 logging.basicConfig(level=logging.ERROR)
 cflib.crtp.init_drivers(enable_debug_driver=False)
-cf = cflib.crazyflie.Crazyflie()
 
+# Creating an instance of the Crazyflie object and getting the initial position
+cf = cflib.crazyflie.Crazyflie()
 First_Position = crazy.get_First_Position(client, Drone)
 
 # Class used to start the synchronization with the drone:
 with SyncCrazyflie(uri, cf) as scf:
-
-    #We prepare and open the connection to address the Log Table:
+    # We prepare and open the connection to address the Log Table:
+    # TODO: isn't the logtable just for logging purposes? if so, move beneath
     lg_stab = crazy.config_logging(scf)
 
     if MAKE_LOG_FILE:
         # We prepare and open the connection to address the Log Table:
         lg_stab.start()
 
-    # !!! Uncomment if we don't use the FlowDeck !!!
+    # !!! Uncomment if not using the FlowDeck !!!
+    # TODO: "FlowDeck or not FlowDeck?"
     # cf.param.set_value('stabilizer.estimator', '2')
 
     # We reset the Kalman Filter before start flying:
     crazy.reset_estimator(cf)
 
-    if LOG_TEST_WITH_DEACTIVATED_THRUSTER == 0:
-        # Thruster activated:
+    # TODO: isn't it easier to develop this as the "normal" case?
+    if LOG_TEST_WITH_DEACTIVATED_THRUSTER == 0:  # Thrusters activated
 
-        # TAKE OFF
+        # AUTO TAKE-OFF!
         # Class used for the position control during the take-off phase:
+        # take-off automatic when context created using "with"
         with MotionCommander(scf, MOTION_COMMANDER_DEFAULT_HEIGHT) as mc:
 
             print('TAKE OFF')
 
             while height_drone < DEFAULT_HEIGHT:
 
-                # Get position of the drone in the Vicon reference System:
+                # Get frame and then Drone position of the drone in the Vicon
+                # reference system
                 a = client.GetFrame()
                 b = client.GetFrameNumber()
                 D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
@@ -222,34 +247,40 @@ with SyncCrazyflie(uri, cf) as scf:
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
-                # Used for store the Drone's position in the Vicon System.
+
+                # Used to store the Drone position in the Vicon System.
                 D_T_vicon = D_T_meters
 
-                quaternion_XYZW = client.GetSegmentGlobalRotationQuaternion(
-                    Drone, Drone)
+                # TODO: only if orientation used
+                quaternion_XYZW = client. \
+                    GetSegmentGlobalRotationQuaternion(Drone, Drone)
                 quaternion = quaternion_XYZW[0]
 
-                # Get orientation of the drone from the Vicon:
-                Euler_angles = client.GetSegmentGlobalRotationEulerXYZ(Drone,
-                                                                       Drone)
+                # Get orientation of the drone from the Vicon
+                # TODO: only if orientation used
+                Euler_angles = client. \
+                    GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
                 Drone_orientation = Euler_angles[0]
 
-                # We convert vectors in homogenous vector and we convert the
-                # position in the body frame:
+                # We convert vectors in homogenous matrices and we convert the
+                # position in the body frame
                 # TODO: matrix_Rotation not needed as a returned value?
+                # TODO: why all this?
                 Matrix_homogeneous, Matrix_Rotation, last_gamma = \
-                    crazy.create_Matrix_Rotation(
-                        client,
-                        Drone,
-                        First_Position,
-                        last_gamma,
-                        KALMAN_INCLUDE_QUATERNION)
-                D_T_homogenous = np.array(
-                    [D_T_meters[0], D_T_meters[1], D_T_meters[2], 1])
+                    crazy.create_Matrix_Rotation(client,
+                                                 Drone,
+                                                 First_Position,
+                                                 last_gamma,
+                                                 KALMAN_INCLUDE_QUATERNION)
+                D_T_homogenous = np.array([D_T_meters[0],
+                                           D_T_meters[1],
+                                           D_T_meters[2],
+                                           1])
                 D_T_homogenous = np.dot(Matrix_homogeneous,
                                         np.transpose(D_T_homogenous))
-                D_T_meters = np.array(
-                    [D_T_homogenous[0], D_T_homogenous[1], D_T_homogenous[2]])
+                D_T_meters = np.array([D_T_homogenous[0],
+                                       D_T_homogenous[1],
+                                       D_T_homogenous[2]])
 
                 if MAKE_LOG_FILE:
                     # We write in the log file with the following format:
@@ -268,9 +299,9 @@ with SyncCrazyflie(uri, cf) as scf:
                           log_roll, log_pitch, log_yaw, file=fdesc)
 
                 if ACTIVATE_KALMAN_DURING_TAKEOFF:
-                    # send measures to Kalman filter also during the take
-                    # off. We suggest to don't do this while you use the
-                    # motion commander.
+                    # Send measures to Kalman filter during the take-off.
+                    # We suggest not to do this while you use the
+                    # MotionCommander class.
                     if KALMAN_INCLUDE_QUATERNION:
                         cf.extpos.send_extpose(D_T_meters[0], D_T_meters[1],
                                                D_T_meters[2], quaternion[0],
@@ -283,59 +314,63 @@ with SyncCrazyflie(uri, cf) as scf:
                 # Update the current height of the drone:
                 height_drone = D_T_meters[2]
 
-            # In case we receive [0,0,0] from Vicon (this means that an
-            # error occurred with the tracker) we store the last position of
-            # the drone for using it instead of the "outlier" [0,0,0]
-            last_drone_position = np.array(
-                [D_T_meters[0], D_T_meters[1], D_T_meters[2]])
-            # We maintain separate the variables dedicated to the Kalman
+            # Reminder: out of "while height_drone < DEFAULT_HEIGHT"
+
+            # Store the last position of the drone
+            last_drone_position = np.array([D_T_meters[0],
+                                            D_T_meters[1],
+                                            D_T_meters[2]])
+
+            # We keep separated the variables dedicated to the Kalman
             # update (last_drone_position) and the setpoint update
             # (last_drone_setpoint)
-            last_drone_setpoint = np.array(
-                [D_T_meters[0], D_T_meters[1], D_T_meters[2]])
+            last_drone_setpoint = np.array([D_T_meters[0],
+                                            D_T_meters[1],
+                                            D_T_meters[2]])
 
-            # this is the end of the take off phase
-            take_off = 0
+            # This is the end of the take off phase
+            take_off = 0  # TODO: why needed?
 
             while 1:
 
+                # TODO: cleaner way?
                 if take_off == 0:
                     try:
 
-                        # We get the Wand's position expressed in the Vicon
+                        # We get the Wand position expressed in the Vicon
                         # system and we convert it from [mm] to [m]:
                         a = client.GetFrame()
                         b = client.GetFrameNumber()
-                        W_T_tuple = client.GetSegmentGlobalTranslation(Wand,
-                                                                       'Root')
+                        W_T_tuple = client. \
+                            GetSegmentGlobalTranslation(Wand, 'Root')
+
                         W_T_millimeters = W_T_tuple[0]
                         W_T_meters = np.array(
                             [float(W_T_millimeters[0]) / 1000,
                              float(W_T_millimeters[1]) / 1000,
                              float(W_T_millimeters[2]) / 1000])
 
-                        # if we receive the value [0,0,0] from the Vicon
-                        # means that an error occurred with the Tracker.
-                        # So if the error persists for more than MAX_LOSS
-                        # times we stop the experiment, otherwise
+                        # If the error (0,0,0) persists for more than MAX_LOSS
+                        # times, we stop the experiment; otherwise
                         # it is considered as a sort of "outlier" and we use
-                        # the last correct position used instead of it.
+                        # the last correct position instead of it.
                         # The same also happens when we decide to stop the
                         # experiment turning off the wand.
-                        if (W_T_meters[0] == 0 and W_T_meters[1] == 0 and
-                                W_T_meters[2] == 0):
+                        if (W_T_meters[0] == 0
+                                and W_T_meters[1] == 0
+                                and W_T_meters[2] == 0):
 
                             CONSECUTIVE_LOSS = CONSECUTIVE_LOSS + 1
-                            W_T_meters = last_position_send
+                            W_T_meters = last_position_sent
                             cf.commander.send_position_setpoint(
-                                last_drone_setpoint[0], last_drone_setpoint[1],
-                                last_drone_setpoint[2], 0)
+                                last_drone_setpoint[0],
+                                last_drone_setpoint[1],
+                                last_drone_setpoint[2],
+                                0)
 
                             if CONSECUTIVE_LOSS == MAX_LOSS:
-                                # LANDING PHASE:
-                                # We received MAX_LOSS consecutive "null
-                                # position" of the wand so we decide
-                                # to start landing.
+                                # LANDING
+
                                 print("START LANDING: ", MAX_LOSS,
                                       " consecutive null position of the Wand "
                                       "have been received.")
@@ -351,60 +386,54 @@ with SyncCrazyflie(uri, cf) as scf:
                             if FIRST_ITERATION or CONSECUTIVE_LOSS:
                                 # At the first iteration the translation has
                                 # to be a null vector because there isn't a
-                                # early value to use for the difference.
+                                # early value.
                                 # Also in case of >=1 losses it has to be zero.
 
                                 Wand_Translation = np.array([0, 0, 0])
-                                W_T_prec = np.array(
-                                    [W_T_meters[0], W_T_meters[1],
-                                     W_T_meters[2]])
+                                W_T_prec = np.array([W_T_meters[0],
+                                                     W_T_meters[1],
+                                                     W_T_meters[2]])
 
                             else:
-                                # this isn't the first iteration and didn't
-                                # have been losses
-
                                 # We compute the translation of the wand:
-                                Wand_Translation[0] = W_T_meters[0] - W_T_prec[
-                                    0]
-                                Wand_Translation[1] = W_T_meters[1] - W_T_prec[
-                                    1]
-                                Wand_Translation[2] = W_T_meters[2] - W_T_prec[
-                                    2]
+                                Wand_Translation[0] = \
+                                    W_T_meters[0] - W_T_prec[0]
+                                Wand_Translation[1] = \
+                                    W_T_meters[1] - W_T_prec[1]
+                                Wand_Translation[2] = \
+                                    W_T_meters[2] - W_T_prec[2]
 
                                 # We update the value to use in the next
                                 # translation:
-                                W_T_prec = np.array(
-                                    [W_T_meters[0], W_T_meters[1],
-                                     W_T_meters[2]])
+                                W_T_prec = np.array([W_T_meters[0],
+                                                     W_T_meters[1],
+                                                     W_T_meters[2]])
 
                             CONSECUTIVE_LOSS = 0
 
                             if FIRST_ITERATION == 0:
-                                # We convert the translation of the wand in
-                                # body frame in order to use it for computing
+                                # We convert the translation of the Wand in
+                                # body frame in order to use it to compute
                                 # the next setpoint for the drone
-                                Wand_Translation = np.dot(Matrix_Rotation,
-                                                          np.transpose(
-                                                             Wand_Translation))
+                                Wand_Translation = \
+                                    np.dot(Matrix_Rotation,
+                                           np.transpose(Wand_Translation))
 
-                            # We compute the new setpoint as sum of the
-                            # last setpoint and the new translation of the wand
-                            last_drone_setpoint[0] = last_drone_setpoint[0] + \
-                                                     Wand_Translation[0]
-                            last_drone_setpoint[1] = last_drone_setpoint[1] + \
-                                                     Wand_Translation[1]
-                            last_drone_setpoint[2] = last_drone_setpoint[2] + \
-                                                     Wand_Translation[2]
+                            # Compute the new setpoint
+                            last_drone_setpoint[0] = \
+                                last_drone_setpoint[0] + Wand_Translation[0]
+                            last_drone_setpoint[1] = \
+                                last_drone_setpoint[1] + Wand_Translation[1]
+                            last_drone_setpoint[2] = \
+                                last_drone_setpoint[2] + Wand_Translation[2]
 
-                            # we are no more in the first iteration of this
-                            # loop since  this line is executed for the
-                            # first time
+                            # Notifying the end of a (perhaps) first iteration
                             FIRST_ITERATION = 0
 
                             # We get the actual position of Drone expressed
                             # in the Vicon frame:
-                            D_T_tuple = client.GetSegmentGlobalTranslation(
-                                Drone, Drone)
+                            D_T_tuple = client. \
+                                GetSegmentGlobalTranslation(Drone, Drone)
                             D_T_millimeters = D_T_tuple[0]
                             D_T_meters = np.array(
                                 [float(D_T_millimeters[0]) / 1000,
@@ -418,28 +447,29 @@ with SyncCrazyflie(uri, cf) as scf:
                             if (D_T_meters[0] == 0 and D_T_meters[1] == 0 and
                                     D_T_meters[2] == 0):
                                 D_T_meters = last_drone_position
-                            # otherwise we convert the position in the body
-                            # frame before sending it for the update of the
-                            # Kalman filter:
                             else:
-                                D_T_homogenous = np.array(
-                                    [D_T_meters[0], D_T_meters[1],
-                                     D_T_meters[2], 1])
-                                D_T_homogenous = np.dot(Matrix_homogeneous,
-                                                        np.transpose(
-                                                            D_T_homogenous))
-                                D_T_meters = np.array(
-                                    [D_T_homogenous[0], D_T_homogenous[1],
-                                     D_T_homogenous[2]])
+                                # otherwise we convert the position in the body
+                                # frame before sending it for the update of the
+                                # Kalman filter:
+                                D_T_homogenous = np.array([D_T_meters[0],
+                                                           D_T_meters[1],
+                                                           D_T_meters[2],
+                                                           1])
+                                D_T_homogenous = np. \
+                                    dot(Matrix_homogeneous,
+                                        np.transpose(D_T_homogenous))
+                                D_T_meters = np.array([D_T_homogenous[0],
+                                                       D_T_homogenous[1],
+                                                       D_T_homogenous[2]])
 
                                 # update the last correct value for the
                                 # drone position:
                                 last_drone_position = D_T_meters
 
                             # receive from the Vicon all quaternions
-                            quaternion_XYZW = \
-                                client.GetSegmentGlobalRotationQuaternion(
-                                    Drone, Drone)
+                            quaternion_XYZW = client. \
+                                GetSegmentGlobalRotationQuaternion(Drone,
+                                                                   Drone)
                             quaternion = quaternion_XYZW[0]
 
                             if KALMAN_INCLUDE_QUATERNION:
@@ -447,22 +477,26 @@ with SyncCrazyflie(uri, cf) as scf:
                                 # again the matrix for the rotation because
                                 # it is constant.
                                 # The drone knows its current value of the
-                                # yaw from K-F and we don't have to change
+                                # yaw from KF and we don't have to change
                                 # the conversion of the coordinates.
 
                                 # if we receive from the Vicon all
-                                # quaternions set to 0 we sent the last
-                                # correct value:
-                                if (quaternion[0] == 0 and quaternion[
-                                    1] == 0 and quaternion[2] == 0 and
-                                        quaternion[3] == 0):
+                                # quaternions set to 0; we sent the last
+                                # correct value
+                                if (
+                                        quaternion[0] == 0
+                                        and quaternion[1] == 0
+                                        and quaternion[2] == 0
+                                        and quaternion[3] == 0):
+
                                     quaternion = last_quaternion
+
                                 else:
                                     last_quaternion = quaternion
 
                             else:
                                 # If we don't send the orientation to the
-                                # K-F we have to compute the matrix in each
+                                # KF, we have to compute the matrix in each
                                 # iteration because
                                 # the drone doesn't know its current yaw and
                                 # we have to rotate in function of the
@@ -472,7 +506,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                     client, Drone, First_Position, last_gamma,
                                     KALMAN_INCLUDE_QUATERNION)
 
-                            # We send the new setpoint:
+                            # We send the new setpoint TODO: to who?
                             cf.commander.send_position_setpoint(
                                 last_drone_setpoint[0], last_drone_setpoint[1],
                                 last_drone_setpoint[2], 0)
@@ -497,7 +531,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                                        quaternion[3])
                             else:
                                 # Update the Kalman filter sending the last
-                                # measure of the drone position:
+                                # measure of the drone position
                                 cf.extpos.send_extpos(D_T_meters[0],
                                                       D_T_meters[1],
                                                       D_T_meters[2])
@@ -531,7 +565,7 @@ with SyncCrazyflie(uri, cf) as scf:
                             'START LANDING: This error form Vicon occurred: '
                             '\n',
                             e)
-                        crazy.landing(last_position_send, SUBTRACTED_HEIGHT,
+                        crazy.landing(last_position_sent, SUBTRACTED_HEIGHT,
                                       DELTA_HEIGHT, cf, lg_stab, fdesc,
                                       MAKE_LOG_FILE)
 
@@ -545,14 +579,16 @@ with SyncCrazyflie(uri, cf) as scf:
         try:
             while 1:
 
-                # Get position of the drone in the Vicon reference System:
+                # Get position of the drone in the Vicon reference System
                 a = client.GetFrame()
                 b = client.GetFrameNumber()
+
                 D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
                 D_T_millimeters = D_T_tuple[0]
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
+
                 # Used for store the Drone's position in the Vicon System.
                 D_T_vicon = D_T_meters
 
@@ -564,18 +600,21 @@ with SyncCrazyflie(uri, cf) as scf:
 
                 # We convert vectors in homogenous vector and we convert the
                 # position in the body frame:
-                Matrix_homogeneous, last_gamma = crazy.create_Matrix_Rotation(
-                    client,
-                    Drone,
-                    First_Position,
-                    last_gamma,
-                    KALMAN_INCLUDE_QUATERNION)
-                D_T_homogenous = np.array(
-                    [D_T_meters[0], D_T_meters[1], D_T_meters[2], 1])
+                Matrix_homogeneous, last_gamma = crazy. \
+                    create_Matrix_Rotation(client,
+                                           Drone,
+                                           First_Position,
+                                           last_gamma,
+                                           KALMAN_INCLUDE_QUATERNION)
+                D_T_homogenous = np.array([D_T_meters[0],
+                                           D_T_meters[1],
+                                           D_T_meters[2],
+                                           1])
                 D_T_homogenous = np.dot(Matrix_homogeneous,
                                         np.transpose(D_T_homogenous))
-                D_T_meters = np.array(
-                    [D_T_homogenous[0], D_T_homogenous[1], D_T_homogenous[2]])
+                D_T_meters = np.array([D_T_homogenous[0],
+                                       D_T_homogenous[1],
+                                       D_T_homogenous[2]])
 
                 if KALMAN_INCLUDE_QUATERNION:
                     quaternion_XYZW = \

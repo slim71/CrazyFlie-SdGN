@@ -11,7 +11,7 @@ import numpy as np
 import cflib.utils
 import argparse
 import logging
-import crazyfun as crazy
+import own_module as crazy
 
 # -----------------------------------------------------------------------------
 # ----------------------------------SET UP-------------------------------------
