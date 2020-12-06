@@ -84,5 +84,11 @@ POSSIBLE CAUSES OF THE PROBLEMS
 - Vicon and Drone use opposite signs for the orientation angles
 - lags
 
+COMPLETED TODOs
+- Flowdeck? Yes
+- sepoints? to the drone
+- take_off=0? used as test later
+- height standard? in constructor, but tunable
 
-- segnare che si vuole usare Kalman invece che un altro stimatore
+DOUBTS
+- is it ok to use same name for subject and segment?

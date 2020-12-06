@@ -88,7 +88,8 @@ CONSECUTIVE_LOSS = 0
 DELTA_HEIGHT = 0.01  # [m]
 
 # Sum of meters subtracted from the  "z" component of
-# the last position of the drone
+# the last position of the droned
+# TODO: useless?
 SUBTRACTED_HEIGHT = 0.01  # [m]
 
 # The height the drone has to reach at the end of the take-off. This can't
@@ -101,7 +102,6 @@ DEFAULT_HEIGHT = 0.5  # [m]
 # take-off phase concluded once the drone reaches DEFAULT_HEIGHT, but this
 # can't be always true because the Vicon might observe another value due to
 # noise
-# TODO: isn't there the default value in the constructor?
 MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8  # [m]
 
 # Variables used to store the parameters of the Drone's log table (TOC)
@@ -206,7 +206,7 @@ cflib.crtp.init_drivers(enable_debug_driver=False)
 
 # Creating an instance of the Crazyflie object and getting the initial position
 cf = cflib.crazyflie.Crazyflie()
-First_Position = crazy.get_First_Position(client, Drone)
+First_Position = crazy.getFirstPosition(client, Drone)
 
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(uri, cf) as scf:  # automatic connection
@@ -217,10 +217,6 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     if MAKE_LOG_FILE:
         # We prepare and open the connection to address the Log Table:
         lg_stab.start()
-
-    # !!! Uncomment if not using the FlowDeck !!!
-    # TODO: "FlowDeck or not FlowDeck?"
-    # cf.param.set_value('stabilizer.estimator', '2')
 
     # We reset the Kalman Filter before flying
     crazy.reset_estimator(cf)
@@ -239,8 +235,10 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                 # Get frame and then Drone position of the drone in the Vicon
                 # reference system
+                # TODO: a,b not used, so why needed?
                 a = client.GetFrame()
                 b = client.GetFrameNumber()
+
                 D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
                 D_T_millimeters = D_T_tuple[0]
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
@@ -262,12 +260,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 # We convert vectors in homogenous matrices and we convert the
                 # position in the body frame
                 # TODO: matrix_Rotation not needed as a returned value?
+                # TODO: it exists "GetSegmentGlobalRotationMatrix"
                 Matrix_homogeneous, Matrix_Rotation, last_gamma = \
-                    crazy.create_Matrix_Rotation(client,
-                                                 Drone,
-                                                 First_Position,
-                                                 last_gamma,
-                                                 KALMAN_INCLUDE_QUATERNION)
+                    crazy.createMatrixRotation(client, Drone, First_Position,
+                                               last_gamma,
+                                               KALMAN_INCLUDE_QUATERNION)
                 # Homogeneous vector containing Drone position in Vicon
                 # reference system
                 D_T_homogenous = np.array([D_T_meters[0],
@@ -330,7 +327,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                             D_T_meters[2]])
 
             # This is the end of the take off phase
-            take_off = 0  # TODO: why needed?
+            take_off = 0
 
             while 1:
 
@@ -376,11 +373,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                       " consecutive null position of the Wand "
                                       "have been received.")
                                 crazy.landing(last_drone_setpoint,
-                                              SUBTRACTED_HEIGHT,
-                                              DELTA_HEIGHT,
-                                              cf,
-                                              lg_stab,
-                                              fdesc,
+                                              SUBTRACTED_HEIGHT, DELTA_HEIGHT,
+                                              cf, lg_stab, fdesc,
                                               MAKE_LOG_FILE)
                         else:
 
@@ -503,11 +497,13 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                 # we have to rotate in function of the
                                 # current yaw angle
                                 Matrix_homogeneous, Matrix_Rotation, \
-                                last_gamma = crazy.create_Matrix_Rotation(
-                                    client, Drone, First_Position, last_gamma,
-                                    KALMAN_INCLUDE_QUATERNION)
+                                last_gamma = crazy.createMatrixRotation(client,
+                                                                        Drone,
+                                                                        First_Position,
+                                                                        last_gamma,
+                                                                        KALMAN_INCLUDE_QUATERNION)
 
-                            # We send the new setpoint TODO: to who?
+                            # We send the new setpoint
                             cf.commander.send_position_setpoint(
                                 last_drone_setpoint[0], last_drone_setpoint[1],
                                 last_drone_setpoint[2], 0)
@@ -602,11 +598,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 # We convert vectors in homogenous vector and we convert the
                 # position in the body frame:
                 Matrix_homogeneous, last_gamma = crazy. \
-                    create_Matrix_Rotation(client,
-                                           Drone,
-                                           First_Position,
-                                           last_gamma,
-                                           KALMAN_INCLUDE_QUATERNION)
+                    createMatrixRotation(client, Drone, First_Position,
+                                         last_gamma, KALMAN_INCLUDE_QUATERNION)
                 D_T_homogenous = np.array([D_T_meters[0],
                                            D_T_meters[1],
                                            D_T_meters[2],

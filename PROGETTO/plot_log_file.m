@@ -23,7 +23,7 @@ else
     figure2()
 end
 
-title("RPY angle comparison")
+sgtitle("RPY angle comparison")
 % xlabel()
 % ylabel()
 
@@ -54,7 +54,7 @@ else
     figure2()
 end
 
-title("Positions comparison")
+sgtitle("Positions comparison")
 % xlabel()
 % ylabel()
 
