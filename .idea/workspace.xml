@@ -20,18 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/install_vicon_dssdk.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vicon_dssdk/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/own_module/create rotation flow.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/first version.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/first version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crazyfun/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crazyfun/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python projects/Global 3.7" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.pyOptions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -230,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607070132031</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Setting Python 3.7 as interpreter">
+      <created>1607166485544</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607166485545</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Workflow analysis">
+      <created>1607166518097</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607166518097</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -255,6 +262,8 @@
     <MESSAGE value="Improved file format" />
     <MESSAGE value="Readability improvements" />
     <MESSAGE value="Small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
+    <MESSAGE value="Setting Python 3.7 as interpreter" />
+    <MESSAGE value="Workflow analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Workflow analysis" />
   </component>
 </project>

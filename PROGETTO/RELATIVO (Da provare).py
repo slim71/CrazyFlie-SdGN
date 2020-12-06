@@ -50,7 +50,6 @@ LOG_TEST_WITH_DEACTIVATED_THRUSTER = 0
 # ----------------------------------VARIABLES----------------------------------
 # -----------------------------------------------------------------------------
 
-# TODO: T=Translation, W_T=Wand Translation?
 # Used in the generation of the position reference for the drone
 T_prec = np.array([0, 0, 0])
 # Used in the generation of the position reference for the drone
@@ -209,10 +208,10 @@ cflib.crtp.init_drivers(enable_debug_driver=False)
 cf = cflib.crazyflie.Crazyflie()
 First_Position = crazy.get_First_Position(client, Drone)
 
-# Class used to start the synchronization with the drone:
-with SyncCrazyflie(uri, cf) as scf:
-    # We prepare and open the connection to address the Log Table:
-    # TODO: isn't the logtable just for logging purposes? if so, move beneath
+# Class used to start the synchronization with the drone
+with SyncCrazyflie(uri, cf) as scf:  # automatic connection
+    # We prepare and open the connection to address the Log Table
+    # TODO: isn't this just for logging purposes? if so, move beneath
     lg_stab = crazy.config_logging(scf)
 
     if MAKE_LOG_FILE:
@@ -223,7 +222,7 @@ with SyncCrazyflie(uri, cf) as scf:
     # TODO: "FlowDeck or not FlowDeck?"
     # cf.param.set_value('stabilizer.estimator', '2')
 
-    # We reset the Kalman Filter before start flying:
+    # We reset the Kalman Filter before flying
     crazy.reset_estimator(cf)
 
     # TODO: isn't it easier to develop this as the "normal" case?
@@ -251,13 +250,11 @@ with SyncCrazyflie(uri, cf) as scf:
                 # Used to store the Drone position in the Vicon System.
                 D_T_vicon = D_T_meters
 
-                # TODO: only if orientation used
+                # TODO: only if orientation used; why both?
+                # Rotation, in Vicon ref system
                 quaternion_XYZW = client. \
                     GetSegmentGlobalRotationQuaternion(Drone, Drone)
                 quaternion = quaternion_XYZW[0]
-
-                # Get orientation of the drone from the Vicon
-                # TODO: only if orientation used
                 Euler_angles = client. \
                     GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
                 Drone_orientation = Euler_angles[0]
@@ -265,19 +262,23 @@ with SyncCrazyflie(uri, cf) as scf:
                 # We convert vectors in homogenous matrices and we convert the
                 # position in the body frame
                 # TODO: matrix_Rotation not needed as a returned value?
-                # TODO: why all this?
                 Matrix_homogeneous, Matrix_Rotation, last_gamma = \
                     crazy.create_Matrix_Rotation(client,
                                                  Drone,
                                                  First_Position,
                                                  last_gamma,
                                                  KALMAN_INCLUDE_QUATERNION)
+                # Homogeneous vector containing Drone position in Vicon
+                # reference system
                 D_T_homogenous = np.array([D_T_meters[0],
                                            D_T_meters[1],
                                            D_T_meters[2],
                                            1])
+                # Conversion in Drone body system
                 D_T_homogenous = np.dot(Matrix_homogeneous,
                                         np.transpose(D_T_homogenous))
+                # Selection of the first three components (not homogeneous
+                # vector anymore)
                 D_T_meters = np.array([D_T_homogenous[0],
                                        D_T_homogenous[1],
                                        D_T_homogenous[2]])

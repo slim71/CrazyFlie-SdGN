@@ -18,8 +18,8 @@ cf object, init pos, sync, reset KF
 context + take-off
 if normal
     while height < def height:
-        get frame, get Drone translation in mm, get to m
-        get quaternion, get orientation from Vicon
+        get frame, get Drone translation in mm, get to m, store to Vicon
+        get quaternion and Euler from Vicon
         create hom matrix and convert pos in body frame
         send pos (+quat if KF) to estimator
         update height

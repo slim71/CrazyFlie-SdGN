@@ -1,0 +1,7 @@
+if kf+quat -> yaw = last yaw = 0 (KF will account for it)
+else
+    get Drone Euler in Vicon ref sys
+    if 000 -> use last yaw
+    else -> update
+alpha = beta = 0
+matrix from Vicon to Drone body
