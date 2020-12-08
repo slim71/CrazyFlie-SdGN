@@ -74,7 +74,7 @@ DEFAULT_HEIGHT = 0.5
 # true if they are equal and maybe the Vicon observe a minor value
 # (due to noise)
 MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8
-# Used indicate when the Drone is in the Take off Phase or not.
+# Used indicate when the drone is in the Take off Phase or not.
 # TODO: why re-declared?
 take_off = 0
 i = 0
@@ -157,7 +157,7 @@ with SyncCrazyflie(uri, cf) as scf:
         while height_drone < 0.5:
             a = client.GetFrame()  # get a Frame from the Vicon
             b = client.GetFrameNumber()  # order number of the frame (1st, 2nd)
-            # Part (segment) of the Drone?
+            # Part (segment) of the drone?
             D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
             D_T_millimeters = D_T_tuple[0]
             D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
@@ -192,7 +192,7 @@ with SyncCrazyflie(uri, cf) as scf:
                             last_gamma)
                     W_T_tuple = client.GetSegmentGlobalTranslation(Wand,
                                                                    'Root')
-                    # Absolute position of the Drone in [mm]<
+                    # Absolute position of the drone in [mm]<
                     # We are interested only in the first part of the data
                     # structure
                     W_T_millimeters = W_T_tuple[0]
@@ -237,7 +237,7 @@ with SyncCrazyflie(uri, cf) as scf:
                     else:
                         # We pass from a Wand's position expressed in the
                         # Vicon frame to a Wand's position expressed in the
-                        # Body frame of the Drone before sending it
+                        # Body frame of the drone before sending it
                         if i == 0 or CONSECUTIVE_LOSS:
 
                             Wand_Translation = np.array([0, 0, 0])
@@ -259,17 +259,17 @@ with SyncCrazyflie(uri, cf) as scf:
                                 np.transpose(Wand_Translation)
                             )
                             print("Body translation: ", Wand_Translation)
-                        # print("Drone reference: ", last_drone_reference)
+                        # print("drone reference: ", last_drone_reference)
                         last_drone_reference[0] = last_drone_reference[0] + \
                             Wand_Translation[0]
                         last_drone_reference[1] = last_drone_reference[1] + \
                             Wand_Translation[1]
                         last_drone_reference[2] = last_drone_reference[2] + \
                             Wand_Translation[2]
-                        print("New Drone reference: ",
+                        print("New drone reference: ",
                               last_drone_reference, "\n\n")
                         i = 1
-                        # We send the actual position of Drone expressed in
+                        # We send the actual position of drone expressed in
                         # the Body frame to the Kalman Filter
                         D_T_tuple = client.GetSegmentGlobalTranslation(Drone,
                                                                        Drone)
@@ -295,7 +295,7 @@ with SyncCrazyflie(uri, cf) as scf:
 
                         cf.extpos.send_extpos(D_T_meters[0], D_T_meters[1],
                                               D_T_meters[2])
-                        print("Location of the Drone: ", D_T_meters[0],
+                        print("Location of the drone: ", D_T_meters[0],
                               D_T_meters[1], D_T_meters[2])
                         # We send the new setpoint
                         cf.commander.send_position_setpoint(
