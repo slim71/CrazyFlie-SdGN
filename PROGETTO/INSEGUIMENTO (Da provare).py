@@ -37,7 +37,7 @@ KALMAN_INCLUDE_QUATERNION = 0
 # you use the MotionCommander (so maintaining this set to zero)
 ACTIVATE_KALMAN_DURING_TAKEOFF = 0
 
-# Set to 1 if you want to do a test without making the Drone fly. In that case,
+# Set to 1 if you want to do a test without making the drone fly. In that case,
 # in order to get as much log data as possible, we suggest to set the other
 # flags to these values:
 # MAKE_LOG_FILE = 1
@@ -59,9 +59,9 @@ take_off = 1  # It will be set to 0 after the take off
 # It is updated in each iteration and it will be used
 # as the starting point for the landing phase.
 last_position_send = np.array([0, 0, 0])
-# Used to update the yaw angle of the Drone during the experiment
+# Used to update the yaw angle of the drone during the experiment
 last_gamma = 0
-# Current height of the Drone. It is used only in the take off phase.
+# Current height of the drone. It is used only in the take off phase.
 height_drone = 0
 # Used to store the orientation of the drone
 quaternion = np.array([0, 0, 0, 0])
@@ -70,7 +70,7 @@ last_quaternion = np.array([0, 0, 0, 0])
 
 OFFSET = 0.3  # [m] Security offset
 # Max number of consecutive loss allowed during acquisition
-# of the position of the Wand or Drone
+# of the position of the Wand or drone
 MAX_LOSS = 10
 # Current number of consecutive loss in the acquisition of the wand position
 CONSECUTIVE_LOSS = 0
@@ -91,7 +91,7 @@ DEFAULT_HEIGHT = 0.5
 # (due to noise)
 MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8
 
-# Variables used to store the parameters of the Drone's log table (TOC)
+# Variables used to store the parameters of the drone's log table (TOC)
 log_pos_x = 0.0
 log_pos_y = 0.0
 log_pos_z = 0.0
@@ -226,7 +226,7 @@ with SyncCrazyflie(uri, cf) as scf:
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
-                # Used for store the Drone's position in the Vicon System.
+                # Used for store the drone's position in the Vicon System.
                 D_T_vicon = D_T_meters
 
                 # if KALMAN_INCLUDE_QUATERNION:
@@ -413,7 +413,7 @@ with SyncCrazyflie(uri, cf) as scf:
 
                             # We pass from a Wand's position expressed in the
                             # Vicon frame to a Wand's position expressed
-                            # in the Body frame of the Drone before sending it
+                            # in the Body frame of the drone before sending it
                             # as the new setpoint:
                             a = client.GetFrame()
                             b = client.GetFrameNumber()
@@ -444,7 +444,7 @@ with SyncCrazyflie(uri, cf) as scf:
                                         Drone, Drone)
                                 Drone_orientation = Euler_angles[0]
 
-                            # We get the actual position of Drone expressend
+                            # We get the actual position of drone expressend
                             # in the Vicon frame:
                             D_T_tuple = client.GetSegmentGlobalTranslation(
                                 Drone, Drone)
@@ -554,7 +554,7 @@ with SyncCrazyflie(uri, cf) as scf:
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
-                # Used for store the Drone's position in the Vicon System.
+                # Used for store the drone's position in the Vicon System.
                 D_T_vicon = D_T_meters
 
                 if MAKE_LOG_FILE:

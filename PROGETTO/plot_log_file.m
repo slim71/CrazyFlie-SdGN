@@ -1,7 +1,7 @@
 %% File loading
 % Change "filepath" with the correct path of the file you want to open
 filepath = ...
-    "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG\Log_File_CrazyFlie_20201015_105731_ThrusterOff__KalmanDisabled.txt";
+    "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG\Log_File_CrazyFlie_20201027_095945_ThrusterOn__KalmanDuringTakeOff_KalmanWithQuaternion.txt";
 
 DATA = importdata(filepath);
 
@@ -16,6 +16,45 @@ log_xyz = DATA(:,18:20);            %   log_pos_x, log_pos_y, log_pos_z --> posi
 log_rpy = DATA(:,21:23).*pi/180.0;  %   log_roll, log_pitch, log_yaw    --> orientazione del drone presa dalla tabella di log del crazyflie
 
 %% Analysis
+% Comparison between quaternions and Euler RPY
+% MATLAB uses q = [w x y z], so this should be rearranged: doing that does
+% not produce a result coherent with Euler XYZ
+
+% Rearranged
+% q = [quat_sent_toKF(:,2:4), quat_sent_toKF(:,1)];
+% eu = quat2eul(q);
+% Not rearranged
+eu = quat2eul(quat_sent_toKF);
+
+if exist('figure2') == 0  %#ok<*EXIST>
+    figure()
+else
+    figure2()
+end
+
+sgtitle("Quaternions vs Vicon RPY")
+% xlabel()
+% ylabel()
+
+subplot(3,1,1)
+hold on
+grid on
+plot(vicon_rpy(:,1)-pi,'r')
+plot(eu(:,1),'b')
+legend('Vicon RPY', 'Quaternions')
+
+subplot(3,1,2)
+hold on
+grid on
+plot(vicon_rpy(:,2),'r')
+plot(eu(:,2),'b')
+
+subplot(3,1,3)
+hold on
+grid on
+plot(vicon_rpy(:,3),'r')
+plot(eu(:,3),'b')
+
 % Comparison between Vicon and LogTable RPY angles
 if exist('figure2') == 0  %#ok<*EXIST>
     figure()

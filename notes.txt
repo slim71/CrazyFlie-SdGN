@@ -89,6 +89,20 @@ COMPLETED TODOs
 - sepoints? to the drone
 - take_off=0? used as test later
 - height standard? in constructor, but tunable
+- frame needs to be fetched from the server
+- config_logging only for log purposes
+- basicConfig to configure the level of log to keep track of
+- getSegmentGlobalRotationMatrix not used because homogeneous is needed
+- Euler angles used only in print statements
 
 DOUBTS
 - is it ok to use same name for subject and segment?
+- quaternions for rotations? -> axis/angle!
+
+TO CHECK:
+- reference systems for everything
+- angle signs
+- dark floor and FlowDeck?
+- attitude estimation
+- position converted from 8B to 4B, but not quaternions?
+- are quaternions actually (x,y,z,w)? Vicon says so, but in MATLAB seems to be the other way around

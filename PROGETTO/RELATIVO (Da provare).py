@@ -19,7 +19,7 @@ from own_module import crazyfun as crazy
 
 VICON_IP = "192.168.0.2"  # Set the IP of the Vicon server to connect to
 VICON_PORT = "801"  # Set the port of the Vicon server to connect to
-Drone = "Crazyflie"  # Set the "Vicon name" of the object relative to the drone
+drone = "Crazyflie"  # Set the "Vicon name" of the object relative to the drone
 
 # Set the "Vicon-name" of the object relative to the Wand
 Wand = "Active Wand v2 (Origin Tracking)"
@@ -38,7 +38,7 @@ KALMAN_INCLUDE_QUATERNION = 0
 # if you use the MotionCommander (so keep it set to zero)
 ACTIVATE_KALMAN_DURING_TAKEOFF = 0
 
-# Set to 1 if you want to do a test without making the Drone fly.
+# Set to 1 if you want to do a test without making the drone fly.
 # In that case we suggest to set the other flags to these values:
 #   LOG_TEST_THRUSTER_DEACTIVATED = 1 (Obviously)
 #   MAKE_LOG_FILE = 1
@@ -61,10 +61,10 @@ take_off = 1  # It will be set to 0 after the take off
 # as the starting point for the landing phase.
 last_position_sent = np.array([0, 0, 0])
 
-# Used to update the yaw angle of the Drone during the experiment
+# Used to update the yaw angle of the drone during the experiment
 last_gamma = 0
 
-# Current height of the Drone. It is used only in the take-off phase.
+# Current height of the drone. It is used only in the take-off phase.
 height_drone = 0
 
 # Used to store the orientation of the drone
@@ -76,7 +76,7 @@ last_quaternion = np.array([0, 0, 0, 0])
 OFFSET = 0.3  # [m]
 
 # Max number of consecutive loss allowed during acquisition
-# of the position of the Wand or Drone
+# of the position of the Wand or drone
 MAX_LOSS = 10
 
 # Current number of consecutive loss in the acquisition of the wand position
@@ -104,7 +104,7 @@ DEFAULT_HEIGHT = 0.5  # [m]
 # noise
 MOTION_COMMANDER_DEFAULT_HEIGHT = 0.8  # [m]
 
-# Variables used to store the parameters of the Drone's log table (TOC)
+# Variables used to store the parameters of the drone's log table (TOC)
 log_pos_x = 0.0
 log_pos_y = 0.0
 log_pos_z = 0.0
@@ -124,53 +124,58 @@ parser.add_argument("--hostname", "--" + VICON_IP + ":" + VICON_PORT)
 args = parser.parse_args()
 
 # Create a VICON Client
-client = ViconDataStream.Client()
+vicon = ViconDataStream.Client()
 
 # Connect to the VICON Server running on the same LAN
-client.Connect(VICON_IP + ":" + VICON_PORT)
+vicon.Connect(VICON_IP + ":" + VICON_PORT)
 print("Connected")
 
 # Setting a buffer size to work with
-client.SetBufferSize(1000)
+vicon.SetBufferSize(1000)
 print("Buffer created")
 
-# Enable all the data types TODO: why needed?
-client.EnableSegmentData()
-client.EnableMarkerData()
-client.EnableUnlabeledMarkerData()
-client.EnableMarkerRayData()
-client.EnableDeviceData()
-client.EnableCentroidData()
+# Enable all the data types (action needed to be able to use these)
+vicon.EnableSegmentData()
+vicon.EnableMarkerData()
+vicon.EnableUnlabeledMarkerData()
+vicon.EnableMarkerRayData()
+vicon.EnableDeviceData()
+vicon.EnableCentroidData()
 print("Data types enabled")
 
 # Report whether the data types have been enabled
-print('Segments', client.IsSegmentDataEnabled())
-print('Markers', client.IsMarkerDataEnabled())
-print('Unlabeled Markers', client.IsUnlabeledMarkerDataEnabled())
-print('Marker Rays', client.IsMarkerRayDataEnabled())
-print('Devices', client.IsDeviceDataEnabled())
-print('Centroids', client.IsCentroidDataEnabled())
+print('Segments', vicon.IsSegmentDataEnabled())
+print('Markers', vicon.IsMarkerDataEnabled())
+print('Unlabeled Markers', vicon.IsUnlabeledMarkerDataEnabled())
+print('Marker Rays', vicon.IsMarkerRayDataEnabled())
+print('Devices', vicon.IsDeviceDataEnabled())
+print('Centroids', vicon.IsCentroidDataEnabled())
 
 # Try setting the different stream modes
-# TODO: why needed? Which is used and which is the best?
-client.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPull)
-print('Get Frame Pull', client.GetFrame(), client.GetFrameNumber())
-client.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPullPreFetch)
-print('Get Frame PreFetch', client.GetFrame(), client.GetFrameNumber())
-client.SetStreamMode(ViconDataStream.Client.StreamMode.EServerPush)
-print('Get Frame Push', client.GetFrame(), client.GetFrameNumber())
-print('Frame Rate', client.GetFrameRate())
+# "ClientPull": Increases latency, network bandwidth kept at minimum,
+# buffers unlikely to be filled up
+vicon.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPull)
+print('Get Frame Pull', vicon.GetFrame(), vicon.GetFrameNumber())
+# "ClientPreFetch": improved ClientPull, server performances unlikely to be
+# affected, latency slightly reduced, buffers unlikely to be filled up
+vicon.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPullPreFetch)
+print('Get Frame PreFetch', vicon.GetFrame(), vicon.GetFrameNumber())
+# "ServerPush": the servers pushes frames to the client, best for latency,
+# frames dropped only if all buffers are full
+vicon.SetStreamMode(ViconDataStream.Client.StreamMode.EServerPush)
+print('Get Frame Push', vicon.GetFrame(), vicon.GetFrameNumber())
 
 # Show the frame rate from both client and server side
+print('Frame Rate', vicon.GetFrameRate())
 print('Frame Rates')
-for frameRateName, frameRateValue in client.GetFrameRates().items():
+for frameRateName, frameRateValue in vicon.GetFrameRates().items():
     print(frameRateName, frameRateValue)
 
 # Setting reference system
-client.SetAxisMapping(ViconDataStream.Client.AxisMapping.EForward,
-                      ViconDataStream.Client.AxisMapping.ELeft,
-                      ViconDataStream.Client.AxisMapping.EUp)
-xAxis, yAxis, zAxis = client.GetAxisMapping()
+vicon.SetAxisMapping(ViconDataStream.Client.AxisMapping.EForward,
+                     ViconDataStream.Client.AxisMapping.ELeft,
+                     ViconDataStream.Client.AxisMapping.EUp)
+xAxis, yAxis, zAxis = vicon.GetAxisMapping()
 print('X Axis', xAxis, 'Y Axis', yAxis, 'Z Axis', zAxis)
 
 # -----------------------------------------------------------------------------
@@ -183,39 +188,41 @@ print('CONNECTING WITH DRONE...')
 if MAKE_LOG_FILE:
     # we create a log file in which we print all the variable of interest
     # TODO: make a better log file.
-    filename = "Log_File_CrazyFlie_RELATIVE" + datetime.now().strftime(
+    filename = "LogFile_CrazyFlie_RELATIVE" + datetime.now().strftime(
         "%Y%m%d_%H%M%S")
     if LOG_TEST_WITH_DEACTIVATED_THRUSTER:
-        filename = filename + "_ThrusterOff_"
+        filename = filename + "_ThrustersOff_"
     else:
-        filename = filename + "_ThrusterOn_"
+        filename = filename + "_ThrustersOn_"
     if ACTIVATE_KALMAN_DURING_TAKEOFF:
-        filename = filename + "_KalmanDuringTakeOff_"
+        filename = filename + "_KFTakeOff_"
     else:
-        filename = filename + "_NoKalmanTakeOff_"
+        filename = filename + "_NoKFTakeOff_"
     if KALMAN_INCLUDE_QUATERNION:
-        filename = filename + "KalmanWithQuaternion"
+        filename = filename + "KFwQuaternion"
     else:
-        filename = filename + "KalmanWithoutQuaternion"
+        filename = filename + "KFwoQuaternion"
+
+    # Only logs of level ERROR or above will be tracked
+    # https://docs.python.org/3/library/logging.html#levels
+    logging.basicConfig(level=logging.ERROR)
 
     fdesc = open(filename + ".txt", "w")
 
-# TODO: to move in the if above, since it's for logging purposes?
-logging.basicConfig(level=logging.ERROR)
+# Initialize all the drivers
 cflib.crtp.init_drivers(enable_debug_driver=False)
 
 # Creating an instance of the Crazyflie object and getting the initial position
 cf = cflib.crazyflie.Crazyflie()
-First_Position = crazy.getFirstPosition(client, Drone)
+First_Position = crazy.getFirstPosition(vicon, drone)
 
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     # We prepare and open the connection to address the Log Table
-    # TODO: isn't this just for logging purposes? if so, move beneath
-    lg_stab = crazy.config_logging(scf)
 
     if MAKE_LOG_FILE:
         # We prepare and open the connection to address the Log Table:
+        lg_stab = crazy.config_logging(scf)
         lg_stab.start()
 
     # We reset the Kalman Filter before flying
@@ -233,45 +240,44 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
             while height_drone < DEFAULT_HEIGHT:
 
-                # Get frame and then Drone position of the drone in the Vicon
-                # reference system
-                # TODO: a,b not used, so why needed?
-                a = client.GetFrame()
-                b = client.GetFrameNumber()
+                # Request a new data frame from the server and its ordinal
+                # number
+                data_frame = vicon.GetFrame()
+                frame_num = vicon.GetFrameNumber()
 
-                D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
+                # Get the drone position in the Vicon reference system
+                D_T_tuple = vicon.GetSegmentGlobalTranslation(drone, drone)
                 D_T_millimeters = D_T_tuple[0]
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
 
-                # Used to store the Drone position in the Vicon System.
+                # Used to store the drone position in the Vicon System.
                 D_T_vicon = D_T_meters
 
-                # TODO: only if orientation used; why both?
-                # Rotation, in Vicon ref system
-                quaternion_XYZW = client. \
-                    GetSegmentGlobalRotationQuaternion(Drone, Drone)
+                # Rotation, in Vicon reference system
+                quaternion_XYZW = vicon. \
+                    GetSegmentGlobalRotationQuaternion(drone, drone)
                 quaternion = quaternion_XYZW[0]
-                Euler_angles = client. \
-                    GetSegmentGlobalRotationEulerXYZ(Drone, Drone)
-                Drone_orientation = Euler_angles[0]
+                # Euler_angles = vicon. \
+                #     GetSegmentGlobalRotationEulerXYZ(drone, drone)
+                # Drone_orientation = Euler_angles[0]
 
                 # We convert vectors in homogenous matrices and we convert the
                 # position in the body frame
                 # TODO: matrix_Rotation not needed as a returned value?
-                # TODO: it exists "GetSegmentGlobalRotationMatrix"
+                # TODO: check with "GetSegmentGlobalRotationMatrix" result
                 Matrix_homogeneous, Matrix_Rotation, last_gamma = \
-                    crazy.createMatrixRotation(client, Drone, First_Position,
+                    crazy.createMatrixRotation(vicon, drone, First_Position,
                                                last_gamma,
                                                KALMAN_INCLUDE_QUATERNION)
-                # Homogeneous vector containing Drone position in Vicon
+                # Homogeneous vector containing drone position in Vicon
                 # reference system
                 D_T_homogenous = np.array([D_T_meters[0],
                                            D_T_meters[1],
                                            D_T_meters[2],
                                            1])
-                # Conversion in Drone body system
+                # Conversion in drone body system
                 D_T_homogenous = np.dot(Matrix_homogeneous,
                                         np.transpose(D_T_homogenous))
                 # Selection of the first three components (not homogeneous
@@ -290,14 +296,17 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     # drone position and orientation from log table
                     print(D_T_meters[0], D_T_meters[1], D_T_meters[2],
                           quaternion[0], quaternion[1], quaternion[2],
-                          quaternion[3], D_T_vicon[0], D_T_vicon[1],
-                          D_T_vicon[2], Drone_orientation[0],
-                          Drone_orientation[1], Drone_orientation[2], 0, 0,
-                          DEFAULT_HEIGHT, 0, log_pos_x, log_pos_y, log_pos_z,
-                          log_roll, log_pitch, log_yaw, file=fdesc)
+                          quaternion[3],
+                          D_T_vicon[0], D_T_vicon[1], D_T_vicon[2],
+                          # Drone_orientation[0], Drone_orientation[1],
+                          # Drone_orientation[2],
+                          0, 0, DEFAULT_HEIGHT, 0,
+                          log_pos_x, log_pos_y, log_pos_z,
+                          log_roll, log_pitch, log_yaw,
+                          file=fdesc)
 
                 if ACTIVATE_KALMAN_DURING_TAKEOFF:
-                    # Send measures to Kalman filter during the take-off.
+                    # Send measures to Kalman filter during take-off.
                     # We suggest not to do this while you use the
                     # MotionCommander class.
                     if KALMAN_INCLUDE_QUATERNION:
@@ -337,9 +346,9 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                         # We get the Wand position expressed in the Vicon
                         # system and we convert it from [mm] to [m]:
-                        a = client.GetFrame()
-                        b = client.GetFrameNumber()
-                        W_T_tuple = client. \
+                        a = vicon.GetFrame()
+                        frame_num = vicon.GetFrameNumber()
+                        W_T_tuple = vicon. \
                             GetSegmentGlobalTranslation(Wand, 'Root')
 
                         W_T_millimeters = W_T_tuple[0]
@@ -425,10 +434,10 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                             # Notifying the end of a (perhaps) first iteration
                             FIRST_ITERATION = 0
 
-                            # We get the actual position of Drone expressed
+                            # We get the actual position of drone expressed
                             # in the Vicon frame:
-                            D_T_tuple = client. \
-                                GetSegmentGlobalTranslation(Drone, Drone)
+                            D_T_tuple = vicon. \
+                                GetSegmentGlobalTranslation(drone, drone)
                             D_T_millimeters = D_T_tuple[0]
                             D_T_meters = np.array(
                                 [float(D_T_millimeters[0]) / 1000,
@@ -462,9 +471,9 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                 last_drone_position = D_T_meters
 
                             # receive from the Vicon all quaternions
-                            quaternion_XYZW = client. \
-                                GetSegmentGlobalRotationQuaternion(Drone,
-                                                                   Drone)
+                            quaternion_XYZW = vicon. \
+                                GetSegmentGlobalRotationQuaternion(drone,
+                                                                   drone)
                             quaternion = quaternion_XYZW[0]
 
                             if KALMAN_INCLUDE_QUATERNION:
@@ -497,11 +506,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                 # we have to rotate in function of the
                                 # current yaw angle
                                 Matrix_homogeneous, Matrix_Rotation, \
-                                last_gamma = crazy.createMatrixRotation(client,
-                                                                        Drone,
-                                                                        First_Position,
-                                                                        last_gamma,
-                                                                        KALMAN_INCLUDE_QUATERNION)
+                                last_gamma = crazy.\
+                                    createMatrixRotation(vicon,
+                                                         drone,
+                                                         First_Position,
+                                                         last_gamma,
+                                                         KALMAN_INCLUDE_QUATERNION)
 
                             # We send the new setpoint
                             cf.commander.send_position_setpoint(
@@ -511,8 +521,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                             # We will use this information when we write in
                             # the log file:
                             Euler_angles = \
-                                client.GetSegmentGlobalRotationEulerXYZ(
-                                    Drone, Drone)
+                                vicon.GetSegmentGlobalRotationEulerXYZ(
+                                    drone, drone)
                             Drone_orientation = Euler_angles[0]
 
                             if KALMAN_INCLUDE_QUATERNION:
@@ -577,28 +587,28 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
             while 1:
 
                 # Get position of the drone in the Vicon reference System
-                a = client.GetFrame()
-                b = client.GetFrameNumber()
+                a = vicon.GetFrame()
+                frame_num = vicon.GetFrameNumber()
 
-                D_T_tuple = client.GetSegmentGlobalTranslation(Drone, Drone)
+                D_T_tuple = vicon.GetSegmentGlobalTranslation(drone, drone)
                 D_T_millimeters = D_T_tuple[0]
                 D_T_meters = np.array([float(D_T_millimeters[0]) / 1000,
                                        float(D_T_millimeters[1]) / 1000,
                                        float(D_T_millimeters[2]) / 1000])
 
-                # Used for store the Drone's position in the Vicon System.
+                # Used for store the drone's position in the Vicon System.
                 D_T_vicon = D_T_meters
 
                 if MAKE_LOG_FILE:
                     # Get orientation of the drone from the Vicon:
-                    Euler_angles = client.GetSegmentGlobalRotationEulerXYZ(
-                        Drone, Drone)
+                    Euler_angles = vicon.GetSegmentGlobalRotationEulerXYZ(
+                        drone, drone)
                     Drone_orientation = Euler_angles[0]
 
                 # We convert vectors in homogenous vector and we convert the
                 # position in the body frame:
                 Matrix_homogeneous, last_gamma = crazy. \
-                    createMatrixRotation(client, Drone, First_Position,
+                    createMatrixRotation(vicon, drone, First_Position,
                                          last_gamma, KALMAN_INCLUDE_QUATERNION)
                 D_T_homogenous = np.array([D_T_meters[0],
                                            D_T_meters[1],
@@ -612,15 +622,15 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                 if KALMAN_INCLUDE_QUATERNION:
                     quaternion_XYZW = \
-                        client.GetSegmentGlobalRotationQuaternion(
-                            Drone, Drone)
+                        vicon.GetSegmentGlobalRotationQuaternion(
+                            drone, drone)
                     quaternion = quaternion_XYZW[0]
 
                 if MAKE_LOG_FILE:
                     # We write in the log file with the following format:
                     #       drone's position body frame
                     #       quaternions
-                    #       drone's position vicon frame
+                    #       drone's position Vicon frame
                     #       drone's orientation from Vicon
                     #       setpoint body frame             drone's position
                     #       and orientation from log table

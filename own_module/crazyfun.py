@@ -12,7 +12,7 @@ import numpy as np
 import math
 import time
 
-# Max number of losses during acquisition of the position of the Wand or Drone
+# Max number of losses during acquisition of the position of the Wand or drone
 MAX_LOSS = 10
 
 
@@ -62,7 +62,7 @@ def log_stab_callback(timestamp, data, log_conf):
     global log_pitch
     global log_yaw
 
-    # TODO: Setting (estimated?) state variables
+    # Setting estimated state variables
     log_pos_x = data['stateEstimate.x']
     log_pos_y = data['stateEstimate.y']
     log_pos_z = data['stateEstimate.z']
@@ -73,7 +73,7 @@ def log_stab_callback(timestamp, data, log_conf):
 
 def simple_log_async(sync_crazyflie, log_conf):
     """
-    Adds a callback function to the LogTable of the Drone.
+    Adds a callback function to the LogTable of the drone.
 
     :param sync_crazyflie: synchronization wrapper of the Crazyflie object
     :param log_conf:
@@ -107,12 +107,13 @@ def config_logging(sync_crazyflie):
     return lg_stab
 
 
+# TODO: can be converted in a more general getPos?
 def getFirstPosition(vicon_client, drone_obj):
     """
-    Gathers Drone position information from the Vicon client.
+    Gathers drone position information from the Vicon client.
 
     :param vicon_client: Vicon client to connect to
-    :param drone_obj: Drone considered
+    :param drone_obj: drone considered
     :return:
     """
 
@@ -131,25 +132,24 @@ def getFirstPosition(vicon_client, drone_obj):
         a = vicon_client.GetFrame()
         b = vicon_client.GetFrameNumber()
 
-        drone_tuple = vicon_client.GetSegmentGlobalTranslation(drone_obj,
-                                                               drone_obj)
+        drone_tuple = vicon_client. \
+            GetSegmentGlobalTranslation(drone_obj, drone_obj)
 
         # We are interested only in the first part of this structure
         drone_trans_mm = drone_tuple[0]
 
-        # Absolute position of the Drone converted from [mm] to [m]
+        # Absolute position of the drone converted from [mm] to [m]
         drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
                                   float(drone_trans_mm[1]) / 1000,
                                   float(drone_trans_mm[2]) / 1000]
                                  )
 
         if iterations > MAX_LOSS:
-            print(
-                "WARNING: initial position of the Drone is [0,0,0] for ",
-                MAX_LOSS,
-                "consecutive times. Please try with another initial position "
-                "and restart the experiment."
-            )
+            print("WARNING: initial position of the drone is [0,0,0] for ",
+                  MAX_LOSS,
+                  "consecutive times. Please try with another initial "
+                  "position and restart the experiment."
+                  )
             exit()
         else:
             iterations += 1
@@ -157,30 +157,30 @@ def getFirstPosition(vicon_client, drone_obj):
     return drone_trans_m
 
 
-# This function creates the homogeneous matrix used for the
-# conversion between the Navigation System and the Vicon System.
-# The matrix is comprised of:
-# - Rotation:    we assume always NULL values for the roll and pitch angles,
-#                so the rotation is expressed with a 3x3 matrix on the Z-axis
-#                with yaw angle "gamma"
-# - Translation: it is the initial position of the Drone. It is rotated with
-#                the previous matrix.
 def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
                          KF_quat):
     """
-    Creates the matrices used to map the transformation between
-    Drone and Vicon reference systems.
+    Creates the homogeneous matrix used for the conversion between the
+    Navigation system (corresponding to the drone initial position before
+    take-off) and the Global system (Vicon reference system).
+    TODO: from which to which?
+    The matrix is comprised of:
+    - Rotation:   we assume always NULL values for the roll and pitch angles,
+                  so the rotation is on the Z-axis with yaw angle "gamma",
+                  expressed with a 3x3 matrix
+    - Translation: it's the initial position of the drone. It is rotated with
+                   the previous matrix.
 
     :param vicon_client: Vicon client
-    :param drone_obj: Vicon name of the Drone
-    :param drone_trans_m: translation of the Drone in the Vicon reference
+    :param drone_obj: Vicon name of the drone
+    :param drone_trans_m: translation of the drone in the Vicon reference
             system
     :param last_gamma: last recorded value for the yaw angle
     :param KF_quat: flag to include quaternions into KF
 
     :return:
-        HomMatrix: homogeneous transformation matrix to Drone body,
-        RotMatrix: rotation matrix to Drone body,
+        HomMatrix: homogeneous transformation matrix to drone body,
+        RotMatrix: rotation matrix to drone body,
         last_gamma: last valid yaw angle value TODO: in which system?
     """
 
@@ -196,7 +196,7 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
         # us, so we take it in consideration in the Matrix
         # in order to correctly convert between frames.
 
-        # We get the orientation of the Drone from which we want to get the
+        # We get the orientation of the drone from which we want to get the
         # Yaw angle
         Euler = vicon_client. \
             GetSegmentGlobalRotationEulerXYZ(drone_obj, drone_obj)
@@ -220,7 +220,7 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
     # We build the homogeneous rotation matrix that will convert a
     # position expressed in the Vicon reference system
-    # in position expressed in the Body frame of the Drone
+    # in position expressed in the Body frame of the drone
     R_x = np.array([[1, 0, 0],
                     [0, math.cos(alpha), -math.sin(alpha)],
                     [0, math.sin(alpha), math.cos(alpha)]])
