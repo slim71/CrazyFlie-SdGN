@@ -20,17 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/first version.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/first version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +56,10 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/INSEGUIMENTO (Da provare).py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vicon_dssdk" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/INSEGUIMENTO (Da provare).py" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Desktop/crazyflie-lib-python-master/cflib/positioning/position_hl_commander.py" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -272,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607469376998</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Further analysis and improvements">
+      <created>1607880488641</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607880488641</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">

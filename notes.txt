@@ -115,3 +115,150 @@ TO CHECK:
     try to launch inverting order of the quaternion components
 - std dev of the KF ->     cf.param.set_value('locSrv.extQuatStdDev', 0.06)
         |-> check par in the client
+
+DIFFERENT FILES:
+- cflib\crazyflie\localization
+        X |from cflib.utils.fp16 import fp16_to_float
+        X |LH_ANGLE_STREAM = 10
+           LH_PERSIST_DATA = 11
+        X |elif pk_type == self.LH_PERSIST_DATA:
+            decoded_data = bool(data[0])
+           elif pk_type == self.LH_ANGLE_STREAM:
+            decoded_data = self._decode_lh_angle(data)
+        X |def _decode_lh_angle(self, data):
+            decoded_data = {}
+
+            raw_data = struct.unpack('<Bfhhhfhhh', data)
+
+            decoded_data['basestation'] = raw_data[0]
+            decoded_data['x'] = [0, 0, 0, 0]
+            decoded_data['x'][0] = raw_data[1]
+            decoded_data['x'][1] = raw_data[1] - fp16_to_float(raw_data[2])
+            decoded_data['x'][2] = raw_data[1] - fp16_to_float(raw_data[3])
+            decoded_data['x'][3] = raw_data[1] - fp16_to_float(raw_data[4])
+            decoded_data['y'] = [0, 0, 0, 0]
+            decoded_data['y'][0] = raw_data[5]
+            decoded_data['y'][1] = raw_data[5] - fp16_to_float(raw_data[6])
+            decoded_data['y'][2] = raw_data[5] - fp16_to_float(raw_data[7])
+            decoded_data['y'][3] = raw_data[5] - fp16_to_float(raw_data[8])
+
+            return decoded_data
+        X |def send_lh_persist_data_packet(self, geo_list, calib_list):
+            """
+            Send geometry and calibration data to persistent memory subsystem
+            """
+
+            geo_list.sort()
+            calib_list.sort()
+            max_bs_nr = 15
+            if len(geo_list) > 0:
+                if geo_list[0] < 0 or geo_list[-1] > max_bs_nr:
+                    raise Exception('Geometry BS list is not valid')
+            if len(calib_list) > 0:
+                if calib_list[0] < 0 or calib_list[-1] > max_bs_nr:
+                    raise Exception('Calibration BS list is not valid')
+
+            mask_geo = 0
+            mask_calib = 0
+            for bs in geo_list:
+                mask_geo += 1 << bs
+            for bs in calib_list:
+                mask_calib += 1 << bs
+
+            pk = CRTPPacket()
+            pk.port = CRTPPort.LOCALIZATION
+            pk.channel = self.GENERIC_CH
+            pk.data = struct.pack(
+                '<BHH', self.LH_PERSIST_DATA, mask_geo, mask_calib)
+            self._cf.send_packet(pk)
+
+            return pk.data
+- cflib\crazyflie\log
+    + | # The max size of a CRTP packet payload
+        MAX_LOG_DATA_PACKET_SIZE = 30
+    M | more than one function into "create()"
+- cflib\crazyflie\param
+    X | from queue import Queue
+    + | import sys
+    + | if sys.version_info < (3,):
+            from Queue import Queue
+        else:
+            from queue import Queue
+    M | if sys.version_info < (3,):
+            strs = ('{}' * len(strs)).format(*strs).split('\0')
+        else:
+            s = ''
+            for ch in strs:
+                s += ch.decode('ISO-8859-1')
+            strs = s.split('\x00')
+- cflib\crazyflie\platformservice
+    X | APP_CHANNEL = 2
+    X | first_error = reporter.errors[0]
+    X | reporter = None
+    M | except Exception:
+            reporter.report_error()
+    X | self._errors = []
+    X | @property
+        def errors(self):
+            return self._errors
+    M | def report_error(self):
+            self.error_reported = True
+- cflib\crazyflie\syncLogger
+    M | import modified
+- cflib\crazyflie\mem is originally a subfolder
+- cflib\crtp\crtpstack
+    + | import sys
+    X | # The max size of a CRTP packet payload
+        MAX_DATA_SIZE = 30
+    M | modified _set_data()
+    X | def get_data_size(self):
+            return len(self._data)
+    X | def available_data_size(self):
+            return self.MAX_DATA_SIZE - self.get_data_size()
+    X | def is_data_size_valid(self):
+            return self.available_data_size() >= 0
+    X | import queue
+    + | if sys.version_info < (3,):
+            import Queue as queue
+        else:
+            import queue
+- cflib\crtp\radiodriver
+    M | everything a little modified
+- cflib\crtp\serialdriver
+    M | imports
+- cflib\crtp\udpdriver
+    M | imports
+- cflib\crtp\usbdriver
+    M | imports
+- cflib\crtp\motion_commander
+    + | import sys
+    X | from queue import Empty
+        from queue import Queue
+    M | init: default_height default value
+    C | time.sleep(flight_time)
+        self.stop()
+- cflib\positioning\motion_commander
+    X | self._activate_controller()
+        self._activate_high_level_commander()
+        self._hl_commander = self._cf.high_level_commander
+    X | self._init_time = time.time()
+    X | # Wait a bit to let the HL commander record the current position
+        now = time.time()
+        hold_back = self._init_time + 1.0 - now
+        if (hold_back > 0.0):
+            time.sleep(hold_back)
+    + | self._reset_position_estimator()
+        self._activate_controller()
+        self._activate_high_level_commander()
+        self._hl_commander = self._cf.high_level_commander
+    + | def set_controller(self, controller):
+            self._controller = controller
+    + | def _reset_position_estimator(self):
+            self._cf.param.set_value('kalman.initialX', '{:.2f}'.format(self._x))
+            self._cf.param.set_value('kalman.initialY', '{:.2f}'.format(self._y))
+            self._cf.param.set_value('kalman.initialZ', '{:.2f}'.format(self._z))
+
+            self._cf.param.set_value('kalman.resetEstimation', '1')
+            time.sleep(0.1)
+            self._cf.param.set_value('kalman.resetEstimation', '0')
+            time.sleep(2)
