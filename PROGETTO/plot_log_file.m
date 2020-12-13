@@ -7,18 +7,19 @@ DATA = importdata(filepath);
 
 %% Data extraction
 % Extracted data                        Variables meaning 
-pos_sent_toKF = DATA(:,1:3);        %   D_T_meters[0:2]     --> posizione drone presa da vicon, ruotata e inviata al drone per l'aggiornamento del filtro di Kalman 
+pos_sent_toKF = DATA(:,1:3);        %   drone_trans_m[0:2]     --> posizione drone presa da vicon, ruotata e inviata al drone per l'aggiornamento del filtro di Kalman
 quat_sent_toKF = DATA(:,4:7);       %   quaternion[0:2]     --> quaternioni per l'orientazione del drone presi da vicon e inviati (o non inviati) al drone per l'aggiornamento del filtro di Kalman
-vicon_xyz = DATA(:,8:10);           %   D_T_vicon[0:2]      --> Posizione drone presa da vicon, non ruotata
+vicon_xyz = DATA(:,8:10);           %   drone_trans_vicon[0:2]      --> Posizione drone presa da vicon, non ruotata
 vicon_rpy = DATA(:,11:13);          %   angles[0:2]         --> roll pitch yaw del drone, presi da vicon 
-setpoint = DATA(:,14:17);           %   W_T_meters[0:2],0   --> setpoint inviato al drone nel formato "x,y,z,yaw" (nel caso in cui gli si voglia far inseguire il moto della bacchetta)
+setpoint = DATA(:,14:17);           %   wand_trans_m[0:2],0   --> setpoint inviato al drone nel formato "x,y,z,yaw" (nel caso in cui gli si voglia far inseguire il moto della bacchetta)
 log_xyz = DATA(:,18:20);            %   log_pos_x, log_pos_y, log_pos_z --> posizione del drone presa dalla tabella di log del crazyflie
 log_rpy = DATA(:,21:23).*pi/180.0;  %   log_roll, log_pitch, log_yaw    --> orientazione del drone presa dalla tabella di log del crazyflie
 
 %% Analysis
 % Comparison between quaternions and Euler RPY
-% MATLAB uses q = [w x y z], so this should be rearranged: doing that does
-% not produce a result coherent with Euler XYZ
+% MATLAB uses q = [w x y z], so this should be rearranged, since
+% Vicon creates [x y z w] quaternions: doing that does
+% not produce a result coherent with its own Euler XYZ
 
 % Rearranged
 % q = [quat_sent_toKF(:,2:4), quat_sent_toKF(:,1)];

@@ -72,7 +72,7 @@ DELTA_HEIGHT = 0.01  # [m]
 # the last position of the drone
 SUBTRACTED_HEIGHT = 0.01  # [m]
 # [m]  The height the drone has to reach at the end of the take off. This can't
-# be higher than the "MOTION_COMMANDER_DEFAULT_HEIGHT" used in the class of the
+# be higher than the "MC_HEIGHT" used in the class of the
 # Motion Commander. We suggest to set it at least at 90% of its value.
 DEFAULT_HEIGHT = 0.5
 # [m]  #This is the default height used by the Motion Commander during take
@@ -249,8 +249,8 @@ with SyncCrazyflie(uri, cf) as scf:
         # !!! Uncomment if we want to send measures to Kalman filter
         # also during the take off. We suggest to don't do this while we
         # use the motion commander. !!!
-        # cf.extpos.send_extpos(D_T_meters[0], D_T_meters[1],
-        # D_T_meters[2])
+        # cf.extpos.send_extpos(drone_trans_m[0], drone_trans_m[1],
+        # drone_trans_m[2])
 
         # Update the current height of the drone:
         height_drone = D_T_meters[2]
@@ -394,8 +394,8 @@ with SyncCrazyflie(uri, cf) as scf:
                     # for the drone position:
                     cf.extpos.send_extpos(D_T_meters[0], D_T_meters[1],
                                           D_T_meters[2])
-                    # print("KALMAN UPDATE: ", D_T_meters[0],
-                    # D_T_meters[1], D_T_meters[2])
+                    # print("KALMAN UPDATE: ", drone_trans_m[0],
+                    # drone_trans_m[1], drone_trans_m[2])
 
                     # We write in the log file with the following format:
                     #       drone's position body frame

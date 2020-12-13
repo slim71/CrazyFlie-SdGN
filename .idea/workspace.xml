@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/first version.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/first version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
@@ -61,9 +65,10 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python projects/Global 3.7" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/INSEGUIMENTO (Da provare).py" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/INSEGUIMENTO (Da provare).py" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -161,8 +166,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.first version" />
-        <item itemvalue="Python.RELATIVO (Da provare)" />
         <item itemvalue="Python.RELATIVO (Funzionante ma senza flag)" />
+        <item itemvalue="Python.RELATIVO (Da provare)" />
         <item itemvalue="Python.Interface" />
       </list>
     </recent_temporary>
@@ -253,7 +258,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607297813823</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Further analysis and improvements">
+      <created>1607469360598</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607469360598</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Further analysis and improvements">
+      <created>1607469376997</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607469376998</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -281,6 +300,7 @@
     <MESSAGE value="Setting Python 3.7 as interpreter" />
     <MESSAGE value="Workflow analysis" />
     <MESSAGE value="Trying to improve the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to improve the code" />
+    <MESSAGE value="Further analysis and improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further analysis and improvements" />
   </component>
 </project>

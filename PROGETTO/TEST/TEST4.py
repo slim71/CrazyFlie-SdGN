@@ -111,7 +111,7 @@ def create_Matrix_Rotation(client, Drone, D_T_meters, last_gamma):
     Matrix_Rotation_xyz = np.dot(Matrix_Rotation_xy, R_z)
     Matrix_Rotation = np.transpose(Matrix_Rotation_xyz)
     Matrix_homogeneous= np.array([[Matrix_Rotation[0][0], Matrix_Rotation[0][1], Matrix_Rotation[0][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[0]], [Matrix_Rotation[1][0], Matrix_Rotation[1][1], Matrix_Rotation[1][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[1]], [Matrix_Rotation[2][0], Matrix_Rotation[2][1], Matrix_Rotation[2][2], -np.dot(Matrix_Rotation, np.transpose(D_T_meters))[2]], [0, 0, 0, 1]])
-    #print("Matrix Homogenous:", Matrix_homogeneous)
+    #print("Matrix Homogenous:", hom_mat)
 
     return Matrix_homogeneous, last_gamma
 
@@ -196,7 +196,7 @@ with SyncCrazyflie(uri, cf) as scf:
                     W_T_tuple = client.GetSegmentGlobalTranslation( Wand, 'Root' )                 #Absolute position of the Drone in [mm]
                     W_T_millimeters= W_T_tuple[0]                                                  #We are interested only in the first part of the data structure
                     W_T_meters = np.array([float(W_T_millimeters[0])/1000 , float(W_T_millimeters[1])/1000, float(W_T_millimeters[2])/1000])    #Pass from [mm] to [m]
-                    #print("GET FRAME: ", W_T_meters[0], W_T_meters[1], W_T_meters[2])
+                    #print("GET FRAME: ", wand_trans_m[0], wand_trans_m[1], wand_trans_m[2])
 
                     if(W_T_meters[0]==0 and W_T_meters[1]==0 and W_T_meters[2]==0):
                         CONSECUTIVE_LOSS=CONSECUTIVE_LOSS+1

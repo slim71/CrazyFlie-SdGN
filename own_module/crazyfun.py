@@ -6,14 +6,21 @@
 # ----------------------------------IMPORT-------------------------------------
 # -----------------------------------------------------------------------------
 from __future__ import print_function
-# TODO: LogConfig not public, so not imported?
 from cflib.crazyflie.log import LogConfig
 import numpy as np
 import math
 import time
 
-# Max number of losses during acquisition of the position of the Wand or drone
+# Max number of consecutive loss allowed during acquisition of the position
+# of the Wand or drone
 MAX_LOSS = 10
+
+log_pos_x = 0
+log_pos_y = 0
+log_pos_z = 0
+log_roll = 0
+log_pitch = 0
+log_yaw = 0
 
 
 # TODO: module/global variables?
@@ -28,7 +35,7 @@ def reset_estimator(crazyflie):
     """
     Resets the estimator.
 
-        :param crazyflie: object linked to the Crazyflie implementation
+        :param crazyflie: Object linked to the Crazyflie
         :return: None
 
     """
@@ -46,14 +53,13 @@ def log_stab_callback(timestamp, data, log_conf):
     """
     Prints out data gathered from the LogTable.
 
-        :param timestamp:
-        :param data:
-        :param log_conf:
-        :return:
+        :param timestamp: Timestamp for the log file
+        :param data: Data to be logged
+        :param log_conf: Representation of a log configuration
+        :return:None
 
     """
 
-    # TODO: global variables not declared at module level
     print('[%d][%s]: %s' % (timestamp, log_conf.name, data))
     global log_pos_x
     global log_pos_y
@@ -75,13 +81,13 @@ def simple_log_async(sync_crazyflie, log_conf):
     """
     Adds a callback function to the LogTable of the drone.
 
-    :param sync_crazyflie: synchronization wrapper of the Crazyflie object
-    :param log_conf:
+    :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :param log_conf: Representation of a log configuration
     :return: None
     """
 
-    cf = sync_crazyflie.cf
-    cf.log.add_config(log_conf)
+    crazyflie = sync_crazyflie.cf
+    crazyflie.log.add_config(log_conf)
     log_conf.data_received_cb.add_callback(log_stab_callback)
 
 
@@ -89,22 +95,21 @@ def config_logging(sync_crazyflie):
     """
     Prepares the call to "simple_log_async" and achieves it.
 
-    :param sync_crazyflie: synchronization wrapper of the Crazyflie object
-    :return:
+    :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :return: log_stab: Log stabilizer
     """
 
-    lg_stab = LogConfig(name='Stabilizer', period_in_ms=10)
-    lg_stab.add_variable('stateEstimate.x', 'float')
-    lg_stab.add_variable('stateEstimate.y', 'float')
-    lg_stab.add_variable('stateEstimate.z', 'float')
-    lg_stab.add_variable('stabilizer.roll', 'float')
-    lg_stab.add_variable('stabilizer.pitch', 'float')
-    lg_stab.add_variable('stabilizer.yaw', 'float')
+    log_stab = LogConfig(name='Stabilizer', period_in_ms=10)
+    log_stab.add_variable('stateEstimate.x', 'float')
+    log_stab.add_variable('stateEstimate.y', 'float')
+    log_stab.add_variable('stateEstimate.z', 'float')
+    log_stab.add_variable('stabilizer.roll', 'float')
+    log_stab.add_variable('stabilizer.pitch', 'float')
+    log_stab.add_variable('stabilizer.yaw', 'float')
 
-    simple_log_async(sync_crazyflie, lg_stab)
+    simple_log_async(sync_crazyflie, log_stab)
 
-    # TODO: returned parameter needed?
-    return lg_stab
+    return log_stab
 
 
 # TODO: can be converted in a more general getPos?
@@ -113,11 +118,11 @@ def getFirstPosition(vicon_client, drone_obj):
     Gathers drone position information from the Vicon client.
 
     :param vicon_client: Vicon client to connect to
-    :param drone_obj: drone considered
-    :return:
+    :param drone_obj: Drone considered
+    :return drone_pos_m: Drone position in the Vicon system, in meters
     """
 
-    drone_trans_m = np.array([0, 0, 0])
+    drone_pos_m = np.array([0, 0, 0])
     iterations = 0
 
     # It can happen that the position value [0,0,0] is received
@@ -125,8 +130,9 @@ def getFirstPosition(vicon_client, drone_obj):
     # happening with the Vicon Tracking.
     # So, in order to avoid errors, we count how many times we receive [0,0,0]
     # and if it exceeds MAX_LOSS we stop the experiment.
-    while (drone_trans_m[0] == 0) and (drone_trans_m[1] == 0) and (
-            drone_trans_m[2] == 0):
+    while (drone_pos_m[0] == 0) \
+            and (drone_pos_m[1] == 0) \
+            and (drone_pos_m[2] == 0):
         # This call is necessary before each call to some
         # "GetSegment...()"-like function
         a = vicon_client.GetFrame()
@@ -136,16 +142,17 @@ def getFirstPosition(vicon_client, drone_obj):
             GetSegmentGlobalTranslation(drone_obj, drone_obj)
 
         # We are interested only in the first part of this structure
-        drone_trans_mm = drone_tuple[0]
+        drone_pos_mm = drone_tuple[0]
 
         # Absolute position of the drone converted from [mm] to [m]
-        drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
-                                  float(drone_trans_mm[1]) / 1000,
-                                  float(drone_trans_mm[2]) / 1000]
-                                 )
+        drone_pos_m = np.array([float(drone_pos_mm[0]) / 1000,
+                                float(drone_pos_mm[1]) / 1000,
+                                float(drone_pos_mm[2]) / 1000]
+                               )
 
         if iterations > MAX_LOSS:
-            print("WARNING: initial position of the drone is [0,0,0] for ",
+            print("WARNING: initial position of the drone reported ",
+                  "[0,0,0] for ",
                   MAX_LOSS,
                   "consecutive times. Please try with another initial "
                   "position and restart the experiment."
@@ -154,16 +161,15 @@ def getFirstPosition(vicon_client, drone_obj):
         else:
             iterations += 1
 
-    return drone_trans_m
+    return drone_pos_m
 
 
 def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
-                         KF_quat):
+                         kf_quat):
     """
-    Creates the homogeneous matrix used for the conversion between the
+    Creates the homogeneous matrix used for the conversion to the
     Navigation system (corresponding to the drone initial position before
-    take-off) and the Global system (Vicon reference system).
-    TODO: from which to which?
+    take-off) from the Global system (Vicon reference system).
     The matrix is comprised of:
     - Rotation:   we assume always NULL values for the roll and pitch angles,
                   so the rotation is on the Z-axis with yaw angle "gamma",
@@ -173,18 +179,17 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
     :param vicon_client: Vicon client
     :param drone_obj: Vicon name of the drone
-    :param drone_trans_m: translation of the drone in the Vicon reference
+    :param drone_trans_m: Translation of the drone in the Vicon reference
             system
-    :param last_gamma: last recorded value for the yaw angle
-    :param KF_quat: flag to include quaternions into KF
+    :param last_gamma: Last recorded value for the yaw angle
+    :param kf_quat: Flag to include quaternions into KF
 
     :return:
-        HomMatrix: homogeneous transformation matrix to drone body,
-        RotMatrix: rotation matrix to drone body,
-        last_gamma: last valid yaw angle value TODO: in which system?
+        HomMatrix: Homogeneous transformation matrix to drone body,
+        last_gamma: Last valid yaw angle value
     """
 
-    if KF_quat:
+    if kf_quat:
         # In this case we don't need to take in consideration the
         # orientation of the drone in the conversion between frames:f
         # this will be the Kalman filter's concern
@@ -198,27 +203,27 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
         # We get the orientation of the drone from which we want to get the
         # Yaw angle
-        Euler = vicon_client. \
+        euler = vicon_client. \
             GetSegmentGlobalRotationEulerXYZ(drone_obj, drone_obj)
         # We are interested only in the first part of the structure:
-        Euler_radians = Euler[0]
+        euler_radians = euler[0]
 
         # In case we receive tha value [0,0,0], that means an error with the
         # Vicon Tracker, we continue using the previous value of the yaw angle
-        if (Euler_radians[0] == 0
-                and Euler_radians[1] == 0
-                and Euler_radians[2] == 0):
+        if (euler_radians[0] == 0
+                and euler_radians[1] == 0
+                and euler_radians[2] == 0):
             gamma = last_gamma
         else:
-            gamma = Euler_radians[2]
+            gamma = euler_radians[2]
             last_gamma = gamma
 
-    # roll angle:
+    # Roll angle:
     alpha = 0
-    # pitch angle:
+    # Pitch angle:
     beta = 0
 
-    # We build the homogeneous rotation matrix that will convert a
+    # Build the homogeneous rotation matrix that will convert a
     # position expressed in the Vicon reference system
     # in position expressed in the Body frame of the drone
     R_x = np.array([[1, 0, 0],
@@ -233,21 +238,21 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
     Rot_xy = np.dot(R_x, R_y)  # R_x * R_y
     Rot_xyz = np.dot(Rot_xy, R_z)  # R_xy * R_z
     RotMatrix = np.transpose(Rot_xyz)  # R_xyz'
-    HomMatrix = np.array([[RotMatrix[0][0],
-                           RotMatrix[0][1],
-                           RotMatrix[0][2],
+    HomMatrix = np.array([[RotMatrix[0, 0],
+                           RotMatrix[0, 1],
+                           RotMatrix[0, 2],
                            -np.dot(RotMatrix,
                                    np.transpose(drone_trans_m))[0]
                            ],
-                          [RotMatrix[1][0],
-                           RotMatrix[1][1],
-                           RotMatrix[1][2], -
+                          [RotMatrix[1, 0],
+                           RotMatrix[1, 1],
+                           RotMatrix[1, 2], -
                            np.dot(RotMatrix,
                                   np.transpose(drone_trans_m))[1]
                            ],
-                          [RotMatrix[2][0],
-                           RotMatrix[2][1],
-                           RotMatrix[2][2], -
+                          [RotMatrix[2, 0],
+                           RotMatrix[2, 1],
+                           RotMatrix[2, 2], -
                            np.dot(RotMatrix,
                                   np.transpose(drone_trans_m))[2]
                            ],
@@ -255,7 +260,7 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
     # In case we update the last value of the yaw angle (not null value) we
     # update returning it together with the matrices
-    return HomMatrix, RotMatrix, last_gamma
+    return HomMatrix, last_gamma
 
 
 def landing(last_pos, sub_height, de_height, crazyflie, lg_stab,
@@ -264,17 +269,17 @@ def landing(last_pos, sub_height, de_height, crazyflie, lg_stab,
     This function implements the landing phase.
 
     :param last_pos:
-    :param sub_height: total meters subtracted to the drone height
-    :param de_height: amount to subtract each time from the drone height
+    :param sub_height: Total meters subtracted to the drone height
+    :param de_height: Amount to subtract each time from the drone height
     :param crazyflie: Crazyflie object linked to the drone
-    :param lg_stab:
-    :param fdesc:
-    :param log_flag: flag specifying if log information should be produced
+    :param lg_stab: Log stabilizer
+    :param fdesc: Descriptor of the log file
+    :param log_flag: Flag specifying if log info should be produced
     :return: None
 
     """
 
-    # We gradually reduce the height setpoint
+    # Gradually reduce the height setpoint
     while last_pos[2] - sub_height > 0:
         crazyflie.commander.send_position_setpoint(last_pos[0],
                                                    last_pos[1],
@@ -283,7 +288,7 @@ def landing(last_pos, sub_height, de_height, crazyflie, lg_stab,
         sub_height = sub_height + de_height
 
     if log_flag:
-        # close the connection with the log table:
+        # Close the connection with the log table
         lg_stab.stop()
         fdesc.close()
 

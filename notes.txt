@@ -94,10 +94,16 @@ COMPLETED TODOs
 - basicConfig to configure the level of log to keep track of
 - getSegmentGlobalRotationMatrix not used because homogeneous is needed
 - Euler angles used only in print statements
+- MatrixRotation pulled out from returned values
+- global vars -> "global" at module level: defined and then used
+- not in __all__ -> no matter since it's a direct import
+- homMat: from Vicon to body
 
 DOUBTS
 - is it ok to use same name for subject and segment?
 - quaternions for rotations? -> axis/angle!
+- CF v.1? Cortex-M3 without FPU -> too slow for KF
+        |-> is this still valid?
 
 TO CHECK:
 - reference systems for everything
@@ -105,4 +111,7 @@ TO CHECK:
 - dark floor and FlowDeck?
 - attitude estimation
 - position converted from 8B to 4B, but not quaternions?
-- are quaternions actually (x,y,z,w)? Vicon says so, but in MATLAB seems to be the other way around
+- are quaternions actually (x,y,z,w)? Vicon says so, but in MATLAB seems to be the other way around:
+    try to launch inverting order of the quaternion components
+- std dev of the KF ->     cf.param.set_value('locSrv.extQuatStdDev', 0.06)
+        |-> check par in the client

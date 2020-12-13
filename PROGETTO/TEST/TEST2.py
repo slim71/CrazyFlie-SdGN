@@ -158,7 +158,7 @@ with SyncCrazyflie(uri, cf) as scf:
             i=i+1
         else:                                                                              #After "WAITING_TIME" seconds we update the position reference with                                                                        #the current position fo the wand                                                                              #We continue sending the last position of the wand
             cmd.send_position_setpoint(W_T_meters[0]+OFFSET, W_T_meters[1]+OFFSET, W_T_meters[2], 0)
-            #print("position: ", W_T_meters[0], W_T_meters[1], W_T_meters[2])
+            #print("position: ", wand_trans_m[0], wand_trans_m[1], wand_trans_m[2])
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------
