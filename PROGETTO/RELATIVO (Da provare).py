@@ -28,6 +28,7 @@ uri = 'radio://0/80/2M'  # Used for the connection with the drone
 # Set to 0 if you don't want to obtain the log file after
 # the execution. Otherwise set to 1.
 # The log file can be used by the MATLAB file "plot.m"
+# TODO: always log, so no flag?
 MAKE_LOG_FILE = 0
 
 # Set to 1 if you want to send orientation together with the position to
@@ -72,9 +73,6 @@ quaternion = np.array([0, 0, 0, 0])
 # Used in the updating of the orientation of the drone to the Kalman filter
 last_quaternion = np.array([0, 0, 0, 0])
 
-# Security offset
-SEC_OFFSET = 0.3  # [m]
-
 # Current number of consecutive losses in the acquisition of the Wand position
 CONSEC_LOSSES = 0
 
@@ -87,21 +85,6 @@ DELTA_HEIGHT = 0.01  # [m]
 # the last position of the drone
 # TODO: useless?
 SUBTRACTED_HEIGHT = 0.01  # [m]
-
-# The height the drone has to reach at the end of the take-off. This can't
-# be higher than the "MC_HEIGHT" used in the class of the
-# Motion Commander. We suggest to set it at least at 90% of its value.
-DEFAULT_HEIGHT = 0.5  # [m]
-
-# This is the default height used by the Motion Commander during take-off.
-# It has to be higher than DEFAULT_HEIGHT because we consider the
-# take-off phase concluded once the drone reaches DEFAULT_HEIGHT, but this
-# can't be always true because the Vicon might observe another value due to
-# noise
-MC_HEIGHT = 0.8  # [m]
-
-# Number of frames for the Vicon buffer
-frame_num = 1000
 
 # -----------------------------------------------------------------------------
 # ----------------------------------VICON CONNECTION---------------------------
@@ -122,8 +105,8 @@ vicon.Connect(VICON_IP + ":" + VICON_PORT)
 print("Connected to Vicon!")
 
 # Setting a buffer size to work with
-vicon.SetBufferSize(frame_num)
-print("Buffer of ", str(frame_num), " frames created.")
+vicon.SetBufferSize(crazy.frame_num)
+print("Buffer of ", str(crazy.frame_num), " frames created.")
 
 # Enable all the data types (action needed to be able to use these)
 vicon.EnableSegmentData()
@@ -201,9 +184,13 @@ if MAKE_LOG_FILE:
     else:
         filename = filename + "KFwoQuat"
 
+    logname = filename + ".log"
     # Only logs of level ERROR or above will be tracked
     # https://docs.python.org/3/library/logging.html#levels
-    logging.basicConfig(level=logging.ERROR)
+    logging.basicConfig(filename=logname,
+                        level=logging.DEBUG,
+                        filemode='a',
+                        format="%(asctime)s [%(levelname)s]: %(messages)s")
 
     file_desc = open(filename + ".txt", "w")
 
@@ -227,15 +214,17 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
     # TODO: develop two separated files?
     if TEST_noTHRUSTER == 0:  # Thrusters activated
+        logging.info("Proper flying test")
 
         # AUTO TAKE-OFF!
         # Class used for the position control during the take-off phase:
         # take-off automatic when context created using "with"
-        with MotionCommander(scf, MC_HEIGHT) as mc:
+        with MotionCommander(scf, crazy.MC_HEIGHT) as mc:
 
             print('Take-Off!')
+            logging.info("Take-off")
 
-            while drone_height < DEFAULT_HEIGHT:
+            while drone_height < crazy.DEFAULT_HEIGHT:
 
                 # Request a new data frame from the server and its ordinal
                 # number
@@ -250,8 +239,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                           float(drone_trans_mm[1]) / 1000,
                                           float(drone_trans_mm[2]) / 1000])
 
-                # Used to store the drone position in the Vicon System.
-                # TODO: is it even useful?
+                # Used to store the drone position obtained from the Vicon
                 drone_trans_vicon = drone_trans_m
 
                 # Rotation, in Vicon reference system
@@ -301,16 +289,42 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                           drone_trans_vicon[2],
                           Drone_orientation[0], Drone_orientation[1],
                           Drone_orientation[2],
-                          0, 0, DEFAULT_HEIGHT, 0,
+                          0, 0, crazy.DEFAULT_HEIGHT, 0,
                           crazy.log_pos_x, crazy.log_pos_y, crazy.log_pos_z,
                           crazy.log_roll, crazy.log_pitch, crazy.log_yaw,
                           file=file_desc)
+                    logging.debug("Drone position sent to KF [m]:",
+                                  "(x, y, z)=(%s, %s, %s)", drone_trans_m[0],
+                                  drone_trans_m[1], drone_trans_m[2])
+                    logging.debug("Orientation quaternion from Vicon to KF: ",
+                                  "(w, x, y, z)=(%s, %s, %s)",
+                                  quaternion[0], quaternion[1],
+                                  quaternion[2], quaternion[3])
+                    logging.debug("Drone position from Vicon: ",
+                                  "(x, y, z)=(%s, %s, %s)",
+                                  drone_trans_vicon[0], drone_trans_vicon[1],
+                                  drone_trans_vicon[2])
+                    logging.debug("Drone orientation in Euler angles: ",
+                                  "(R, P, Y)=(%s, %s, %s)",
+                                  Drone_orientation[0], Drone_orientation[1],
+                                  Drone_orientation[2])
+                    # logging.debug("Setpoint sent to Drone: ",
+                    #               "(x, y, z, yaw) = (%s, %s, %s, %s)",
+                    #               0, 0, crazy.DEFAULT_HEIGHT, 0)
+                    logging.debug("Drone position from its logtable: ",
+                                  "(x, y, z)=(%s, %s, %s)", crazy.log_pos_x,
+                                  crazy.log_pos_y, crazy.log_pos_z)
+                    logging.debug("Drone orientation from its logtable: ",
+                                  "(R, P, Y)=(%s, %s, %s)", crazy.log_roll,
+                                  crazy.log_pitch, crazy.log_yaw)
 
                 if KALMAN_inTAKEOFF:
                     # Send measures to Kalman filter during take-off.
                     # We suggest not to do this while you use the
                     # MotionCommander class.
+                    logging.info("Using KF during take-off")
                     if KALMAN_wQUATERNION:
+                        logging.info("Using quaternions in KF")
                         cf.extpos.send_extpose(drone_trans_m[0],
                                                drone_trans_m[1],
                                                drone_trans_m[2],
@@ -342,6 +356,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
             # This is the end of the take off phase
             take_off = 0
+            logging.info("End of take-off")
 
             while 1:
 
@@ -371,6 +386,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                         if (wand_trans_m[0] == 0
                                 and wand_trans_m[1] == 0
                                 and wand_trans_m[2] == 0):
+                            logging.warning("Received unexpected ",
+                                            "NULL Wand position")
 
                             CONSEC_LOSSES += 1
                             wand_trans_m = last_sent_pos
@@ -391,6 +408,9 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                               SUBTRACTED_HEIGHT, DELTA_HEIGHT,
                                               cf, log_stabilizer, file_desc,
                                               MAKE_LOG_FILE)
+                                logging.debug("Landing because of errors: ",
+                                              "received %s NULL Wand ",
+                                              "positions", crazy.MAX_LOSS)
                         else:
 
                             if FIRST_ITERATION or CONSEC_LOSSES:
@@ -456,6 +476,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                             if (drone_trans_m[0] == 0
                                     and drone_trans_m[1] == 0
                                     and drone_trans_m[2] == 0):
+                                logging.warning("Received unexpected ",
+                                                "NULL Drone position")
                                 drone_trans_m = last_drone_position
                             else:
                                 # otherwise we convert the position in the body
@@ -573,6 +595,39 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                       crazy.log_roll, crazy.log_pitch,
                                       crazy.log_yaw,
                                       file=file_desc)
+                                logging.debug("Drone position sent to KF [m]:",
+                                              "(x, y, z)=(%s, %s, %s)",
+                                              drone_trans_m[0],
+                                              drone_trans_m[1],
+                                              drone_trans_m[2])
+                                logging.debug(
+                                    "Orientation quaternion from Vicon to "
+                                    "KF: ",
+                                    "(w, x, y, z)=(%s, %s, %s)",
+                                    quaternion[0], quaternion[1],
+                                    quaternion[2], quaternion[3])
+                                logging.debug("Drone position from Vicon: ",
+                                              "(x, y, z)=(%s, %s, %s)",
+                                              drone_trans_vicon[0],
+                                              drone_trans_vicon[1],
+                                              drone_trans_vicon[2])
+                                logging.debug(
+                                    "Drone orientation in Euler angles: ",
+                                    "(R, P, Y)=(%s, %s, %s)",
+                                    Drone_orientation[0], Drone_orientation[1],
+                                    Drone_orientation[2])
+                                # logging.debug("Setpoint sent to Drone: ",
+                                #               "(x, y, z, yaw) = (%s, %s,
+                                #               %s, %s)",
+                                #               0, 0, crazy.DEFAULT_HEIGHT, 0)
+                                logging.debug(
+                                    "Drone position from its logtable: ",
+                                    "(x, y, z)=(%s, %s, %s)", crazy.log_pos_x,
+                                    crazy.log_pos_y, crazy.log_pos_z)
+                                logging.debug(
+                                    "Drone orientation from its logtable: ",
+                                    "(R, P, Y)=(%s, %s, %s)", crazy.log_roll,
+                                    crazy.log_pitch, crazy.log_yaw)
 
                     # In case something wrong happens, we manage the
                     # exception with the start of the landing procedure:
@@ -589,6 +644,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     # -------------------------------------------------------------------------
 
     else:
+        logging.info("Test with thrusters OFF")
         # Here we have the condition TEST_noTHRUSTER == 1
         print("Starting Test mode with thrusters deactivated...")
         try:
@@ -650,16 +706,42 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                           drone_trans_vicon[2],
                           Drone_orientation[0], Drone_orientation[1],
                           Drone_orientation[2],
-                          0, 0, DEFAULT_HEIGHT, 0,
+                          0, 0, crazy.DEFAULT_HEIGHT, 0,
                           crazy.log_pos_x, crazy.log_pos_y, crazy.log_pos_z,
                           crazy.log_roll, crazy.log_pitch, crazy.log_yaw,
                           file=file_desc)
+                    logging.debug("Drone position sent to KF [m]:",
+                                  "(x, y, z)=(%s, %s, %s)", drone_trans_m[0],
+                                  drone_trans_m[1], drone_trans_m[2])
+                    logging.debug("Orientation quaternion from Vicon to KF: ",
+                                  "(w, x, y, z)=(%s, %s, %s)",
+                                  quaternion[0], quaternion[1],
+                                  quaternion[2], quaternion[3])
+                    logging.debug("Drone position from Vicon: ",
+                                  "(x, y, z)=(%s, %s, %s)",
+                                  drone_trans_vicon[0], drone_trans_vicon[1],
+                                  drone_trans_vicon[2])
+                    logging.debug("Drone orientation in Euler angles: ",
+                                  "(R, P, Y)=(%s, %s, %s)",
+                                  Drone_orientation[0], Drone_orientation[1],
+                                  Drone_orientation[2])
+                    # logging.debug("Setpoint sent to Drone: ",
+                    #               "(x, y, z, yaw) = (%s, %s, %s, %s)",
+                    #               0, 0, crazy.DEFAULT_HEIGHT, 0)
+                    logging.debug("Drone position from its logtable: ",
+                                  "(x, y, z)=(%s, %s, %s)", crazy.log_pos_x,
+                                  crazy.log_pos_y, crazy.log_pos_z)
+                    logging.debug("Drone orientation from its logtable: ",
+                                  "(R, P, Y)=(%s, %s, %s)", crazy.log_roll,
+                                  crazy.log_pitch, crazy.log_yaw)
 
                 if KALMAN_inTAKEOFF:
+                    logging.info("Using KF during take-off")
                     # send measures to Kalman filter also during the take
                     # off. We suggest to don't do this while you use the
                     # motion commander.
                     if KALMAN_wQUATERNION:
+                        logging.info("Using quaternions in KF")
                         cf.extpos.send_extpose(drone_trans_m[0],
                                                drone_trans_m[1],
                                                drone_trans_m[2],
@@ -674,6 +756,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # start of the landing procedure:
         except ViconDataStream.DataStreamException as exc:
             print('Stopping Test! \n', "Vicon reported: ", exc)
+            logging.exception("Stopping test!")
 
             if MAKE_LOG_FILE:
                 # close the connection with the log table:

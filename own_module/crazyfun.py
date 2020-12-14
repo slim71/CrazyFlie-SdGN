@@ -22,9 +22,23 @@ log_roll = 0
 log_pitch = 0
 log_yaw = 0
 
+# Security offset
+SEC_OFFSET = 0.3  # [m]
 
-# TODO: module/global variables?
+# The height the drone has to reach at the end of the take-off. This can't
+# be higher than the "MC_HEIGHT" used in the class of the
+# Motion Commander. We suggest to set it at least at 90% of its value.
+DEFAULT_HEIGHT = 0.5  # [m]
 
+# This is the default height used by the Motion Commander during take-off.
+# It has to be higher than DEFAULT_HEIGHT because we consider the
+# take-off phase concluded once the drone reaches DEFAULT_HEIGHT, but this
+# can't be always true because the Vicon might observe another value due to
+# noise
+MC_HEIGHT = 0.8  # [m]
+
+# Number of frames for the Vicon buffer
+frame_num = 1000
 
 # -----------------------------------------------------------------------------
 # ----------------------------------FUNCTIONS----------------------------------

@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607880488641</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Further analysis">
+      <created>1607894329978</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607894329978</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -299,6 +308,7 @@
     <MESSAGE value="Workflow analysis" />
     <MESSAGE value="Trying to improve the code" />
     <MESSAGE value="Further analysis and improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further analysis and improvements" />
+    <MESSAGE value="Further analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further analysis" />
   </component>
 </project>
