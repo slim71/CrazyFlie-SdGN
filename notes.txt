@@ -117,3 +117,24 @@ TO CHECK:
 - std dev of the KF ->     cf.param.set_value('locSrv.extQuatStdDev', 0.06)
         |-> check par in the client
 - sectioned commented out in motion_commander.py
+- why delta height?
+
+- log table
+- std dev for all parameter?
+- y with inverse sign
+
+TO CHANGE
+- modify logging use
+- getFrame returns no frame several times
+- std dev
+- add filter for sporadic noise
+
+DIFFERENCES
+- no KF reset
+- no log
+- no own matrix rotation -> after takeoff
+- forced last pos to 0 0 x
+- no KF?
+- no reassignment of W_Tmeters in case of 000
+- no first iteration flag, used i
+- consecuitive lost reset elsewhere

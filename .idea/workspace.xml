@@ -20,10 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_154916_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161032_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161213_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161315_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161733_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163010_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163222_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163835_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201215_112913_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201215_125422_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155048_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155341_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155552_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_160857_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_161353_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_114926_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_144542_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_144919_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_150236_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_151346_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_151622_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_155410_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_161704_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_163442.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +82,10 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vicon_dssdk" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Desktop/crazyflie-lib-python-master/cflib/positioning/position_hl_commander.py" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -279,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607894329978</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Log improvements">
+      <created>1607983175506</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607983175506</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -309,6 +340,7 @@
     <MESSAGE value="Trying to improve the code" />
     <MESSAGE value="Further analysis and improvements" />
     <MESSAGE value="Further analysis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further analysis" />
+    <MESSAGE value="Log improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log improvements" />
   </component>
 </project>

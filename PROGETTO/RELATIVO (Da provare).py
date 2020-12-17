@@ -348,7 +348,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                             drone_trans_m[2]])
 
             # We keep separated the variables dedicated to the Kalman
-            # update (last_drone_position) and the setpoint update
+            # update (last_drone_pos) and the setpoint update
             # (last_drone_setpoint)
             last_drone_setpoint = np.array([drone_trans_m[0],
                                             drone_trans_m[1],
