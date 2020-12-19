@@ -61,3 +61,18 @@ else
                 if KF+quat -> send pos+quat
                 else -> send pos
     except LANDING
+
+------------------------------------------------------
+continuously
+get frame
+create matrix
+get wand pos
+(if 000)
+-
+update and rotate wand pos
+update last wand pos
+update last drone ref
+get drone trans
+create hom drone pos
+send drone pos to KF
+send setpoint

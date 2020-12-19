@@ -108,7 +108,7 @@ DOUBTS
 
 TO CHECK:
 - reference systems for everything
-- angle signs
+- angle signs -> pitch inversed
 - dark floor and FlowDeck?
 - attitude estimation
 - position converted from 8B to 4B, but not quaternions?
@@ -138,3 +138,7 @@ DIFFERENCES
 - no reassignment of W_Tmeters in case of 000
 - no first iteration flag, used i
 - consecuitive lost reset elsewhere
+
+auto take off -> enter with
+auto landing -> exit with
+currently not needed cf_log in relativo no flag

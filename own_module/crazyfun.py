@@ -45,6 +45,7 @@ frame_num = 1000
 # -----------------------------------------------------------------------------
 
 # This function resets the Kalman Filter.
+# TODO: already in the Crazyflie object!
 def reset_estimator(crazyflie):
     """
     Resets the estimator.
@@ -108,6 +109,8 @@ def simple_log_async(sync_crazyflie, log_conf):
 def config_logging(sync_crazyflie):
     """
     Prepares the call to "simple_log_async" and achieves it.
+    Adds a log configuration to the Crazyflie with desired variables
+    logged every 10ms.
 
     :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
     :return: log_stab: Log stabilizer
