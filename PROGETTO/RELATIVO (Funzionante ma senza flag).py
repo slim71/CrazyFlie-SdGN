@@ -45,7 +45,6 @@ uri = 'radio://0/80/2M'  # Used for the connection with the drone
 
 # Used in the generation of the position reference for the drone
 last_trans = np.array([0, 0, 0])
-# Used in the generation of the position reference for the drone
 last_wand_trans = np.array([0, 0, 0])
 
 take_off = 1  # It will be set to 0 after the take off
@@ -229,8 +228,7 @@ logging.info("Drivers initialized.")
 logging.info('Connecting to the Crazyflie...')
 
 # Creating an instance of the Crazyflie object and getting the initial position
-cf = cflib.crazyflie.Crazyflie()  # TODO: debug included
-# TODO: commander included, +-mode?
+cf = cflib.crazyflie.Crazyflie()
 
 # TODO: move error handling from inside?
 first_pos = crazy.getFirstPosition(vicon, drone)
@@ -246,6 +244,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     logging.info("Connected!")
 
     height_drone = 0
+
     # AUTO TAKE-OFF to DEFAULT_HEIGHT!
     # Class used for the position control during the take-off phase:
     # take-off automatic when context created using "with"
@@ -253,7 +252,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # Functions called during take-off include a waiting period for the
         # drone to reach set height; atm that's commented out! TODO: include?
 
-        logging.info('Take-Off!')
+        logging.info('===========Take-Off!==============')
 
         # Checking drone height while taking off?
         # Needed if sleep_time is commented out from the take-off
@@ -262,7 +261,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
             # Request a new data frame from the server and its ordinal
             # number
-            logging.info("Getting a frame during initial take-off... \n")
+            logging.info("Getting a frame during take-off... \n")
             try:
                 got_frame = vicon.GetFrame()
                 logging.debug("Fetched! Pulled frame number: %d" if got_frame
@@ -272,6 +271,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     continue
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
+                exit("There was an error...")
 
             # Get the drone position in the Vicon reference system and
             # convert to meters
@@ -281,6 +281,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.debug(" Done.")
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
+                exit("There was an error...")
             drone_trans_m = drone_trans[0] / 1000
 
             # Get the Wand position in the Vicon reference system and
@@ -291,14 +292,29 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
+                exit("There was an error...")
             wand_trans_m = wand_trans[0] / 1000
 
+            # TODO: there's get_height in MotionCommander
             height_drone = drone_trans_m[2]
 
         last_drone_pos = drone_trans_m
         last_drone_ref = drone_trans_m
         last_wand_trans = wand_trans_m
 
+        logging.info("Printing available data...")
+        logging.debug("Wand current position (in Vicon system): %s",
+                      str(wand_trans_m))
+        logging.debug("Wand last position (in Vicon system): %s",
+                      str(last_wand_trans))
+        logging.debug("Drone current postion (in Vicon system): %s",
+                      str(drone_trans_m))
+        logging.debug("Drone last position (in Vicon system): %s",
+                      str(last_drone_pos))
+        logging.debug("Drone last reference point (in Vicon system): %s",
+                      str(last_drone_ref))
+
+        logging.info("==================Core===================")
         while 1:
 
             # Get the Wand position expressed in the Vicon
@@ -314,7 +330,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                   vicon.GetFrameNumber())
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
-                exit()
+                exit("There was an error...")
 
             Matrix_homogeneous, Matrix_Rotation, last_gamma = \
                 crazy.createMatrixRotation(
@@ -332,6 +348,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
+                exit("There was an error...")
             wand_trans_m = wand_trans[0] / 1000
 
             # Assuming the Wand sends (0, 0, 0) when turned off,
@@ -358,18 +375,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     logging.error("START LANDING! %d consecutive "
                                   "null positions received.",
                                   crazy.MAX_LOSS)
-
-                    # while last_drone_ref[2] \
-                    #         - SUBTRACTED_HEIGHT > 0:
-                    #     cf.commander.send_position_setpoint(
-                    #         last_drone_ref[0],
-                    #         last_drone_ref[1],
-                    #         last_drone_ref[2]
-                    #         - SUBTRACTED_HEIGHT,
-                    #         0)
-                    #     SUBTRACTED_HEIGHT = \
-                    #         SUBTRACTED_HEIGHT + DELTA_HEIGHT
-                    exit()
+                    exit("There was an error...")
 
             else:
                 logging.info("Normal cycle execution.")
@@ -391,6 +397,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     logging.info("Done.")
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error! \n %s", exc)
+                    exit("There was an error...")
                 drone_trans_m = drone_trans[0] / 1000
 
                 # Convert to body reference
@@ -427,20 +434,22 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                           str(last_drone_ref))
             logging.debug("Computed homogeneous matrix: %s",
                           str(Matrix_homogeneous))
-            logging.debug("Vicon rotation matrix: %s",
+            logging.debug("Vicon rotation matrix: %s \n \n \n",
                           str(vicon_matrix))
-
-            # except ViconDataStream.DataStreamException as e:
-            #     print('START LANDING: This error from Vicon occurred: \n',
-            #           e)
-            #     # LANDING PHASE: We received MAX_LOSS consecutive
-            #     # "null position" of the wand so we decide to start
-            #     # landing.
-            #     while last_drone_ref[2] - SUBTRACTED_HEIGHT > 0:
-            #         cf.commander.send_position_setpoint(
-            #             last_drone_ref[0], last_drone_ref[1],
-            #             last_drone_ref[2] - SUBTRACTED_HEIGHT, 0)
-            #         SUBTRACTED_HEIGHT = SUBTRACTED_HEIGHT + DELTA_HEIGHT
-            #     exit()
+            print("Printing available data...")
+            print("Wand current position (in Vicon system): %s",
+                  str(wand_trans_m))
+            print("Wand last position (in Vicon system): %s",
+                  str(last_wand_trans))
+            print("Drone current postion (in Vicon system): %s",
+                  str(drone_trans_m))
+            print("Drone last position (in Vicon system): %s",
+                  str(last_drone_pos))
+            print("Drone last reference point (in Vicon system): %s",
+                  str(last_drone_ref))
+            print("Computed homogeneous matrix: %s",
+                  str(Matrix_homogeneous))
+            print("Vicon rotation matrix: %s \n \n \n",
+                  str(vicon_matrix))
 
     # Automatic land exiting the "with" environment!
