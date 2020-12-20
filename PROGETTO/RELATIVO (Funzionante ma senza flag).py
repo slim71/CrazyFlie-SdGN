@@ -295,8 +295,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
             height_drone = drone_trans_m[2]
 
-        last_drone_pos = drone_trans_m  # np.array([0, 0, height_drone])
-        last_drone_ref = drone_trans_m  # np.array([0, 0, height_drone])
+        last_drone_pos = drone_trans_m
+        last_drone_ref = drone_trans_m
         last_wand_trans = wand_trans_m
 
         while 1:
@@ -316,7 +316,6 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.error("Error! \n %s", exc)
                 exit()
 
-            # TODO: add custom log
             Matrix_homogeneous, Matrix_Rotation, last_gamma = \
                 crazy.createMatrixRotation(
                     vicon,
@@ -324,6 +323,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     first_pos,
                     last_gamma,
                     1)  # manual value for the log flag
+            vicon_matrix = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
 
             # Absolute position of the Wand in [mm], then converted in [m]
             logging.info("Getting Wand translation...")
@@ -372,22 +372,15 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     exit()
 
             else:
-                # We pass from a Wand position expressed in the
-                # Vicon frame to a Wand position expressed in the
-                # Body frame of the drone, before sending it
-
-                # if CONSEC_LOSSES:  # >0, at least one loss
-                #
-                # else:
-                # The first time this will be 000 in theory
-                Wand_Translation = wand_trans_m - last_wand_trans
-                Wand_Translation = np.dot(Matrix_Rotation,
-                                          np.transpose(Wand_Translation))
-                last_wand_trans = wand_trans_m
+                logging.info("Normal cycle execution.")
 
                 CONSEC_LOSSES = 0
 
-                last_drone_ref += Wand_Translation
+                # (The first time this will be 000 in theory)
+                # Convert to body reference
+                Wand_Translation = wand_trans_m - last_wand_trans
+                Wand_Translation = np.dot(Matrix_Rotation,
+                                          np.transpose(Wand_Translation))
 
                 # We get the actual position of drone expressed in
                 # the Body frame and send it to the Kalman Filter
@@ -400,26 +393,42 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     logging.error("Error! \n %s", exc)
                 drone_trans_m = drone_trans[0] / 1000
 
-                # TODO: necessary check?
-                if drone_trans_m == [0, 0, 0]:
-                    drone_trans_m = last_drone_pos
-                else:
-                    drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
-                    drone_trans_hom = np.dot(Matrix_homogeneous,
-                                             np.transpose(drone_trans_hom))
-                    drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
-                    last_drone_pos = drone_trans_m
+                # Convert to body reference
+                drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
+                drone_trans_hom = np.dot(Matrix_homogeneous,
+                                         np.transpose(drone_trans_hom))
+                drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
+
+                last_wand_trans = wand_trans_m
+                last_drone_ref += Wand_Translation
+                last_drone_pos = drone_trans_m
 
                 # Send to KF
                 cf.extpos.send_extpos(drone_trans_m[0],
                                       drone_trans_m[1],
                                       drone_trans_m[2])
 
-                # We send the new setpoint
+                # Send the new setpoint to the drone
                 cf.commander.send_position_setpoint(last_drone_ref[0],
                                                     last_drone_ref[1],
                                                     last_drone_ref[2],
                                                     0)
+
+            logging.info("Printing available data...")
+            logging.debug("Wand current position (in Vicon system): %s",
+                          str(wand_trans_m))
+            logging.debug("Wand last position (in Vicon system): %s",
+                          str(last_wand_trans))
+            logging.debug("Drone current postion (in Vicon system): %s",
+                          str(drone_trans_m))
+            logging.debug("Drone last position (in Vicon system): %s",
+                          str(last_drone_pos))
+            logging.debug("Drone last reference point (in Vicon system): %s",
+                          str(last_drone_ref))
+            logging.debug("Computed homogeneous matrix: %s",
+                          str(Matrix_homogeneous))
+            logging.debug("Vicon rotation matrix: %s",
+                          str(vicon_matrix))
 
             # except ViconDataStream.DataStreamException as e:
             #     print('START LANDING: This error from Vicon occurred: \n',

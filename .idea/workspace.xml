@@ -305,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608415499372</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Updating flow">
+      <created>1608461064344</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608461064344</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -339,6 +346,7 @@
     <MESSAGE value="Adding proper log" />
     <MESSAGE value="Added 15-12-20 log files" />
     <MESSAGE value="Updating" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating" />
+    <MESSAGE value="Updating flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating flow" />
   </component>
 </project>
