@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/file_path" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608231739379</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Updating">
+      <created>1608415499371</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608415499372</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -335,6 +338,7 @@
     <MESSAGE value="Log improvements" />
     <MESSAGE value="Adding proper log" />
     <MESSAGE value="Added 15-12-20 log files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 15-12-20 log files" />
+    <MESSAGE value="Updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating" />
   </component>
 </project>

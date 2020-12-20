@@ -179,7 +179,8 @@ except ViconDataStream.DataStreamException as exc:
 # "ServerPush": the servers pushes frames to the client, best for latency,
 # frames dropped only if all buffers are full
 logging.info("Getting a frame in ServerPush mode... \n")
-# Continue until this mode is set, since it's the one we intend to use
+# Continue until this mode is set and working, since it's the one we intend
+# to use
 while not got_frame:
     try:
         vicon.SetStreamMode(ViconDataStream.Client.StreamMode.EServerPush)
@@ -282,8 +283,6 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.error("Error! \n %s", exc)
             drone_trans_m = drone_trans[0] / 1000
 
-            height_drone = drone_trans_m[2]
-
             # Get the Wand position in the Vicon reference system and
             # convert to meters
             logging.info("Getting Wand translation...")
@@ -292,9 +291,9 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error! \n %s", exc)
-
-            # Absolute position of the drone in [mm], then converted in [m]
             wand_trans_m = wand_trans[0] / 1000
+
+            height_drone = drone_trans_m[2]
 
         last_drone_pos = drone_trans_m  # np.array([0, 0, height_drone])
         last_drone_ref = drone_trans_m  # np.array([0, 0, height_drone])
@@ -399,22 +398,16 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     logging.info("Done.")
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error! \n %s", exc)
-
                 drone_trans_m = drone_trans[0] / 1000
 
                 # TODO: necessary check?
                 if drone_trans_m == [0, 0, 0]:
                     drone_trans_m = last_drone_pos
                 else:
-                    drone_trans_hom = np.array([drone_trans_m[0],
-                                                drone_trans_m[1],
-                                                drone_trans_m[2],
-                                                1])
+                    drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
                     drone_trans_hom = np.dot(Matrix_homogeneous,
                                              np.transpose(drone_trans_hom))
-                    drone_trans_m = np.array([drone_trans_hom[0],
-                                              drone_trans_hom[1],
-                                              drone_trans_hom[2]])
+                    drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
                     last_drone_pos = drone_trans_m
 
                 # Send to KF
