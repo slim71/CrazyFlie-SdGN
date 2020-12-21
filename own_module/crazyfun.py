@@ -6,6 +6,7 @@
 # ----------------------------------IMPORT-------------------------------------
 # -----------------------------------------------------------------------------
 from __future__ import print_function
+import logging
 from cflib.crazyflie.log import LogConfig
 import numpy as np
 import math
@@ -139,7 +140,7 @@ def getFirstPosition(vicon_client, drone_obj):
     :return drone_pos_m: Drone position in the Vicon system, in meters
     """
 
-    drone_pos_m = np.array([0, 0, 0])
+    drone_pos_m = np.array([0.0, 0.0, 0.0])
     iterations = 0
 
     # It can happen that the position value [0,0,0] is received
@@ -203,7 +204,8 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
     :return:
         HomMatrix: Homogeneous transformation matrix to drone body,
-        last_gamma: Last valid yaw angle value
+        last_gamma: Last valid yaw angle value,
+        RotMatrix: Rotation matrix to drone body
     """
 
     if kf_quat:
@@ -224,6 +226,7 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
             GetSegmentGlobalRotationEulerXYZ(drone_obj, drone_obj)
         # We are interested only in the first part of the structure:
         euler_radians = euler[0]
+        logging.debug("Euler angles: %s", str(euler_radians))
 
         # In case we receive tha value [0,0,0], that means an error with the
         # Vicon Tracker, we continue using the previous value of the yaw angle
@@ -277,7 +280,7 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
 
     # In case we update the last value of the yaw angle (not null value) we
     # update returning it together with the matrices
-    return HomMatrix, last_gamma
+    return HomMatrix, RotMatrix, last_gamma
 
 
 def landing(last_pos, sub_height, de_height, crazyflie, lg_stab,

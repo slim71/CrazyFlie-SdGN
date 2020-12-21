@@ -6,9 +6,10 @@ from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
+import logging
 
 
-URI = 'radio://0/80/2M/E7E7E7E7E7'
+URI = 'radio://0/80/2M/E7E7E7E7E7'  # uri = 'radio://0/80/2M'
 DEFAULT_HEIGHT = 0.5
 BOX_LIMIT = 0.5
 
@@ -78,6 +79,7 @@ def param_deck_flow(name, value):
 
 if __name__ == '__main__':
     cflib.crtp.init_drivers(enable_debug_driver=False)
+    logging.debug('main')
 
     with SyncCrazyflie(URI, cf=Crazyflie(rw_cache='./cache')) as scf:
 
@@ -85,13 +87,19 @@ if __name__ == '__main__':
                                          cb=param_deck_flow)
         time.sleep(1)
 
-        logconf = LogConfig(name='Position', period_in_ms=10)
-        logconf.add_variable('stateEstimate.x', 'float')
-        logconf.add_variable('stateEstimate.y', 'float')
-        scf.cf.log.add_config(logconf)
-        logconf.data_received_cb.add_callback(log_pos_callback)
+        # logconf = LogConfig(name='Position', period_in_ms=10)
+        # logconf.add_variable('stateEstimate.x', 'float')
+        # logconf.add_variable('stateEstimate.y', 'float')
+        # scf.cf.log.add_config(logconf)
+        # logconf.data_received_cb.add_callback(log_pos_callback)
+        #
+        # if is_deck_attached:
+        #     logconf.start()
+        #     move_box_limit(scf)
+        #     logconf.stop()
 
-        if is_deck_attached:
-            logconf.start()
-            move_box_limit(scf)
-            logconf.stop()
+        with MotionCommander(scf) as mc:
+            time.sleep(1)
+            mc.forward(0.5)
+            mc.back(0.5)
+            time.sleep(1)

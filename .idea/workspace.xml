@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PROGETTO/commander test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/test123.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/first version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/plot_log_file.m" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/LOG/plot_log_file.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/relativo flow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/relativo flow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/commander test.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/commander test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608494794996</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Log improvements">
+      <created>1608501668033</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608501668033</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
