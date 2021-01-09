@@ -35,7 +35,6 @@ Crazy Real Time Protocol (CRTP)
 
 - MotionCommander: allow to make the take-off "automatic" once Drone class is generated
 - MAYBE IMPORTANT: MotionCommander only for take-off, Commander for everything else
-- TODO: check differences from original cflib
 - GetSegmentGlobalRotationEulerXYZ: to get rotation matrix indicating the orientation of an object, relative to the
     fixed Vicon reference system
 - GetSegmentGlobalTranslation: to get the translation of the Body ref. system of an object, relative to the fixed Vicon
@@ -79,11 +78,6 @@ Files:
 - Interface.py and main: simple GUI to get a README file with all the info to follow the experiments; it lets the user
     run one of the previously mentioned files; includes a test case of the loop
 
-
-POSSIBLE CAUSES OF THE PROBLEMS
-- Vicon and Drone use opposite signs for the orientation angles
-- lags
-
 COMPLETED TODOs
 - Flowdeck? Yes
 - sepoints? to the drone
@@ -99,6 +93,7 @@ COMPLETED TODOs
 - not in __all__ -> no matter since it's a direct import
 - homMat: from Vicon to body
 - drone_trans_vicon -> in log prints
+- get_height was from the thread
 
 DOUBTS
 - is it ok to use same name for subject and segment?
@@ -109,7 +104,6 @@ DOUBTS
 TO CHECK:
 - reference systems for everything
 - angle signs -> pitch inversed
-- dark floor and FlowDeck?
 - attitude estimation
 - position converted from 8B to 4B, but not quaternions?
 - are quaternions actually (x,y,z,w)? Vicon says so, but in MATLAB seems to be the other way around:
@@ -124,10 +118,8 @@ TO CHECK:
 - y with inverse sign
 
 TO CHANGE
-- modify logging use
-- getFrame returns no frame several times
 - std dev
-- add filter for sporadic noise
+- add filter for sporadic noise?
 
 DIFFERENCES
 - no KF reset
@@ -142,3 +134,5 @@ DIFFERENCES
 auto take off -> enter with
 auto landing -> exit with
 currently not needed cf_log in relativo no flag
+
+mat_rot come pag 13 di MecRob

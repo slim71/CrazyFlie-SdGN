@@ -130,7 +130,7 @@ try:
     vicon.Connect(VICON_IP + ":" + VICON_PORT)
 except ViconDataStream.DataStreamException as exc:
     print("Can't connect to Vicon! Error: ")
-    logging.error("Can't connect to Vicon! \n %s", exc)
+    logging.error("Can't connect to Vicon! --> %s", exc)
 logging.info("Connected to Vicon!")
 
 # Setting a buffer size to work with
@@ -148,7 +148,7 @@ try:
     vicon.EnableDeviceData()
     vicon.EnableCentroidData()
 except ViconDataStream.DataStreamException as exc:
-    logging.error("Couldn't setup data types. \n %s", exc)
+    logging.error("Couldn't setup data types. --> %s", exc)
 
 # Report whether the data types have been enabled
 logging.debug('Segments: %s', str(vicon.IsSegmentDataEnabled()))
@@ -169,7 +169,7 @@ try:
     logging.debug("Fetched! Pulled frame number: %d" if vicon.GetFrame()
                   else "Vicon is not streaming!", vicon.GetFrameNumber())
 except ViconDataStream.DataStreamException as exc:
-    logging.error("Error using ClientPull mode. \n %s", exc)
+    logging.error("Error using ClientPull mode. --> %s", exc)
 # "ClientPreFetch": improved ClientPull, server performances unlikely to be
 # affected, latency slightly reduced, buffers unlikely to be filled up
 logging.info("Getting a frame in PreFetch mode...")
@@ -178,7 +178,7 @@ try:
     logging.debug("Fetched! Pulled frame number: %d" if vicon.GetFrame()
                   else "Vicon is not streaming!", vicon.GetFrameNumber())
 except ViconDataStream.DataStreamException as exc:
-    logging.error("Error using ClientPreFetch mode. \n %s", exc)
+    logging.error("Error using ClientPreFetch mode. --> %s", exc)
 # "ServerPush": the servers pushes frames to the client, best for latency,
 # frames dropped only if all buffers are full
 logging.info("Getting a frame in ServerPush mode...")
@@ -191,7 +191,7 @@ while not got_frame:
         logging.debug("Fetched! Pulled frame number: %d" if got_frame
                       else "Vicon is not streaming!", vicon.GetFrameNumber())
     except ViconDataStream.DataStreamException as exc:
-        logging.error("Error using ServerPush mode. \n %s", exc)
+        logging.error("Error using ServerPush mode. --> %s", exc)
 logging.info("ServerPush mode set.")
 got_frame = 0
 
@@ -203,7 +203,7 @@ try:
     for frameRateName, frameRateValue in vicon.GetFrameRates().items():
         logging.info("%s : %d Hz \n", frameRateName, frameRateValue)
 except ViconDataStream.DataStreamException as exc:
-    logging.error("Framerate error. \n %s", exc)
+    logging.error("Framerate error. --> %s", exc)
 
 # Setting reference system
 logging.info("Setting axis...")
@@ -212,7 +212,7 @@ try:
                          ViconDataStream.Client.AxisMapping.ELeft,
                          ViconDataStream.Client.AxisMapping.EUp)
 except ViconDataStream.DataStreamException as exc:
-    logging.error("Error while setting axis. \n %s", exc)
+    logging.error("Error while setting axis. --> %s", exc)
 
 xAxis, yAxis, zAxis = vicon.GetAxisMapping()
 logging.info('X Axis: %s', str(xAxis))
@@ -247,7 +247,15 @@ drone_trans = np.array([0.0, 0.0, 0.0])
 wand_trans = np.array([0.0, 0.0, 0.0])
 Wand_Translation = np.array([0.0, 0.0, 0.0])
 
-# TODO: add check on flodeck presence? and catch
+# Test to check Segment and Subject names
+subs = vicon.GetSubjectNames()
+for each_sub in subs:
+    segs = vicon.GetSegmentNames(each_sub)
+    logging.info("%s has the following segments: %s", each_sub, segs)
+    root = vicon.GetSubjectRootSegmentName(each_sub)
+    logging.info("%s has root: %s", root)
+
+# TODO: add check on flowdeck presence? (and catch)
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     logging.info("Connected!")
@@ -281,7 +289,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 if not got_frame:
                     continue
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! \n %s", exc)
+                logging.error("Error! --> %s", exc)
                 exit("There was an error...")
 
             # Get the drone position in the Vicon reference system and
@@ -291,12 +299,24 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
                 logging.debug(" Done.")
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! \n %s", exc)
+                logging.error("Error! --> %s", exc)
                 exit("There was an error...")
             drone_trans_mm = drone_trans[0]
             drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
                                       float(drone_trans_mm[1]) / 1000,
                                       float(drone_trans_mm[2]) / 1000])
+
+            # TODO: check this in lab
+            # R_x * (R_y * R_z)
+            # all in Global Vicon -> RPY in global
+            try:
+                mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+                mat_gl = np.array(mat_gl[0])
+                dronePos_l = np.transpose(mat_gl) * drone_trans_m
+                drone_trans_m = dronePos_l  # to keep on with the program
+            except ViconDataStream.DataStreamException as exc:
+                logging.error("Error! --> %s", exc)
+                exit("There was an error...")
 
             # Get the Wand position in the Vicon reference system and
             # convert to meters
@@ -305,14 +325,13 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 wand_trans = vicon.GetSegmentGlobalTranslation(Wand, 'Root')
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! \n %s", exc)
+                logging.error("Error! --> %s", exc)
                 exit("There was an error...")
             wand_trans_mm = wand_trans[0]
             wand_trans_m = np.array([float(wand_trans_mm[0]) / 1000,
                                      float(wand_trans_mm[1]) / 1000,
                                      float(wand_trans_mm[2]) / 1000])
 
-            # TODO: there's get_height in MotionCommander
             height_drone = drone_trans_m[2]
 
         last_drone_pos = drone_trans_m
@@ -353,7 +372,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     last_frame = n_frame
 
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! \n %s", exc)
+                logging.error("Error! --> %s", exc)
                 exit("There was an error...")
 
             Matrix_homogeneous, Matrix_Rotation, last_gamma = \
@@ -372,14 +391,13 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 wand_trans = vicon.GetSegmentGlobalTranslation(Wand, 'Root')
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! \n %s", exc)
+                logging.error("Error! --> %s", exc)
                 exit("There was an error...")
             wand_trans_mm = wand_trans[0]
             wand_trans_m = np.array([float(wand_trans_mm[0]) / 1000,
                                      float(wand_trans_mm[1]) / 1000,
                                      float(wand_trans_mm[2]) / 1000])
 
-            # TODO: give values to troubleshoot vars
             # Assuming the Wand sends (0, 0, 0) when turned off,
             # this is considered as an error
             if not all(wand_trans_m):  # wand_trans_m == [0, 0, 0]:
@@ -425,18 +443,30 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                         drone, drone)
                     logging.info("Done.")
                 except ViconDataStream.DataStreamException as exc:
-                    logging.error("Error! \n %s", exc)
+                    logging.error("Error! --> %s", exc)
                     exit("There was an error...")
                 drone_trans_mm = drone_trans[0]
                 drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
                                           float(drone_trans_mm[1]) / 1000,
                                           float(drone_trans_mm[2]) / 1000])
 
-                # Convert to body reference
-                drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
-                drone_trans_hom = np.dot(Matrix_homogeneous,
-                                         np.transpose(drone_trans_hom))
-                drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
+                # TODO: check this in lab
+                # R_x * (R_y * R_z)
+                # all in Global Vicon -> RPY in global
+                try:
+                    mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+                    mat_gl = np.array(mat_gl[0])
+                    dronePos_l = np.transpose(mat_gl) * drone_trans_m
+                    drone_trans_m = dronePos_l  # to keep on with the program
+                except ViconDataStream.DataStreamException as exc:
+                    logging.error("Error! --> %s", exc)
+                    exit("There was an error...")
+
+                # # Convert to body reference
+                # drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
+                # drone_trans_hom = np.dot(Matrix_homogeneous,
+                #                          np.transpose(drone_trans_hom))
+                # drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
 
                 last_dp = last_drone_pos
                 last_dr = last_drone_ref

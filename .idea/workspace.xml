@@ -21,9 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_163442.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/commander test.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/commander test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/positioning/motion_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/motion_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608501668033</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Improvements after lab">
+      <created>1608584896676</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608584896676</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -386,6 +394,7 @@
     <MESSAGE value="Updating" />
     <MESSAGE value="Updating flow" />
     <MESSAGE value="Log improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Log improvements" />
+    <MESSAGE value="Improvements after lab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improvements after lab" />
   </component>
 </project>

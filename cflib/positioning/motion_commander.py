@@ -96,7 +96,7 @@ class MotionCommander:
             raise Exception('Crazyflie is not connected')
 
         self._is_flying = True
-        #To comment
+
         self._reset_position_estimator()
 
         self._thread = _SetPointThread(self._cf)
@@ -277,11 +277,11 @@ class MotionCommander:
         velocity_z = velocity * distance_z_m / distance
 
         self.start_linear_motion(velocity_x, velocity_y, velocity_z)
-        """
-        We recommand to comment the following two lines if after the use of Motion Commander we start to update Kalman's Filter: 
-        #time.sleep(flight_time)
-        #self.stop()
-        """
+
+        # We recommand to comment the following two lines if after the
+        # use of Motion Commander we start to update Kalman Filter:
+        time.sleep(flight_time)
+        self.stop()
 
     # Velocity based primitives
 
