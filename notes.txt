@@ -94,6 +94,7 @@ COMPLETED TODOs
 - homMat: from Vicon to body
 - drone_trans_vicon -> in log prints
 - get_height was from the thread
+- decommented pauses
 
 DOUBTS
 - is it ok to use same name for subject and segment?
@@ -136,3 +137,15 @@ auto landing -> exit with
 currently not needed cf_log in relativo no flag
 
 mat_rot come pag 13 di MecRob
+
+PLAN 15/1
+- check subjects and segments (lines 250-ish)
+- check rot mat
+- check framerates
+- check sleep funcs to be sure
+- check translation computations
+- while height not used?
+- line 353 sleep?
+- maybe lower framerate?
+- axis must be set?
+- improve format
