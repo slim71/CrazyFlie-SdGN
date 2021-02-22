@@ -12,6 +12,7 @@ import cflib.utils
 import argparse
 import logging
 from own_module import crazyfun as crazy
+import time
 
 # -----------------------------------------------------------------------------
 # ----------------------------------SET UP-------------------------------------
@@ -232,6 +233,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # Class used for the position control during the take-off phase:
         # take-off automatic when context created using "with"
         with MotionCommander(scf, MC_HEIGHT) as mc:
+            mc.forward(0.3)
+            print("forward done")
+            mc.back(0.3)
+            print("back done")
+            time.sleep(5)
 
             print('Take-Off!')
 

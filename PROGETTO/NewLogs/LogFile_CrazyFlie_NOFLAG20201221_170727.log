@@ -1,0 +1,40 @@
+2020-12-21 17:07:27,125 [INFO]: Connecting to the Vicon...
+2020-12-21 17:07:27,126 [INFO]: Connected to Vicon!
+2020-12-21 17:07:27,126 [INFO]: Setting up the buffer...
+2020-12-21 17:07:27,126 [INFO]: Buffer of 1000 frames created.
+2020-12-21 17:07:27,127 [INFO]: Enabling data types...
+2020-12-21 17:07:27,127 [DEBUG]: Segments: True
+2020-12-21 17:07:27,127 [DEBUG]: Markers: True
+2020-12-21 17:07:27,127 [DEBUG]: Unlabeled Markers: True
+2020-12-21 17:07:27,127 [DEBUG]: Marker Rays: True
+2020-12-21 17:07:27,127 [DEBUG]: Devices: True
+2020-12-21 17:07:27,127 [DEBUG]: Centroids: True 
+2020-12-21 17:07:27,127 [INFO]: Testing stream modes...
+2020-12-21 17:07:27,127 [INFO]: Getting a frame in ClientPull mode...
+2020-12-21 17:07:28,128 [ERROR]: Error using ClientPull mode. 
+ NoFrame
+2020-12-21 17:07:28,128 [INFO]: Getting a frame in PreFetch mode...
+2020-12-21 17:07:29,128 [ERROR]: Error using ClientPreFetch mode. 
+ NoFrame
+2020-12-21 17:07:29,128 [INFO]: Getting a frame in ServerPush mode...
+2020-12-21 17:07:29,130 [DEBUG]: Fetched! Pulled frame number: 1189581
+2020-12-21 17:07:29,130 [INFO]: ServerPush mode set.
+2020-12-21 17:07:29,130 [INFO]: Getting available framerates...
+2020-12-21 17:07:29,130 [INFO]: Current frame rate: 100.0 Hz.
+2020-12-21 17:07:29,131 [INFO]: Frame rates available: 
+2020-12-21 17:07:29,131 [INFO]: Process Rate : 99 Hz 
+
+2020-12-21 17:07:29,131 [INFO]: Setting axis...
+2020-12-21 17:07:29,131 [INFO]: X Axis: AxisMapping.EForward
+2020-12-21 17:07:29,131 [INFO]: Y Axis: AxisMapping.ELeft
+2020-12-21 17:07:29,132 [INFO]: Z Axis: AxisMapping.EUp
+2020-12-21 17:07:29,132 [INFO]: Initializing drivers...
+2020-12-21 17:07:29,132 [INFO]: Drivers initialized.
+2020-12-21 17:07:29,133 [INFO]: Connecting to the Crazyflie...
+2020-12-21 17:07:29,133 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x000001F9A868C208>>]
+2020-12-21 17:07:29,133 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x000001F9A868C2C8>>]
+2020-12-21 17:07:29,134 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x000001F9A868C388>>]
+2020-12-21 17:07:29,134 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2020-12-21 17:07:29,135 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x000001F9A868C6C8>>]
+2020-12-21 17:07:29,136 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000001F9A868C808>>]
+2020-12-21 17:07:29,136 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000001F9A868C808>>]

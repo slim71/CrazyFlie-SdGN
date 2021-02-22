@@ -1,0 +1,44 @@
+2020-12-21 17:27:43,541 [INFO]: Connecting to the Vicon...
+2020-12-21 17:27:43,542 [INFO]: Connected to Vicon!
+2020-12-21 17:27:43,543 [INFO]: Setting up the buffer...
+2020-12-21 17:27:43,543 [INFO]: Buffer of 1000 frames created.
+2020-12-21 17:27:43,543 [INFO]: Enabling data types...
+2020-12-21 17:27:43,543 [DEBUG]: Segments: True
+2020-12-21 17:27:43,543 [DEBUG]: Markers: True
+2020-12-21 17:27:43,543 [DEBUG]: Unlabeled Markers: True
+2020-12-21 17:27:43,543 [DEBUG]: Marker Rays: True
+2020-12-21 17:27:43,543 [DEBUG]: Devices: True
+2020-12-21 17:27:43,543 [DEBUG]: Centroids: True 
+2020-12-21 17:27:43,543 [INFO]: Testing stream modes...
+2020-12-21 17:27:43,544 [INFO]: Getting a frame in ClientPull mode...
+2020-12-21 17:27:44,544 [ERROR]: Error using ClientPull mode. 
+ NoFrame
+2020-12-21 17:27:44,544 [INFO]: Getting a frame in PreFetch mode...
+2020-12-21 17:27:45,544 [ERROR]: Error using ClientPreFetch mode. 
+ NoFrame
+2020-12-21 17:27:45,544 [INFO]: Getting a frame in ServerPush mode...
+2020-12-21 17:27:45,544 [DEBUG]: Fetched! Pulled frame number: 1311224
+2020-12-21 17:27:45,544 [INFO]: ServerPush mode set.
+2020-12-21 17:27:45,544 [INFO]: Getting available framerates...
+2020-12-21 17:27:45,544 [INFO]: Current frame rate: 100.0 Hz.
+2020-12-21 17:27:45,545 [INFO]: Frame rates available: 
+2020-12-21 17:27:45,545 [INFO]: Process Rate : 99 Hz 
+
+2020-12-21 17:27:45,545 [INFO]: Setting axis...
+2020-12-21 17:27:45,545 [INFO]: X Axis: AxisMapping.EForward
+2020-12-21 17:27:45,545 [INFO]: Y Axis: AxisMapping.ELeft
+2020-12-21 17:27:45,545 [INFO]: Z Axis: AxisMapping.EUp
+2020-12-21 17:27:45,545 [INFO]: Initializing drivers...
+2020-12-21 17:27:45,545 [INFO]: Drivers initialized.
+2020-12-21 17:27:45,545 [INFO]: Connecting to the Crazyflie...
+2020-12-21 17:27:45,545 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x0000022F4224C188>>]
+2020-12-21 17:27:45,545 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x0000022F4224C288>>]
+2020-12-21 17:27:45,545 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x0000022F4224C308>>]
+2020-12-21 17:27:45,545 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2020-12-21 17:27:45,546 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x0000022F4224C5C8>>]
+2020-12-21 17:27:45,546 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000022F4224C748>>]
+2020-12-21 17:27:45,546 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000022F4224C748>>]
+2020-12-21 17:27:45,546 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2020-12-21 17:27:45,550 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2020-12-21 17:27:45,881 [WARNING]: Got link error callback [Too many packets lost] in state [1]
+2020-12-21 17:27:45,882 [INFO]: Callback->Connected failed to [radio://0/80/2M]: Too many packets lost

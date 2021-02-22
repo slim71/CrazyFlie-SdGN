@@ -20,32 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_163442.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_105049.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_111735.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_113041.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114450.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114747.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_120328.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_123542.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161423.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161652.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162254.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162401.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_163203.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_164250.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_165313.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171658.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171933.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172030.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172118.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172153.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/cache/05C5AF70.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/cache/1042AFA8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/droneRot_fromVicon_150121.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
   </component>
   <component name="RecentsManager">
@@ -387,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610211731615</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Lab 15/01">
+      <created>1610744717231</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610744717231</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -425,6 +407,7 @@
     <MESSAGE value="Log improvements" />
     <MESSAGE value="Improvements after lab" />
     <MESSAGE value="Added rotation matrix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rotation matrix" />
+    <MESSAGE value="Lab 15/01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab 15/01" />
   </component>
 </project>

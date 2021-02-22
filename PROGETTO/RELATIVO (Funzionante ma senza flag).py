@@ -77,7 +77,7 @@ SUBTRACTED_HEIGHT = 0.01  # [m]
 # The height the drone has to reach at the end of the take-off. This can't
 # be higher than the "MC_HEIGHT" used in the class of the
 # Motion Commander. We suggest to set it at least at 90% of its value.
-DEFAULT_HEIGHT = 0.2  # [m]
+DEFAULT_HEIGHT = 0.5  # [m]
 
 # This is the default height used by the Motion Commander during take-off.
 # It has to be higher than DEFAULT_HEIGHT because we consider the
@@ -326,6 +326,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # drone to reach set height; atm that's commented out!
 
         logging.info('===========Take-Off!==============')
+        mc.forward(0.3)
+        print("forward done")
+        mc.back(0.3)
+        print("back done")
+        time.sleep(5)
 
         # Checking drone height while taking off?
         # Needed if sleep_time is commented out from the take-off
