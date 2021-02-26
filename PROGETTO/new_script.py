@@ -42,11 +42,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                                   if sc_v.got_frame
                                   else "Vicon is not streaming!",
                                   sc_v.new_frame)
-                # Consider only one every each frame
-                # if sc_v.new_frame - sc_v.last_frame < 10:
-                #    continue
-                # else:
-                #    sc_v.last_frame = sc_v.new_frame
             except ViconDataStream.DataStreamException as exc:
                 logging.error("Error while getting a frame in the core! "
                               "--> %s", exc)
