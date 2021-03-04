@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PROGETTO/internal_estimate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROGETTO/supervised_box.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/send_attempt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/total_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/new_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/new_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/internal_estimate.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/internal_estimate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/new_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/new_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/script_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/script_variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/supervised_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/supervised_box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/test123.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/experiments.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,56 +80,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\test_SV" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\test" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\own_module" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN" />
-      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\crazyfun" />
-      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.prov">
-    <configuration name="RELATIVO (Da provare)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CrazyFlie-SdGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RELATIVO (Funzionante ma senza flag)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CrazyFlie-SdGN" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.internal_estimate">
     <configuration name="first version" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,6 +109,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="internal_estimate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrazyFlie-SdGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/internal_estimate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="prov" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,6 +143,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/prov.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="script_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrazyFlie-SdGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/script_setup.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.prov" />
+        <item itemvalue="Python.internal_estimate" />
+        <item itemvalue="Python.script_setup" />
         <item itemvalue="Python.test123" />
+        <item itemvalue="Python.prov" />
         <item itemvalue="Python.first version" />
-        <item itemvalue="Python.RELATIVO (Funzionante ma senza flag)" />
-        <item itemvalue="Python.RELATIVO (Da provare)" />
       </list>
     </recent_temporary>
   </component>
@@ -387,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614372534784</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Experiments to be done">
+      <created>1614380629729</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1614380629729</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">

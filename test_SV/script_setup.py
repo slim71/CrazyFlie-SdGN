@@ -1,6 +1,6 @@
+import os
+import __main__
 import logging
-import argparse
-import math
 from datetime import datetime
 import numpy as np
 from cflib import crazyflie
@@ -9,12 +9,12 @@ from cflib import crtp
 from vicon_dssdk import ViconDataStream
 
 # -----------------------------------DEBUG------------------------------------
+file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
-filename = "./NewLogs/LogFile_CrazyFlie_NOFLAG" \
-           + datetime.now().strftime("%Y%m%d_%H%M%S")
+filename = "./exp_logs/" + file_name + \
+           datetime.now().strftime("__%Y%m%d_%H%M%S")
 
 logname = filename + ".log"
-filename = filename + ".txt"
 
 # Only logs of level ERROR or above will be tracked
 # https://docs.python.org/3/library/logging.html#levels
@@ -24,10 +24,6 @@ logging.basicConfig(filename=logname,
                     format="%(asctime)s [%(levelname)s]: %(message)s")
 
 # -------------------------------CONNECTION-----------------------------------
-# TODO: useless, since no command line is used? delete
-parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--hostname", "--" + sc_v.VICON_IP + ":" + sc_v.VICON_PORT)
-args = parser.parse_args()
 
 # Extracted from PyVicon Library
 logging.info("Connecting to the Vicon...")

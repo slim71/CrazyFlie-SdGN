@@ -58,3 +58,7 @@ last_wand_pos = np.array([0.0, 0.0, 0.0])
 wand_pos_m = np.array([0.0, 0.0, 0.0])
 wand_pos = np.array([0.0, 0.0, 0.0])
 Wand_Translation = np.array([0.0, 0.0, 0.0])
+
+
+is_deck_attached = False
+position_estimate = [0, 0]

@@ -1,0 +1,6 @@
+position estimator already reset at take-off
+
+supervised_box: position/orientation at each angle of a square, from Vicon
+internal_estimate: Vicon and estimate of position/orientation
+total_data: all data from Vicon and from estimator
+send_attempt: giving the drone some fixed reference point
