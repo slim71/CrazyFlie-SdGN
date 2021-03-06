@@ -3,4 +3,10 @@ position estimator already reset at take-off
 supervised_box: position/orientation at each angle of a square, from Vicon
 internal_estimate: Vicon and estimate of position/orientation
 total_data: all data from Vicon and from estimator
-send_attempt: giving the drone some fixed reference point
+send_attempt: giving the drone some fixed reference points
+hover_simple: hover in place for >30s, to test estimate
+
+try to connect and use the client!
+use this to observe variables and other stuff
+
+try to check channel usage? lower log rates

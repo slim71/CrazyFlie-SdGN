@@ -144,7 +144,7 @@ for each_sub in subs:
     root = vicon.GetSubjectRootSegmentName(each_sub)
     logging.info("%s has root: %s", str(each_sub), str(root))
 
-logging.debug("Checking functions without flying")
+logging.debug("===Checking functions without flying===")
 attempts = 0
 got_frame = 0  # reset flag
 while attempts < 10:

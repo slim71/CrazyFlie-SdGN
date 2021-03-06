@@ -1,22 +1,20 @@
 import logging
+import time
+from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
-import test_SV.script_variables as sc_v
+import script_variables as sc_v
 import script_setup as sc_s
-from own_module import crazyfun as crazy
 
-with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
-    scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
+with SyncCrazyflie(sc_v.uri, cf=Crazyflie(rw_cache='./cache')) as scf:
 
-    crazy.reset_estimator(sc_s.cf)
-
-    poslog = LogConfig(name='Position', period_in_ms=100)
+    poslog = LogConfig(name='Position', period_in_ms=1000)
     poslog.add_variable('stateEstimate.x', 'float')
     poslog.add_variable('stateEstimate.y', 'float')
     poslog.add_variable('stateEstimate.z', 'float')
     scf.cf.log.add_config(poslog)
-    orlog = LogConfig(name='Stabilizer', period_in_ms=100)
+    orlog = LogConfig(name='Stabilizer', period_in_ms=1000)
     orlog.add_variable('stabilizer.roll', 'float')
     orlog.add_variable('stabilizer.pitch', 'float')
     orlog.add_variable('stabilizer.yaw', 'float')
@@ -26,14 +24,18 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     orlog.start()
 
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
-        logging.info("===right===")
-        mc.right(0.3)
-        logging.info("===forward===")
-        mc.forward(0.3)
-        logging.info("===left===")
-        mc.left(0.3)
-        logging.info("===backward===")
-        mc.backward(0.3)
+
+        logging.info("Take-off!")
+        time.sleep(60)
+
+        # If it doesn't work, try this:
+        # sc_s.cf.param.set_value("flightmode.althold", "True")
+        # it = 0
+        # while it < 700:
+        #     sc_s.cf.commander.send_setpoint(0, 0, 0, 32767)
+        #     sc_s.cf.param.set_value("flightmode.althold", "True")
+        #     time.sleep(0.01)
+        #     it += 1
 
     poslog.stop()
     orlog.stop()

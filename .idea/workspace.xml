@@ -20,17 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_SV/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_SV/send_attempt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_SV/total_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/hover_simple.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/internal_estimate.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/internal_estimate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/new_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/new_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/script_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/script_variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/supervised_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/supervised_box.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/test123.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/experiments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/experiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/experiments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/internal_estimate.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/internal_estimate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/script_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/send_attempt.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/send_attempt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/total_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/total_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -401,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614380629729</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Experiments to be done">
+      <created>1614899517466</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1614899517466</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="UnknownFeatures">

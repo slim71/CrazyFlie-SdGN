@@ -7,10 +7,15 @@ import numpy as np
 import logging
 import script_variables as sc_v
 import script_setup as sc_s
+from own_module import crazyfun as crazy
 
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     logging.info("Connected!")
+
+    scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
+
+    crazy.reset_estimator(sc_s.cf)
 
     height_drone = 0
 
