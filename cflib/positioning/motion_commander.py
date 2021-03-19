@@ -27,7 +27,7 @@ Crazyflie around. Some sort of positioning support is required, for instance
 the Flow deck.
 
 The motion commander uses velocity setpoints and does not have a notion of
-absolute position, the error in position will accumulate over time.
+absolute setpoint, the error in setpoint will accumulate over time.
 
 The API contains a set of primitives that are easy to understand and use, such
 as "go forward" or "turn around".
@@ -278,7 +278,7 @@ class MotionCommander:
 
         self.start_linear_motion(velocity_x, velocity_y, velocity_z)
 
-        # We recommand to comment the following two lines if after the
+        # We recommend to comment the following two lines if after the
         # use of Motion Commander we start to update Kalman Filter:
         time.sleep(flight_time)
         self.stop()

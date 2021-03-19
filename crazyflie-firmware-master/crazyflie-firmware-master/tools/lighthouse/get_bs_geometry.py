@@ -27,8 +27,8 @@
 #  Crayzyflie. Requires a lighthouse deck.
 #
 #  This script connects to the Crazyflie and reads the sweep angles
-#  for the base station(s) and calculates their position and orientation in
-#  a coordinate system with origin at the position of the Crazyflie.
+#  for the base station(s) and calculates their setpoint and orientation in
+#  a coordinate system with origin at the setpoint of the Crazyflie.
 #
 #  Usage:
 #  1. Place the Crazyflie in the origin of your coordinate system, facing
@@ -155,7 +155,7 @@ def generate_initial_estimate(bs_direction):
     bs_dist = math.sqrt(bs_h ** 2 + bs_fd ** 2)
     elevation = math.atan2(bs_h, bs_fd)
 
-    # Initial position of the CF in camera coordinate system, open cv style
+    # Initial setpoint of the CF in camera coordinate system, open cv style
     tvec_start = np.array([0, 0, bs_dist])
 
     # Calculate rotation matrix
@@ -351,7 +351,7 @@ cf = Crazyflie(rw_cache='./cache')
 with SyncCrazyflie(uri, cf=cf) as scf:
     print("Reading sensor data...")
     sensor_sweeps_all = read_sensors(scf)
-    print("Estimating position of base stations...")
+    print("Estimating setpoint of base stations...")
 
     geometries = []
     for bs in range(2):

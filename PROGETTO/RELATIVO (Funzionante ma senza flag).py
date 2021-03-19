@@ -22,6 +22,7 @@ from cflib.positioning.motion_commander import MotionCommander
 from cflib.crtp.crtpstack import CRTPPacket
 import numpy as np
 import cflib.utils
+import math
 import argparse
 import logging
 from own_module import crazyfun as crazy
@@ -44,7 +45,7 @@ uri = 'radio://0/80/2M'  # Used for the connection with the drone
 # ----------------------------------VARIABLES----------------------------------
 # -----------------------------------------------------------------------------
 
-# Used in the generation of the position reference for the drone
+# Used in the generation of the setpoint reference for the drone
 last_trans = np.array([0, 0, 0])
 last_wand_trans = np.array([0, 0, 0])
 
@@ -60,23 +61,23 @@ ITERATIONS = WAIT_TIME / SLEEP_TIME  # Used to manage the iterations
 # Security offset
 SEC_OFFSET = 0.3  # [m]
 
-# Current number of consecutive losses in the acquisition of the Wand position
+# Current number of consecutive losses in the acquisition of the Wand setpoint
 CONSEC_LOSSES = 0
 
-# To be subtracted from the "z" component of the last position of the drone
+# To be subtracted from the "z" component of the last setpoint of the drone
 # during each iteration of the landing phase
 # TODO: why? cannot use/trust sensors?
 DELTA_HEIGHT = 0.01  # [m]
 
 # Sum of meters subtracted from the  "z" component of
-# the last position of the drone
+# the last setpoint of the drone
 # TODO: useless?
 SUBTRACTED_HEIGHT = 0.01  # [m]
 
 # The height the drone has to reach at the end of the take-off. This can't
 # be higher than the "MC_HEIGHT" used in the class of the
 # Motion Commander. We suggest to set it at least at 90% of its value.
-DEFAULT_HEIGHT = 0.2  # [m]
+DEFAULT_HEIGHT = 0.5  # [m]
 
 # This is the default height used by the Motion Commander during take-off.
 # It has to be higher than DEFAULT_HEIGHT because we consider the
@@ -129,7 +130,7 @@ vicon = ViconDataStream.Client()
 try:
     vicon.Connect(VICON_IP + ":" + VICON_PORT)
 except ViconDataStream.DataStreamException as exc:
-    print("Can't connect to Vicon! Error: ")
+    exit("Can't connect to Vicon! Error: ", exc)
     logging.error("Can't connect to Vicon! --> %s", exc)
 logging.info("Connected to Vicon!")
 
@@ -198,8 +199,8 @@ got_frame = 0
 # Show the frame rate from both client and server side
 logging.info("Getting available framerates...")
 try:
-    logging.info('Current frame rate: %s Hz.', vicon.GetFrameRate())
-    logging.info('Frame rates available: ')
+    logging.info('Current Vicon frame rate: %s Hz.', vicon.GetFrameRate())
+    logging.info('Available frame rates: ')
     for frameRateName, frameRateValue in vicon.GetFrameRates().items():
         logging.info("%s : %d Hz \n", frameRateName, frameRateValue)
 except ViconDataStream.DataStreamException as exc:
@@ -231,7 +232,7 @@ logging.info("Drivers initialized.")
 # DRONE CONNECTION
 logging.info('Connecting to the Crazyflie...')
 
-# Creating an instance of the Crazyflie object and getting the initial position
+# Creating an instance of the Crazyflie object and getting the initial setpoint
 cf = cflib.crazyflie.Crazyflie()
 
 # TODO: move error handling from inside?
@@ -253,7 +254,64 @@ for each_sub in subs:
     segs = vicon.GetSegmentNames(each_sub)
     logging.info("%s has the following segments: %s", each_sub, segs)
     root = vicon.GetSubjectRootSegmentName(each_sub)
-    logging.info("%s has root: %s", root)
+    children = vicon.GetSegmentChildren(each_sub, root)
+    logging.info("%s has root: %s", str(each_sub), str(root))
+    logging.info("%s has children: %s", str(root), str(children))
+
+logging.debug("Checking functions without flying")
+number = 0
+while number < 10:
+    try:
+        got_frame = vicon.GetFrame()
+        logging.debug("Fetched! Pulled frame number: %d" if got_frame
+                      else "Vicon is not streaming!",
+                      vicon.GetFrameNumber())
+        if not got_frame:
+            continue
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error! --> %s", exc)
+        exit("There was an error...")
+
+    # R_x * (R_y * R_z)
+    # all in Global Vicon -> RPY in global
+    try:
+        mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+        mat_gl = np.array(mat_gl[0])
+        dronePos_l = np.transpose(mat_gl) * drone_trans_m
+        drone_trans_m = dronePos_l  # to keep on with the program
+        logging.debug("Drone rotation matrix from Vicon: %s %s %s ",
+                      str(mat_gl[0]), str(mat_gl[1]), str(mat_gl[2]))
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error! --> %s", exc)
+        exit("There was an error...")
+
+    try:
+        eul = vicon.GetSegmentGlobalRotationEulerXYZ(drone, drone)
+        eul = np.array(eul[0])
+        logging.debug("Drone Euler XYZ from Vicon as given: %s",
+                      str(eul))
+        logging.debug("Drone Euler XYZ from Vicon to deg: (%s, %s, %s)",
+                      str(math.degrees(eul[0])),
+                      str(math.degrees(eul[0])),
+                      str(math.degrees(eul[0])))
+        logging.debug("Drone Euler XYZ from Vicon to rad: (%s, %s, %s)",
+                      str(math.radians(eul[0])),
+                      str(math.radians(eul[0])),
+                      str(math.radians(eul[0])))
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error! --> %s", exc)
+        exit("There was an error...")
+
+    try:
+        drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
+        logging.debug("Drone setpoint from global origin: %s",
+                      str(drone_trans[0]))
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error! --> %s", exc)
+        exit("There was an error...")
+    number += 1
+
+logging.debug("Offline check done")
 
 # TODO: add check on flowdeck presence? (and catch)
 # Class used to start the synchronization with the drone
@@ -263,98 +321,102 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     height_drone = 0
 
     # AUTO TAKE-OFF to DEFAULT_HEIGHT!
-    # Class used for the position control during the take-off phase:
+    # Class used for the setpoint control during the take-off phase:
     # take-off automatic when context created using "with"
     with MotionCommander(scf, DEFAULT_HEIGHT) as mc:
         # Functions called during take-off include a waiting period for the
-        # drone to reach set height; atm that's commented out! TODO: include?
+        # drone to reach set height; atm that's commented out!
 
         logging.info('===========Take-Off!==============')
+        mc.forward(0.3)
+        print("forward done")
+        mc.back(0.3)
+        print("back done")
+        time.sleep(5)
 
         # Checking drone height while taking off?
         # Needed if sleep_time is commented out from the take-off
         # (take-off tracks down to line 280 motion_commander.py)
         # IMP: this is necessary to ensure the drone reaches the desired
         # height before computing the flight frames
-        while height_drone < DEFAULT_HEIGHT or not got_frame:
-
-            # Request a new data frame from the server and its ordinal
-            # number
-            logging.info("\n Getting a frame during take-off...")
-            try:
-                got_frame = vicon.GetFrame()
-                logging.debug("Fetched! Pulled frame number: %d" if got_frame
-                              else "Vicon is not streaming!",
-                              vicon.GetFrameNumber())
-                if not got_frame:
-                    continue
-            except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! --> %s", exc)
-                exit("There was an error...")
-
-            # Get the drone position in the Vicon reference system and
-            # convert to meters
-            logging.info("Getting drone translation...")
-            try:
-                drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
-                logging.debug(" Done.")
-            except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! --> %s", exc)
-                exit("There was an error...")
-            drone_trans_mm = drone_trans[0]
-            drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
-                                      float(drone_trans_mm[1]) / 1000,
-                                      float(drone_trans_mm[2]) / 1000])
-
-            # TODO: check this in lab
-            # R_x * (R_y * R_z)
-            # all in Global Vicon -> RPY in global
-            try:
-                mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
-                mat_gl = np.array(mat_gl[0])
-                dronePos_l = np.transpose(mat_gl) * drone_trans_m
-                drone_trans_m = dronePos_l  # to keep on with the program
-            except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! --> %s", exc)
-                exit("There was an error...")
-
-            # Get the Wand position in the Vicon reference system and
-            # convert to meters
-            logging.info("Getting Wand translation...")
-            try:
-                wand_trans = vicon.GetSegmentGlobalTranslation(Wand, 'Root')
-                logging.info("Done.")
-            except ViconDataStream.DataStreamException as exc:
-                logging.error("Error! --> %s", exc)
-                exit("There was an error...")
-            wand_trans_mm = wand_trans[0]
-            wand_trans_m = np.array([float(wand_trans_mm[0]) / 1000,
-                                     float(wand_trans_mm[1]) / 1000,
-                                     float(wand_trans_mm[2]) / 1000])
-
-            height_drone = drone_trans_m[2]
-
-        last_drone_pos = drone_trans_m
-        last_drone_ref = drone_trans_m
-        last_wand_trans = wand_trans_m  # TODO: first Wand pos?
-
-        logging.info("Printing available data...")
-        logging.debug("Wand current position (in Vicon system): %s",
-                      str(wand_trans_m))
-        logging.debug("Wand last position (in Vicon system): %s",
-                      str(last_wand_trans))
-        logging.debug("Drone current postion (in Vicon system): %s",
-                      str(drone_trans_m))
-        logging.debug("Drone last position (in Vicon system): %s",
-                      str(last_drone_pos))
-        logging.debug("Drone last reference point (in Vicon system): %s",
-                      str(last_drone_ref))
-
-        time.sleep(5)
+        # while height_drone < DEFAULT_HEIGHT or not got_frame:
+        #
+        #     # Request a new data frame from the server and its ordinal
+        #     # number
+        #     logging.info("\n Getting a frame during take-off...")
+        #     try:
+        #         got_frame = vicon.GetFrame()
+        #         logging.debug("Fetched! Pulled frame number: %d" if got_frame
+        #                       else "Vicon is not streaming!",
+        #                       vicon.GetFrameNumber())
+        #         if not got_frame:
+        #             continue
+        #     except ViconDataStream.DataStreamException as exc:
+        #         logging.error("Error! --> %s", exc)
+        #         exit("There was an error...")
+        #
+        #     # Get the drone setpoint in the Vicon reference system and
+        #     # convert to meters
+        #     logging.info("Getting drone translation...")
+        #     try:
+        #         drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
+        #         logging.debug(" Done.")
+        #     except ViconDataStream.DataStreamException as exc:
+        #         logging.error("Error! --> %s", exc)
+        #         exit("There was an error...")
+        #     drone_trans_mm = drone_trans[0]
+        #     drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
+        #                               float(drone_trans_mm[1]) / 1000,
+        #                               float(drone_trans_mm[2]) / 1000])
+        #
+        #     # R_x * (R_y * R_z)
+        #     # all in Global Vicon -> RPY in global
+        #     try:
+        #         mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+        #         mat_gl = np.array(mat_gl[0])
+        #         # dronePos_l = np.transpose(mat_gl) * drone_trans_m
+        #         # drone_trans_m = dronePos_l  # to keep on with the program
+        #     except ViconDataStream.DataStreamException as exc:
+        #         logging.error("Error! --> %s", exc)
+        #         exit("There was an error...")
+        #
+        #     # Get the Wand setpoint in the Vicon reference system and
+        #     # convert to meters
+        #     logging.info("Getting Wand translation...")
+        #     try:
+        #         wand_trans = vicon.GetSegmentGlobalTranslation(Wand, 'Root')
+        #         logging.info("Done.")
+        #     except ViconDataStream.DataStreamException as exc:
+        #         logging.error("Error! --> %s", exc)
+        #         exit("There was an error...")
+        #     wand_trans_mm = wand_trans[0]
+        #     wand_trans_m = np.array([float(wand_trans_mm[0]) / 1000,
+        #                              float(wand_trans_mm[1]) / 1000,
+        #                              float(wand_trans_mm[2]) / 1000])
+        #
+        #     height_drone = drone_trans_m[2]
+        #
+        # last_drone_pos = drone_trans_m
+        # last_drone_ref = drone_trans_m
+        # last_wand_trans = wand_trans_m  # TODO: first Wand pos?
+        #
+        # logging.info("Printing available data...")
+        # logging.debug("Wand current setpoint (in Vicon system): %s",
+        #               str(wand_trans_m))
+        # logging.debug("Wand last setpoint (in Vicon system): %s",
+        #               str(last_wand_trans))
+        # logging.debug("Drone current setpoint (in Vicon system): %s",
+        #               str(drone_trans_m))
+        # logging.debug("Drone last setpoint (in Vicon system): %s",
+        #               str(last_drone_pos))
+        # logging.debug("Drone last reference point (in Vicon system): %s",
+        #               str(last_drone_ref))
+        #
+        # time.sleep(5)
         logging.info("==================Core===================")
         while 1:
 
-            # Get the Wand position expressed in the Vicon
+            # Get the Wand setpoint expressed in the Vicon
             # system and convert it to meters
             logging.info("Getting a frame during flight...")
             try:
@@ -375,17 +437,18 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 logging.error("Error! --> %s", exc)
                 exit("There was an error...")
 
-            Matrix_homogeneous, Matrix_Rotation, last_gamma = \
-                crazy.createMatrixRotation(
-                    vicon,
-                    drone,
-                    first_pos,
-                    last_gamma,
-                    0)  # manual value of the flag to include quaternions in KF
-            vicon_matrix = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+            # Matrix_homogeneous, Matrix_Rotation, last_gamma = \
+            #     crazy.createMatrixRotation(
+            #         vicon,
+            #         drone,
+            #         first_pos,
+            #         last_gamma,
+            #         0)  # manual value of the flag to include quaternions in KF
+            # vicon_matrix = vicon.GetSegmentGlobalRotationMatrix(drone,
+            #                                                     'Crazyflie')
             # Matrix_Rotation = np.asarray(vicon_matrix[0])
 
-            # Absolute position of the Wand in [mm], then converted in [m]
+            # Absolute setpoint of the Wand in [mm], then converted in [m]
             logging.info("Getting Wand translation...")
             try:
                 wand_trans = vicon.GetSegmentGlobalTranslation(Wand, 'Root')
@@ -424,23 +487,16 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     exit("There was an error: drone landed...")
 
             else:
-                logging.info("Normal cycle execution.")
+                logging.info("!!Normal cycle execution!!")
 
                 CONSEC_LOSSES = 0
 
-                # (The first time this will be 000 in theory)
-                # Convert to body reference
-                Wand_Translation = wand_trans_m - last_wand_trans
-                # Wand_Translation = np.array(
-                #     np.dot(Matrix_Rotation,
-                #            np.transpose(Wand_Translation)))
-
-                # We get the actual position of drone expressed in
+                # We get the actual setpoint of drone expressed in
                 # the Body frame and send it to the Kalman Filter
                 logging.info("Getting drone translation...")
                 try:
                     drone_trans = vicon.GetSegmentGlobalTranslation(
-                        drone, drone)
+                        drone, 'Crazyflie')
                     logging.info("Done.")
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error! --> %s", exc)
@@ -450,23 +506,34 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                           float(drone_trans_mm[1]) / 1000,
                                           float(drone_trans_mm[2]) / 1000])
 
-                # TODO: check this in lab
+                logging.info("Getting drone rotation matrix from Vicon...")
                 # R_x * (R_y * R_z)
                 # all in Global Vicon -> RPY in global
                 try:
-                    mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone, drone)
+                    mat_gl = vicon.GetSegmentGlobalRotationMatrix(drone,
+                                                                  'Crazyflie')
                     mat_gl = np.array(mat_gl[0])
-                    dronePos_l = np.transpose(mat_gl) * drone_trans_m
-                    drone_trans_m = dronePos_l  # to keep on with the program
+                    # dronePos_l = np.transpose(mat_gl) * drone_trans_m
+                    # drone_trans_m = dronePos_l  # to keep on with the program
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error! --> %s", exc)
                     exit("There was an error...")
 
-                # # Convert to body reference
-                # drone_trans_hom = np.concatenate([drone_trans_m, [1]], 0)
-                # drone_trans_hom = np.dot(Matrix_homogeneous,
-                #                          np.transpose(drone_trans_hom))
-                # drone_trans_m = drone_trans_hom[0:4]  # from 0 to 3
+                logging.info("Getting drone Euler angles from Vicon...")
+                try:
+                    eul = vicon.GetSegmentGlobalRotationEulerXYZ(drone,
+                                                                 'Crazyflie')
+                    eul = np.array(eul[0])
+                except ViconDataStream.DataStreamException as exc:
+                    logging.error("Error! --> %s", exc)
+                    exit("There was an error...")
+
+                # (The first time this will be 000 in theory)
+                # Convert to body reference
+                Wand_Translation = np.transpose(mat_gl).dot(wand_trans_m - last_wand_trans)
+                # Wand_Translation = np.array(
+                #     np.dot(Matrix_Rotation,
+                #            np.transpose(Wand_Translation)))
 
                 last_dp = last_drone_pos
                 last_dr = last_drone_ref
@@ -485,41 +552,41 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 cf.commander.send_position_setpoint(last_drone_ref[0],
                                                     last_drone_ref[1],
                                                     last_drone_ref[2],
-                                                    0)
+                                                    eul[2])  # 0)
 
             logging.info("Printing available data...")
-            logging.debug("Wand current position (in Vicon system): %s",
+            logging.debug("Wand current setpoint (in Vicon system): %s",
                           str(wand_trans_m))
-            logging.debug("Wand last position (in Vicon system): %s",
+            logging.debug("Wand last setpoint (in Vicon system): %s",
                           str(last_wp))
             logging.debug("Wand_Translation (in Vicon system): %s",
                           str(Wand_Translation))
-            logging.debug("Drone current position (in Vicon system): %s",
+            logging.debug("Drone current setpoint (in Vicon system): %s",
                           str(drone_trans_m))
-            logging.debug("Drone last position (in Vicon system): %s",
+            logging.debug("Drone last setpoint (in Vicon system): %s",
                           str(last_dp))
             logging.debug("Drone current reference point (in Vicon system): %s",
                           str(last_drone_ref))
             logging.debug("Drone last reference point (in Vicon system): %s",
                           str(last_dr))
-            logging.debug("Computed homogeneous matrix: %s",
-                          str(Matrix_homogeneous))
-            logging.debug("Vicon rotation matrix: %s\n ",
-                          str(vicon_matrix[0]))
+            # logging.debug("Computed homogeneous matrix: %s",
+            # str(Matrix_homogeneous))
+            logging.debug("Vicon rotation matrix: %s ",
+                          str(mat_gl))
             print("Printing available data...")
-            print("Wand current position (in Vicon system): ",
+            print("Wand current setpoint (in Vicon system): ",
                   str(wand_trans_m), type(wand_trans_m))
-            print("Wand last position (in Vicon system): ",
+            print("Wand last setpoint (in Vicon system): ",
                   str(last_wand_trans), type(last_wand_trans))
-            print("Drone current position (in Vicon system): ",
+            print("Drone current setpoint (in Vicon system): ",
                   str(drone_trans_m), type(drone_trans_m))
-            print("Drone last position (in Vicon system): ",
+            print("Drone last setpoint (in Vicon system): ",
                   str(last_drone_pos), type(last_drone_pos))
             print("Drone last reference point (in Vicon system): ",
                   str(last_drone_ref), type(last_drone_ref))
-            print("Computed homogeneous matrix: ",
-                  str(Matrix_homogeneous), type(Matrix_homogeneous))
-            print("Vicon rotation matrix: ",
-                  str(vicon_matrix[0]), type(vicon_matrix[0]))
+            # print("Computed homogeneous matrix: ",
+            #       str(Matrix_homogeneous), type(Matrix_homogeneous))
+            # print("Vicon rotation matrix: ",
+            #       str(vicon_matrix[0]), type(vicon_matrix[0]))
 
     # Automatic land exiting the "with" environment!

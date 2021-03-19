@@ -48,10 +48,10 @@ Drone = "Crazyflie"                         #Set with the "vicon-name" of the ob
 Wand = "Active Wand v2 (Origin Tracking)"   #Set with the "vicon-name" of the object relative to the Wand
 uri = 'radio://0/80/2M/E7E7E7E7E7'          #Used for the connection to the drone
 
-T_prec = np.array([0, 0, 0])                #Used in the generation of the position reference for the drone
-W_T_prec = np.array([0, 0, 0])              #Used in the generation of the position reference for the drone
-position_threshold = 100 #[mm]              #Used in the generation of the position reference for the drone
-new_reference = 1                           #Used for deciding when we have to send a new position reference
+T_prec = np.array([0, 0, 0])                #Used in the generation of the setpoint reference for the drone
+W_T_prec = np.array([0, 0, 0])              #Used in the generation of the setpoint reference for the drone
+position_threshold = 100 #[mm]              #Used in the generation of the setpoint reference for the drone
+new_reference = 1                           #Used for deciding when we have to send a new setpoint reference
 running = 1                                 #Used to exit when the  "stop criterion" is satisfied
 
 WAIT_TIME = 0.5 #[s]                        #Used for the management of the iterations
@@ -140,7 +140,7 @@ with SyncCrazyflie(uri, cf) as scf:
             if(first==0):
                 a=client.GetFrame()
                 b=client.GetFrameNumber()                                                      #It is necessary before every time we want to call some "GetSegment..()"
-                W_T_tuple = client.GetSegmentGlobalTranslation( Wand, 'Root' )                 #Absolute position of the Drone in [mm]
+                W_T_tuple = client.GetSegmentGlobalTranslation( Wand, 'Root' )                 #Absolute setpoint of the Drone in [mm]
                 W_T_millimeters= W_T_tuple[0]                                                  #We are interested only in the first part of the data structure
                 W_T_meters = np.array([float(W_T_millimeters[0])/1000 , float(W_T_millimeters[1])/1000, float(W_T_millimeters[2])/1000])    #Pass from [mm] to [m]
                 print(i, ": get frame: ", W_T_meters[0], W_T_meters[1], W_T_meters[2])
@@ -151,14 +151,14 @@ with SyncCrazyflie(uri, cf) as scf:
                 cmd.send_position_setpoint(0,0,1,0)                                            #Take off
                 if(i==0):
                     print("0, 0, 1, 0")
-            else:                                                                               #We continue sending the last position of the wand
+            else:                                                                               #We continue sending the last setpoint of the wand
                 cmd.send_position_setpoint(W_T_meters[0], W_T_meters[1], W_T_meters[2], 0)
                 if(i==0):
-                    print("position: ", W_T_meters[0], W_T_meters[1], W_T_meters[2])
+                    print("setpoint: ", W_T_meters[0], W_T_meters[1], W_T_meters[2])
             time.sleep(SLEEP_TIME)
             i=i+1
-        else:                                                                              #After "WAITING_TIME" seconds we update the position reference with
-            first=0                                                                        #the current position fo the wand
+        else:                                                                              #After "WAITING_TIME" seconds we update the setpoint reference with
+            first=0                                                                        #the current setpoint fo the wand
             i=0
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------

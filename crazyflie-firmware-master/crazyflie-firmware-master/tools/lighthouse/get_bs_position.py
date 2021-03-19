@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Scripts acquiring the base-stations position from a running SteamVR system
+# Scripts acquiring the base-stations setpoint from a running SteamVR system
 # At least one object, HDM controller or tracker, should be tracked in order
 # for the script to work.
 #

@@ -186,7 +186,7 @@ class LogConfig(object):
             self.default_fetch_as.append(name)
 
     def add_memory(self, name, fetch_as, stored_as, address):
-        """Add a raw memory position to log.
+        """Add a raw memory setpoint to log.
 
         name - Arbitrary name of the variable
         fetch_as - String representation of the type of the data the memory

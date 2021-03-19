@@ -47,8 +47,8 @@ Drone = "Crazyflie"                         #Set with the "vicon-name" of the ob
 Wand = "Active Wand v2 (Origin Tracking)"   #Set with the "vicon-name" of the object relative to the Wand
 uri = 'radio://0/80/2M'                     #Used for the connection with the drone
 
-T_prec = np.array([0, 0, 0])                #Used in the generation of the position reference for the drone
-W_T_prec = np.array([0, 0, 0])              #Used in the generation of the position reference for the drone
+T_prec = np.array([0, 0, 0])                #Used in the generation of the setpoint reference for the drone
+W_T_prec = np.array([0, 0, 0])              #Used in the generation of the setpoint reference for the drone
 take_off = 1                                #It will be set to 0 after the take off
 last_position_received = np.array([0, 0, 0])#It is updated in each iteration and it will be used as the starting point for the landing phase.
 last_gamma = 0
@@ -57,10 +57,10 @@ WAIT_TIME = 5 #[s]                          #Used for the management of the iter
 SLEEP_TIME = 0.001 #[s]                      #Used for the management of the iterations
 ITERATIONS = WAIT_TIME/SLEEP_TIME           #Used for the management of the iterations
 OFFSET=0.3 #[m]                             #Security offset
-MAX_LOSS = 10                               #Max number of loss during acquisition of the position of the Wand or Drone
-CONSECUTIVE_LOSS = 0                        #Current number of consecutive loss in the acquisition of the wand position
-DELTA_HEIGHT=0.01 #[m]                      #[m] to be subtracted from the "z" component of the last position of the drone during each iteration of the landing phase
-SUBTRACTED_HEIGHT = 0.01 #[m]               #Sum of [m] subtracted from the  "z" component of the last position of the drone
+MAX_LOSS = 10                               #Max number of loss during acquisition of the setpoint of the Wand or Drone
+CONSECUTIVE_LOSS = 0                        #Current number of consecutive loss in the acquisition of the wand setpoint
+DELTA_HEIGHT=0.01 #[m]                      #[m] to be subtracted from the "z" component of the last setpoint of the drone during each iteration of the landing phase
+SUBTRACTED_HEIGHT = 0.01 #[m]               #Sum of [m] subtracted from the  "z" component of the last setpoint of the drone
 take_off=0
 i=0
 
@@ -69,20 +69,20 @@ i=0
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def get_First_Position(client, Drone):
-    #We get the start position of the Drone and we convert it in an homogeneus position vector
+    #We get the start setpoint of the Drone and we convert it in an homogeneus setpoint vector
     D_T_meters=np.array([0, 0, 0])
     iterations= 0
-    #we have to be sure we took the right position
+    #we have to be sure we took the right setpoint
     while(D_T_meters[0] == 0 and D_T_meters[1] == 0 and D_T_meters[2] == 0):
         a=client.GetFrame()                                                                   #It is necessary before every time we want to call some "GetSegment..()"
         b=client.GetFrameNumber()
-        D_T_tuple = client.GetSegmentGlobalTranslation( Drone, Drone )                        #Absolute position of the Drone in [mm]
+        D_T_tuple = client.GetSegmentGlobalTranslation( Drone, Drone )                        #Absolute setpoint of the Drone in [mm]
         D_T_millimeters= D_T_tuple[0]                                                         #We are interested only in the first part of the data structure
         D_T_meters_homogeneous = np.array([float(D_T_millimeters[0])/1000 , float(D_T_millimeters[1])/1000, float(D_T_millimeters[2])/1000, 1])    #Pass from [mm] to [m]
         D_T_meters= np.array([D_T_meters_homogeneous[0], D_T_meters_homogeneous[1], D_T_meters_homogeneous[2]])
         #If for 10 times we get the value (0, 0, 0), we can consider that is the right one
         if(iterations > MAX_LOSS):
-            print("WARNING: initial position of the Drone is exactly [0,0,0] for ", MAX_LOSS, " consecutive times. Please try with another initial position and restart the experiment.")
+            print("WARNING: initial setpoint of the Drone is exactly [0,0,0] for ", MAX_LOSS, " consecutive times. Please try with another initial setpoint and restart the experiment.")
             exit()
         else:
             iterations = iterations + 1
@@ -193,7 +193,7 @@ with SyncCrazyflie(uri, cf) as scf:
                     a=client.GetFrame()
                     b=client.GetFrameNumber()                                                      #It is necessary before every time we want to call some "GetSegment..()"
                     Matrix_homogeneous, last_gamma = create_Matrix_Rotation(client, Drone, First_Position, last_gamma)
-                    W_T_tuple = client.GetSegmentGlobalTranslation( Wand, 'Root' )                 #Absolute position of the Drone in [mm]
+                    W_T_tuple = client.GetSegmentGlobalTranslation( Wand, 'Root' )                 #Absolute setpoint of the Drone in [mm]
                     W_T_millimeters= W_T_tuple[0]                                                  #We are interested only in the first part of the data structure
                     W_T_meters = np.array([float(W_T_millimeters[0])/1000 , float(W_T_millimeters[1])/1000, float(W_T_millimeters[2])/1000])    #Pass from [mm] to [m]
                     #print("GET FRAME: ", wand_trans_m[0], wand_trans_m[1], wand_trans_m[2])
@@ -202,15 +202,15 @@ with SyncCrazyflie(uri, cf) as scf:
                         CONSECUTIVE_LOSS=CONSECUTIVE_LOSS+1
                         W_T_meters = last_position_received
                         if(CONSECUTIVE_LOSS==MAX_LOSS):
-                            #LANDING PHASE: We received MAX_LOSS consecutive "null position" of the wand so we decide to start landing.
-                            print("START LANDING: ", MAX_LOSS, " consecutive null position of the Wand have been received.")
+                            #LANDING PHASE: We received MAX_LOSS consecutive "null setpoint" of the wand so we decide to start landing.
+                            print("START LANDING: ", MAX_LOSS, " consecutive null setpoint of the Wand have been received.")
                             while(last_position_received[2]-SUBTRACTED_HEIGHT>0):
                                 cf.commander.send_position_setpoint(last_position_received[0], last_position_received[1], last_position_received[2]-SUBTRACTED_HEIGHT, 0)
                                 SUBTRACTED_HEIGHT=SUBTRACTED_HEIGHT+DELTA_HEIGHT
                             exit()
                     else:
                         CONSECUTIVE_LOSS=0
-                        #We pass from a Wand's position expressed in the Vicon frame to a Wand's position expressed in the Body frame of the Drone before sending it
+                        #We pass from a Wand's setpoint expressed in the Vicon frame to a Wand's setpoint expressed in the Body frame of the Drone before sending it
                         W_T_homogenous = np.array([W_T_meters[0]+OFFSET, W_T_meters[1]+OFFSET, W_T_meters[2], 1])
                         W_T_homogenous = np.dot(Matrix_homogeneous, np.transpose(W_T_homogenous))
                         W_T_meters = np.array([W_T_homogenous[0], W_T_homogenous[1], W_T_homogenous[2]])
@@ -221,7 +221,7 @@ with SyncCrazyflie(uri, cf) as scf:
 
                 except ViconDataStream.DataStreamException as e:
                     print( 'START LANDING: This error form Vicon occurred: \n', e )
-                    #LANDING PHASE: We received MAX_LOSS consecutive "null position" of the wand so we decide to start landing.
+                    #LANDING PHASE: We received MAX_LOSS consecutive "null setpoint" of the wand so we decide to start landing.
                     while(last_position_received[2]-SUBTRACTED_HEIGHT>0):
                         cf.commander.send_position_setpoint(last_position_received[0], last_position_received[1], last_position_received[2]-SUBTRACTED_HEIGHT, 0)
                         SUBTRACTED_HEIGHT=SUBTRACTED_HEIGHT+DELTA_HEIGHT

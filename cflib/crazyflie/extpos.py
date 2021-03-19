@@ -25,7 +25,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA  02110-1301, USA.
 """
-Used for sending external position to the Crazyflie
+Used for sending external setpoint to the Crazyflie
 """
 
 __author__ = 'Bitcraze AB'
@@ -34,7 +34,7 @@ __all__ = ['Extpos']
 
 class Extpos():
     """
-    Used for sending its position to the Crazyflie
+    Used for sending its setpoint to the Crazyflie
     """
 
     def __init__(self, crazyflie=None):
@@ -45,16 +45,16 @@ class Extpos():
 
     def send_extpos(self, x, y, z):
         """
-        Send the current Crazyflie X, Y, Z position. This is going to be
-        forwarded to the Crazyflie's position estimator.
+        Send the current Crazyflie X, Y, Z setpoint. This is going to be
+        forwarded to the Crazyflie's setpoint estimator.
         """
 
         self._cf.loc.send_extpos([x, y, z])
 
     def send_extpose(self, x, y, z, qx, qy, qz, qw):
         """
-        Send the current Crazyflie X, Y, Z position and attitude as a
+        Send the current Crazyflie X, Y, Z setpoint and attitude as a
         normalized quaternion. This is going to be forwarded to the
-        Crazyflie's position estimator.
+        Crazyflie's setpoint estimator.
         """
         self._cf.loc.send_extpose([x, y, z], [qx, qy, qz, qw])

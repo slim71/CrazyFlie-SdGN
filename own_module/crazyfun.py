@@ -7,12 +7,16 @@
 # -----------------------------------------------------------------------------
 from __future__ import print_function
 import logging
+from datetime import datetime
+
+from cflib.crazyflie.syncLogger import SyncLogger
+
 from cflib.crazyflie.log import LogConfig
 import numpy as np
 import math
 import time
 
-# Max number of consecutive loss allowed during acquisition of the position
+# Max number of consecutive loss allowed during acquisition of the setpoint
 # of the Wand or drone
 MAX_LOSS = 10
 
@@ -44,6 +48,7 @@ frame_num = 1000
 # -----------------------------------------------------------------------------
 # ----------------------------------FUNCTIONS----------------------------------
 # -----------------------------------------------------------------------------
+
 
 # This function resets the Kalman Filter.
 # TODO: already in the Crazyflie object!
@@ -130,20 +135,83 @@ def config_logging(sync_crazyflie):
     return log_stab
 
 
+def print_callback(timestamp, data, log_conf):
+    """
+    Prints out gathered data.
+
+        :param timestamp: Timestamp for the log file
+        :param data: Data to be logged
+        :param log_conf: Representation of a log configuration
+        :return:None
+
+    """
+
+    data_file = "./data_log/" + datetime.now().strftime("__%Y%m%d_%H%M%S")
+
+    descriptor = open(data_file + ".txt", "x")
+
+    # Setting estimated state variables
+    pos_x = data['stateEstimate.x']
+    pos_y = data['stateEstimate.y']
+    pos_z = data['stateEstimate.z']
+    roll = data['stabilizer.roll']
+    pitch = data['stabilizer.pitch']
+    yaw = data['stabilizer.yaw']
+
+    print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
+    print(pos_x, pos_y, pos_z, roll, pitch, yaw)
+
+
+def data_log_async(sync_crazyflie, log_conf):
+    """
+    Adds a callback function to the LogTable of the drone.
+
+    :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :param log_conf: Representation of a log configuration
+    :return: None
+    """
+
+    crazyflie = sync_crazyflie.cf
+    crazyflie.log.add_config(log_conf)
+    log_conf.data_received_cb.add_callback(print_callback)
+
+
+def datalog(sync_crazyflie):
+    """
+    Prepares the call to "simple_log_async" and achieves it.
+    Adds a log configuration to the Crazyflie with desired variables
+    logged every 10ms.
+
+    :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :return: log_stab: Log stabilizer
+    """
+
+    log_stab = LogConfig(name='Datamining', period_in_ms=10)
+    log_stab.add_variable('stateEstimate.x', 'float')
+    log_stab.add_variable('stateEstimate.y', 'float')
+    log_stab.add_variable('stateEstimate.z', 'float')
+    log_stab.add_variable('stabilizer.roll', 'float')
+    log_stab.add_variable('stabilizer.pitch', 'float')
+    log_stab.add_variable('stabilizer.yaw', 'float')
+
+    data_log_async(sync_crazyflie, log_stab)
+
+    return log_stab
+
 # TODO: can be converted in a more general getPos?
 def getFirstPosition(vicon_client, drone_obj):
     """
-    Gathers drone position information from the Vicon client.
+    Gathers drone setpoint information from the Vicon client.
 
     :param vicon_client: Vicon client to connect to
     :param drone_obj: Drone considered
-    :return drone_pos_m: Drone position in the Vicon system, in meters
+    :return drone_pos_m: Drone setpoint in the Vicon system, in meters
     """
 
     drone_pos_m = np.array([0.0, 0.0, 0.0])
     iterations = 0
 
-    # It can happen that the position value [0,0,0] is received
+    # It can happen that the setpoint value [0,0,0] is received
     # more than once. This means that something wrong is
     # happening with the Vicon Tracking.
     # So, in order to avoid errors, we count how many times we receive [0,0,0]
@@ -162,18 +230,18 @@ def getFirstPosition(vicon_client, drone_obj):
         # We are interested only in the first part of this structure
         drone_pos_mm = drone_tuple[0]
 
-        # Absolute position of the drone converted from [mm] to [m]
+        # Absolute setpoint of the drone converted from [mm] to [m]
         drone_pos_m = np.array([float(drone_pos_mm[0]) / 1000,
                                 float(drone_pos_mm[1]) / 1000,
                                 float(drone_pos_mm[2]) / 1000]
                                )
 
         if iterations > MAX_LOSS:
-            print("WARNING: initial position of the drone reported ",
+            print("WARNING: initial setpoint of the drone reported ",
                   "[0,0,0] for ",
                   MAX_LOSS,
                   "consecutive times. Please try with another initial "
-                  "position and restart the experiment."
+                  "setpoint and restart the experiment."
                   )
             exit()
         else:
@@ -186,13 +254,13 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
                          kf_quat):
     """
     Creates the homogeneous matrix used for the conversion to the
-    Navigation system (corresponding to the drone initial position before
+    Navigation system (corresponding to the drone initial setpoint before
     take-off) from the Global system (Vicon reference system).
     The matrix is comprised of:
     - Rotation:   we assume always NULL values for the roll and pitch angles,
                   so the rotation is on the Z-axis with yaw angle "gamma",
                   expressed with a 3x3 matrix
-    - Translation: it's the initial position of the drone. It is rotated with
+    - Translation: it's the initial setpoint of the drone. It is rotated with
                    the previous matrix.
 
     :param vicon_client: Vicon client
@@ -244,8 +312,8 @@ def createMatrixRotation(vicon_client, drone_obj, drone_trans_m, last_gamma,
     beta = 0
 
     # Build the homogeneous rotation matrix that will convert a
-    # position expressed in the Vicon reference system
-    # in position expressed in the Body frame of the drone
+    # setpoint expressed in the Vicon reference system
+    # in setpoint expressed in the Body frame of the drone
     R_x = np.array([[1, 0, 0],
                     [0, math.cos(alpha), -math.sin(alpha)],
                     [0, math.sin(alpha), math.cos(alpha)]])
@@ -315,3 +383,72 @@ def landing(last_pos, sub_height, de_height, crazyflie, lg_stab,
     exit()
 
     return
+
+
+def wait_for_position_estimator(scf):
+    logging.info('Waiting for estimator to find setpoint...')
+
+    log_config = LogConfig(name='Kalman Variance', period_in_ms=500)
+    log_config.add_variable('kalman.varPX', 'float')
+    log_config.add_variable('kalman.varPY', 'float')
+    log_config.add_variable('kalman.varPZ', 'float')
+
+    var_x_history = [1000] * 10
+    var_y_history = [1000] * 10
+    var_z_history = [1000] * 10
+
+    threshold = 0.001
+
+    with SyncLogger(scf, log_config) as logger:
+        for log_entry in logger:
+            data = log_entry[1]
+
+            var_x_history.append(data['kalman.varPX'])
+            var_x_history.pop(0)
+            var_y_history.append(data['kalman.varPY'])
+            var_y_history.pop(0)
+            var_z_history.append(data['kalman.varPZ'])
+            var_z_history.pop(0)
+
+            min_x = min(var_x_history)
+            max_x = max(var_x_history)
+            min_y = min(var_y_history)
+            max_y = max(var_y_history)
+            min_z = min(var_z_history)
+            max_z = max(var_z_history)
+
+            logging.debug("dx: %s dy: %s dz: %s",
+                          max_x - min_x, max_y - min_y, max_z - min_z)
+
+            if (max_x - min_x) < threshold and (
+                    max_y - min_y) < threshold and (
+                    max_z - min_z) < threshold:
+                break
+
+
+def sign(x):
+    if x > 0:
+        return +1
+    elif x < 0:
+        return -1
+    elif x == 0:
+        return 0
+    else:
+        raise Exception("The argument is not a number.")
+
+
+def avoid(vehicle, dist):
+    movement = np.array([0, 0, 0])
+
+    direction = min(dist)
+    ind = dist.index(direction)
+
+    movement[ind] = -1*sign(direction)*0.5
+
+    # might have to get rotation matrix
+    # might be usefule to get the Euler angles
+    vehicle.commander.send_position_setpoint(movement[0],
+                                             movement[1],
+                                             movement[2],
+                                             0)
+    time.sleep(0.1)

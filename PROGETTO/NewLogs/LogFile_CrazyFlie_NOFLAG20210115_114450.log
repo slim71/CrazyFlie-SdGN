@@ -1,0 +1,62 @@
+2021-01-15 11:44:50,101 [INFO]: Connecting to the Vicon...
+2021-01-15 11:44:50,102 [INFO]: Connected to Vicon!
+2021-01-15 11:44:50,102 [INFO]: Setting up the buffer...
+2021-01-15 11:44:50,102 [INFO]: Buffer of 1000 frames created.
+2021-01-15 11:44:50,103 [INFO]: Enabling data types...
+2021-01-15 11:44:50,103 [DEBUG]: Segments: True
+2021-01-15 11:44:50,103 [DEBUG]: Markers: True
+2021-01-15 11:44:50,103 [DEBUG]: Unlabeled Markers: True
+2021-01-15 11:44:50,103 [DEBUG]: Marker Rays: True
+2021-01-15 11:44:50,103 [DEBUG]: Devices: True
+2021-01-15 11:44:50,104 [DEBUG]: Centroids: True 
+2021-01-15 11:44:50,104 [INFO]: Testing stream modes...
+2021-01-15 11:44:50,104 [INFO]: Getting a frame in ClientPull mode...
+2021-01-15 11:44:51,104 [ERROR]: Error using ClientPull mode. --> NoFrame
+2021-01-15 11:44:51,104 [INFO]: Getting a frame in PreFetch mode...
+2021-01-15 11:44:52,105 [ERROR]: Error using ClientPreFetch mode. --> NoFrame
+2021-01-15 11:44:52,105 [INFO]: Getting a frame in ServerPush mode...
+2021-01-15 11:44:52,106 [DEBUG]: Fetched! Pulled frame number: 563069
+2021-01-15 11:44:52,106 [INFO]: ServerPush mode set.
+2021-01-15 11:44:52,106 [INFO]: Getting available framerates...
+2021-01-15 11:44:52,106 [INFO]: Current Vicon frame rate: 100.0 Hz.
+2021-01-15 11:44:52,107 [INFO]: Available frame rates: 
+2021-01-15 11:44:52,107 [INFO]: Process Rate : 100 Hz 
+
+2021-01-15 11:44:52,107 [INFO]: Setting axis...
+2021-01-15 11:44:52,107 [INFO]: X Axis: AxisMapping.EForward
+2021-01-15 11:44:52,107 [INFO]: Y Axis: AxisMapping.ELeft
+2021-01-15 11:44:52,108 [INFO]: Z Axis: AxisMapping.EUp
+2021-01-15 11:44:52,108 [INFO]: Initializing drivers...
+2021-01-15 11:44:52,108 [INFO]: Drivers initialized.
+2021-01-15 11:44:52,108 [INFO]: Connecting to the Crazyflie...
+2021-01-15 11:44:52,109 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x00000192C7A57648>>]
+2021-01-15 11:44:52,109 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x00000192C7A577C8>>]
+2021-01-15 11:44:52,109 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x00000192C7A57888>>]
+2021-01-15 11:44:52,109 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-7, initial daemon)>>]
+2021-01-15 11:44:52,111 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x00000192C7A57C88>>]
+2021-01-15 11:44:52,111 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000192C7A57E08>>]
+2021-01-15 11:44:52,111 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000192C7A57E08>>]
+2021-01-15 11:44:52,112 [INFO]: Active Wand v2 (Origin Tracking) has the following segments: ['Root']
+2021-01-15 11:44:52,112 [INFO]: Active Wand v2 (Origin Tracking) has root: Root
+2021-01-15 11:44:52,112 [INFO]: Crazyflie has the following segments: ['Crazyflie']
+2021-01-15 11:44:52,112 [INFO]: Crazyflie has root: Crazyflie
+2021-01-15 11:44:52,113 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,114 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,115 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,115 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,116 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,116 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,117 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,118 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,119 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,119 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,120 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,120 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,121 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,121 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,122 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,122 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,123 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,123 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)
+2021-01-15 11:44:52,124 [DEBUG]: Drone rotation matrix from Vicon: [ 0.32995258  0.94370382 -0.02354545] [-0.94319995  0.33059632  0.03286212] [0.03879615 0.01136513 0.99918251] 
+2021-01-15 11:44:52,124 [DEBUG]: Drone Euler XYZ from Vicon: (-1.88372228310747, -1.88372228310747, -1.88372228310747)

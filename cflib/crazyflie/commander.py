@@ -131,7 +131,7 @@ class Commander():
 
     def send_position_setpoint(self, x, y, z, yaw):
         """
-        Control mode where the position is sent as absolute x,y,z coordinate in
+        Control mode where the setpoint is sent as absolute x,y,z coordinate in
         meter and the yaw is the absolute orientation.
 
         x and y are in m

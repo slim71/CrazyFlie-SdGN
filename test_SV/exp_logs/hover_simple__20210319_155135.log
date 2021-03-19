@@ -1,0 +1,468 @@
+2021-03-19 15:51:35,703 [INFO]: Connecting to the Vicon...
+2021-03-19 15:51:35,704 [INFO]: Connected to Vicon!
+2021-03-19 15:51:35,704 [INFO]: Enabling data types...
+2021-03-19 15:51:35,704 [DEBUG]: Segments: True
+2021-03-19 15:51:35,704 [DEBUG]: Markers: True
+2021-03-19 15:51:35,704 [DEBUG]: Unlabeled Markers: True
+2021-03-19 15:51:35,704 [DEBUG]: Marker Rays: True
+2021-03-19 15:51:35,704 [DEBUG]: Devices: True
+2021-03-19 15:51:35,704 [DEBUG]: Centroids: True 
+2021-03-19 15:51:35,704 [INFO]: Testing stream modes...
+2021-03-19 15:51:35,704 [INFO]: Getting a frame in ClientPull mode...
+2021-03-19 15:51:36,705 [ERROR]: Error using ClientPull mode. --> NoFrame
+2021-03-19 15:51:36,705 [INFO]: Getting a frame in PreFetch mode...
+2021-03-19 15:51:37,705 [ERROR]: Error using ClientPreFetch mode. --> NoFrame
+2021-03-19 15:51:37,705 [INFO]: Getting a frame in ServerPush mode...
+2021-03-19 15:51:37,705 [DEBUG]: Fetched! Pulled frame number: 1961065
+2021-03-19 15:51:37,705 [INFO]: ServerPush mode set.
+2021-03-19 15:51:37,705 [INFO]: Getting available framerates...
+2021-03-19 15:51:37,705 [INFO]: Current Vicon frame rate: 100.0 Hz.
+2021-03-19 15:51:37,705 [INFO]: Available frame rates: 
+2021-03-19 15:51:37,705 [INFO]: Process Rate : 100 Hz 
+
+2021-03-19 15:51:37,706 [INFO]: Setting axis...
+2021-03-19 15:51:37,706 [INFO]: X Axis: AxisMapping.EForward
+2021-03-19 15:51:37,706 [INFO]: Y Axis: AxisMapping.ELeft
+2021-03-19 15:51:37,706 [INFO]: Z Axis: AxisMapping.EUp
+2021-03-19 15:51:37,706 [INFO]: Initializing drivers...
+2021-03-19 15:51:37,706 [INFO]: Drivers initialized.
+2021-03-19 15:51:37,706 [INFO]: Connecting to the Crazyflie...
+2021-03-19 15:51:37,706 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x0000017EAFCA8888>>]
+2021-03-19 15:51:37,706 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x0000017EAFCA8988>>]
+2021-03-19 15:51:37,706 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x0000017EAFCA8A48>>]
+2021-03-19 15:51:37,706 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2021-03-19 15:51:37,706 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x0000017EAFCA8DC8>>]
+2021-03-19 15:51:37,707 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000017EAFCA8F08>>]
+2021-03-19 15:51:37,707 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000017EAFCA8F08>>]
+2021-03-19 15:51:37,707 [INFO]: Crazyflie has the following segments: ['Crazyflie']
+2021-03-19 15:51:37,707 [INFO]: Crazyflie has root: Crazyflie
+2021-03-19 15:51:37,707 [DEBUG]: ===Checking functions without flying===
+2021-03-19 15:51:37,707 [DEBUG]: Fetched! Pulled frame number: 1961074
+2021-03-19 15:51:37,707 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922052581944357, 0.09890813968153288, -0.0758017514049093), (-0.10167424959943148, 0.9942523286916124, -0.03353585931057321), (0.07204909839620338, 0.04098154213843633, 0.9965587993812758)), False)
+2021-03-19 15:51:37,707 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03363897 -0.07587453 -0.09935692]
+2021-03-19 15:51:37,707 [DEBUG]: Drone position from global origin: (-233.5486129016208, -263.04697201383107, 41.41103620827856)
+2021-03-19 15:51:37,713 [DEBUG]: Fetched! Pulled frame number: 1961075
+2021-03-19 15:51:37,713 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922013737669397, 0.0989872910485339, -0.07574925812092455), (-0.10175514428921953, 0.9942423037291472, -0.03358767759221208), (0.07198836368245724, 0.04103361653852987, 0.9965610457007092)), False)
+2021-03-19 15:51:37,713 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03369083 -0.07582189 -0.09943629]
+2021-03-19 15:51:37,714 [DEBUG]: Drone position from global origin: (-233.54775175575224, -263.04472983986625, 41.40683865144803)
+2021-03-19 15:51:37,729 [DEBUG]: Fetched! Pulled frame number: 1961076
+2021-03-19 15:51:37,729 [DEBUG]: Drone rotation matrix from Vicon: (((0.9921902314868396, 0.09905395756747871, -0.07580803408816107), (-0.101818581180721, 0.9942385126335234, -0.03350755918631131), (0.07205221071165403, 0.040964539378581515, 0.9965592734228427)), False)
+2021-03-19 15:51:37,730 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03361059 -0.07588083 -0.09950393]
+2021-03-19 15:51:37,730 [DEBUG]: Drone position from global origin: (-233.54512283452652, -263.0442626410576, 41.406960555719)
+2021-03-19 15:51:37,738 [DEBUG]: Fetched! Pulled frame number: 1961077
+2021-03-19 15:51:37,739 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922045157727439, 0.0989413932754073, -0.07576806436023094), (-0.10171495470024192, 0.9942440634432307, -0.03365724733576474), (0.07200185324352869, 0.0411016180291518, 0.9965572688636027)), False)
+2021-03-19 15:51:37,740 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03376069 -0.07584075 -0.09939018]
+2021-03-19 15:51:37,740 [DEBUG]: Drone position from global origin: (-233.54718881986233, -263.04562995616783, 41.4066978844773)
+2021-03-19 15:51:37,747 [DEBUG]: Fetched! Pulled frame number: 1961078
+2021-03-19 15:51:37,747 [DEBUG]: Drone rotation matrix from Vicon: (((0.9921929780341544, 0.09890083017651305, -0.07597183774342028), (-0.1016652714219102, 0.9942572717912843, -0.03341631453140136), (0.07223065087914812, 0.04087913013444321, 0.9965498631744555)), False)
+2021-03-19 15:51:37,748 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03351945 -0.07604511 -0.09935085]
+2021-03-19 15:51:37,748 [DEBUG]: Drone position from global origin: (-233.54604584009826, -263.0457043987678, 41.40745210762529)
+2021-03-19 15:51:37,755 [DEBUG]: Fetched! Pulled frame number: 1961079
+2021-03-19 15:51:37,755 [DEBUG]: Drone rotation matrix from Vicon: (((0.9921872271096895, 0.0989025503408198, -0.07604467040146197), (-0.10167369356266218, 0.9942546932669996, -0.03346737148134688), (0.07229776205188683, 0.04093764102419934, 0.9965425947492975)), False)
+2021-03-19 15:51:37,755 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03357087 -0.07611815 -0.09935314]
+2021-03-19 15:51:37,755 [DEBUG]: Drone position from global origin: (-233.54517096501155, -263.04515460595917, 41.39981101220465)
+2021-03-19 15:51:37,764 [DEBUG]: Fetched! Pulled frame number: 1961080
+2021-03-19 15:51:37,764 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922147343438998, 0.0989804616635338, -0.07558299517575318), (-0.10173343917233746, 0.9942482698322724, -0.033476637968903385), (0.07183472910112854, 0.04090533149121795, 0.9965774056994073)), False)
+2021-03-19 15:51:37,764 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03357898 -0.07565515 -0.09942815]
+2021-03-19 15:51:37,764 [DEBUG]: Drone position from global origin: (-233.54461733924956, -263.0471755840153, 41.39459313609429)
+2021-03-19 15:51:37,773 [DEBUG]: Fetched! Pulled frame number: 1961081
+2021-03-19 15:51:37,773 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922092123939472, 0.09893397491423432, -0.07571622975460784), (-0.10170769243555212, 0.9942437211380698, -0.03368929024125054), (0.07194737062616008, 0.041127747144643574, 0.996560125770035)), False)
+2021-03-19 15:51:37,773 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03379271 -0.07578876 -0.09938231]
+2021-03-19 15:51:37,773 [DEBUG]: Drone position from global origin: (-233.54159957562166, -263.04680516049126, 41.391670227640105)
+2021-03-19 15:51:37,783 [DEBUG]: Fetched! Pulled frame number: 1961082
+2021-03-19 15:51:37,783 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922130833341711, 0.09881589367410076, -0.07581963082135089), (-0.10159619764126146, 0.9942539233724725, -0.03372459760001942), (0.0720514391621352, 0.04116497316693292, 0.9965510699903095)), False)
+2021-03-19 15:51:37,783 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.0338284  -0.07589246 -0.09926409]
+2021-03-19 15:51:37,783 [DEBUG]: Drone position from global origin: (-233.54417220388441, -263.0488570978603, 41.38947401841045)
+2021-03-19 15:51:37,793 [DEBUG]: Fetched! Pulled frame number: 1961083
+2021-03-19 15:51:37,793 [DEBUG]: Drone rotation matrix from Vicon: (((0.9922223312944642, 0.09886629808286422, -0.07563266743920054), (-0.10163567114015555, 0.9942514387555651, -0.033678878906207486), (0.0718681823373085, 0.04110391265900452, 0.9965668230137166)), False)
+2021-03-19 15:51:37,793 [DEBUG]: Drone Euler XYZ from Vicon as given: [ 0.03378205 -0.07570496 -0.09931347]
+2021-03-19 15:51:37,793 [DEBUG]: Drone position from global origin: (-233.54721095812533, -263.04919376519905, 41.39789379488859)
+2021-03-19 15:51:37,793 [DEBUG]: ===============Offline check done=================
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x0000017EAFCBB348>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x0000017EAFCBB108>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x0000017EAFCBB548>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-4, initial daemon)>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x0000017EAFCBB948>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000017EAFCBBA88>>]
+2021-03-19 15:51:37,794 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000017EAFCBBA88>>]
+2021-03-19 15:51:37,794 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2021-03-19 15:51:37,798 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2021-03-19 15:51:37,799 [INFO]: Callback->Connected to [radio://0/80/2M]
+2021-03-19 15:51:37,801 [WARNING]: Error no LogEntry to handle id=1
+2021-03-19 15:51:37,813 [WARNING]: Error no LogEntry to handle id=2
+2021-03-19 15:51:37,818 [INFO]: Protocol  version: 4
+2021-03-19 15:51:37,821 [DEBUG]: Logging reset, continue with TOC download
+2021-03-19 15:51:37,821 [DEBUG]: [5]: Using V2 protocol: 1
+2021-03-19 15:51:37,821 [DEBUG]: [5]: Start fetching...
+2021-03-19 15:51:37,821 [DEBUG]: Adding callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x0000017EAFCD0988>>]
+2021-03-19 15:51:37,823 [DEBUG]: [5]: Got TOC CRC, 317 items and crc=0x05C5AF70
+2021-03-19 15:51:37,827 [INFO]: TOC for port [5] found in cache
+2021-03-19 15:51:37,827 [DEBUG]: Removing callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x0000017EAFCD0988>>]
+2021-03-19 15:51:37,827 [DEBUG]: [5]: Done!
+2021-03-19 15:51:37,827 [INFO]: Log TOC finished updating
+2021-03-19 15:51:37,827 [DEBUG]: Requesting number of memories
+2021-03-19 15:51:37,830 [INFO]: 9 memories found
+2021-03-19 15:51:37,830 [DEBUG]: Requesting first id
+2021-03-19 15:51:37,833 [DEBUG]: Requesting information about memory 1
+2021-03-19 15:51:37,839 [DEBUG]: Memory: id=1, type=LED driver, size=24
+2021-03-19 15:51:37,839 [DEBUG]: Requesting information about memory 2
+2021-03-19 15:51:37,842 [DEBUG]: Memory: id=2, type=Loco Positioning, size=6144
+2021-03-19 15:51:37,842 [DEBUG]: Requesting information about memory 3
+2021-03-19 15:51:37,846 [DEBUG]: Memory: id=3, type=Trajectory, size=4096
+2021-03-19 15:51:37,846 [DEBUG]: Requesting information about memory 4
+2021-03-19 15:51:37,851 [DEBUG]: Memory: id=4, type=Loco Positioning 2, size=69632
+2021-03-19 15:51:37,851 [DEBUG]: Requesting information about memory 5
+2021-03-19 15:51:37,855 [DEBUG]: Memory: id=5, type=Lighthouse positioning, size=96
+2021-03-19 15:51:37,855 [DEBUG]: Requesting information about memory 6
+2021-03-19 15:51:37,859 [DEBUG]: Memory: id=6, type=Memory tester, size=4096
+2021-03-19 15:51:37,859 [DEBUG]: Requesting information about memory 7
+2021-03-19 15:51:37,863 [DEBUG]: Memory: id=7, type=Unknown, size=0
+2021-03-19 15:51:37,863 [DEBUG]: Requesting information about memory 8
+2021-03-19 15:51:37,867 [DEBUG]: Done getting all the memories, start reading the OWs
+2021-03-19 15:51:37,867 [DEBUG]: Updating content of memory 8
+2021-03-19 15:51:37,867 [DEBUG]: Requesting new chunk of 11bytes at 0x0
+2021-03-19 15:51:37,873 [DEBUG]: READ: Mem=8, addr=0x0, status=0x0, data=(235, 12, 0, 0, 0, 188, 15, 205, 0, 12, 1)
+2021-03-19 15:51:37,873 [DEBUG]: READING: We are still interested in request for mem 8
+2021-03-19 15:51:37,873 [DEBUG]: Requesting new chunk of 15bytes at 0x8
+2021-03-19 15:51:37,879 [DEBUG]: READ: Mem=8, addr=0x8, status=0x0, data=(0, 12, 1, 7, 98, 99, 70, 108, 111, 119, 50, 2, 1, 65, 84)
+2021-03-19 15:51:37,879 [DEBUG]: READING: We are still interested in request for mem 8
+2021-03-19 15:51:37,879 [DEBUG]: OW 0DD9203F00000040 (BC:0F): {'Board name': 'bcFlow2', 'Board revision': 'A'}
+2021-03-19 15:51:37,879 [INFO]: Memories finished updating
+2021-03-19 15:51:37,879 [DEBUG]: [2]: Using V2 protocol: 1
+2021-03-19 15:51:37,879 [DEBUG]: [2]: Start fetching...
+2021-03-19 15:51:37,879 [DEBUG]: Adding callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x0000017EAFD01648>>]
+2021-03-19 15:51:37,882 [DEBUG]: [2]: Got TOC CRC, 164 items and crc=0x1042AFA8
+2021-03-19 15:51:37,884 [INFO]: TOC for port [2] found in cache
+2021-03-19 15:51:37,884 [DEBUG]: Removing callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x0000017EAFD01648>>]
+2021-03-19 15:51:37,884 [DEBUG]: [2]: Done!
+2021-03-19 15:51:37,884 [INFO]: Param TOC finished updating
+2021-03-19 15:51:37,884 [INFO]: Callback->Connection setup finished [radio://0/80/2M]
+2021-03-19 15:51:37,884 [DEBUG]: Requesting request to update param [6]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [1]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [2]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [3]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [4]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [5]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [7]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [8]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [9]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [10]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [11]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [16]
+2021-03-19 15:51:37,885 [DEBUG]: Requesting request to update param [12]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [13]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [14]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [15]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [17]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [18]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [19]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [20]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [21]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [22]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [23]
+2021-03-19 15:51:37,886 [DEBUG]: Requesting request to update param [24]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [25]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [26]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [27]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [28]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [29]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [30]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [31]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [32]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [33]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [34]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [35]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [36]
+2021-03-19 15:51:37,887 [DEBUG]: Requesting request to update param [37]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [38]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [39]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [40]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [41]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [42]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [43]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [44]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [45]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [46]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [47]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [48]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [49]
+2021-03-19 15:51:37,888 [DEBUG]: Requesting request to update param [50]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [51]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [52]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [53]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [54]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [55]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [56]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [57]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [58]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [59]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [60]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [61]
+2021-03-19 15:51:37,889 [DEBUG]: Requesting request to update param [62]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [63]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [64]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [65]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [66]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [67]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [68]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [69]
+2021-03-19 15:51:37,890 [DEBUG]: Requesting request to update param [70]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [71]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [72]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [73]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [74]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [75]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [76]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [77]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [78]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [79]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [80]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [81]
+2021-03-19 15:51:37,891 [DEBUG]: Requesting request to update param [82]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [83]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [84]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [85]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [86]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [87]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [88]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [89]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [90]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [91]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [92]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [93]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [94]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [95]
+2021-03-19 15:51:37,892 [DEBUG]: Requesting request to update param [96]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [97]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [98]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [99]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [100]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [101]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [102]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [103]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [104]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [105]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [106]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [107]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [108]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [109]
+2021-03-19 15:51:37,893 [DEBUG]: Requesting request to update param [110]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [111]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [112]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [113]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [114]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [115]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [116]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [117]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [118]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [119]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [120]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [121]
+2021-03-19 15:51:37,894 [DEBUG]: Requesting request to update param [122]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [123]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [124]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [125]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [126]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [127]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [128]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [140]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [141]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [142]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [143]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [145]
+2021-03-19 15:51:37,895 [DEBUG]: Requesting request to update param [146]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [147]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [151]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [152]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [154]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [155]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [156]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [129]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [130]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [131]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [132]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [133]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [134]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [135]
+2021-03-19 15:51:37,896 [DEBUG]: Requesting request to update param [136]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [137]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [138]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [139]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [144]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [148]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [149]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [150]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [153]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [157]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [158]
+2021-03-19 15:51:37,897 [DEBUG]: Requesting request to update param [159]
+2021-03-19 15:51:37,898 [DEBUG]: Requesting request to update param [160]
+2021-03-19 15:51:37,898 [DEBUG]: Requesting request to update param [161]
+2021-03-19 15:51:37,898 [DEBUG]: Requesting request to update param [162]
+2021-03-19 15:51:37,898 [DEBUG]: Requesting request to update param [163]
+2021-03-19 15:51:37,898 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-19 15:51:37,902 [DEBUG]: Updated parameter [imu_sensors.BMP388]
+2021-03-19 15:51:37,905 [DEBUG]: Updated parameter [imu_sensors.HMC5883L]
+2021-03-19 15:51:37,908 [DEBUG]: Updated parameter [imu_sensors.MS5611]
+2021-03-19 15:51:37,912 [DEBUG]: Updated parameter [imu_tests.MPU6500]
+2021-03-19 15:51:37,916 [DEBUG]: Updated parameter [imu_tests.HMC5883L]
+2021-03-19 15:51:37,920 [DEBUG]: Updated parameter [imu_tests.MS5611]
+2021-03-19 15:51:37,923 [DEBUG]: Updated parameter [cpu.flash]
+2021-03-19 15:51:37,926 [DEBUG]: Updated parameter [cpu.id0]
+2021-03-19 15:51:37,929 [DEBUG]: Updated parameter [cpu.id1]
+2021-03-19 15:51:37,943 [DEBUG]: Updated parameter [cpu.id2]
+2021-03-19 15:51:37,946 [DEBUG]: Updated parameter [system.selftestPassed]
+2021-03-19 15:51:37,949 [DEBUG]: Updated parameter [system.taskDump]
+2021-03-19 15:51:37,952 [DEBUG]: Updated parameter [sound.effect]
+2021-03-19 15:51:37,956 [DEBUG]: Updated parameter [sound.neffect]
+2021-03-19 15:51:37,959 [DEBUG]: Updated parameter [sound.freq]
+2021-03-19 15:51:37,962 [DEBUG]: Updated parameter [sound.ratio]
+2021-03-19 15:51:37,966 [DEBUG]: Updated parameter [memTst.resetW]
+2021-03-19 15:51:37,969 [DEBUG]: Updated parameter [commander.enHighLevel]
+2021-03-19 15:51:37,973 [DEBUG]: Updated parameter [flightmode.althold]
+2021-03-19 15:51:37,976 [DEBUG]: Updated parameter [flightmode.poshold]
+2021-03-19 15:51:37,980 [DEBUG]: Updated parameter [flightmode.posSet]
+2021-03-19 15:51:37,983 [DEBUG]: Updated parameter [flightmode.yawMode]
+2021-03-19 15:51:37,986 [DEBUG]: Updated parameter [flightmode.yawRst]
+2021-03-19 15:51:37,990 [DEBUG]: Updated parameter [flightmode.stabModeRoll]
+2021-03-19 15:51:37,993 [DEBUG]: Updated parameter [flightmode.stabModePitch]
+2021-03-19 15:51:37,996 [DEBUG]: Updated parameter [flightmode.stabModeYaw]
+2021-03-19 15:51:37,999 [DEBUG]: Updated parameter [cmdrCPPM.rateRoll]
+2021-03-19 15:51:38,003 [DEBUG]: Updated parameter [cmdrCPPM.ratePitch]
+2021-03-19 15:51:38,007 [DEBUG]: Updated parameter [cmdrCPPM.rateYaw]
+2021-03-19 15:51:38,010 [DEBUG]: Updated parameter [cmdrCPPM.angRoll]
+2021-03-19 15:51:38,013 [DEBUG]: Updated parameter [cmdrCPPM.angPitch]
+2021-03-19 15:51:38,017 [DEBUG]: Updated parameter [locSrv.enRangeStreamFP32]
+2021-03-19 15:51:38,020 [DEBUG]: Updated parameter [locSrv.extPosStdDev]
+2021-03-19 15:51:38,023 [DEBUG]: Updated parameter [locSrv.extQuatStdDev]
+2021-03-19 15:51:38,026 [DEBUG]: Updated parameter [pid_attitude.roll_kp]
+2021-03-19 15:51:38,029 [DEBUG]: Updated parameter [pid_attitude.roll_ki]
+2021-03-19 15:51:38,033 [DEBUG]: Updated parameter [pid_attitude.roll_kd]
+2021-03-19 15:51:38,037 [DEBUG]: Updated parameter [pid_attitude.pitch_kp]
+2021-03-19 15:51:38,041 [DEBUG]: Updated parameter [pid_attitude.pitch_ki]
+2021-03-19 15:51:38,044 [DEBUG]: Updated parameter [pid_attitude.pitch_kd]
+2021-03-19 15:51:38,048 [DEBUG]: Updated parameter [pid_attitude.yaw_kp]
+2021-03-19 15:51:38,052 [DEBUG]: Updated parameter [pid_attitude.yaw_ki]
+2021-03-19 15:51:38,056 [DEBUG]: Updated parameter [pid_attitude.yaw_kd]
+2021-03-19 15:51:38,059 [DEBUG]: Updated parameter [pid_rate.roll_kp]
+2021-03-19 15:51:38,063 [DEBUG]: Updated parameter [pid_rate.roll_ki]
+2021-03-19 15:51:38,076 [DEBUG]: Updated parameter [pid_rate.roll_kd]
+2021-03-19 15:51:38,079 [DEBUG]: Updated parameter [pid_rate.pitch_kp]
+2021-03-19 15:51:38,084 [DEBUG]: Updated parameter [pid_rate.pitch_ki]
+2021-03-19 15:51:38,088 [DEBUG]: Updated parameter [pid_rate.pitch_kd]
+2021-03-19 15:51:38,092 [DEBUG]: Updated parameter [pid_rate.yaw_kp]
+2021-03-19 15:51:38,096 [DEBUG]: Updated parameter [pid_rate.yaw_ki]
+2021-03-19 15:51:38,100 [DEBUG]: Updated parameter [pid_rate.yaw_kd]
+2021-03-19 15:51:38,107 [DEBUG]: Updated parameter [sensfusion6.kp]
+2021-03-19 15:51:38,111 [DEBUG]: Updated parameter [sensfusion6.ki]
+2021-03-19 15:51:38,114 [DEBUG]: Updated parameter [sensfusion6.baseZacc]
+2021-03-19 15:51:38,118 [DEBUG]: Updated parameter [health.startPropTest]
+2021-03-19 15:51:38,121 [DEBUG]: Updated parameter [stabilizer.estimator]
+2021-03-19 15:51:38,124 [DEBUG]: Updated parameter [stabilizer.controller]
+2021-03-19 15:51:38,127 [DEBUG]: Updated parameter [posEstAlt.estAlphaAsl]
+2021-03-19 15:51:38,131 [DEBUG]: Updated parameter [posEstAlt.estAlphaZr]
+2021-03-19 15:51:38,134 [DEBUG]: Updated parameter [posEstAlt.velFactor]
+2021-03-19 15:51:38,137 [DEBUG]: Updated parameter [posEstAlt.velZAlpha]
+2021-03-19 15:51:38,141 [DEBUG]: Updated parameter [posEstAlt.vAccDeadband]
+2021-03-19 15:51:38,144 [DEBUG]: Updated parameter [posCtlPid.xKp]
+2021-03-19 15:51:38,147 [DEBUG]: Updated parameter [posCtlPid.xKi]
+2021-03-19 15:51:38,151 [DEBUG]: Updated parameter [posCtlPid.xKd]
+2021-03-19 15:51:38,155 [DEBUG]: Updated parameter [posCtlPid.yKp]
+2021-03-19 15:51:38,158 [DEBUG]: Updated parameter [posCtlPid.yKi]
+2021-03-19 15:51:38,161 [DEBUG]: Updated parameter [posCtlPid.yKd]
+2021-03-19 15:51:38,165 [DEBUG]: Updated parameter [posCtlPid.zKp]
+2021-03-19 15:51:38,168 [DEBUG]: Updated parameter [posCtlPid.zKi]
+2021-03-19 15:51:38,171 [DEBUG]: Updated parameter [posCtlPid.zKd]
+2021-03-19 15:51:38,174 [DEBUG]: Updated parameter [posCtlPid.thrustBase]
+2021-03-19 15:51:38,178 [DEBUG]: Updated parameter [posCtlPid.thrustMin]
+2021-03-19 15:51:38,181 [DEBUG]: Updated parameter [posCtlPid.rpLimit]
+2021-03-19 15:51:38,184 [DEBUG]: Updated parameter [posCtlPid.xyVelMax]
+2021-03-19 15:51:38,187 [DEBUG]: Updated parameter [posCtlPid.zVelMax]
+2021-03-19 15:51:38,191 [DEBUG]: Updated parameter [velCtlPid.vxKp]
+2021-03-19 15:51:38,204 [DEBUG]: Updated parameter [velCtlPid.vxKi]
+2021-03-19 15:51:38,209 [DEBUG]: Updated parameter [velCtlPid.vxKd]
+2021-03-19 15:51:38,213 [DEBUG]: Updated parameter [velCtlPid.vyKp]
+2021-03-19 15:51:38,218 [DEBUG]: Updated parameter [velCtlPid.vyKi]
+2021-03-19 15:51:38,223 [DEBUG]: Updated parameter [velCtlPid.vyKd]
+2021-03-19 15:51:38,227 [DEBUG]: Updated parameter [velCtlPid.vzKp]
+2021-03-19 15:51:38,230 [DEBUG]: Updated parameter [velCtlPid.vzKi]
+2021-03-19 15:51:38,234 [DEBUG]: Updated parameter [velCtlPid.vzKd]
+2021-03-19 15:51:38,237 [DEBUG]: Updated parameter [controller.tiltComp]
+2021-03-19 15:51:38,240 [DEBUG]: Updated parameter [ctrlMel.kp_xy]
+2021-03-19 15:51:38,243 [DEBUG]: Updated parameter [ctrlMel.kd_xy]
+2021-03-19 15:51:38,247 [DEBUG]: Updated parameter [ctrlMel.ki_xy]
+2021-03-19 15:51:38,250 [DEBUG]: Updated parameter [ctrlMel.i_range_xy]
+2021-03-19 15:51:38,253 [DEBUG]: Updated parameter [ctrlMel.kp_z]
+2021-03-19 15:51:38,256 [DEBUG]: Updated parameter [ctrlMel.kd_z]
+2021-03-19 15:51:38,260 [DEBUG]: Updated parameter [ctrlMel.ki_z]
+2021-03-19 15:51:38,263 [DEBUG]: Updated parameter [ctrlMel.i_range_z]
+2021-03-19 15:51:38,266 [DEBUG]: Updated parameter [ctrlMel.mass]
+2021-03-19 15:51:38,269 [DEBUG]: Updated parameter [ctrlMel.massThrust]
+2021-03-19 15:51:38,273 [DEBUG]: Updated parameter [ctrlMel.kR_xy]
+2021-03-19 15:51:38,277 [DEBUG]: Updated parameter [ctrlMel.kR_z]
+2021-03-19 15:51:38,280 [DEBUG]: Updated parameter [ctrlMel.kw_xy]
+2021-03-19 15:51:38,283 [DEBUG]: Updated parameter [ctrlMel.kw_z]
+2021-03-19 15:51:38,287 [DEBUG]: Updated parameter [ctrlMel.ki_m_xy]
+2021-03-19 15:51:38,290 [DEBUG]: Updated parameter [ctrlMel.ki_m_z]
+2021-03-19 15:51:38,293 [DEBUG]: Updated parameter [ctrlMel.kd_omega_rp]
+2021-03-19 15:51:38,296 [DEBUG]: Updated parameter [ctrlMel.i_range_m_xy]
+2021-03-19 15:51:38,300 [DEBUG]: Updated parameter [ctrlMel.i_range_m_z]
+2021-03-19 15:51:38,303 [DEBUG]: Updated parameter [motorPowerSet.enable]
+2021-03-19 15:51:38,306 [DEBUG]: Updated parameter [motorPowerSet.m1]
+2021-03-19 15:51:38,309 [DEBUG]: Updated parameter [motorPowerSet.m2]
+2021-03-19 15:51:38,313 [DEBUG]: Updated parameter [motorPowerSet.m3]
+2021-03-19 15:51:38,316 [DEBUG]: Updated parameter [motorPowerSet.m4]
+2021-03-19 15:51:38,329 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-19 15:51:38,333 [DEBUG]: Updated parameter [kalman.quadIsFlying]
+2021-03-19 15:51:38,336 [DEBUG]: Updated parameter [kalman.pNAcc_xy]
+2021-03-19 15:51:38,340 [DEBUG]: Updated parameter [kalman.pNAcc_z]
+2021-03-19 15:51:38,343 [DEBUG]: Updated parameter [kalman.pNVel]
+2021-03-19 15:51:38,346 [DEBUG]: Updated parameter [kalman.pNPos]
+2021-03-19 15:51:38,349 [DEBUG]: Updated parameter [kalman.pNAtt]
+2021-03-19 15:51:38,353 [DEBUG]: Updated parameter [kalman.mNBaro]
+2021-03-19 15:51:38,357 [DEBUG]: Updated parameter [kalman.mNGyro_rollpitch]
+2021-03-19 15:51:38,360 [DEBUG]: Updated parameter [kalman.mNGyro_yaw]
+2021-03-19 15:51:38,363 [DEBUG]: Updated parameter [kalman.initialX]
+2021-03-19 15:51:38,366 [DEBUG]: Updated parameter [kalman.initialY]
+2021-03-19 15:51:38,370 [DEBUG]: Updated parameter [kalman.initialZ]
+2021-03-19 15:51:38,373 [DEBUG]: Updated parameter [kalman.initialYaw]
+2021-03-19 15:51:38,377 [DEBUG]: Updated parameter [kalman.maxPos]
+2021-03-19 15:51:38,380 [DEBUG]: Updated parameter [kalman.maxVel]
+2021-03-19 15:51:38,384 [DEBUG]: Updated parameter [deck.bcLedRing]
+2021-03-19 15:51:38,387 [DEBUG]: Updated parameter [deck.bcBuzzer]
+2021-03-19 15:51:38,390 [DEBUG]: Updated parameter [deck.bcGTGPS]
+2021-03-19 15:51:38,393 [DEBUG]: Updated parameter [deck.bcCPPM]
+2021-03-19 15:51:38,396 [DEBUG]: Updated parameter [deck.bcUSD]
+2021-03-19 15:51:38,399 [DEBUG]: Updated parameter [deck.bcZRanger]
+2021-03-19 15:51:38,403 [DEBUG]: Updated parameter [deck.bcZRanger2]
+2021-03-19 15:51:38,406 [DEBUG]: Updated parameter [deck.bcDWM1000]
+2021-03-19 15:51:38,410 [DEBUG]: Updated parameter [deck.bcFlow]
+2021-03-19 15:51:38,413 [DEBUG]: Updated parameter [deck.bcFlow2]
+2021-03-19 15:51:38,416 [DEBUG]: Updated parameter [deck.bcOA]
+2021-03-19 15:51:38,419 [DEBUG]: Updated parameter [deck.bcMultiranger]
+2021-03-19 15:51:38,423 [DEBUG]: Updated parameter [deck.bdLighthouse4]
+2021-03-19 15:51:38,426 [DEBUG]: Updated parameter [ring.effect]
+2021-03-19 15:51:38,430 [DEBUG]: Updated parameter [ring.neffect]
+2021-03-19 15:51:38,433 [DEBUG]: Updated parameter [ring.solidRed]
+2021-03-19 15:51:38,436 [DEBUG]: Updated parameter [ring.solidGreen]
+2021-03-19 15:51:38,439 [DEBUG]: Updated parameter [ring.solidBlue]
+2021-03-19 15:51:38,443 [DEBUG]: Updated parameter [ring.headlightEnable]
+2021-03-19 15:51:38,447 [DEBUG]: Updated parameter [ring.glowstep]
+2021-03-19 15:51:38,450 [DEBUG]: Updated parameter [ring.emptyCharge]
+2021-03-19 15:51:38,453 [DEBUG]: Updated parameter [ring.fullCharge]
+2021-03-19 15:51:38,465 [DEBUG]: Updated parameter [ring.fadeColor]
+2021-03-19 15:51:38,469 [DEBUG]: Updated parameter [ring.fadeTime]
+2021-03-19 15:51:38,473 [DEBUG]: Updated parameter [usd.logging]
+2021-03-19 15:51:38,476 [DEBUG]: Updated parameter [loco.mode]
+2021-03-19 15:51:38,480 [DEBUG]: Updated parameter [tdoa3.logId]
+2021-03-19 15:51:38,483 [DEBUG]: Updated parameter [tdoa3.logOthrId]
+2021-03-19 15:51:38,486 [DEBUG]: Updated parameter [motion.disable]
+2021-03-19 15:51:38,489 [DEBUG]: Updated parameter [activeMarker.front]
+2021-03-19 15:51:38,493 [DEBUG]: Updated parameter [activeMarker.back]
+2021-03-19 15:51:38,496 [DEBUG]: Updated parameter [activeMarker.left]
+2021-03-19 15:51:38,500 [DEBUG]: Updated parameter [activeMarker.right]
+2021-03-19 15:51:38,503 [DEBUG]: Updated parameter [firmware.revision0]
+2021-03-19 15:51:38,506 [DEBUG]: Updated parameter [firmware.revision1]
+2021-03-19 15:51:38,509 [DEBUG]: Updated parameter [firmware.modified]
+2021-03-19 15:51:38,513 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-19 15:51:42,486 [INFO]: Take-off!

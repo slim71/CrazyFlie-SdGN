@@ -25,7 +25,7 @@
 The PositionHlCommander is used to make it easy to write scripts that moves the
 Crazyflie around. Some sort of positioning support is required, for
 instance the Loco Positioning System. The implementation uses the High Level
-Commander and position setpoints.
+Commander and setpoint setpoints.
 
 The API contains a set of primitives that are easy to understand and use, such
 as "go forward" or "turn around".
@@ -41,7 +41,7 @@ from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 
 
 class PositionHlCommander:
-    """The position High Level Commander"""
+    """The setpoint High Level Commander"""
 
     CONTROLLER_PID = 1
     CONTROLLER_MELLINGER = 2
@@ -57,9 +57,9 @@ class PositionHlCommander:
         Construct an instance of a PositionHlCommander
 
         :param crazyflie: a Crazyflie or SyncCrazyflie instance
-        :param x: Initial position, x
-        :param y: Initial position, y
-        :param z: Initial position, z
+        :param x: Initial setpoint, x
+        :param y: Initial setpoint, y
+        :param z: Initial setpoint, z
         :param default_velocity: the default velocity to use
         :param default_height: the default height to fly at
         :param controller: Which underlying controller to use
@@ -218,7 +218,7 @@ class PositionHlCommander:
 
     def go_to(self, x, y, z=DEFAULT, velocity=DEFAULT):
         """
-        Go to a position
+        Go to a setpoint
 
         :param x: X coordinate
         :param y: Y coordinate
@@ -265,7 +265,7 @@ class PositionHlCommander:
 
     def get_position(self):
         """
-        Get the current position
+        Get the current setpoint
         :return: (x, y, z)
         """
         return self._x, self._y, self._z

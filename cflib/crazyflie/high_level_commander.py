@@ -73,7 +73,7 @@ class HighLevelCommander():
     def takeoff(self, absolute_height_m, duration_s, group_mask=ALL_GROUPS,
                 yaw=0.0):
         """
-        vertical takeoff from current x-y position to given height
+        vertical takeoff from current x-y setpoint to given height
 
         :param absolute_height_m: absolute (m)
         :param duration_s: time it should take until target height is
@@ -98,7 +98,7 @@ class HighLevelCommander():
     def land(self, absolute_height_m, duration_s, group_mask=ALL_GROUPS,
              yaw=0.0):
         """
-        vertical land from current x-y position to given height
+        vertical land from current x-y setpoint to given height
 
         :param absolute_height_m: absolute (m)
         :param duration_s: time it should take until target height is
@@ -134,14 +134,14 @@ class HighLevelCommander():
     def go_to(self, x, y, z, yaw, duration_s, relative=False,
               group_mask=ALL_GROUPS):
         """
-        Go to an absolute or relative position
+        Go to an absolute or relative setpoint
 
         :param x: x (m)
         :param y: y (m)
         :param z: z (m)
         :param yaw: yaw (radians)
-        :param duration_s: time it should take to reach the position (s)
-        :param relative: True if x, y, z is relative to the current position
+        :param duration_s: time it should take to reach the setpoint (s)
+        :param relative: True if x, y, z is relative to the current setpoint
         :param group_mask: mask for which CFs this should apply to
         """
         self._send_packet(struct.pack('<BBBfffff',

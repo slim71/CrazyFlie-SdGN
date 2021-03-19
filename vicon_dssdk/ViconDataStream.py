@@ -1294,8 +1294,8 @@ class Client:
         """ Return the static pose translation of a subject segment.
         
         The static translation of the segment corresponds to the PRE-POSITION element of the segment in the subject vsk. 
-        It is the base position of the segment, and is included in the value returned by GetLocalTranslation.
-        If you are required to calculate the amount a segment has moved from its base position, subtract this value from the local
+        It is the base setpoint of the segment, and is included in the value returned by GetLocalTranslation.
+        If you are required to calculate the amount a segment has moved from its base setpoint, subtract this value from the local
         translation.
 
             >>> import ViconDataStream
@@ -1328,7 +1328,7 @@ class Client:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
                     
             >>> import ViconDataStream
@@ -1360,7 +1360,7 @@ class Client:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
 
             >>> import ViconDataStream
@@ -1396,7 +1396,7 @@ class Client:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
         
             >>> import ViconDataStream
@@ -1428,7 +1428,7 @@ class Client:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
                     
             >>> import ViconDataStream
@@ -1903,7 +1903,7 @@ class Client:
     def GetLabeledMarkers(self):
         """ Returns a list of all labeled markers in the datastream across all subjects. 
         
-        The list contains tuples of the marker position, in the form ( x, y, z ) where x, y and z are in millimeters with respect to the global origin.
+        The list contains tuples of the marker setpoint, in the form ( x, y, z ) where x, y and z are in millimeters with respect to the global origin.
         and the trajectory ID of the marker
         
             >>> import ViconDataStream
@@ -1943,7 +1943,7 @@ class Client:
     def GetUnlabeledMarkers(self):
         """ Returns a list of all unlabeled markers in the datastream across all subjects. 
         
-        The list contains tuples of the marker position, in the form ( x, y, z ) where x, y and z are in millimeters with respect to the global origin.
+        The list contains tuples of the marker setpoint, in the form ( x, y, z ) where x, y and z are in millimeters with respect to the global origin.
         and the trajectory ID of the marker
         
             >>> import ViconDataStream
@@ -2283,7 +2283,7 @@ class Client:
     def GetGlobalCenterOfPressure(self, plateID ):
         """ Return the center of pressure for the force plate in global coordinates.
 
-        The position is in millimeters and is with respect to the global coordinate system.
+        The setpoint is in millimeters and is with respect to the global coordinate system.
         This function returns a list containing all subsamples in the frame.
 
             >>> import ViconDataStream
@@ -2347,10 +2347,10 @@ class Client:
         return eyeTrackerIDs
 
     def GetEyeTrackerGlobalPosition(self, eyeTrackerID ):
-        """ Return the location of the eye. The position is in millimeters with respect to the global origin.
+        """ Return the location of the eye. The setpoint is in millimeters with respect to the global origin.
 
         The function returns the location of the eye and an occluded flag.
-        The segment and device data need to be enabled to get the position.
+        The segment and device data need to be enabled to get the setpoint.
 
             >>> import ViconDataStream
             >>> client = ViconDataStream.Client()
@@ -2595,7 +2595,7 @@ class Client:
         return isVideo
 
     def GetCentroids(self, cameraName):
-        """ Returns a list containing the position, radius and weight of the centroids reported by a named camera
+        """ Returns a list containing the setpoint, radius and weight of the centroids reported by a named camera
 
             If weight is not present, it will be set to None
 
@@ -2646,7 +2646,7 @@ class RetimingClient:
       The Vicon DataStream re-timing client provides calls to obtain subject data from the 
       DataStream with minimal latency and temporal jitter. 
       When UpdateFrame() is called, the client uses re-timed data that has been linearly interpolated 
-      from an internal buffer to predict the position of each segment to the current time. 
+      from an internal buffer to predict the setpoint of each segment to the current time.
     
       The system and network latencies are used when determining the amount of prediction required.
       If additional prediction is required, for example, for use in a VR system where an additional latency 
@@ -2665,7 +2665,7 @@ class RetimingClient:
       Examples of use
       --------------
      
-      If you are using the client in a situation where you need to obtain the position of subjects  
+      If you are using the client in a situation where you need to obtain the setpoint of subjects
      
            client = ViconDataStream.RetimingClient()
            client.Connect( "localhost" )
@@ -2915,20 +2915,20 @@ class RetimingClient:
         return ( mappingDict[ xAxis ], mappingDict[ yAxis ], mappingDict[ zAxis ] )
 
     def UpdateFrame( self, offset = 0.0 ):
-        """ Update the current frame state to represent the position of all active subjects at the current time.
+        """ Update the current frame state to represent the setpoint of all active subjects at the current time.
         
-        The position of each segment is estimated by predicting forwards from the most recent 
+        The setpoint of each segment is estimated by predicting forwards from the most recent
         frames received from the DataStream, taking into account the latency reported by the 
         system to determine the amount of prediction required.
         
         The results of calls which return details about the current frame state such as GetSubjectCount() 
-        and GetSegmentGlobalRotationQuaternion() will all return the stream contents and position at the
+        and GetSegmentGlobalRotationQuaternion() will all return the stream contents and setpoint at the
         time that this call was made. 
         
         If no call to UpdateFrame() is made, calls querying the stream state will return NoFrame.
 
         An additional offset may be provided that will be applied to the time at which the predicted
-        position is calculated. This may be used to compensate for additional delays that 
+        setpoint is calculated. This may be used to compensate for additional delays that
         are in the user's system, such as render delay. 
 
         See Also: SetMaximumPrediction()
@@ -3167,8 +3167,8 @@ class RetimingClient:
         """ Return the static pose translation of a subject segment.
         
         The static translation of the segment corresponds to the PRE-POSITION element of the segment in the subject vsk. 
-        It is the base position of the segment, and is included in the value returned by GetLocalTranslation.
-        If you are required to calculate the amount a segment has moved from its base position, subtract this value from the local
+        It is the base setpoint of the segment, and is included in the value returned by GetLocalTranslation.
+        If you are required to calculate the amount a segment has moved from its base setpoint, subtract this value from the local
         translation.
 
             >>> import ViconDataStream
@@ -3201,7 +3201,7 @@ class RetimingClient:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
                     
             >>> import ViconDataStream
@@ -3233,7 +3233,7 @@ class RetimingClient:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
 
             >>> import ViconDataStream
@@ -3269,7 +3269,7 @@ class RetimingClient:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
         
             >>> import ViconDataStream
@@ -3301,7 +3301,7 @@ class RetimingClient:
         
         The static rotation of the segment corresponds to the PRE-ORIENTATION element of the segment in the subject vsk. 
         It is the base rotation of the segment, and is included in the value returned by GetLocalRotation*.
-        If you are required to calculate the amount a segment has rotated from its base position, subtract this value from the local
+        If you are required to calculate the amount a segment has rotated from its base setpoint, subtract this value from the local
         rotation.
                     
             >>> import ViconDataStream

@@ -20,11 +20,186 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/MCtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_105049.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_111735.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_113041.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114450.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114747.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_120328.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_123542.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161423.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161652.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162254.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162401.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_163203.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_164250.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_165313.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171658.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171933.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172030.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172118.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172153.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131234.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131304.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131339.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131709.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132026.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132121.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132320.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132535.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_133121.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134140.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134249.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134331.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134403.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134429.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134509.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_120741.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_120826.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121006.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121147.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121314.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121632.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121722.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121804.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123257.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123309.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123321.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124128.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124203.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124307.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124319.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124529.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124821.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_125555.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_125653.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_130702.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_130929.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_131447.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_154501.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_154739.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_162256.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163303.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163409.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163457.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163852.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163902.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164018.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164054.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164231.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165236.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165313.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165454.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170028.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170217.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170400.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170523.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170557.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170740.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170855.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171334.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171412.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171457.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171523.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171613.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171705.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171740.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171845.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172856.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172915.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172935.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173005.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173241.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173414.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173811.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173839.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/droneRot_fromVicon_150121.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myClasses/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myClasses/log_estimation_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myClasses/vicon_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/active_avoidance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/cache/05C5AF70.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/cache/1042AFA8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/estimate_help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/estimate_help__20210319_180039.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/estimate_help__20210319_180151.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/estimate_help__20210319_180413.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_151739.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_151930.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_152238.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_152303.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_152614.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_152705.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_152825.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_153114.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_153236.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_153552.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_154018.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_154110.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_154218.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_154412.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_154717.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_155003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_155035.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_155135.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_162337.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_162542.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_174238.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/hover_simple__20210319_174308.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/internal_estimate__20210319_174441.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/kalman_variance__20210319_174529.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_174730.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_174836.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175049.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175135.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175306.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175405.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175456.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175609.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175644.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175720.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/exp_logs/send_attempt__20210319_175727.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/experiments.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/hover_simple.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/internal_estimate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/kalman_variance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/new_script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/script_variables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/send_attempt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/supervised_box.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SV/total_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_163442.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST3.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/PROGETTO/TEST/TEST_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/test123.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crazyflie/commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crazyflie/extpos.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/extpos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crazyflie/high_level_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/high_level_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crazyflie/localization.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/localization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crazyflie/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crazyflie/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/crtp/crtpstack.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/crtp/crtpstack.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cflib/positioning/motion_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/motion_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cflib/positioning/position_hl_commander.py" beforeDir="false" afterPath="$PROJECT_DIR$/cflib/positioning/position_hl_commander.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crazyflie-firmware-master/crazyflie-firmware-master/tools/lighthouse/get_bs_geometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/crazyflie-firmware-master/crazyflie-firmware-master/tools/lighthouse/get_bs_geometry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crazyflie-firmware-master/crazyflie-firmware-master/tools/lighthouse/get_bs_position.py" beforeDir="false" afterPath="$PROJECT_DIR$/crazyflie-firmware-master/crazyflie-firmware-master/tools/lighthouse/get_bs_position.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vicon_dssdk/ViconDataStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/vicon_dssdk/ViconDataStream.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +236,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
   </component>
   <component name="RecentsManager">
@@ -73,8 +248,8 @@
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test123">
-    <configuration name="Interface" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.estimate_help">
+    <configuration name="estimate_help" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -82,11 +257,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/Interface.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/estimate_help.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,7 +270,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RELATIVO (Da provare)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="hover_simple" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -103,11 +278,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/hover_simple.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,7 +291,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RELATIVO (Funzionante ma senza flag)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="internal_estimate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,11 +299,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/internal_estimate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,7 +312,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="first version" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="kalman_variance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,11 +320,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/first version.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/kalman_variance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,7 +333,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test123" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="send_attempt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -166,11 +341,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PROGETTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_SV" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/test123.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/send_attempt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,11 +356,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test123" />
-        <item itemvalue="Python.RELATIVO (Funzionante ma senza flag)" />
-        <item itemvalue="Python.first version" />
-        <item itemvalue="Python.RELATIVO (Da provare)" />
-        <item itemvalue="Python.Interface" />
+        <item itemvalue="Python.estimate_help" />
+        <item itemvalue="Python.send_attempt" />
+        <item itemvalue="Python.kalman_variance" />
+        <item itemvalue="Python.internal_estimate" />
+        <item itemvalue="Python.hover_simple" />
       </list>
     </recent_temporary>
   </component>
@@ -359,10 +534,18 @@
       <option name="project" value="LOCAL" />
       <updated>1608584896676</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added rotation matrix">
+      <created>1610211731615</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610211731615</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.txt" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,6 +578,30 @@
     <MESSAGE value="Updating flow" />
     <MESSAGE value="Log improvements" />
     <MESSAGE value="Improvements after lab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improvements after lab" />
+    <MESSAGE value="Added rotation matrix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rotation matrix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py</url>
+          <line>260</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_SV/send_attempt.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

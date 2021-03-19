@@ -106,8 +106,8 @@ class Localization():
 
     def send_extpos(self, pos):
         """
-        Send the current Crazyflie X, Y, Z position. This is going to be
-        forwarded to the Crazyflie's position estimator.
+        Send the current Crazyflie X, Y, Z setpoint. This is going to be
+        forwarded to the Crazyflie's setpoint estimator.
         """
 
         pk = CRTPPacket()
@@ -118,9 +118,9 @@ class Localization():
 
     def send_extpose(self, pos, quat):
         """
-        Send the current Crazyflie pose (position [x, y, z] and
+        Send the current Crazyflie pose (setpoint [x, y, z] and
         attitude quaternion [qx, qy, qz, qw]). This is going to be forwarded
-        to the Crazyflie's position estimator.
+        to the Crazyflie's setpoint estimator.
         """
 
         pk = CRTPPacket()

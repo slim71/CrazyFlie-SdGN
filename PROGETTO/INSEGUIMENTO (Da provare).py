@@ -12,6 +12,7 @@ import cflib.utils
 import argparse
 import logging
 from own_module import crazyfun as crazy
+import time
 
 # -----------------------------------------------------------------------------
 # ----------------------------------SET UP-------------------------------------
@@ -30,7 +31,7 @@ uri = 'radio://0/80/2M'  # Used for the connection with the drone
 # The log file can be used by the MATLAB file "plot.m"
 MAKE_LOG_FILE = 0
 
-# Set to 1 if you want to send orientation together with the position to
+# Set to 1 if you want to send orientation together with the setpoint to
 # the Kalman filter.
 KALMAN_wQUATERNION = 0
 
@@ -50,9 +51,9 @@ TEST_noTHRUSTER = 0
 # ----------------------------------VARIABLES----------------------------------
 # -----------------------------------------------------------------------------
 # TODO: move variables to module
-# Used in the generation of the position reference for the drone
+# Used in the generation of the setpoint reference for the drone
 last_trans = np.array([0, 0, 0])
-# Used in the generation of the position reference for the drone
+# Used in the generation of the setpoint reference for the drone
 last_wand_trans = np.array([0, 0, 0])
 
 take_off = 1  # It will be set to 0 after the take off
@@ -75,16 +76,16 @@ last_quaternion = np.array([0, 0, 0, 0])
 # Security offset
 SEC_OFFSET = 0.3  # [m]
 
-# Current number of consecutive losses in the acquisition of the Wand position
+# Current number of consecutive losses in the acquisition of the Wand setpoint
 CONSEC_LOSSES = 0
 
-# To be subtracted from the "z" component of the last position of the drone
+# To be subtracted from the "z" component of the last setpoint of the drone
 # during each iteration of the landing phase
 # TODO: why? cannot use/trust sensors?
 DELTA_HEIGHT = 0.01  # [m]
 
 # Sum of meters subtracted from the  "z" component of
-# the last position of the drone
+# the last setpoint of the drone
 # TODO: useless?
 SUBTRACTED_HEIGHT = 0.01  # [m]
 
@@ -210,7 +211,7 @@ if MAKE_LOG_FILE:
 # Initialize all the drivers
 cflib.crtp.init_drivers(enable_debug_driver=False)
 
-# Creating an instance of the Crazyflie object and getting the initial position
+# Creating an instance of the Crazyflie object and getting the initial setpoint
 cf = cflib.crazyflie.Crazyflie()
 first_pos = crazy.getFirstPosition(vicon, drone)
 
@@ -229,9 +230,14 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
     if TEST_noTHRUSTER == 0:  # Thrusters activated
 
         # AUTO TAKE-OFF!
-        # Class used for the position control during the take-off phase:
+        # Class used for the setpoint control during the take-off phase:
         # take-off automatic when context created using "with"
         with MotionCommander(scf, MC_HEIGHT) as mc:
+            mc.forward(0.3)
+            print("forward done")
+            mc.back(0.3)
+            print("back done")
+            time.sleep(5)
 
             print('Take-Off!')
 
@@ -242,7 +248,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 data_frame = vicon.GetFrame()
                 frame_num = vicon.GetFrameNumber()
 
-                # Get the drone position in the Vicon reference system and
+                # Get the drone setpoint in the Vicon reference system and
                 # convert to meters
                 drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
                 drone_trans_mm = drone_trans[0]
@@ -250,7 +256,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                           float(drone_trans_mm[1]) / 1000,
                                           float(drone_trans_mm[2]) / 1000])
 
-                # Used to store the drone position in the Vicon System.
+                # Used to store the drone setpoint in the Vicon System.
                 # TODO: is it even useful?
                 drone_trans_vicon = drone_trans_m
 
@@ -266,12 +272,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     Drone_orientation = Euler_angles[0]
 
                 # We convert vectors in homogenous matrices and we convert the
-                # position in the body frame
+                # setpoint in the body frame
                 # TODO: check with "GetSegmentGlobalRotationMatrix" result
                 hom_mat, last_gamma = \
                     crazy.createMatrixRotation(vicon, drone, first_pos,
                                                last_gamma, KALMAN_wQUATERNION)
-                # Homogeneous vector containing drone position in Vicon
+                # Homogeneous vector containing drone setpoint in Vicon
                 # reference system
                 drone_trans_hom = np.array([drone_trans_m[0],
                                             drone_trans_m[1],
@@ -288,12 +294,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                 if MAKE_LOG_FILE:
                     # We write in the log file with the following format:
-                    # drone position body frame
+                    # drone setpoint body frame
                     # quaternions
-                    # drone position Vicon frame
+                    # drone setpoint Vicon frame
                     # drone orientation from Vicon
                     # setpoint body frame
-                    # drone position and orientation from log table
+                    # drone setpoint and orientation from log table
                     # noinspection PyUnboundLocalVariable
                     print(drone_trans_m[0], drone_trans_m[1], drone_trans_m[2],
                           quaternion[0], quaternion[1], quaternion[2],
@@ -329,7 +335,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
             # Reminder: out of "while drone_height < DEFAULT_HEIGHT"
 
-            # Store the last position of the drone
+            # Store the last setpoint of the drone
             last_drone_position = np.array([drone_trans_m[0],
                                             drone_trans_m[1],
                                             drone_trans_m[2]])
@@ -343,7 +349,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                 if take_off == 0:
                     try:
 
-                        # Get the Wand position expressed in the Vicon
+                        # Get the Wand setpoint expressed in the Vicon
                         # system and we convert it to meters
                         data_frame = vicon.GetFrame()
                         frame_num = vicon.GetFrameNumber()
@@ -359,7 +365,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                         # If the error (0,0,0) persists for more than
                         # crazy.MAX_LOSS times, we stop the experiment;
                         # otherwise it is considered as a sort of "outlier"
-                        # and we use the last correct position instead of it.
+                        # and we use the last correct setpoint instead of it.
                         # The same also happens when we decide to stop the
                         # experiment turning off the wand.
                         if (wand_trans_m[0] == 0
@@ -378,7 +384,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                 # LANDING
 
                                 print("Start landing: ", crazy.MAX_LOSS,
-                                      " consecutive null position of the Wand "
+                                      " consecutive null setpoint of the Wand "
                                       "have been received.")
                                 # TODO: global log config and variables?
                                 crazy.landing(last_sent_pos,
@@ -426,8 +432,8 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                                          first_pos, last_gamma,
                                                          KALMAN_wQUATERNION)
 
-                            # We pass from a Wand's position expressed in the
-                            # Vicon frame to a Wand's position expressed
+                            # We pass from a Wand's setpoint expressed in the
+                            # Vicon frame to a Wand's setpoint expressed
                             # in the Body frame of the drone before sending it
                             # as the new setpoint:
                             data_frame = vicon.GetFrame()
@@ -460,7 +466,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                         drone, drone)
                                 Drone_orientation = Euler_angles[0]
 
-                            # We get the actual position of drone expressend
+                            # We get the actual setpoint of drone expressend
                             # in the Vicon frame:
                             drone_trans = vicon.GetSegmentGlobalTranslation(
                                 drone, drone)
@@ -474,12 +480,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                             # if it is equal to [0,0,0], it meas that en
                             # error from vicon occurred so we use the last
-                            # correct position instead of it.
+                            # correct setpoint instead of it.
                             if drone_trans_m[0] == 0 \
                                     and drone_trans_m[1] == 0 \
                                     and drone_trans_m[2] == 0:
                                 drone_trans_m = last_drone_position
-                            # otherwise we convert the position in the body
+                            # otherwise we convert the setpoint in the body
                             # frame before sending it for the update of the
                             # Kalman filter:
                             else:
@@ -497,12 +503,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                     drone_trans_hom[2]])
 
                                 # update the last correct value for the
-                                # drone position:
+                                # drone setpoint:
                                 last_drone_position = drone_trans_m
 
                             if KALMAN_wQUATERNION:
                                 # Update the Kalman filter sending the last
-                                # measure of both the drone position and
+                                # measure of both the drone setpoint and
                                 # orientation:
                                 cf.extpos.send_extpose(drone_trans_m[0],
                                                        drone_trans_m[1],
@@ -513,7 +519,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                                        quaternion[3])
                             else:
                                 # Update the Kalman filter sending the last
-                                # measure of the drone position
+                                # measure of the drone setpoint
                                 cf.extpos.send_extpos(drone_trans_m[0],
                                                       drone_trans_m[1],
                                                       drone_trans_m[2])
@@ -521,12 +527,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                             if MAKE_LOG_FILE:
                                 # We write in the log file with the
                                 # following format:
-                                #       drone's position body frame
+                                #       drone's setpoint body frame
                                 #       quaternions
-                                #       drone's position Vicon frame
+                                #       drone's setpoint Vicon frame
                                 #       drone's orientation from Vicon
                                 #       setpoint body frame
-                                #       drone's position and orientation
+                                #       drone's setpoint and orientation
                                 #       from log table
                                 print(drone_trans_m[0], drone_trans_m[1],
                                       drone_trans_m[2],
@@ -567,7 +573,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         try:
             while 1:
 
-                # Get position of the drone in the Vicon reference System
+                # Get setpoint of the drone in the Vicon reference System
                 data_frame = vicon.GetFrame()
                 frame_num = vicon.GetFrameNumber()
 
@@ -577,7 +583,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                                           float(drone_trans_mm[1]) / 1000,
                                           float(drone_trans_mm[2]) / 1000])
 
-                # Used for store the drone's position in the Vicon System.
+                # Used for store the drone's setpoint in the Vicon System.
                 drone_trans_vicon = drone_trans_m
 
                 if MAKE_LOG_FILE:
@@ -587,7 +593,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
                     Drone_orientation = Euler_angles[0]
 
                 # We convert vectors in homogenous vector and we convert the
-                # position in the body frame:
+                # setpoint in the body frame:
                 hom_mat, last_gamma = crazy. \
                     createMatrixRotation(vicon, drone, first_pos, last_gamma,
                                          KALMAN_wQUATERNION)
@@ -607,12 +613,12 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                 if MAKE_LOG_FILE:
                     # We write in the log file with the following format:
-                    #       drone position (body frame)
+                    #       drone setpoint (body frame)
                     #       quaternions
-                    #       drone position (Vicon frame)
+                    #       drone setpoint (Vicon frame)
                     #       drone orientation from Vicon
                     #       setpoint body frame
-                    #       drone position
+                    #       drone setpoint
                     #       orientation from log table
                     # noinspection PyUnboundLocalVariable
                     print(drone_trans_m[0], drone_trans_m[1], drone_trans_m[2],

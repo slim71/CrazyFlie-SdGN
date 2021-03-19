@@ -94,6 +94,7 @@ COMPLETED TODOs
 - homMat: from Vicon to body
 - drone_trans_vicon -> in log prints
 - get_height was from the thread
+- decommented pauses
 
 DOUBTS
 - is it ok to use same name for subject and segment?
@@ -129,10 +130,37 @@ DIFFERENCES
 - no KF?
 - no reassignment of W_Tmeters in case of 000
 - no first iteration flag, used i
-- consecuitive lost reset elsewhere
+- consecutive lost reset elsewhere
 
 auto take off -> enter with
 auto landing -> exit with
 currently not needed cf_log in relativo no flag
 
 mat_rot come pag 13 di MecRob
+
+PLAN 15/1
+- check subjects and segments (lines 250-ish):
+    Crazyflie only has a segment, its root: "Crazyflie"
+    the Wand only has a segment, its root: "Root"
+- check rot mat -> angles given in rad
+- check framerates -> process framerate variable but almost 100Hz every time
+- check sleep funcs to be sure
+- check translation computations
+    trans from the vicon as expected
+- while height not used?
+- line 353 sleep?
+- maybe lower framerate?
+- axis must be set?
+- improve format
+- could use numpy.matrix
+
+15/1 LOGS
+1) Segments and Subjects
+2) rot mat
+3) rot mat & euler
+4) check if rad or deg
+5) since it's not clear, try all combinations of rad/deg
+6) noted that wasn't getting new frames -> scratch previous logs for mat&eul
+7) check drone position from Vicon without flying
+8) depleted bat
+9) error
