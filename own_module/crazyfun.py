@@ -189,17 +189,17 @@ def datalog(sync_crazyflie):
     :return: log_stab: Log stabilizer
     """
 
-    log_stab = LogConfig(name='Datamining', period_in_ms=10)
-    log_stab.add_variable('stateEstimate.x', 'float')
-    log_stab.add_variable('stateEstimate.y', 'float')
-    log_stab.add_variable('stateEstimate.z', 'float')
-    log_stab.add_variable('stabilizer.roll', 'float')
-    log_stab.add_variable('stabilizer.pitch', 'float')
-    log_stab.add_variable('stabilizer.yaw', 'float')
+    measure_log = LogConfig(name='TotalEstimate', period_in_ms=10)
+    measure_log.add_variable('stateEstimate.x', 'float')
+    measure_log.add_variable('stateEstimate.y', 'float')
+    measure_log.add_variable('stateEstimate.z', 'float')
+    measure_log.add_variable('stabilizer.roll', 'float')
+    measure_log.add_variable('stabilizer.pitch', 'float')
+    measure_log.add_variable('stabilizer.yaw', 'float')
 
-    data_log_async(sync_crazyflie, log_stab)
+    data_log_async(sync_crazyflie, measure_log)
 
-    return log_stab
+    return measure_log
 
 # TODO: can be converted in a more general getPos?
 def getFirstPosition(vicon_client, drone_obj):

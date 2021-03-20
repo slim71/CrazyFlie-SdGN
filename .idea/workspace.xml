@@ -20,13 +20,206 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_SV/data_logs/__20210320_170647.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CrazyFlie-SdGN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/INSEGUIMENTO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/INSEGUIMENTO (Da provare).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/Interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/Interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201015_105731_ThrusterOff__KalmanDisabled.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201015_112531_ThrusterOff__KalmanDuringTakeOff_KalmanWithQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_092159_ThrusterOn__KalmanDuringTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_094938_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_095945_ThrusterOn__KalmanDuringTakeOff_KalmanWithQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_100114_ThrusterOn__KalmanDuringTakeOff_KalmanWithQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_102716_ThrusterOn__KalmanDuringTakeOff_KalmanWithQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_104708_ThrusterOn__KalmanDuringTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201027_105531_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_154916_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161032_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161213_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161315_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_161733_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163010_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163222_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201124_163835_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201215_112913_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_20201215_125422_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155048_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155341_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_155552_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_160857_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201124_161353_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_114926_ThrusterOn__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_144542_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_144919_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_150236_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_151346_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_151622_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_155410_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/Log_File_CrazyFlie_RELATIVE20201215_161704_ThrusterOff__NoKalmanTakeOff_KalmanWithoutQuaternion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/LOG/plot_log_file.m" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/plot_log_file.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/MCtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/MCtest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_105049.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_111735.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_113041.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114450.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_114747.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_120328.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_123542.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161423.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_161652.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162254.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_162401.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_163203.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_164250.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_165313.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171658.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_171933.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172030.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172118.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210115_172153.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131234.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131304.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131339.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_131709.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132026.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132121.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132320.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_132535.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_133121.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134140.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134249.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134331.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134403.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134429.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210222_134509.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_120741.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_120826.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121006.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121147.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121314.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121632.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121722.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_121804.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123257.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123309.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_123321.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124203.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124307.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124319.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124529.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_124821.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_125555.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_125653.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_130702.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_130929.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_131447.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_154501.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_154739.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_162256.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163303.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163409.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163457.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163852.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_163902.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164018.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164054.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_164231.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165236.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165313.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_165454.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170028.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170217.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170400.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170523.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170557.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170740.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_170855.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171334.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171412.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171457.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171523.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171613.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171705.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171740.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_171845.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172856.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172915.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_172935.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173005.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173241.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173414.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173811.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/NewLogs/LogFile_CrazyFlie_NOFLAG20210319_173839.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Da provare).py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELATIVO (Da provare).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELATIVO (Funzionante ma senza flag).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Relazione.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Relazione.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/Breve_Panoramica_CRTP.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/Breve_Panoramica_CRTP.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/CFLIB.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/CFLIB.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/FileDefinitivi.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/FileDefinitivi.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/PYVICON.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/PYVICON.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/Panoramica_Generale_Progetto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/Panoramica_Generale_Progetto.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/Presentazione_Hardware.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/Presentazione_Hardware.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/README.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/README.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/Sistemi_di_Riferimento.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/Sistemi_di_Riferimento.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Capitoli/TEST.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Capitoli/TEST.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Crazyflie_assi.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Crazyflie_assi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Crazyradio.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Crazyradio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Eliche.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Eliche.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/EsempioCommander.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/EsempioCommander.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Generale_Progetto.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Generale_Progetto.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/HandshakePython.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/HandshakePython.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Markers.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Markers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/PacchettiCRTP.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/PacchettiCRTP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/PorteDestinazione.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/PorteDestinazione.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Tracker.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Tracker.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/VICON.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/VICON.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/Wand.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/Wand.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/extPositionPackedHandler.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/extPositionPackedHandler.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/externalPositionRiassunto.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/externalPositionRiassunto.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/externalposition.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/externalposition.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/funzioniAltoLivello.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/funzioniAltoLivello.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/funzioniBassoLivello.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/funzioniBassoLivello.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/genericLocalization.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/genericLocalization.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/genericPositionHandler.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/genericPositionHandler.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/getSegmentGlobalRotation.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/getSegmentGlobalRotation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/getSegmentGlobalTranslation.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/getSegmentGlobalTranslation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/handshake.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/handshake.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/kalmanCoreUpdate.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/kalmanCoreUpdate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/sendPacket.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/sendPacket.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/sendPacketPyton.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/sendPacketPyton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/sendextpos.png" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/sendextpos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/Immagini/unipi.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/Immagini/unipi.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/RELAZIONE/Sorgenti latex/main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/RELAZIONE/Sorgenti latex/main.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4 - Rotazione Global to Body frame.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.mov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST_1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/TEST/TEST_2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/commander test.py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/commander test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGETTO/interface_main_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/FF_Proj/interface_main_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_path" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myClasses/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myClasses/log_estimation_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/log_estimation_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myClasses/vicon_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/vicon_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/notes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/own_module/crazyfun.py" beforeDir="false" afterPath="$PROJECT_DIR$/own_module/crazyfun.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_SV/estimate_help.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/estimate_help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_SV/script_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/create rotation flow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/create rotation flow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/own_module/relativo flow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/relativo flow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_MP/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/cache/05C5AF70.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/cache/1042AFA8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/experiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes and drafts/experiments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/hover_simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/hover_simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_MP/Test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_MP/Test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +261,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\notes and drafts" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\own_module" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\test_SV" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG" />
-      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\own_module" />
-      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN" />
-      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\crazyfun" />
     </key>
   </component>
   <component name="RunManager" selected="Python.try_file">
@@ -375,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616185986713</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Next steps">
+      <created>1616259282042</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1616259282042</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -414,13 +614,14 @@
     <MESSAGE value="Improvements after lab" />
     <MESSAGE value="Added rotation matrix" />
     <MESSAGE value="After 19/3" />
-    <option name="LAST_COMMIT_MESSAGE" value="After 19/3" />
+    <MESSAGE value="Next steps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Next steps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PROGETTO/RELATIVO (Funzionante ma senza flag).py</url>
+          <url>file://$PROJECT_DIR$/FF_Proj/RELATIVO (Funzionante ma senza flag).py</url>
           <line>260</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
