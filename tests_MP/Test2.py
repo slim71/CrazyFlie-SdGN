@@ -17,7 +17,7 @@ attitude_estimate = [0, 0, 0]
 # -----------------------------------------------------------------------------
 # ----------------------------------DEBUG--------------------------------------
 # -----------------------------------------------------------------------------
-filename = "../FF_Proj/Logs/LogFile_CrazyFlie_NOFLAG" \
+filename = "../other_or_old/Logs/LogFile_CrazyFlie_NOFLAG" \
            + datetime.now().strftime("%Y%m%d_%H%M%S")
 
 logname = filename + ".log"
