@@ -7,7 +7,9 @@
 # -----------------------------------------------------------------------------
 from __future__ import print_function
 import logging
+import os
 from datetime import datetime
+from pathlib import Path
 
 from cflib.crazyflie.syncLogger import SyncLogger
 
@@ -146,9 +148,10 @@ def print_callback(timestamp, data, log_conf):
 
     """
 
-    data_file = "./data_log/" + datetime.now().strftime("__%Y%m%d_%H%M%S")
+    data_file = "./data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M%S")
 
-    descriptor = open(data_file + ".txt", "x")
+    descriptor = open(os.path.normpath(os.path.join(
+        Path(__file__).parent.absolute(), data_file + ".txt")), "x")
 
     # Setting estimated state variables
     pos_x = data['stateEstimate.x']

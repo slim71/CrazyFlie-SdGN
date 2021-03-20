@@ -15,7 +15,7 @@ filename = "./exp_logs/" + file_name + \
            datetime.now().strftime("__%Y%m%d_%H%M%S")
 
 logname = filename + ".log"
-#file_desc = open(filename + ".txt", "x")
+# file_desc = open(filename + ".txt", "x")
 
 # Only logs of level ERROR or above will be tracked
 # https://docs.python.org/3/library/logging.html#levels
