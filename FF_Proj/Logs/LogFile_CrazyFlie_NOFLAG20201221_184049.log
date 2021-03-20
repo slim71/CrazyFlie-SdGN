@@ -1,0 +1,920 @@
+2020-12-21 18:40:49,418 [INFO]: Connecting to the Vicon...
+2020-12-21 18:40:49,420 [INFO]: Connected to Vicon!
+2020-12-21 18:40:49,420 [INFO]: Setting up the buffer...
+2020-12-21 18:40:49,420 [INFO]: Buffer of 1000 frames created.
+2020-12-21 18:40:49,420 [INFO]: Enabling data types...
+2020-12-21 18:40:49,420 [DEBUG]: Segments: True
+2020-12-21 18:40:49,420 [DEBUG]: Markers: True
+2020-12-21 18:40:49,420 [DEBUG]: Unlabeled Markers: True
+2020-12-21 18:40:49,421 [DEBUG]: Marker Rays: True
+2020-12-21 18:40:49,421 [DEBUG]: Devices: True
+2020-12-21 18:40:49,421 [DEBUG]: Centroids: True 
+2020-12-21 18:40:49,421 [INFO]: Testing stream modes...
+2020-12-21 18:40:49,421 [INFO]: Getting a frame in ClientPull mode...
+2020-12-21 18:40:50,422 [ERROR]: Error using ClientPull mode. 
+ NoFrame
+2020-12-21 18:40:50,422 [INFO]: Getting a frame in PreFetch mode...
+2020-12-21 18:40:51,423 [ERROR]: Error using ClientPreFetch mode. 
+ NoFrame
+2020-12-21 18:40:51,423 [INFO]: Getting a frame in ServerPush mode...
+2020-12-21 18:40:51,423 [DEBUG]: Fetched! Pulled frame number: 1749817
+2020-12-21 18:40:51,423 [INFO]: ServerPush mode set.
+2020-12-21 18:40:51,423 [INFO]: Getting available framerates...
+2020-12-21 18:40:51,423 [INFO]: Current frame rate: 100.0 Hz.
+2020-12-21 18:40:51,423 [INFO]: Frame rates available: 
+2020-12-21 18:40:51,423 [INFO]: Process Rate : 99 Hz 
+
+2020-12-21 18:40:51,423 [INFO]: Setting axis...
+2020-12-21 18:40:51,424 [INFO]: X Axis: AxisMapping.EForward
+2020-12-21 18:40:51,424 [INFO]: Y Axis: AxisMapping.ELeft
+2020-12-21 18:40:51,424 [INFO]: Z Axis: AxisMapping.EUp
+2020-12-21 18:40:51,424 [INFO]: Initializing drivers...
+2020-12-21 18:40:51,424 [INFO]: Drivers initialized.
+2020-12-21 18:40:51,424 [INFO]: Connecting to the Crazyflie...
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x000001F2E2AA3BC8>>]
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x000001F2F3CD4408>>]
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x000001F2F3CD44C8>>]
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x000001F2F3CD4808>>]
+2020-12-21 18:40:51,424 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000001F2F3CD4948>>]
+2020-12-21 18:40:51,425 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000001F2F3CD4948>>]
+2020-12-21 18:40:51,425 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2020-12-21 18:40:51,429 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2020-12-21 18:40:51,436 [INFO]: Callback->Connected to [radio://0/80/2M]
+2020-12-21 18:40:51,463 [INFO]: Protocol  version: 4
+2020-12-21 18:40:51,466 [DEBUG]: Logging reset, continue with TOC download
+2020-12-21 18:40:51,466 [DEBUG]: [5]: Using V2 protocol: 1
+2020-12-21 18:40:51,466 [DEBUG]: [5]: Start fetching...
+2020-12-21 18:40:51,466 [DEBUG]: Adding callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000001F2F3CF49C8>>]
+2020-12-21 18:40:51,470 [DEBUG]: [5]: Got TOC CRC, 317 items and crc=0x05C5AF70
+2020-12-21 18:40:51,470 [DEBUG]: Requesting index 0 on port 5
+2020-12-21 18:40:51,474 [DEBUG]: Added element [0]
+2020-12-21 18:40:51,474 [DEBUG]: [5]: More variables, requesting index 1
+2020-12-21 18:40:51,474 [DEBUG]: Requesting index 1 on port 5
+2020-12-21 18:40:51,478 [DEBUG]: Added element [1]
+2020-12-21 18:40:51,478 [DEBUG]: [5]: More variables, requesting index 2
+2020-12-21 18:40:51,478 [DEBUG]: Requesting index 2 on port 5
+2020-12-21 18:40:51,482 [DEBUG]: Added element [2]
+2020-12-21 18:40:51,482 [DEBUG]: [5]: More variables, requesting index 3
+2020-12-21 18:40:51,482 [DEBUG]: Requesting index 3 on port 5
+2020-12-21 18:40:51,486 [DEBUG]: Added element [3]
+2020-12-21 18:40:51,486 [DEBUG]: [5]: More variables, requesting index 4
+2020-12-21 18:40:51,486 [DEBUG]: Requesting index 4 on port 5
+2020-12-21 18:40:51,490 [DEBUG]: Added element [4]
+2020-12-21 18:40:51,491 [DEBUG]: [5]: More variables, requesting index 5
+2020-12-21 18:40:51,491 [DEBUG]: Requesting index 5 on port 5
+2020-12-21 18:40:51,496 [DEBUG]: Added element [5]
+2020-12-21 18:40:51,496 [DEBUG]: [5]: More variables, requesting index 6
+2020-12-21 18:40:51,496 [DEBUG]: Requesting index 6 on port 5
+2020-12-21 18:40:51,500 [DEBUG]: Added element [6]
+2020-12-21 18:40:51,500 [DEBUG]: [5]: More variables, requesting index 7
+2020-12-21 18:40:51,500 [DEBUG]: Requesting index 7 on port 5
+2020-12-21 18:40:51,504 [DEBUG]: Added element [7]
+2020-12-21 18:40:51,504 [DEBUG]: [5]: More variables, requesting index 8
+2020-12-21 18:40:51,504 [DEBUG]: Requesting index 8 on port 5
+2020-12-21 18:40:51,509 [DEBUG]: Added element [8]
+2020-12-21 18:40:51,509 [DEBUG]: [5]: More variables, requesting index 9
+2020-12-21 18:40:51,509 [DEBUG]: Requesting index 9 on port 5
+2020-12-21 18:40:51,513 [DEBUG]: Added element [9]
+2020-12-21 18:40:51,513 [DEBUG]: [5]: More variables, requesting index 10
+2020-12-21 18:40:51,513 [DEBUG]: Requesting index 10 on port 5
+2020-12-21 18:40:51,518 [DEBUG]: Added element [10]
+2020-12-21 18:40:51,518 [DEBUG]: [5]: More variables, requesting index 11
+2020-12-21 18:40:51,518 [DEBUG]: Requesting index 11 on port 5
+2020-12-21 18:40:51,522 [DEBUG]: Added element [11]
+2020-12-21 18:40:51,522 [DEBUG]: [5]: More variables, requesting index 12
+2020-12-21 18:40:51,522 [DEBUG]: Requesting index 12 on port 5
+2020-12-21 18:40:51,526 [DEBUG]: Added element [12]
+2020-12-21 18:40:51,526 [DEBUG]: [5]: More variables, requesting index 13
+2020-12-21 18:40:51,526 [DEBUG]: Requesting index 13 on port 5
+2020-12-21 18:40:51,530 [DEBUG]: Added element [13]
+2020-12-21 18:40:51,530 [DEBUG]: [5]: More variables, requesting index 14
+2020-12-21 18:40:51,530 [DEBUG]: Requesting index 14 on port 5
+2020-12-21 18:40:51,534 [DEBUG]: Added element [14]
+2020-12-21 18:40:51,534 [DEBUG]: [5]: More variables, requesting index 15
+2020-12-21 18:40:51,534 [DEBUG]: Requesting index 15 on port 5
+2020-12-21 18:40:51,538 [DEBUG]: Added element [15]
+2020-12-21 18:40:51,538 [DEBUG]: [5]: More variables, requesting index 16
+2020-12-21 18:40:51,538 [DEBUG]: Requesting index 16 on port 5
+2020-12-21 18:40:51,542 [DEBUG]: Added element [16]
+2020-12-21 18:40:51,543 [DEBUG]: [5]: More variables, requesting index 17
+2020-12-21 18:40:51,543 [DEBUG]: Requesting index 17 on port 5
+2020-12-21 18:40:51,547 [DEBUG]: Added element [17]
+2020-12-21 18:40:51,547 [DEBUG]: [5]: More variables, requesting index 18
+2020-12-21 18:40:51,547 [DEBUG]: Requesting index 18 on port 5
+2020-12-21 18:40:51,551 [DEBUG]: Added element [18]
+2020-12-21 18:40:51,551 [DEBUG]: [5]: More variables, requesting index 19
+2020-12-21 18:40:51,551 [DEBUG]: Requesting index 19 on port 5
+2020-12-21 18:40:51,555 [DEBUG]: Added element [19]
+2020-12-21 18:40:51,555 [DEBUG]: [5]: More variables, requesting index 20
+2020-12-21 18:40:51,555 [DEBUG]: Requesting index 20 on port 5
+2020-12-21 18:40:51,559 [DEBUG]: Added element [20]
+2020-12-21 18:40:51,559 [DEBUG]: [5]: More variables, requesting index 21
+2020-12-21 18:40:51,559 [DEBUG]: Requesting index 21 on port 5
+2020-12-21 18:40:51,571 [DEBUG]: Added element [21]
+2020-12-21 18:40:51,571 [DEBUG]: [5]: More variables, requesting index 22
+2020-12-21 18:40:51,571 [DEBUG]: Requesting index 22 on port 5
+2020-12-21 18:40:51,576 [DEBUG]: Added element [22]
+2020-12-21 18:40:51,576 [DEBUG]: [5]: More variables, requesting index 23
+2020-12-21 18:40:51,576 [DEBUG]: Requesting index 23 on port 5
+2020-12-21 18:40:51,580 [DEBUG]: Added element [23]
+2020-12-21 18:40:51,580 [DEBUG]: [5]: More variables, requesting index 24
+2020-12-21 18:40:51,580 [DEBUG]: Requesting index 24 on port 5
+2020-12-21 18:40:51,584 [DEBUG]: Added element [24]
+2020-12-21 18:40:51,584 [DEBUG]: [5]: More variables, requesting index 25
+2020-12-21 18:40:51,584 [DEBUG]: Requesting index 25 on port 5
+2020-12-21 18:40:51,589 [DEBUG]: Added element [25]
+2020-12-21 18:40:51,589 [DEBUG]: [5]: More variables, requesting index 26
+2020-12-21 18:40:51,589 [DEBUG]: Requesting index 26 on port 5
+2020-12-21 18:40:51,593 [DEBUG]: Added element [26]
+2020-12-21 18:40:51,593 [DEBUG]: [5]: More variables, requesting index 27
+2020-12-21 18:40:51,593 [DEBUG]: Requesting index 27 on port 5
+2020-12-21 18:40:51,597 [DEBUG]: Added element [27]
+2020-12-21 18:40:51,597 [DEBUG]: [5]: More variables, requesting index 28
+2020-12-21 18:40:51,597 [DEBUG]: Requesting index 28 on port 5
+2020-12-21 18:40:51,601 [DEBUG]: Added element [28]
+2020-12-21 18:40:51,601 [DEBUG]: [5]: More variables, requesting index 29
+2020-12-21 18:40:51,601 [DEBUG]: Requesting index 29 on port 5
+2020-12-21 18:40:51,605 [DEBUG]: Added element [29]
+2020-12-21 18:40:51,605 [DEBUG]: [5]: More variables, requesting index 30
+2020-12-21 18:40:51,605 [DEBUG]: Requesting index 30 on port 5
+2020-12-21 18:40:51,609 [DEBUG]: Added element [30]
+2020-12-21 18:40:51,609 [DEBUG]: [5]: More variables, requesting index 31
+2020-12-21 18:40:51,609 [DEBUG]: Requesting index 31 on port 5
+2020-12-21 18:40:51,613 [DEBUG]: Added element [31]
+2020-12-21 18:40:51,613 [DEBUG]: [5]: More variables, requesting index 32
+2020-12-21 18:40:51,613 [DEBUG]: Requesting index 32 on port 5
+2020-12-21 18:40:51,617 [DEBUG]: Added element [32]
+2020-12-21 18:40:51,617 [DEBUG]: [5]: More variables, requesting index 33
+2020-12-21 18:40:51,617 [DEBUG]: Requesting index 33 on port 5
+2020-12-21 18:40:51,622 [DEBUG]: Added element [33]
+2020-12-21 18:40:51,622 [DEBUG]: [5]: More variables, requesting index 34
+2020-12-21 18:40:51,622 [DEBUG]: Requesting index 34 on port 5
+2020-12-21 18:40:51,626 [DEBUG]: Added element [34]
+2020-12-21 18:40:51,626 [DEBUG]: [5]: More variables, requesting index 35
+2020-12-21 18:40:51,626 [DEBUG]: Requesting index 35 on port 5
+2020-12-21 18:40:51,630 [DEBUG]: Added element [35]
+2020-12-21 18:40:51,630 [DEBUG]: [5]: More variables, requesting index 36
+2020-12-21 18:40:51,630 [DEBUG]: Requesting index 36 on port 5
+2020-12-21 18:40:51,634 [DEBUG]: Added element [36]
+2020-12-21 18:40:51,634 [DEBUG]: [5]: More variables, requesting index 37
+2020-12-21 18:40:51,634 [DEBUG]: Requesting index 37 on port 5
+2020-12-21 18:40:51,639 [DEBUG]: Added element [37]
+2020-12-21 18:40:51,639 [DEBUG]: [5]: More variables, requesting index 38
+2020-12-21 18:40:51,639 [DEBUG]: Requesting index 38 on port 5
+2020-12-21 18:40:51,643 [DEBUG]: Added element [38]
+2020-12-21 18:40:51,643 [DEBUG]: [5]: More variables, requesting index 39
+2020-12-21 18:40:51,643 [DEBUG]: Requesting index 39 on port 5
+2020-12-21 18:40:51,648 [DEBUG]: Added element [39]
+2020-12-21 18:40:51,648 [DEBUG]: [5]: More variables, requesting index 40
+2020-12-21 18:40:51,648 [DEBUG]: Requesting index 40 on port 5
+2020-12-21 18:40:51,652 [DEBUG]: Added element [40]
+2020-12-21 18:40:51,652 [DEBUG]: [5]: More variables, requesting index 41
+2020-12-21 18:40:51,652 [DEBUG]: Requesting index 41 on port 5
+2020-12-21 18:40:51,656 [DEBUG]: Added element [41]
+2020-12-21 18:40:51,656 [DEBUG]: [5]: More variables, requesting index 42
+2020-12-21 18:40:51,656 [DEBUG]: Requesting index 42 on port 5
+2020-12-21 18:40:51,660 [DEBUG]: Added element [42]
+2020-12-21 18:40:51,660 [DEBUG]: [5]: More variables, requesting index 43
+2020-12-21 18:40:51,660 [DEBUG]: Requesting index 43 on port 5
+2020-12-21 18:40:51,664 [DEBUG]: Added element [43]
+2020-12-21 18:40:51,664 [DEBUG]: [5]: More variables, requesting index 44
+2020-12-21 18:40:51,664 [DEBUG]: Requesting index 44 on port 5
+2020-12-21 18:40:51,668 [DEBUG]: Added element [44]
+2020-12-21 18:40:51,668 [DEBUG]: [5]: More variables, requesting index 45
+2020-12-21 18:40:51,668 [DEBUG]: Requesting index 45 on port 5
+2020-12-21 18:40:51,672 [DEBUG]: Added element [45]
+2020-12-21 18:40:51,673 [DEBUG]: [5]: More variables, requesting index 46
+2020-12-21 18:40:51,673 [DEBUG]: Requesting index 46 on port 5
+2020-12-21 18:40:51,677 [DEBUG]: Added element [46]
+2020-12-21 18:40:51,677 [DEBUG]: [5]: More variables, requesting index 47
+2020-12-21 18:40:51,677 [DEBUG]: Requesting index 47 on port 5
+2020-12-21 18:40:51,681 [DEBUG]: Added element [47]
+2020-12-21 18:40:51,681 [DEBUG]: [5]: More variables, requesting index 48
+2020-12-21 18:40:51,682 [DEBUG]: Requesting index 48 on port 5
+2020-12-21 18:40:51,686 [DEBUG]: Added element [48]
+2020-12-21 18:40:51,686 [DEBUG]: [5]: More variables, requesting index 49
+2020-12-21 18:40:51,686 [DEBUG]: Requesting index 49 on port 5
+2020-12-21 18:40:51,698 [DEBUG]: Added element [49]
+2020-12-21 18:40:51,698 [DEBUG]: [5]: More variables, requesting index 50
+2020-12-21 18:40:51,698 [DEBUG]: Requesting index 50 on port 5
+2020-12-21 18:40:51,703 [DEBUG]: Added element [50]
+2020-12-21 18:40:51,703 [DEBUG]: [5]: More variables, requesting index 51
+2020-12-21 18:40:51,703 [DEBUG]: Requesting index 51 on port 5
+2020-12-21 18:40:51,707 [DEBUG]: Added element [51]
+2020-12-21 18:40:51,707 [DEBUG]: [5]: More variables, requesting index 52
+2020-12-21 18:40:51,707 [DEBUG]: Requesting index 52 on port 5
+2020-12-21 18:40:51,711 [DEBUG]: Added element [52]
+2020-12-21 18:40:51,711 [DEBUG]: [5]: More variables, requesting index 53
+2020-12-21 18:40:51,712 [DEBUG]: Requesting index 53 on port 5
+2020-12-21 18:40:51,716 [DEBUG]: Added element [53]
+2020-12-21 18:40:51,716 [DEBUG]: [5]: More variables, requesting index 54
+2020-12-21 18:40:51,716 [DEBUG]: Requesting index 54 on port 5
+2020-12-21 18:40:51,720 [DEBUG]: Added element [54]
+2020-12-21 18:40:51,720 [DEBUG]: [5]: More variables, requesting index 55
+2020-12-21 18:40:51,720 [DEBUG]: Requesting index 55 on port 5
+2020-12-21 18:40:51,724 [DEBUG]: Added element [55]
+2020-12-21 18:40:51,724 [DEBUG]: [5]: More variables, requesting index 56
+2020-12-21 18:40:51,724 [DEBUG]: Requesting index 56 on port 5
+2020-12-21 18:40:51,728 [DEBUG]: Added element [56]
+2020-12-21 18:40:51,728 [DEBUG]: [5]: More variables, requesting index 57
+2020-12-21 18:40:51,728 [DEBUG]: Requesting index 57 on port 5
+2020-12-21 18:40:51,732 [DEBUG]: Added element [57]
+2020-12-21 18:40:51,732 [DEBUG]: [5]: More variables, requesting index 58
+2020-12-21 18:40:51,732 [DEBUG]: Requesting index 58 on port 5
+2020-12-21 18:40:51,736 [DEBUG]: Added element [58]
+2020-12-21 18:40:51,736 [DEBUG]: [5]: More variables, requesting index 59
+2020-12-21 18:40:51,736 [DEBUG]: Requesting index 59 on port 5
+2020-12-21 18:40:51,740 [DEBUG]: Added element [59]
+2020-12-21 18:40:51,740 [DEBUG]: [5]: More variables, requesting index 60
+2020-12-21 18:40:51,741 [DEBUG]: Requesting index 60 on port 5
+2020-12-21 18:40:51,745 [DEBUG]: Added element [60]
+2020-12-21 18:40:51,745 [DEBUG]: [5]: More variables, requesting index 61
+2020-12-21 18:40:51,745 [DEBUG]: Requesting index 61 on port 5
+2020-12-21 18:40:51,749 [DEBUG]: Added element [61]
+2020-12-21 18:40:51,749 [DEBUG]: [5]: More variables, requesting index 62
+2020-12-21 18:40:51,749 [DEBUG]: Requesting index 62 on port 5
+2020-12-21 18:40:51,753 [DEBUG]: Added element [62]
+2020-12-21 18:40:51,753 [DEBUG]: [5]: More variables, requesting index 63
+2020-12-21 18:40:51,753 [DEBUG]: Requesting index 63 on port 5
+2020-12-21 18:40:51,757 [DEBUG]: Added element [63]
+2020-12-21 18:40:51,757 [DEBUG]: [5]: More variables, requesting index 64
+2020-12-21 18:40:51,758 [DEBUG]: Requesting index 64 on port 5
+2020-12-21 18:40:51,762 [DEBUG]: Added element [64]
+2020-12-21 18:40:51,762 [DEBUG]: [5]: More variables, requesting index 65
+2020-12-21 18:40:51,762 [DEBUG]: Requesting index 65 on port 5
+2020-12-21 18:40:51,766 [DEBUG]: Added element [65]
+2020-12-21 18:40:51,766 [DEBUG]: [5]: More variables, requesting index 66
+2020-12-21 18:40:51,766 [DEBUG]: Requesting index 66 on port 5
+2020-12-21 18:40:51,770 [DEBUG]: Added element [66]
+2020-12-21 18:40:51,770 [DEBUG]: [5]: More variables, requesting index 67
+2020-12-21 18:40:51,770 [DEBUG]: Requesting index 67 on port 5
+2020-12-21 18:40:51,775 [DEBUG]: Added element [67]
+2020-12-21 18:40:51,775 [DEBUG]: [5]: More variables, requesting index 68
+2020-12-21 18:40:51,775 [DEBUG]: Requesting index 68 on port 5
+2020-12-21 18:40:51,779 [DEBUG]: Added element [68]
+2020-12-21 18:40:51,779 [DEBUG]: [5]: More variables, requesting index 69
+2020-12-21 18:40:51,779 [DEBUG]: Requesting index 69 on port 5
+2020-12-21 18:40:51,783 [DEBUG]: Added element [69]
+2020-12-21 18:40:51,783 [DEBUG]: [5]: More variables, requesting index 70
+2020-12-21 18:40:51,784 [DEBUG]: Requesting index 70 on port 5
+2020-12-21 18:40:51,788 [DEBUG]: Added element [70]
+2020-12-21 18:40:51,788 [DEBUG]: [5]: More variables, requesting index 71
+2020-12-21 18:40:51,788 [DEBUG]: Requesting index 71 on port 5
+2020-12-21 18:40:51,792 [DEBUG]: Added element [71]
+2020-12-21 18:40:51,792 [DEBUG]: [5]: More variables, requesting index 72
+2020-12-21 18:40:51,792 [DEBUG]: Requesting index 72 on port 5
+2020-12-21 18:40:51,796 [DEBUG]: Added element [72]
+2020-12-21 18:40:51,796 [DEBUG]: [5]: More variables, requesting index 73
+2020-12-21 18:40:51,796 [DEBUG]: Requesting index 73 on port 5
+2020-12-21 18:40:51,800 [DEBUG]: Added element [73]
+2020-12-21 18:40:51,800 [DEBUG]: [5]: More variables, requesting index 74
+2020-12-21 18:40:51,800 [DEBUG]: Requesting index 74 on port 5
+2020-12-21 18:40:51,803 [DEBUG]: Added element [74]
+2020-12-21 18:40:51,803 [DEBUG]: [5]: More variables, requesting index 75
+2020-12-21 18:40:51,803 [DEBUG]: Requesting index 75 on port 5
+2020-12-21 18:40:51,807 [DEBUG]: Added element [75]
+2020-12-21 18:40:51,808 [DEBUG]: [5]: More variables, requesting index 76
+2020-12-21 18:40:51,808 [DEBUG]: Requesting index 76 on port 5
+2020-12-21 18:40:51,812 [DEBUG]: Added element [76]
+2020-12-21 18:40:51,812 [DEBUG]: [5]: More variables, requesting index 77
+2020-12-21 18:40:51,812 [DEBUG]: Requesting index 77 on port 5
+2020-12-21 18:40:51,825 [DEBUG]: Added element [77]
+2020-12-21 18:40:51,825 [DEBUG]: [5]: More variables, requesting index 78
+2020-12-21 18:40:51,825 [DEBUG]: Requesting index 78 on port 5
+2020-12-21 18:40:51,829 [DEBUG]: Added element [78]
+2020-12-21 18:40:51,830 [DEBUG]: [5]: More variables, requesting index 79
+2020-12-21 18:40:51,830 [DEBUG]: Requesting index 79 on port 5
+2020-12-21 18:40:51,834 [DEBUG]: Added element [79]
+2020-12-21 18:40:51,834 [DEBUG]: [5]: More variables, requesting index 80
+2020-12-21 18:40:51,834 [DEBUG]: Requesting index 80 on port 5
+2020-12-21 18:40:51,837 [DEBUG]: Added element [80]
+2020-12-21 18:40:51,837 [DEBUG]: [5]: More variables, requesting index 81
+2020-12-21 18:40:51,837 [DEBUG]: Requesting index 81 on port 5
+2020-12-21 18:40:51,841 [DEBUG]: Added element [81]
+2020-12-21 18:40:51,842 [DEBUG]: [5]: More variables, requesting index 82
+2020-12-21 18:40:51,842 [DEBUG]: Requesting index 82 on port 5
+2020-12-21 18:40:51,846 [DEBUG]: Added element [82]
+2020-12-21 18:40:51,846 [DEBUG]: [5]: More variables, requesting index 83
+2020-12-21 18:40:51,846 [DEBUG]: Requesting index 83 on port 5
+2020-12-21 18:40:51,850 [DEBUG]: Added element [83]
+2020-12-21 18:40:51,850 [DEBUG]: [5]: More variables, requesting index 84
+2020-12-21 18:40:51,850 [DEBUG]: Requesting index 84 on port 5
+2020-12-21 18:40:51,854 [DEBUG]: Added element [84]
+2020-12-21 18:40:51,854 [DEBUG]: [5]: More variables, requesting index 85
+2020-12-21 18:40:51,854 [DEBUG]: Requesting index 85 on port 5
+2020-12-21 18:40:51,858 [DEBUG]: Added element [85]
+2020-12-21 18:40:51,859 [DEBUG]: [5]: More variables, requesting index 86
+2020-12-21 18:40:51,859 [DEBUG]: Requesting index 86 on port 5
+2020-12-21 18:40:51,862 [DEBUG]: Added element [86]
+2020-12-21 18:40:51,863 [DEBUG]: [5]: More variables, requesting index 87
+2020-12-21 18:40:51,863 [DEBUG]: Requesting index 87 on port 5
+2020-12-21 18:40:51,867 [DEBUG]: Added element [87]
+2020-12-21 18:40:51,867 [DEBUG]: [5]: More variables, requesting index 88
+2020-12-21 18:40:51,867 [DEBUG]: Requesting index 88 on port 5
+2020-12-21 18:40:51,871 [DEBUG]: Added element [88]
+2020-12-21 18:40:51,871 [DEBUG]: [5]: More variables, requesting index 89
+2020-12-21 18:40:51,871 [DEBUG]: Requesting index 89 on port 5
+2020-12-21 18:40:51,875 [DEBUG]: Added element [89]
+2020-12-21 18:40:51,875 [DEBUG]: [5]: More variables, requesting index 90
+2020-12-21 18:40:51,875 [DEBUG]: Requesting index 90 on port 5
+2020-12-21 18:40:51,879 [DEBUG]: Added element [90]
+2020-12-21 18:40:51,879 [DEBUG]: [5]: More variables, requesting index 91
+2020-12-21 18:40:51,879 [DEBUG]: Requesting index 91 on port 5
+2020-12-21 18:40:51,883 [DEBUG]: Added element [91]
+2020-12-21 18:40:51,884 [DEBUG]: [5]: More variables, requesting index 92
+2020-12-21 18:40:51,884 [DEBUG]: Requesting index 92 on port 5
+2020-12-21 18:40:51,888 [DEBUG]: Added element [92]
+2020-12-21 18:40:51,888 [DEBUG]: [5]: More variables, requesting index 93
+2020-12-21 18:40:51,888 [DEBUG]: Requesting index 93 on port 5
+2020-12-21 18:40:51,892 [DEBUG]: Added element [93]
+2020-12-21 18:40:51,892 [DEBUG]: [5]: More variables, requesting index 94
+2020-12-21 18:40:51,892 [DEBUG]: Requesting index 94 on port 5
+2020-12-21 18:40:51,896 [DEBUG]: Added element [94]
+2020-12-21 18:40:51,896 [DEBUG]: [5]: More variables, requesting index 95
+2020-12-21 18:40:51,896 [DEBUG]: Requesting index 95 on port 5
+2020-12-21 18:40:51,900 [DEBUG]: Added element [95]
+2020-12-21 18:40:51,900 [DEBUG]: [5]: More variables, requesting index 96
+2020-12-21 18:40:51,900 [DEBUG]: Requesting index 96 on port 5
+2020-12-21 18:40:51,905 [DEBUG]: Added element [96]
+2020-12-21 18:40:51,905 [DEBUG]: [5]: More variables, requesting index 97
+2020-12-21 18:40:51,905 [DEBUG]: Requesting index 97 on port 5
+2020-12-21 18:40:51,909 [DEBUG]: Added element [97]
+2020-12-21 18:40:51,909 [DEBUG]: [5]: More variables, requesting index 98
+2020-12-21 18:40:51,909 [DEBUG]: Requesting index 98 on port 5
+2020-12-21 18:40:51,913 [DEBUG]: Added element [98]
+2020-12-21 18:40:51,913 [DEBUG]: [5]: More variables, requesting index 99
+2020-12-21 18:40:51,913 [DEBUG]: Requesting index 99 on port 5
+2020-12-21 18:40:51,918 [DEBUG]: Added element [99]
+2020-12-21 18:40:51,918 [DEBUG]: [5]: More variables, requesting index 100
+2020-12-21 18:40:51,918 [DEBUG]: Requesting index 100 on port 5
+2020-12-21 18:40:51,921 [DEBUG]: Added element [100]
+2020-12-21 18:40:51,921 [DEBUG]: [5]: More variables, requesting index 101
+2020-12-21 18:40:51,921 [DEBUG]: Requesting index 101 on port 5
+2020-12-21 18:40:51,924 [DEBUG]: Added element [101]
+2020-12-21 18:40:51,924 [DEBUG]: [5]: More variables, requesting index 102
+2020-12-21 18:40:51,924 [DEBUG]: Requesting index 102 on port 5
+2020-12-21 18:40:51,928 [DEBUG]: Added element [102]
+2020-12-21 18:40:51,928 [DEBUG]: [5]: More variables, requesting index 103
+2020-12-21 18:40:51,928 [DEBUG]: Requesting index 103 on port 5
+2020-12-21 18:40:51,932 [DEBUG]: Added element [103]
+2020-12-21 18:40:51,933 [DEBUG]: [5]: More variables, requesting index 104
+2020-12-21 18:40:51,933 [DEBUG]: Requesting index 104 on port 5
+2020-12-21 18:40:51,937 [DEBUG]: Added element [104]
+2020-12-21 18:40:51,937 [DEBUG]: [5]: More variables, requesting index 105
+2020-12-21 18:40:51,937 [DEBUG]: Requesting index 105 on port 5
+2020-12-21 18:40:51,941 [DEBUG]: Added element [105]
+2020-12-21 18:40:51,941 [DEBUG]: [5]: More variables, requesting index 106
+2020-12-21 18:40:51,941 [DEBUG]: Requesting index 106 on port 5
+2020-12-21 18:40:51,954 [DEBUG]: Added element [106]
+2020-12-21 18:40:51,955 [DEBUG]: [5]: More variables, requesting index 107
+2020-12-21 18:40:51,955 [DEBUG]: Requesting index 107 on port 5
+2020-12-21 18:40:51,959 [DEBUG]: Added element [107]
+2020-12-21 18:40:51,959 [DEBUG]: [5]: More variables, requesting index 108
+2020-12-21 18:40:51,959 [DEBUG]: Requesting index 108 on port 5
+2020-12-21 18:40:51,963 [DEBUG]: Added element [108]
+2020-12-21 18:40:51,963 [DEBUG]: [5]: More variables, requesting index 109
+2020-12-21 18:40:51,963 [DEBUG]: Requesting index 109 on port 5
+2020-12-21 18:40:51,968 [DEBUG]: Added element [109]
+2020-12-21 18:40:51,968 [DEBUG]: [5]: More variables, requesting index 110
+2020-12-21 18:40:51,968 [DEBUG]: Requesting index 110 on port 5
+2020-12-21 18:40:51,972 [DEBUG]: Added element [110]
+2020-12-21 18:40:51,972 [DEBUG]: [5]: More variables, requesting index 111
+2020-12-21 18:40:51,972 [DEBUG]: Requesting index 111 on port 5
+2020-12-21 18:40:51,976 [DEBUG]: Added element [111]
+2020-12-21 18:40:51,977 [DEBUG]: [5]: More variables, requesting index 112
+2020-12-21 18:40:51,977 [DEBUG]: Requesting index 112 on port 5
+2020-12-21 18:40:51,981 [DEBUG]: Added element [112]
+2020-12-21 18:40:51,981 [DEBUG]: [5]: More variables, requesting index 113
+2020-12-21 18:40:51,981 [DEBUG]: Requesting index 113 on port 5
+2020-12-21 18:40:51,985 [DEBUG]: Added element [113]
+2020-12-21 18:40:51,985 [DEBUG]: [5]: More variables, requesting index 114
+2020-12-21 18:40:51,986 [DEBUG]: Requesting index 114 on port 5
+2020-12-21 18:40:51,989 [DEBUG]: Added element [114]
+2020-12-21 18:40:51,989 [DEBUG]: [5]: More variables, requesting index 115
+2020-12-21 18:40:51,989 [DEBUG]: Requesting index 115 on port 5
+2020-12-21 18:40:51,993 [DEBUG]: Added element [115]
+2020-12-21 18:40:51,993 [DEBUG]: [5]: More variables, requesting index 116
+2020-12-21 18:40:51,993 [DEBUG]: Requesting index 116 on port 5
+2020-12-21 18:40:51,996 [DEBUG]: Added element [116]
+2020-12-21 18:40:51,997 [DEBUG]: [5]: More variables, requesting index 117
+2020-12-21 18:40:51,997 [DEBUG]: Requesting index 117 on port 5
+2020-12-21 18:40:52,001 [DEBUG]: Added element [117]
+2020-12-21 18:40:52,001 [DEBUG]: [5]: More variables, requesting index 118
+2020-12-21 18:40:52,001 [DEBUG]: Requesting index 118 on port 5
+2020-12-21 18:40:52,005 [DEBUG]: Added element [118]
+2020-12-21 18:40:52,005 [DEBUG]: [5]: More variables, requesting index 119
+2020-12-21 18:40:52,006 [DEBUG]: Requesting index 119 on port 5
+2020-12-21 18:40:52,009 [DEBUG]: Added element [119]
+2020-12-21 18:40:52,009 [DEBUG]: [5]: More variables, requesting index 120
+2020-12-21 18:40:52,010 [DEBUG]: Requesting index 120 on port 5
+2020-12-21 18:40:52,014 [DEBUG]: Added element [120]
+2020-12-21 18:40:52,014 [DEBUG]: [5]: More variables, requesting index 121
+2020-12-21 18:40:52,014 [DEBUG]: Requesting index 121 on port 5
+2020-12-21 18:40:52,019 [DEBUG]: Added element [121]
+2020-12-21 18:40:52,019 [DEBUG]: [5]: More variables, requesting index 122
+2020-12-21 18:40:52,019 [DEBUG]: Requesting index 122 on port 5
+2020-12-21 18:40:52,023 [DEBUG]: Added element [122]
+2020-12-21 18:40:52,023 [DEBUG]: [5]: More variables, requesting index 123
+2020-12-21 18:40:52,023 [DEBUG]: Requesting index 123 on port 5
+2020-12-21 18:40:52,027 [DEBUG]: Added element [123]
+2020-12-21 18:40:52,027 [DEBUG]: [5]: More variables, requesting index 124
+2020-12-21 18:40:52,027 [DEBUG]: Requesting index 124 on port 5
+2020-12-21 18:40:52,031 [DEBUG]: Added element [124]
+2020-12-21 18:40:52,032 [DEBUG]: [5]: More variables, requesting index 125
+2020-12-21 18:40:52,032 [DEBUG]: Requesting index 125 on port 5
+2020-12-21 18:40:52,036 [DEBUG]: Added element [125]
+2020-12-21 18:40:52,036 [DEBUG]: [5]: More variables, requesting index 126
+2020-12-21 18:40:52,036 [DEBUG]: Requesting index 126 on port 5
+2020-12-21 18:40:52,040 [DEBUG]: Added element [126]
+2020-12-21 18:40:52,040 [DEBUG]: [5]: More variables, requesting index 127
+2020-12-21 18:40:52,040 [DEBUG]: Requesting index 127 on port 5
+2020-12-21 18:40:52,044 [DEBUG]: Added element [127]
+2020-12-21 18:40:52,045 [DEBUG]: [5]: More variables, requesting index 128
+2020-12-21 18:40:52,045 [DEBUG]: Requesting index 128 on port 5
+2020-12-21 18:40:52,049 [DEBUG]: Added element [128]
+2020-12-21 18:40:52,049 [DEBUG]: [5]: More variables, requesting index 129
+2020-12-21 18:40:52,049 [DEBUG]: Requesting index 129 on port 5
+2020-12-21 18:40:52,054 [DEBUG]: Added element [129]
+2020-12-21 18:40:52,054 [DEBUG]: [5]: More variables, requesting index 130
+2020-12-21 18:40:52,054 [DEBUG]: Requesting index 130 on port 5
+2020-12-21 18:40:52,059 [DEBUG]: Added element [130]
+2020-12-21 18:40:52,059 [DEBUG]: [5]: More variables, requesting index 131
+2020-12-21 18:40:52,059 [DEBUG]: Requesting index 131 on port 5
+2020-12-21 18:40:52,063 [DEBUG]: Added element [131]
+2020-12-21 18:40:52,063 [DEBUG]: [5]: More variables, requesting index 132
+2020-12-21 18:40:52,063 [DEBUG]: Requesting index 132 on port 5
+2020-12-21 18:40:52,067 [DEBUG]: Added element [132]
+2020-12-21 18:40:52,067 [DEBUG]: [5]: More variables, requesting index 133
+2020-12-21 18:40:52,068 [DEBUG]: Requesting index 133 on port 5
+2020-12-21 18:40:52,072 [DEBUG]: Added element [133]
+2020-12-21 18:40:52,072 [DEBUG]: [5]: More variables, requesting index 134
+2020-12-21 18:40:52,072 [DEBUG]: Requesting index 134 on port 5
+2020-12-21 18:40:52,076 [DEBUG]: Added element [134]
+2020-12-21 18:40:52,076 [DEBUG]: [5]: More variables, requesting index 135
+2020-12-21 18:40:52,076 [DEBUG]: Requesting index 135 on port 5
+2020-12-21 18:40:52,089 [DEBUG]: Added element [135]
+2020-12-21 18:40:52,089 [DEBUG]: [5]: More variables, requesting index 136
+2020-12-21 18:40:52,089 [DEBUG]: Requesting index 136 on port 5
+2020-12-21 18:40:52,094 [DEBUG]: Added element [136]
+2020-12-21 18:40:52,094 [DEBUG]: [5]: More variables, requesting index 137
+2020-12-21 18:40:52,094 [DEBUG]: Requesting index 137 on port 5
+2020-12-21 18:40:52,098 [DEBUG]: Added element [137]
+2020-12-21 18:40:52,098 [DEBUG]: [5]: More variables, requesting index 138
+2020-12-21 18:40:52,098 [DEBUG]: Requesting index 138 on port 5
+2020-12-21 18:40:52,102 [DEBUG]: Added element [138]
+2020-12-21 18:40:52,102 [DEBUG]: [5]: More variables, requesting index 139
+2020-12-21 18:40:52,102 [DEBUG]: Requesting index 139 on port 5
+2020-12-21 18:40:52,106 [DEBUG]: Added element [139]
+2020-12-21 18:40:52,107 [DEBUG]: [5]: More variables, requesting index 140
+2020-12-21 18:40:52,107 [DEBUG]: Requesting index 140 on port 5
+2020-12-21 18:40:52,111 [DEBUG]: Added element [140]
+2020-12-21 18:40:52,111 [DEBUG]: [5]: More variables, requesting index 141
+2020-12-21 18:40:52,111 [DEBUG]: Requesting index 141 on port 5
+2020-12-21 18:40:52,116 [DEBUG]: Added element [141]
+2020-12-21 18:40:52,116 [DEBUG]: [5]: More variables, requesting index 142
+2020-12-21 18:40:52,116 [DEBUG]: Requesting index 142 on port 5
+2020-12-21 18:40:52,120 [DEBUG]: Added element [142]
+2020-12-21 18:40:52,120 [DEBUG]: [5]: More variables, requesting index 143
+2020-12-21 18:40:52,120 [DEBUG]: Requesting index 143 on port 5
+2020-12-21 18:40:52,124 [DEBUG]: Added element [143]
+2020-12-21 18:40:52,124 [DEBUG]: [5]: More variables, requesting index 144
+2020-12-21 18:40:52,124 [DEBUG]: Requesting index 144 on port 5
+2020-12-21 18:40:52,129 [DEBUG]: Added element [144]
+2020-12-21 18:40:52,129 [DEBUG]: [5]: More variables, requesting index 145
+2020-12-21 18:40:52,129 [DEBUG]: Requesting index 145 on port 5
+2020-12-21 18:40:52,133 [DEBUG]: Added element [145]
+2020-12-21 18:40:52,133 [DEBUG]: [5]: More variables, requesting index 146
+2020-12-21 18:40:52,133 [DEBUG]: Requesting index 146 on port 5
+2020-12-21 18:40:52,137 [DEBUG]: Added element [146]
+2020-12-21 18:40:52,137 [DEBUG]: [5]: More variables, requesting index 147
+2020-12-21 18:40:52,137 [DEBUG]: Requesting index 147 on port 5
+2020-12-21 18:40:52,142 [DEBUG]: Added element [147]
+2020-12-21 18:40:52,142 [DEBUG]: [5]: More variables, requesting index 148
+2020-12-21 18:40:52,142 [DEBUG]: Requesting index 148 on port 5
+2020-12-21 18:40:52,147 [DEBUG]: Added element [148]
+2020-12-21 18:40:52,147 [DEBUG]: [5]: More variables, requesting index 149
+2020-12-21 18:40:52,147 [DEBUG]: Requesting index 149 on port 5
+2020-12-21 18:40:52,152 [DEBUG]: Added element [149]
+2020-12-21 18:40:52,152 [DEBUG]: [5]: More variables, requesting index 150
+2020-12-21 18:40:52,152 [DEBUG]: Requesting index 150 on port 5
+2020-12-21 18:40:52,156 [DEBUG]: Added element [150]
+2020-12-21 18:40:52,156 [DEBUG]: [5]: More variables, requesting index 151
+2020-12-21 18:40:52,156 [DEBUG]: Requesting index 151 on port 5
+2020-12-21 18:40:52,160 [DEBUG]: Added element [151]
+2020-12-21 18:40:52,161 [DEBUG]: [5]: More variables, requesting index 152
+2020-12-21 18:40:52,161 [DEBUG]: Requesting index 152 on port 5
+2020-12-21 18:40:52,165 [DEBUG]: Added element [152]
+2020-12-21 18:40:52,165 [DEBUG]: [5]: More variables, requesting index 153
+2020-12-21 18:40:52,165 [DEBUG]: Requesting index 153 on port 5
+2020-12-21 18:40:52,169 [DEBUG]: Added element [153]
+2020-12-21 18:40:52,169 [DEBUG]: [5]: More variables, requesting index 154
+2020-12-21 18:40:52,169 [DEBUG]: Requesting index 154 on port 5
+2020-12-21 18:40:52,174 [DEBUG]: Added element [154]
+2020-12-21 18:40:52,174 [DEBUG]: [5]: More variables, requesting index 155
+2020-12-21 18:40:52,174 [DEBUG]: Requesting index 155 on port 5
+2020-12-21 18:40:52,178 [DEBUG]: Added element [155]
+2020-12-21 18:40:52,178 [DEBUG]: [5]: More variables, requesting index 156
+2020-12-21 18:40:52,178 [DEBUG]: Requesting index 156 on port 5
+2020-12-21 18:40:52,182 [DEBUG]: Added element [156]
+2020-12-21 18:40:52,182 [DEBUG]: [5]: More variables, requesting index 157
+2020-12-21 18:40:52,182 [DEBUG]: Requesting index 157 on port 5
+2020-12-21 18:40:52,186 [DEBUG]: Added element [157]
+2020-12-21 18:40:52,186 [DEBUG]: [5]: More variables, requesting index 158
+2020-12-21 18:40:52,186 [DEBUG]: Requesting index 158 on port 5
+2020-12-21 18:40:52,190 [DEBUG]: Added element [158]
+2020-12-21 18:40:52,190 [DEBUG]: [5]: More variables, requesting index 159
+2020-12-21 18:40:52,191 [DEBUG]: Requesting index 159 on port 5
+2020-12-21 18:40:52,196 [DEBUG]: Added element [159]
+2020-12-21 18:40:52,196 [DEBUG]: [5]: More variables, requesting index 160
+2020-12-21 18:40:52,196 [DEBUG]: Requesting index 160 on port 5
+2020-12-21 18:40:52,201 [DEBUG]: Added element [160]
+2020-12-21 18:40:52,201 [DEBUG]: [5]: More variables, requesting index 161
+2020-12-21 18:40:52,201 [DEBUG]: Requesting index 161 on port 5
+2020-12-21 18:40:52,214 [DEBUG]: Added element [161]
+2020-12-21 18:40:52,215 [DEBUG]: [5]: More variables, requesting index 162
+2020-12-21 18:40:52,215 [DEBUG]: Requesting index 162 on port 5
+2020-12-21 18:40:52,219 [DEBUG]: Added element [162]
+2020-12-21 18:40:52,219 [DEBUG]: [5]: More variables, requesting index 163
+2020-12-21 18:40:52,219 [DEBUG]: Requesting index 163 on port 5
+2020-12-21 18:40:52,223 [DEBUG]: Added element [163]
+2020-12-21 18:40:52,223 [DEBUG]: [5]: More variables, requesting index 164
+2020-12-21 18:40:52,223 [DEBUG]: Requesting index 164 on port 5
+2020-12-21 18:40:52,228 [DEBUG]: Added element [164]
+2020-12-21 18:40:52,229 [DEBUG]: [5]: More variables, requesting index 165
+2020-12-21 18:40:52,229 [DEBUG]: Requesting index 165 on port 5
+2020-12-21 18:40:52,232 [DEBUG]: Added element [165]
+2020-12-21 18:40:52,233 [DEBUG]: [5]: More variables, requesting index 166
+2020-12-21 18:40:52,233 [DEBUG]: Requesting index 166 on port 5
+2020-12-21 18:40:52,237 [DEBUG]: Added element [166]
+2020-12-21 18:40:52,237 [DEBUG]: [5]: More variables, requesting index 167
+2020-12-21 18:40:52,237 [DEBUG]: Requesting index 167 on port 5
+2020-12-21 18:40:52,241 [DEBUG]: Added element [167]
+2020-12-21 18:40:52,241 [DEBUG]: [5]: More variables, requesting index 168
+2020-12-21 18:40:52,241 [DEBUG]: Requesting index 168 on port 5
+2020-12-21 18:40:52,245 [DEBUG]: Added element [168]
+2020-12-21 18:40:52,245 [DEBUG]: [5]: More variables, requesting index 169
+2020-12-21 18:40:52,246 [DEBUG]: Requesting index 169 on port 5
+2020-12-21 18:40:52,250 [DEBUG]: Added element [169]
+2020-12-21 18:40:52,250 [DEBUG]: [5]: More variables, requesting index 170
+2020-12-21 18:40:52,250 [DEBUG]: Requesting index 170 on port 5
+2020-12-21 18:40:52,255 [DEBUG]: Added element [170]
+2020-12-21 18:40:52,255 [DEBUG]: [5]: More variables, requesting index 171
+2020-12-21 18:40:52,255 [DEBUG]: Requesting index 171 on port 5
+2020-12-21 18:40:52,259 [DEBUG]: Added element [171]
+2020-12-21 18:40:52,259 [DEBUG]: [5]: More variables, requesting index 172
+2020-12-21 18:40:52,260 [DEBUG]: Requesting index 172 on port 5
+2020-12-21 18:40:52,265 [DEBUG]: Added element [172]
+2020-12-21 18:40:52,265 [DEBUG]: [5]: More variables, requesting index 173
+2020-12-21 18:40:52,265 [DEBUG]: Requesting index 173 on port 5
+2020-12-21 18:40:52,269 [DEBUG]: Added element [173]
+2020-12-21 18:40:52,270 [DEBUG]: [5]: More variables, requesting index 174
+2020-12-21 18:40:52,270 [DEBUG]: Requesting index 174 on port 5
+2020-12-21 18:40:52,274 [DEBUG]: Added element [174]
+2020-12-21 18:40:52,274 [DEBUG]: [5]: More variables, requesting index 175
+2020-12-21 18:40:52,274 [DEBUG]: Requesting index 175 on port 5
+2020-12-21 18:40:52,278 [DEBUG]: Added element [175]
+2020-12-21 18:40:52,278 [DEBUG]: [5]: More variables, requesting index 176
+2020-12-21 18:40:52,278 [DEBUG]: Requesting index 176 on port 5
+2020-12-21 18:40:52,282 [DEBUG]: Added element [176]
+2020-12-21 18:40:52,283 [DEBUG]: [5]: More variables, requesting index 177
+2020-12-21 18:40:52,283 [DEBUG]: Requesting index 177 on port 5
+2020-12-21 18:40:52,292 [DEBUG]: Added element [177]
+2020-12-21 18:40:52,292 [DEBUG]: [5]: More variables, requesting index 178
+2020-12-21 18:40:52,293 [DEBUG]: Requesting index 178 on port 5
+2020-12-21 18:40:52,297 [DEBUG]: Added element [178]
+2020-12-21 18:40:52,297 [DEBUG]: [5]: More variables, requesting index 179
+2020-12-21 18:40:52,297 [DEBUG]: Requesting index 179 on port 5
+2020-12-21 18:40:52,301 [DEBUG]: Added element [179]
+2020-12-21 18:40:52,301 [DEBUG]: [5]: More variables, requesting index 180
+2020-12-21 18:40:52,301 [DEBUG]: Requesting index 180 on port 5
+2020-12-21 18:40:52,306 [DEBUG]: Added element [180]
+2020-12-21 18:40:52,306 [DEBUG]: [5]: More variables, requesting index 181
+2020-12-21 18:40:52,306 [DEBUG]: Requesting index 181 on port 5
+2020-12-21 18:40:52,310 [DEBUG]: Added element [181]
+2020-12-21 18:40:52,310 [DEBUG]: [5]: More variables, requesting index 182
+2020-12-21 18:40:52,310 [DEBUG]: Requesting index 182 on port 5
+2020-12-21 18:40:52,315 [DEBUG]: Added element [182]
+2020-12-21 18:40:52,315 [DEBUG]: [5]: More variables, requesting index 183
+2020-12-21 18:40:52,315 [DEBUG]: Requesting index 183 on port 5
+2020-12-21 18:40:52,320 [DEBUG]: Added element [183]
+2020-12-21 18:40:52,320 [DEBUG]: [5]: More variables, requesting index 184
+2020-12-21 18:40:52,321 [DEBUG]: Requesting index 184 on port 5
+2020-12-21 18:40:52,324 [DEBUG]: Added element [184]
+2020-12-21 18:40:52,325 [DEBUG]: [5]: More variables, requesting index 185
+2020-12-21 18:40:52,325 [DEBUG]: Requesting index 185 on port 5
+2020-12-21 18:40:52,329 [DEBUG]: Added element [185]
+2020-12-21 18:40:52,329 [DEBUG]: [5]: More variables, requesting index 186
+2020-12-21 18:40:52,329 [DEBUG]: Requesting index 186 on port 5
+2020-12-21 18:40:52,343 [DEBUG]: Added element [186]
+2020-12-21 18:40:52,343 [DEBUG]: [5]: More variables, requesting index 187
+2020-12-21 18:40:52,343 [DEBUG]: Requesting index 187 on port 5
+2020-12-21 18:40:52,347 [DEBUG]: Added element [187]
+2020-12-21 18:40:52,347 [DEBUG]: [5]: More variables, requesting index 188
+2020-12-21 18:40:52,347 [DEBUG]: Requesting index 188 on port 5
+2020-12-21 18:40:52,351 [DEBUG]: Added element [188]
+2020-12-21 18:40:52,351 [DEBUG]: [5]: More variables, requesting index 189
+2020-12-21 18:40:52,351 [DEBUG]: Requesting index 189 on port 5
+2020-12-21 18:40:52,355 [DEBUG]: Added element [189]
+2020-12-21 18:40:52,355 [DEBUG]: [5]: More variables, requesting index 190
+2020-12-21 18:40:52,355 [DEBUG]: Requesting index 190 on port 5
+2020-12-21 18:40:52,359 [DEBUG]: Added element [190]
+2020-12-21 18:40:52,360 [DEBUG]: [5]: More variables, requesting index 191
+2020-12-21 18:40:52,360 [DEBUG]: Requesting index 191 on port 5
+2020-12-21 18:40:52,364 [DEBUG]: Added element [191]
+2020-12-21 18:40:52,364 [DEBUG]: [5]: More variables, requesting index 192
+2020-12-21 18:40:52,364 [DEBUG]: Requesting index 192 on port 5
+2020-12-21 18:40:52,368 [DEBUG]: Added element [192]
+2020-12-21 18:40:52,368 [DEBUG]: [5]: More variables, requesting index 193
+2020-12-21 18:40:52,368 [DEBUG]: Requesting index 193 on port 5
+2020-12-21 18:40:52,373 [DEBUG]: Added element [193]
+2020-12-21 18:40:52,373 [DEBUG]: [5]: More variables, requesting index 194
+2020-12-21 18:40:52,373 [DEBUG]: Requesting index 194 on port 5
+2020-12-21 18:40:52,377 [DEBUG]: Added element [194]
+2020-12-21 18:40:52,377 [DEBUG]: [5]: More variables, requesting index 195
+2020-12-21 18:40:52,377 [DEBUG]: Requesting index 195 on port 5
+2020-12-21 18:40:52,381 [DEBUG]: Added element [195]
+2020-12-21 18:40:52,381 [DEBUG]: [5]: More variables, requesting index 196
+2020-12-21 18:40:52,381 [DEBUG]: Requesting index 196 on port 5
+2020-12-21 18:40:52,386 [DEBUG]: Added element [196]
+2020-12-21 18:40:52,386 [DEBUG]: [5]: More variables, requesting index 197
+2020-12-21 18:40:52,386 [DEBUG]: Requesting index 197 on port 5
+2020-12-21 18:40:52,390 [DEBUG]: Added element [197]
+2020-12-21 18:40:52,390 [DEBUG]: [5]: More variables, requesting index 198
+2020-12-21 18:40:52,391 [DEBUG]: Requesting index 198 on port 5
+2020-12-21 18:40:52,395 [DEBUG]: Added element [198]
+2020-12-21 18:40:52,395 [DEBUG]: [5]: More variables, requesting index 199
+2020-12-21 18:40:52,395 [DEBUG]: Requesting index 199 on port 5
+2020-12-21 18:40:52,399 [DEBUG]: Added element [199]
+2020-12-21 18:40:52,399 [DEBUG]: [5]: More variables, requesting index 200
+2020-12-21 18:40:52,399 [DEBUG]: Requesting index 200 on port 5
+2020-12-21 18:40:52,403 [DEBUG]: Added element [200]
+2020-12-21 18:40:52,403 [DEBUG]: [5]: More variables, requesting index 201
+2020-12-21 18:40:52,403 [DEBUG]: Requesting index 201 on port 5
+2020-12-21 18:40:52,407 [DEBUG]: Added element [201]
+2020-12-21 18:40:52,407 [DEBUG]: [5]: More variables, requesting index 202
+2020-12-21 18:40:52,407 [DEBUG]: Requesting index 202 on port 5
+2020-12-21 18:40:52,411 [DEBUG]: Added element [202]
+2020-12-21 18:40:52,411 [DEBUG]: [5]: More variables, requesting index 203
+2020-12-21 18:40:52,411 [DEBUG]: Requesting index 203 on port 5
+2020-12-21 18:40:52,415 [DEBUG]: Added element [203]
+2020-12-21 18:40:52,416 [DEBUG]: [5]: More variables, requesting index 204
+2020-12-21 18:40:52,416 [DEBUG]: Requesting index 204 on port 5
+2020-12-21 18:40:52,420 [DEBUG]: Added element [204]
+2020-12-21 18:40:52,420 [DEBUG]: [5]: More variables, requesting index 205
+2020-12-21 18:40:52,420 [DEBUG]: Requesting index 205 on port 5
+2020-12-21 18:40:52,424 [DEBUG]: Added element [205]
+2020-12-21 18:40:52,424 [DEBUG]: [5]: More variables, requesting index 206
+2020-12-21 18:40:52,424 [DEBUG]: Requesting index 206 on port 5
+2020-12-21 18:40:52,428 [DEBUG]: Added element [206]
+2020-12-21 18:40:52,428 [DEBUG]: [5]: More variables, requesting index 207
+2020-12-21 18:40:52,428 [DEBUG]: Requesting index 207 on port 5
+2020-12-21 18:40:52,432 [DEBUG]: Added element [207]
+2020-12-21 18:40:52,432 [DEBUG]: [5]: More variables, requesting index 208
+2020-12-21 18:40:52,432 [DEBUG]: Requesting index 208 on port 5
+2020-12-21 18:40:52,436 [DEBUG]: Added element [208]
+2020-12-21 18:40:52,437 [DEBUG]: [5]: More variables, requesting index 209
+2020-12-21 18:40:52,437 [DEBUG]: Requesting index 209 on port 5
+2020-12-21 18:40:52,441 [DEBUG]: Added element [209]
+2020-12-21 18:40:52,441 [DEBUG]: [5]: More variables, requesting index 210
+2020-12-21 18:40:52,441 [DEBUG]: Requesting index 210 on port 5
+2020-12-21 18:40:52,444 [DEBUG]: Added element [210]
+2020-12-21 18:40:52,444 [DEBUG]: [5]: More variables, requesting index 211
+2020-12-21 18:40:52,444 [DEBUG]: Requesting index 211 on port 5
+2020-12-21 18:40:52,448 [DEBUG]: Added element [211]
+2020-12-21 18:40:52,448 [DEBUG]: [5]: More variables, requesting index 212
+2020-12-21 18:40:52,448 [DEBUG]: Requesting index 212 on port 5
+2020-12-21 18:40:52,452 [DEBUG]: Added element [212]
+2020-12-21 18:40:52,453 [DEBUG]: [5]: More variables, requesting index 213
+2020-12-21 18:40:52,453 [DEBUG]: Requesting index 213 on port 5
+2020-12-21 18:40:52,456 [DEBUG]: Added element [213]
+2020-12-21 18:40:52,457 [DEBUG]: [5]: More variables, requesting index 214
+2020-12-21 18:40:52,457 [DEBUG]: Requesting index 214 on port 5
+2020-12-21 18:40:52,470 [DEBUG]: Added element [214]
+2020-12-21 18:40:52,470 [DEBUG]: [5]: More variables, requesting index 215
+2020-12-21 18:40:52,471 [DEBUG]: Requesting index 215 on port 5
+2020-12-21 18:40:52,474 [DEBUG]: Added element [215]
+2020-12-21 18:40:52,475 [DEBUG]: [5]: More variables, requesting index 216
+2020-12-21 18:40:52,475 [DEBUG]: Requesting index 216 on port 5
+2020-12-21 18:40:52,479 [DEBUG]: Added element [216]
+2020-12-21 18:40:52,479 [DEBUG]: [5]: More variables, requesting index 217
+2020-12-21 18:40:52,479 [DEBUG]: Requesting index 217 on port 5
+2020-12-21 18:40:52,483 [DEBUG]: Added element [217]
+2020-12-21 18:40:52,484 [DEBUG]: [5]: More variables, requesting index 218
+2020-12-21 18:40:52,484 [DEBUG]: Requesting index 218 on port 5
+2020-12-21 18:40:52,488 [DEBUG]: Added element [218]
+2020-12-21 18:40:52,488 [DEBUG]: [5]: More variables, requesting index 219
+2020-12-21 18:40:52,488 [DEBUG]: Requesting index 219 on port 5
+2020-12-21 18:40:52,492 [DEBUG]: Added element [219]
+2020-12-21 18:40:52,492 [DEBUG]: [5]: More variables, requesting index 220
+2020-12-21 18:40:52,492 [DEBUG]: Requesting index 220 on port 5
+2020-12-21 18:40:52,497 [DEBUG]: Added element [220]
+2020-12-21 18:40:52,497 [DEBUG]: [5]: More variables, requesting index 221
+2020-12-21 18:40:52,497 [DEBUG]: Requesting index 221 on port 5
+2020-12-21 18:40:52,502 [DEBUG]: Added element [221]
+2020-12-21 18:40:52,502 [DEBUG]: [5]: More variables, requesting index 222
+2020-12-21 18:40:52,502 [DEBUG]: Requesting index 222 on port 5
+2020-12-21 18:40:52,506 [DEBUG]: Added element [222]
+2020-12-21 18:40:52,506 [DEBUG]: [5]: More variables, requesting index 223
+2020-12-21 18:40:52,506 [DEBUG]: Requesting index 223 on port 5
+2020-12-21 18:40:52,509 [DEBUG]: Added element [223]
+2020-12-21 18:40:52,509 [DEBUG]: [5]: More variables, requesting index 224
+2020-12-21 18:40:52,509 [DEBUG]: Requesting index 224 on port 5
+2020-12-21 18:40:52,513 [DEBUG]: Added element [224]
+2020-12-21 18:40:52,513 [DEBUG]: [5]: More variables, requesting index 225
+2020-12-21 18:40:52,513 [DEBUG]: Requesting index 225 on port 5
+2020-12-21 18:40:52,517 [DEBUG]: Added element [225]
+2020-12-21 18:40:52,517 [DEBUG]: [5]: More variables, requesting index 226
+2020-12-21 18:40:52,517 [DEBUG]: Requesting index 226 on port 5
+2020-12-21 18:40:52,521 [DEBUG]: Added element [226]
+2020-12-21 18:40:52,521 [DEBUG]: [5]: More variables, requesting index 227
+2020-12-21 18:40:52,521 [DEBUG]: Requesting index 227 on port 5
+2020-12-21 18:40:52,525 [DEBUG]: Added element [227]
+2020-12-21 18:40:52,525 [DEBUG]: [5]: More variables, requesting index 228
+2020-12-21 18:40:52,525 [DEBUG]: Requesting index 228 on port 5
+2020-12-21 18:40:52,529 [DEBUG]: Added element [228]
+2020-12-21 18:40:52,529 [DEBUG]: [5]: More variables, requesting index 229
+2020-12-21 18:40:52,529 [DEBUG]: Requesting index 229 on port 5
+2020-12-21 18:40:52,533 [DEBUG]: Added element [229]
+2020-12-21 18:40:52,533 [DEBUG]: [5]: More variables, requesting index 230
+2020-12-21 18:40:52,533 [DEBUG]: Requesting index 230 on port 5
+2020-12-21 18:40:52,537 [DEBUG]: Added element [230]
+2020-12-21 18:40:52,537 [DEBUG]: [5]: More variables, requesting index 231
+2020-12-21 18:40:52,537 [DEBUG]: Requesting index 231 on port 5
+2020-12-21 18:40:52,541 [DEBUG]: Added element [231]
+2020-12-21 18:40:52,541 [DEBUG]: [5]: More variables, requesting index 232
+2020-12-21 18:40:52,541 [DEBUG]: Requesting index 232 on port 5
+2020-12-21 18:40:52,545 [DEBUG]: Added element [232]
+2020-12-21 18:40:52,546 [DEBUG]: [5]: More variables, requesting index 233
+2020-12-21 18:40:52,546 [DEBUG]: Requesting index 233 on port 5
+2020-12-21 18:40:52,550 [DEBUG]: Added element [233]
+2020-12-21 18:40:52,550 [DEBUG]: [5]: More variables, requesting index 234
+2020-12-21 18:40:52,550 [DEBUG]: Requesting index 234 on port 5
+2020-12-21 18:40:52,555 [DEBUG]: Added element [234]
+2020-12-21 18:40:52,555 [DEBUG]: [5]: More variables, requesting index 235
+2020-12-21 18:40:52,555 [DEBUG]: Requesting index 235 on port 5
+2020-12-21 18:40:52,560 [DEBUG]: Added element [235]
+2020-12-21 18:40:52,560 [DEBUG]: [5]: More variables, requesting index 236
+2020-12-21 18:40:52,560 [DEBUG]: Requesting index 236 on port 5
+2020-12-21 18:40:52,564 [DEBUG]: Added element [236]
+2020-12-21 18:40:52,564 [DEBUG]: [5]: More variables, requesting index 237
+2020-12-21 18:40:52,564 [DEBUG]: Requesting index 237 on port 5
+2020-12-21 18:40:52,568 [DEBUG]: Added element [237]
+2020-12-21 18:40:52,568 [DEBUG]: [5]: More variables, requesting index 238
+2020-12-21 18:40:52,568 [DEBUG]: Requesting index 238 on port 5
+2020-12-21 18:40:52,572 [DEBUG]: Added element [238]
+2020-12-21 18:40:52,572 [DEBUG]: [5]: More variables, requesting index 239
+2020-12-21 18:40:52,572 [DEBUG]: Requesting index 239 on port 5
+2020-12-21 18:40:52,577 [DEBUG]: Added element [239]
+2020-12-21 18:40:52,578 [DEBUG]: [5]: More variables, requesting index 240
+2020-12-21 18:40:52,578 [DEBUG]: Requesting index 240 on port 5
+2020-12-21 18:40:52,582 [DEBUG]: Added element [240]
+2020-12-21 18:40:52,582 [DEBUG]: [5]: More variables, requesting index 241
+2020-12-21 18:40:52,582 [DEBUG]: Requesting index 241 on port 5
+2020-12-21 18:40:52,586 [DEBUG]: Added element [241]
+2020-12-21 18:40:52,587 [DEBUG]: [5]: More variables, requesting index 242
+2020-12-21 18:40:52,587 [DEBUG]: Requesting index 242 on port 5
+2020-12-21 18:40:52,600 [DEBUG]: Added element [242]
+2020-12-21 18:40:52,600 [DEBUG]: [5]: More variables, requesting index 243
+2020-12-21 18:40:52,600 [DEBUG]: Requesting index 243 on port 5
+2020-12-21 18:40:52,605 [DEBUG]: Added element [243]
+2020-12-21 18:40:52,605 [DEBUG]: [5]: More variables, requesting index 244
+2020-12-21 18:40:52,605 [DEBUG]: Requesting index 244 on port 5
+2020-12-21 18:40:52,610 [DEBUG]: Added element [244]
+2020-12-21 18:40:52,610 [DEBUG]: [5]: More variables, requesting index 245
+2020-12-21 18:40:52,610 [DEBUG]: Requesting index 245 on port 5
+2020-12-21 18:40:52,615 [DEBUG]: Added element [245]
+2020-12-21 18:40:52,615 [DEBUG]: [5]: More variables, requesting index 246
+2020-12-21 18:40:52,615 [DEBUG]: Requesting index 246 on port 5
+2020-12-21 18:40:52,619 [DEBUG]: Added element [246]
+2020-12-21 18:40:52,620 [DEBUG]: [5]: More variables, requesting index 247
+2020-12-21 18:40:52,620 [DEBUG]: Requesting index 247 on port 5
+2020-12-21 18:40:52,624 [DEBUG]: Added element [247]
+2020-12-21 18:40:52,624 [DEBUG]: [5]: More variables, requesting index 248
+2020-12-21 18:40:52,624 [DEBUG]: Requesting index 248 on port 5
+2020-12-21 18:40:52,628 [DEBUG]: Added element [248]
+2020-12-21 18:40:52,628 [DEBUG]: [5]: More variables, requesting index 249
+2020-12-21 18:40:52,628 [DEBUG]: Requesting index 249 on port 5
+2020-12-21 18:40:52,631 [DEBUG]: Added element [249]
+2020-12-21 18:40:52,632 [DEBUG]: [5]: More variables, requesting index 250
+2020-12-21 18:40:52,632 [DEBUG]: Requesting index 250 on port 5
+2020-12-21 18:40:52,636 [DEBUG]: Added element [250]
+2020-12-21 18:40:52,636 [DEBUG]: [5]: More variables, requesting index 251
+2020-12-21 18:40:52,636 [DEBUG]: Requesting index 251 on port 5
+2020-12-21 18:40:52,640 [DEBUG]: Added element [251]
+2020-12-21 18:40:52,640 [DEBUG]: [5]: More variables, requesting index 252
+2020-12-21 18:40:52,640 [DEBUG]: Requesting index 252 on port 5
+2020-12-21 18:40:52,644 [DEBUG]: Added element [252]
+2020-12-21 18:40:52,644 [DEBUG]: [5]: More variables, requesting index 253
+2020-12-21 18:40:52,645 [DEBUG]: Requesting index 253 on port 5
+2020-12-21 18:40:52,649 [DEBUG]: Added element [253]
+2020-12-21 18:40:52,649 [DEBUG]: [5]: More variables, requesting index 254
+2020-12-21 18:40:52,649 [DEBUG]: Requesting index 254 on port 5
+2020-12-21 18:40:52,654 [DEBUG]: Added element [254]
+2020-12-21 18:40:52,654 [DEBUG]: [5]: More variables, requesting index 255
+2020-12-21 18:40:52,654 [DEBUG]: Requesting index 255 on port 5
+2020-12-21 18:40:52,658 [DEBUG]: Added element [255]
+2020-12-21 18:40:52,658 [DEBUG]: [5]: More variables, requesting index 256
+2020-12-21 18:40:52,658 [DEBUG]: Requesting index 256 on port 5
+2020-12-21 18:40:52,663 [DEBUG]: Added element [256]
+2020-12-21 18:40:52,663 [DEBUG]: [5]: More variables, requesting index 257
+2020-12-21 18:40:52,663 [DEBUG]: Requesting index 257 on port 5
+2020-12-21 18:40:52,667 [DEBUG]: Added element [257]
+2020-12-21 18:40:52,667 [DEBUG]: [5]: More variables, requesting index 258
+2020-12-21 18:40:52,667 [DEBUG]: Requesting index 258 on port 5
+2020-12-21 18:40:52,671 [DEBUG]: Added element [258]
+2020-12-21 18:40:52,671 [DEBUG]: [5]: More variables, requesting index 259
+2020-12-21 18:40:52,671 [DEBUG]: Requesting index 259 on port 5
+2020-12-21 18:40:52,675 [DEBUG]: Added element [259]
+2020-12-21 18:40:52,675 [DEBUG]: [5]: More variables, requesting index 260
+2020-12-21 18:40:52,675 [DEBUG]: Requesting index 260 on port 5
+2020-12-21 18:40:52,679 [DEBUG]: Added element [260]
+2020-12-21 18:40:52,679 [DEBUG]: [5]: More variables, requesting index 261
+2020-12-21 18:40:52,679 [DEBUG]: Requesting index 261 on port 5
+2020-12-21 18:40:52,683 [DEBUG]: Added element [261]
+2020-12-21 18:40:52,683 [DEBUG]: [5]: More variables, requesting index 262
+2020-12-21 18:40:52,683 [DEBUG]: Requesting index 262 on port 5
+2020-12-21 18:40:52,689 [DEBUG]: Added element [262]
+2020-12-21 18:40:52,689 [DEBUG]: [5]: More variables, requesting index 263
+2020-12-21 18:40:52,689 [DEBUG]: Requesting index 263 on port 5
+2020-12-21 18:40:52,692 [DEBUG]: Added element [263]
+2020-12-21 18:40:52,692 [DEBUG]: [5]: More variables, requesting index 264
+2020-12-21 18:40:52,692 [DEBUG]: Requesting index 264 on port 5
+2020-12-21 18:40:52,696 [DEBUG]: Added element [264]
+2020-12-21 18:40:52,696 [DEBUG]: [5]: More variables, requesting index 265
+2020-12-21 18:40:52,696 [DEBUG]: Requesting index 265 on port 5
+2020-12-21 18:40:52,701 [DEBUG]: Added element [265]
+2020-12-21 18:40:52,701 [DEBUG]: [5]: More variables, requesting index 266
+2020-12-21 18:40:52,701 [DEBUG]: Requesting index 266 on port 5
+2020-12-21 18:40:52,706 [DEBUG]: Added element [266]
+2020-12-21 18:40:52,706 [DEBUG]: [5]: More variables, requesting index 267
+2020-12-21 18:40:52,706 [DEBUG]: Requesting index 267 on port 5
+2020-12-21 18:40:52,709 [DEBUG]: Added element [267]
+2020-12-21 18:40:52,709 [DEBUG]: [5]: More variables, requesting index 268
+2020-12-21 18:40:52,709 [DEBUG]: Requesting index 268 on port 5
+2020-12-21 18:40:52,713 [DEBUG]: Added element [268]
+2020-12-21 18:40:52,713 [DEBUG]: [5]: More variables, requesting index 269
+2020-12-21 18:40:52,713 [DEBUG]: Requesting index 269 on port 5
+2020-12-21 18:40:52,726 [DEBUG]: Added element [269]
+2020-12-21 18:40:52,726 [DEBUG]: [5]: More variables, requesting index 270
+2020-12-21 18:40:52,726 [DEBUG]: Requesting index 270 on port 5
+2020-12-21 18:40:52,730 [DEBUG]: Added element [270]
+2020-12-21 18:40:52,730 [DEBUG]: [5]: More variables, requesting index 271
+2020-12-21 18:40:52,730 [DEBUG]: Requesting index 271 on port 5
+2020-12-21 18:40:52,733 [DEBUG]: Added element [271]
+2020-12-21 18:40:52,733 [DEBUG]: [5]: More variables, requesting index 272
+2020-12-21 18:40:52,734 [DEBUG]: Requesting index 272 on port 5
+2020-12-21 18:40:52,738 [DEBUG]: Added element [272]
+2020-12-21 18:40:52,738 [DEBUG]: [5]: More variables, requesting index 273
+2020-12-21 18:40:52,738 [DEBUG]: Requesting index 273 on port 5
+2020-12-21 18:40:52,742 [DEBUG]: Added element [273]
+2020-12-21 18:40:52,742 [DEBUG]: [5]: More variables, requesting index 274
+2020-12-21 18:40:52,742 [DEBUG]: Requesting index 274 on port 5
+2020-12-21 18:40:52,745 [DEBUG]: Added element [274]
+2020-12-21 18:40:52,745 [DEBUG]: [5]: More variables, requesting index 275
+2020-12-21 18:40:52,745 [DEBUG]: Requesting index 275 on port 5
+2020-12-21 18:40:52,749 [DEBUG]: Added element [275]
+2020-12-21 18:40:52,749 [DEBUG]: [5]: More variables, requesting index 276
+2020-12-21 18:40:52,750 [DEBUG]: Requesting index 276 on port 5
+2020-12-21 18:40:52,753 [DEBUG]: Added element [276]
+2020-12-21 18:40:52,754 [DEBUG]: [5]: More variables, requesting index 277
+2020-12-21 18:40:52,754 [DEBUG]: Requesting index 277 on port 5
+2020-12-21 18:40:52,758 [DEBUG]: Added element [277]
+2020-12-21 18:40:52,758 [DEBUG]: [5]: More variables, requesting index 278
+2020-12-21 18:40:52,758 [DEBUG]: Requesting index 278 on port 5
+2020-12-21 18:40:52,762 [DEBUG]: Added element [278]
+2020-12-21 18:40:52,762 [DEBUG]: [5]: More variables, requesting index 279
+2020-12-21 18:40:52,762 [DEBUG]: Requesting index 279 on port 5
+2020-12-21 18:40:52,767 [DEBUG]: Added element [279]
+2020-12-21 18:40:52,767 [DEBUG]: [5]: More variables, requesting index 280
+2020-12-21 18:40:52,767 [DEBUG]: Requesting index 280 on port 5
+2020-12-21 18:40:52,771 [DEBUG]: Added element [280]
+2020-12-21 18:40:52,771 [DEBUG]: [5]: More variables, requesting index 281
+2020-12-21 18:40:52,771 [DEBUG]: Requesting index 281 on port 5
+2020-12-21 18:40:52,775 [DEBUG]: Added element [281]
+2020-12-21 18:40:52,775 [DEBUG]: [5]: More variables, requesting index 282
+2020-12-21 18:40:52,775 [DEBUG]: Requesting index 282 on port 5
+2020-12-21 18:40:52,779 [DEBUG]: Added element [282]
+2020-12-21 18:40:52,779 [DEBUG]: [5]: More variables, requesting index 283
+2020-12-21 18:40:52,780 [DEBUG]: Requesting index 283 on port 5
+2020-12-21 18:40:52,783 [DEBUG]: Added element [283]
+2020-12-21 18:40:52,783 [DEBUG]: [5]: More variables, requesting index 284
+2020-12-21 18:40:52,784 [DEBUG]: Requesting index 284 on port 5
+2020-12-21 18:40:52,788 [DEBUG]: Added element [284]
+2020-12-21 18:40:52,789 [DEBUG]: [5]: More variables, requesting index 285
+2020-12-21 18:40:52,789 [DEBUG]: Requesting index 285 on port 5
+2020-12-21 18:40:52,792 [DEBUG]: Added element [285]
+2020-12-21 18:40:52,793 [DEBUG]: [5]: More variables, requesting index 286
+2020-12-21 18:40:52,793 [DEBUG]: Requesting index 286 on port 5
+2020-12-21 18:40:52,797 [DEBUG]: Added element [286]
+2020-12-21 18:40:52,797 [DEBUG]: [5]: More variables, requesting index 287
+2020-12-21 18:40:52,797 [DEBUG]: Requesting index 287 on port 5
+2020-12-21 18:40:52,801 [DEBUG]: Added element [287]
+2020-12-21 18:40:52,801 [DEBUG]: [5]: More variables, requesting index 288
+2020-12-21 18:40:52,801 [DEBUG]: Requesting index 288 on port 5
+2020-12-21 18:40:52,805 [DEBUG]: Added element [288]
+2020-12-21 18:40:52,806 [DEBUG]: [5]: More variables, requesting index 289
+2020-12-21 18:40:52,806 [DEBUG]: Requesting index 289 on port 5
+2020-12-21 18:40:53,116 [WARNING]: Got link error callback [Too many packets lost] in state [2]
+2020-12-21 18:40:53,116 [INFO]: Callback->Disconnected from [radio://0/80/2M]
+2020-12-21 18:40:53,116 [INFO]: Callback->Connection lost to [radio://0/80/2M]: Too many packets lost

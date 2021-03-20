@@ -1,0 +1,81 @@
+2021-01-15 11:17:35,533 [INFO]: Connecting to the Vicon...
+2021-01-15 11:17:35,535 [INFO]: Connected to Vicon!
+2021-01-15 11:17:35,535 [INFO]: Setting up the buffer...
+2021-01-15 11:17:35,536 [INFO]: Buffer of 1000 frames created.
+2021-01-15 11:17:35,536 [INFO]: Enabling data types...
+2021-01-15 11:17:35,536 [DEBUG]: Segments: True
+2021-01-15 11:17:35,536 [DEBUG]: Markers: True
+2021-01-15 11:17:35,536 [DEBUG]: Unlabeled Markers: True
+2021-01-15 11:17:35,536 [DEBUG]: Marker Rays: True
+2021-01-15 11:17:35,536 [DEBUG]: Devices: True
+2021-01-15 11:17:35,537 [DEBUG]: Centroids: True 
+2021-01-15 11:17:35,537 [INFO]: Testing stream modes...
+2021-01-15 11:17:35,537 [INFO]: Getting a frame in ClientPull mode...
+2021-01-15 11:17:35,537 [DEBUG]: Fetched! Pulled frame number: 399423
+2021-01-15 11:17:35,537 [INFO]: Getting a frame in PreFetch mode...
+2021-01-15 11:17:36,543 [INFO]: Getting a frame in ServerPush mode...
+2021-01-15 11:17:36,544 [DEBUG]: Fetched! Pulled frame number: 399514
+2021-01-15 11:17:36,544 [INFO]: ServerPush mode set.
+2021-01-15 11:17:36,544 [INFO]: Getting available framerates...
+2021-01-15 11:17:36,545 [INFO]: Current Vicon frame rate: 100.0 Hz.
+2021-01-15 11:17:36,545 [INFO]: Available frame rates: 
+2021-01-15 11:17:36,545 [INFO]: Process Rate : 0 Hz 
+
+2021-01-15 11:17:36,546 [INFO]: Setting axis...
+2021-01-15 11:17:36,546 [INFO]: X Axis: AxisMapping.EForward
+2021-01-15 11:17:36,546 [INFO]: Y Axis: AxisMapping.ELeft
+2021-01-15 11:17:36,546 [INFO]: Z Axis: AxisMapping.EUp
+2021-01-15 11:17:36,546 [INFO]: Initializing drivers...
+2021-01-15 11:17:36,547 [INFO]: Drivers initialized.
+2021-01-15 11:17:36,547 [INFO]: Connecting to the Crazyflie...
+2021-01-15 11:17:36,547 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x0000019D28346E88>>]
+2021-01-15 11:17:36,548 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x0000019D28346EC8>>]
+2021-01-15 11:17:36,548 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x0000019D2830DC48>>]
+2021-01-15 11:17:36,548 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-7, initial daemon)>>]
+2021-01-15 11:17:36,550 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x0000019D283582C8>>]
+2021-01-15 11:17:36,550 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000019D28358608>>]
+2021-01-15 11:17:36,550 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x0000019D28358608>>]
+2021-01-15 11:17:36,551 [INFO]: Active Wand v2 (Origin Tracking) has the following segments: ['Root']
+2021-01-15 11:17:36,551 [INFO]: Active Wand v2 (Origin Tracking) has root: Root
+2021-01-15 11:17:36,551 [INFO]: Crazyflie has the following segments: ['Crazyflie']
+2021-01-15 11:17:36,551 [INFO]: Crazyflie has root: Crazyflie
+2021-01-15 11:17:36,552 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,553 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,554 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,554 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,555 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,556 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,557 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,558 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,558 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
+2021-01-15 11:17:36,559 [DEBUG]: Vicon rotation matrix: [[ 0.93193815  0.36139804 -0.02971088]
+ [-0.36059515  0.93226609  0.02917324]
+ [ 0.0382416  -0.01647405  0.99913272]]
+ 
