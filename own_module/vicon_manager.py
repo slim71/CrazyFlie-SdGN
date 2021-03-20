@@ -25,7 +25,7 @@ class ViconManager:
         try:
             self._client.Connect(VICON_IP + ":" + VICON_PORT)
         except ViconDataStream.DataStreamException as exc:
-            exit("Can't connect to Vicon! Error: ", exc)
+            exit("Can't connect to Vicon! Error: " + str(exc))
 
         self._client.SetBufferSize(FRAME_NUM)  # 1000
         logging.info("Buffer of %d frames created.", FRAME_NUM)
@@ -33,7 +33,8 @@ class ViconManager:
         self.enable_data()
 
         got_frame = 0
-        while not got_frame:  # Continue until the stream mode is set and working
+        # Continue until the stream mode is set and working
+        while not got_frame:
             try:
                 self._client.SetStreamMode(
                     ViconDataStream.Client.StreamMode.EServerPush)
@@ -42,18 +43,20 @@ class ViconManager:
                               else "Vicon is not streaming!",
                               self._client.GetFrameNumber())
             except ViconDataStream.DataStreamException as exc:
-                exit("Error using ServerPush mode. --> %s", exc)
+                exit("Error using ServerPush mode. --> %s" + str(exc))
 
-        logging.info(
-            "Getting available framerates...")  # Show rates of client and server
-        for frameRateName, frameRateValue in self._client.GetFrameRates().items():
+        # Show rates of client and server
+        logging.info("Getting available framerates...")
+        for frameRateName, frameRateValue in \
+                self._client.GetFrameRates().items():
             logging.info("%s : %d Hz \n", frameRateName, frameRateValue)
 
         self.set_reference_system()
 
     def get_drone_pos(self):  # TODO check vicon vs crazy frame
         self._client.GetFrame()
-        drone_trans = self._client.GetSegmentGlobalTranslation(Drone, "Crazyflie2")
+        drone_trans = self._client.GetSegmentGlobalTranslation(Drone,
+                                                               "Crazyflie2")
         drone_trans_mm = drone_trans[0]
         drone_trans_m = np.array([float(drone_trans_mm[0]) / 1000,
                                   float(drone_trans_mm[1]) / 1000,

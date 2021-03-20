@@ -1,14 +1,12 @@
 # come tutorial ma con classe logging; MC sia dentro che fuori dal metodo
 
-from own_module import LogEstimationManager
+from own_module.log_estimation_manager import LogEstimationManager
 import time
 import logging
 from datetime import datetime
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
-
-# DEFINE
-from own_module import ViconManager
+from own_module.vicon_manager import ViconManager
 
 URI = 'radio://0/80/2M'
 DEFAULT_HEIGHT = 0.5
@@ -22,7 +20,7 @@ attitude_estimate = [0, 0, 0]
 # -----------------------------------------------------------------------------
 # ----------------------------------DEBUG--------------------------------------
 # -----------------------------------------------------------------------------
-filename = "../FF_Proj/NewLogs/LogFile_CrazyFlie_NOFLAG" \
+filename = "../FF_Proj/Logs/LogFile_CrazyFlie_NOFLAG" \
            + datetime.now().strftime("%Y%m%d_%H%M%S")
 
 logname = filename + ".log"

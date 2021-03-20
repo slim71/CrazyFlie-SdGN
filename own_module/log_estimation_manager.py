@@ -6,7 +6,8 @@ from cflib.crazyflie.log import LogConfig
 
 class LogEstimationManager:
 
-    # We create a configuration and add all the variables to log and their logging period
+    # We create a configuration and add all the variables to log and
+    # their logging period
     def __init__(self):
         self._logconf = LogConfig(name='Estimation', period_in_ms=500)
         self._position_estimate = [0, 0, 0]
@@ -42,14 +43,17 @@ class LogEstimationManager:
         self._attitude_estimate[1] = data['stabilizer.pitch']
         self._attitude_estimate[2] = data['stabilizer.yaw']
 
-    # We add to the Drone framework the previously defined logging configuration
+    # We add to the Drone framework the previously defined
+    # logging configuration
     def simple_log_async(self, cf):
-        cf.log.add_config(self._logconf)    # check if variables are allowed (i.e. are in TOC)
+        # check if variables are allowed (i.e. are in TOC)
+        cf.log.add_config(self._logconf)
         if self._logconf.valid:
             self._logconf.data_received_cb.add_callback(self.callback)
             self._logconf.start()
         else:
-            logging.error("Could not add logconfig since some variables are not in TOC")
+            logging.error("Could not add logconfig since some variables"
+                          " are not in TOC")
 
     def reset_estimator(self, cf):
         cf.param.set_value('stabilizer.estimator', 2)
@@ -63,7 +67,7 @@ class LogEstimationManager:
 
 '''
 Limitations to be taken into account:
-1)  Each packet is limited to 32bytes, which means that both the data that is logged 
-    and the packet that is sent cannot be larger than this. 
+1)  Each packet is limited to 32bytes, which means that both the data that is  
+    logged and the packet that is sent cannot be larger than this. 
 2)  The minimum period for a log configuration is multiples of 10ms.
 '''

@@ -201,7 +201,7 @@ def datalog(sync_crazyflie):
 
     return measure_log
 
-# TODO: can be converted in a more general getPos?
+
 def getFirstPosition(vicon_client, drone_obj):
     """
     Gathers drone setpoint information from the Vicon client.

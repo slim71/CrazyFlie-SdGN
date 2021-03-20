@@ -9,7 +9,8 @@ import script_variables as sc_v
 import script_setup as sc_s
 from own_module import crazyfun as crazy
 
-#controllare log ultima esecuzione: è sceso quando non doveva dopo essere andato a sx
+# controllare log ultima esecuzione: è sceso quando non doveva dopo essere
+# andato a sx
 
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection

@@ -1,6 +1,5 @@
 import logging
 import time
-from datetime import datetime
 
 import cflib.crtp
 from cflib.crazyflie import Crazyflie
@@ -14,19 +13,7 @@ DEFAULT_HEIGHT = 0.3
 is_deck_attached = False
 position_estimate = [0, 0]
 
-# -----------------------------------------------------------------------------
-# ----------------------------------DEBUG--------------------------------------
-# -----------------------------------------------------------------------------
-filename = "./NewLogs/LogFile_CrazyFlie_NOFLAG" \
-           + datetime.now().strftime("%Y%m%d_%H%M%S")
-
-logname = filename + ".log"
-filename = filename + ".txt"
-logging.basicConfig(filename=logname,
-                    level=logging.DEBUG,
-                    filemode='a',
-                    format="%(asctime)s [%(levelname)s]: %(message)s")
-# -----------------------------------------------------------------------------
+logging.basicConfig(level=logging.ERROR)
 
 
 def move_square():
@@ -51,7 +38,7 @@ if __name__ == '__main__':
     with SyncCrazyflie(URI, cf=Crazyflie(rw_cache='./cache')) as scf:
         #scf.cf.param.set_value('stabilizer.estimator', 2)
 
-        logconf = LogConfig(name='Position', period_in_ms=500)
+        logconf = LogConfig(name='Position', period_in_ms=100)
         logconf.add_variable('stateEstimate.x', 'float')
         logconf.add_variable('stateEstimate.y', 'float')
         scf.cf.log.add_config(logconf)

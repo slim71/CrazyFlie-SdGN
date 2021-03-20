@@ -1,13 +1,12 @@
 # Uso Commander anziché MC; classe vicon invia posizione Drone
 
-from own_module import LogEstimationManager
-from own_module import ViconManager
 import logging
 import time
 from datetime import datetime
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
+from own_module.log_estimation_manager import LogEstimationManager
+from own_module.vicon_manager import ViconManager
 
-# DEFINE
 URI = 'radio://0/80/2M'
 DEFAULT_HEIGHT = 0.5
 DESIRED_X = 0.4
@@ -18,7 +17,7 @@ attitude_estimate = [0, 0, 0]
 # -----------------------------------------------------------------------------
 # ----------------------------------DEBUG--------------------------------------
 # -----------------------------------------------------------------------------
-filename = "../FF_Proj/NewLogs/LogFile_CrazyFlie_NOFLAG" \
+filename = "../FF_Proj/Logs/LogFile_CrazyFlie_NOFLAG" \
            + datetime.now().strftime("%Y%m%d_%H%M%S")
 
 logname = filename + ".log"

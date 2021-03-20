@@ -33,11 +33,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         logging.info("===left===")
         mc.left(0.3)
         logging.info("===backward===")
-<<<<<<< HEAD
         mc.back(0.3)
-=======
-        mc.backward(0.3)
->>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
     poslog.stop()
     orlog.stop()
