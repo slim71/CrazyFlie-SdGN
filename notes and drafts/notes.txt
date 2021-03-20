@@ -139,6 +139,7 @@ currently not needed cf_log in relativo no flag
 mat_rot come pag 13 di MecRob
 
 PLAN 15/1
+<<<<<<< HEAD:notes and drafts/notes.txt
 - check subjects and segments (lines 250-ish):
     Crazyflie only has a segment, its root: "Crazyflie"
     the Wand only has a segment, its root: "Root"
@@ -147,11 +148,19 @@ PLAN 15/1
 - check sleep funcs to be sure
 - check translation computations
     trans from the vicon as expected
+=======
+- check subjects and segments (lines 250-ish)
+- check rot mat
+- check framerates
+- check sleep funcs to be sure
+- check translation computations
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:notes.txt
 - while height not used?
 - line 353 sleep?
 - maybe lower framerate?
 - axis must be set?
 - improve format
+<<<<<<< HEAD:notes and drafts/notes.txt
 - could use numpy.matrix
 
 15/1 LOGS
@@ -164,3 +173,5 @@ PLAN 15/1
 7) check drone position from Vicon without flying
 8) depleted bat
 9) error
+=======
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:notes.txt

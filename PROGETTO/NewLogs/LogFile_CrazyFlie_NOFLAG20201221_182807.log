@@ -1,0 +1,75 @@
+2020-12-21 18:28:07,513 [INFO]: Connecting to the Vicon...
+2020-12-21 18:28:07,514 [INFO]: Connected to Vicon!
+2020-12-21 18:28:07,515 [INFO]: Setting up the buffer...
+2020-12-21 18:28:07,515 [INFO]: Buffer of 1000 frames created.
+2020-12-21 18:28:07,515 [INFO]: Enabling data types...
+2020-12-21 18:28:07,515 [DEBUG]: Segments: True
+2020-12-21 18:28:07,515 [DEBUG]: Markers: True
+2020-12-21 18:28:07,515 [DEBUG]: Unlabeled Markers: True
+2020-12-21 18:28:07,515 [DEBUG]: Marker Rays: True
+2020-12-21 18:28:07,515 [DEBUG]: Devices: True
+2020-12-21 18:28:07,515 [DEBUG]: Centroids: True 
+2020-12-21 18:28:07,516 [INFO]: Testing stream modes...
+2020-12-21 18:28:07,516 [INFO]: Getting a frame in ClientPull mode...
+2020-12-21 18:28:08,516 [ERROR]: Error using ClientPull mode. 
+ NoFrame
+2020-12-21 18:28:08,516 [INFO]: Getting a frame in PreFetch mode...
+2020-12-21 18:28:09,517 [ERROR]: Error using ClientPreFetch mode. 
+ NoFrame
+2020-12-21 18:28:09,518 [INFO]: Getting a frame in ServerPush mode...
+2020-12-21 18:28:10,519 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:11,520 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:12,520 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:13,521 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:14,521 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:15,522 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:16,522 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:17,523 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:18,523 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:19,524 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:20,524 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:21,526 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:22,527 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:23,527 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:24,528 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:25,529 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:26,530 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:27,532 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:28,533 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:29,533 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:30,533 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:31,534 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:32,535 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:33,535 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:34,536 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:35,537 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:36,537 [ERROR]: Error using ServerPush mode. 
+ NoFrame
+2020-12-21 18:28:37,537 [ERROR]: Error using ServerPush mode. 
+ NoFrame

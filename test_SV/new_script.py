@@ -16,7 +16,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     height_drone = 0
 
     # AUTO TAKE-OFF to sc_v.DEFAULT_HEIGHT!
+<<<<<<< HEAD
     # Class used for the setpoint control during the take-off phase:
+=======
+    # Class used for the position control during the take-off phase:
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     # take-off automatic when context created using "with"
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info('===============Take-Off!================')
@@ -47,16 +51,27 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                               "--> %s", exc)
                 exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
             # Absolute setpoint of the Wand in [mm], then converted in [m]
             logging.info("Getting Wand setpoint...")
+=======
+            # Absolute position of the Wand in [mm], then converted in [m]
+            logging.info("Getting Wand position...")
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
             try:
                 wand_p = sc_s.vicon.GetSegmentGlobalTranslation(sc_v.Wand,
                                                                 'Root')
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
+<<<<<<< HEAD
                 logging.error("Error while getting Wand setpoint! --> %s",
                               exc)
                 exit("Error while getting Wand setpoint: " + str(exc))
+=======
+                logging.error("Error while getting Wand position! --> %s",
+                              exc)
+                exit("Error while getting Wand position: " + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
             wand_trans_mm = sc_v.wand_pos[0]
             sc_v.wand_pos_m = np.array([float(wand_trans_mm[0]) / 1000,
                                         float(wand_trans_mm[1]) / 1000,
@@ -79,7 +94,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                     logging.error("LANDING! %d consecutive "
                                   "null positions received.",
                                   crazy.MAX_LOSS)
+<<<<<<< HEAD
                     exit("Too many setpoint losses: drone landing...")
+=======
+                    exit("Too many position losses: drone landing...")
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
             else:
                 logging.info("!!Normal cycle execution!!")
@@ -87,6 +106,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                 # reset counter
                 sc_v.CONSEC_LOSSES = 0
 
+<<<<<<< HEAD
                 # We get the actual setpoint of drone expressed in
                 # the Body frame and send it to the Kalman Filter
                 logging.info("Getting drone setpoint...")
@@ -98,6 +118,19 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                     logging.error("Error while getting drone setpoint:!"
                                   " --> %s", exc)
                     exit("Error while getting drone setpoint:" + str(exc))
+=======
+                # We get the actual position of drone expressed in
+                # the Body frame and send it to the Kalman Filter
+                logging.info("Getting drone position...")
+                try:
+                    drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                        sc_v.drone, 'Crazyflie')  # TODO: not wrt Root?
+                    logging.info("Done.")
+                except ViconDataStream.DataStreamException as exc:
+                    logging.error("Error while getting drone position:!"
+                                  " --> %s", exc)
+                    exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
                 drone_trans_mm = drone_trans[0]
                 sc_v.drone_pos_m = np.array([float(drone_trans_mm[0]) / 1000,
                                              float(drone_trans_mm[1]) / 1000,
@@ -109,6 +142,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                 try:
                     mat_gl = sc_s.vicon.\
                         GetSegmentGlobalRotationMatrix(sc_v.drone, 'Crazyflie')
+<<<<<<< HEAD
+=======
+                    # TODO: not wrt Root?
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
                     mat_gl = np.array(mat_gl[0])
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error while getting the rotation matrix! "
@@ -121,6 +158,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                     eul = sc_s.vicon.\
                         GetSegmentGlobalRotationEulerXYZ(sc_v.drone,
                                                          'Crazyflie')
+<<<<<<< HEAD
+=======
+                    # TODO: not wrt Root?
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
                     eul = np.array(eul[0])
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error while getting Euler angles! "
@@ -137,6 +178,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                 sc_v.last_drone_pos = sc_v.drone_pos_m
 
             logging.info("Printing available data...")
+<<<<<<< HEAD
             logging.debug("Wand current setpoint (in Vicon system): %s",
                           str(sc_v.wand_pos_m))
             logging.debug("Wand last setpoint (in Vicon system): %s",
@@ -146,6 +188,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.debug("Drone current setpoint (in Vicon system): %s",
                           str(sc_v.drone_pos_m))
             logging.debug("Drone last setpoint (in Vicon system): %s",
+=======
+            logging.debug("Wand current position (in Vicon system): %s",
+                          str(sc_v.wand_pos_m))
+            logging.debug("Wand last position (in Vicon system): %s",
+                          str(last_wp))
+            logging.debug("Wand_Translation (in Vicon system): %s",
+                          str(sc_v.Wand_Translation))
+            logging.debug("Drone current position (in Vicon system): %s",
+                          str(sc_v.drone_pos_m))
+            logging.debug("Drone last position (in Vicon system): %s",
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
                           str(last_dp))
             logging.debug("Drone current reference point (in Vicon system):"
                           " %s", str(sc_v.last_drone_ref))

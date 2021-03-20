@@ -254,9 +254,13 @@ for each_sub in subs:
     segs = vicon.GetSegmentNames(each_sub)
     logging.info("%s has the following segments: %s", each_sub, segs)
     root = vicon.GetSubjectRootSegmentName(each_sub)
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
     children = vicon.GetSegmentChildren(each_sub, root)
     logging.info("%s has root: %s", str(each_sub), str(root))
     logging.info("%s has children: %s", str(root), str(children))
+=======
+    logging.info("%s has root: %s", str(each_sub), str(root))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
 
 logging.debug("Checking functions without flying")
 number = 0
@@ -304,7 +308,11 @@ while number < 10:
 
     try:
         drone_trans = vicon.GetSegmentGlobalTranslation(drone, drone)
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
         logging.debug("Drone setpoint from global origin: %s",
+=======
+        logging.debug("Drone position from global origin: %s",
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
                       str(drone_trans[0]))
     except ViconDataStream.DataStreamException as exc:
         logging.error("Error! --> %s", exc)
@@ -355,7 +363,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         #         logging.error("Error! --> %s", exc)
         #         exit("There was an error...")
         #
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
         #     # Get the drone setpoint in the Vicon reference system and
+=======
+        #     # Get the drone position in the Vicon reference system and
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
         #     # convert to meters
         #     logging.info("Getting drone translation...")
         #     try:
@@ -380,7 +392,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         #         logging.error("Error! --> %s", exc)
         #         exit("There was an error...")
         #
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
         #     # Get the Wand setpoint in the Vicon reference system and
+=======
+        #     # Get the Wand position in the Vicon reference system and
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
         #     # convert to meters
         #     logging.info("Getting Wand translation...")
         #     try:
@@ -401,6 +417,7 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # last_wand_trans = wand_trans_m  # TODO: first Wand pos?
         #
         # logging.info("Printing available data...")
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
         # logging.debug("Wand current setpoint (in Vicon system): %s",
         #               str(wand_trans_m))
         # logging.debug("Wand last setpoint (in Vicon system): %s",
@@ -408,6 +425,15 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
         # logging.debug("Drone current setpoint (in Vicon system): %s",
         #               str(drone_trans_m))
         # logging.debug("Drone last setpoint (in Vicon system): %s",
+=======
+        # logging.debug("Wand current position (in Vicon system): %s",
+        #               str(wand_trans_m))
+        # logging.debug("Wand last position (in Vicon system): %s",
+        #               str(last_wand_trans))
+        # logging.debug("Drone current position (in Vicon system): %s",
+        #               str(drone_trans_m))
+        # logging.debug("Drone last position (in Vicon system): %s",
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
         #               str(last_drone_pos))
         # logging.debug("Drone last reference point (in Vicon system): %s",
         #               str(last_drone_ref))
@@ -491,7 +517,11 @@ with SyncCrazyflie(uri, cf) as scf:  # automatic connection
 
                 CONSEC_LOSSES = 0
 
+<<<<<<< HEAD:FF_Proj/RELATIVO (Funzionante ma senza flag).py
                 # We get the actual setpoint of drone expressed in
+=======
+                # We get the actual position of drone expressed in
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6:PROGETTO/RELATIVO (Funzionante ma senza flag).py
                 # the Body frame and send it to the Kalman Filter
                 logging.info("Getting drone translation...")
                 try:

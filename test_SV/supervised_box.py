@@ -14,7 +14,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     height_drone = 0
 
     # AUTO TAKE-OFF to sc_v.DEFAULT_HEIGHT!
+<<<<<<< HEAD
     # Class used for the setpoint control during the take-off phase:
+=======
+    # Class used for the position control during the take-off phase:
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     # take-off automatic when context created using "with"
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info('===============Take-Off!================')
@@ -36,6 +40,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           "--> %s", exc)
             exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
         logging.info("Getting drone setpoint...")
         try:
             drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
@@ -45,6 +50,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.error("Error while getting drone setpoint:!"
                           " --> %s", exc)
             exit("Error while getting drone setpoint:" + str(exc))
+=======
+        logging.info("Getting drone position...")
+        try:
+            drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                sc_v.drone, 'Crazyflie')
+            logging.info("Drone position: " + drone_trans)
+        except ViconDataStream.DataStreamException as exc:
+            logging.error("Error while getting drone position:!"
+                          " --> %s", exc)
+            exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
         logging.info("Getting drone rotation matrix from Vicon...")
         # all in Global Vicon -> RPY in global
@@ -78,6 +94,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           "--> %s", exc)
             exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
         logging.info("Getting drone setpoint...")
         try:
             drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
@@ -87,6 +104,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.error("Error while getting drone setpoint:!"
                           " --> %s", exc)
             exit("Error while getting drone setpoint:" + str(exc))
+=======
+        logging.info("Getting drone position...")
+        try:
+            drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                sc_v.drone, 'Crazyflie')
+            logging.info("Drone position: " + drone_trans)
+        except ViconDataStream.DataStreamException as exc:
+            logging.error("Error while getting drone position:!"
+                          " --> %s", exc)
+            exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
         logging.info("Getting drone rotation matrix from Vicon...")
         # all in Global Vicon -> RPY in global
@@ -120,6 +148,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           "--> %s", exc)
             exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
         logging.info("Getting drone setpoint...")
         try:
             drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
@@ -129,6 +158,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.error("Error while getting drone setpoint:!"
                           " --> %s", exc)
             exit("Error while getting drone setpoint:" + str(exc))
+=======
+        logging.info("Getting drone position...")
+        try:
+            drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                sc_v.drone, 'Crazyflie')
+            logging.info("Drone position: " + drone_trans)
+        except ViconDataStream.DataStreamException as exc:
+            logging.error("Error while getting drone position:!"
+                          " --> %s", exc)
+            exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
         logging.info("Getting drone rotation matrix from Vicon...")
         # all in Global Vicon -> RPY in global
@@ -162,6 +202,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           "--> %s", exc)
             exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
         logging.info("Getting drone setpoint...")
         try:
             drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
@@ -171,6 +212,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.error("Error while getting drone setpoint:!"
                           " --> %s", exc)
             exit("Error while getting drone setpoint:" + str(exc))
+=======
+        logging.info("Getting drone position...")
+        try:
+            drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                sc_v.drone, 'Crazyflie')
+            logging.info("Drone position: " + drone_trans)
+        except ViconDataStream.DataStreamException as exc:
+            logging.error("Error while getting drone position:!"
+                          " --> %s", exc)
+            exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
         logging.info("Getting drone rotation matrix from Vicon...")
         # all in Global Vicon -> RPY in global
@@ -204,6 +256,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           "--> %s", exc)
             exit("Error while getting a frame in the core: " + str(exc))
 
+<<<<<<< HEAD
         logging.info("Getting drone setpoint...")
         try:
             drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
@@ -213,6 +266,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             logging.error("Error while getting drone setpoint:!"
                           " --> %s", exc)
             exit("Error while getting drone setpoint:" + str(exc))
+=======
+        logging.info("Getting drone position...")
+        try:
+            drone_trans = sc_s.vicon.GetSegmentGlobalTranslation(
+                sc_v.drone, 'Crazyflie')
+            logging.info("Drone position: " + drone_trans)
+        except ViconDataStream.DataStreamException as exc:
+            logging.error("Error while getting drone position:!"
+                          " --> %s", exc)
+            exit("Error while getting drone position:" + str(exc))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
         logging.info("Getting drone rotation matrix from Vicon...")
         # all in Global Vicon -> RPY in global

@@ -19,7 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="6f08c044-748c-4042-894f-095e79f0d3b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test_SV/hover_simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/experiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/experiments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/internal_estimate.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/internal_estimate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/script_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/script_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/send_attempt.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/send_attempt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_SV/total_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_SV/total_data.py" afterDir="false" />
+    </list>
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +52,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1kWl86XzX63gMtYXKYaK7tHroUc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -55,11 +75,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python projects/CrazyFlie-SdGN" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+=======
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Dropbox/fanfani_fornaciari_CRAZIFLIE/PROGETTO/RELATIVO (Funzionante ma senza flag).py" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\notes and drafts" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\own_module" />
       <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO" />
@@ -69,6 +94,17 @@
   </component>
   <component name="RunManager" selected="Python.try_file">
     <configuration name="estimate_help" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\test_SV" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\test" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\PROGETTO\LOG" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\own_module" />
+      <recent name="C:\Users\User\Documents\GitHub\CrazyFlie-SdGN" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.internal_estimate">
+    <configuration name="first version" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,7 +116,11 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/estimate_help.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/first version.py" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,7 +129,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="kalman_variance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="internal_estimate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,7 +145,11 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/kalman_variance.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/internal_estimate.py" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +158,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="script_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="prov" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +174,11 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/script_setup.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PROGETTO/prov.py" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +187,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="send_attempt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="script_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <module name="CrazyFlie-SdGN" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,7 +203,11 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/send_attempt.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_SV/script_setup.py" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,11 +239,19 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.try_file" />
         <item itemvalue="Python.script_setup" />
         <item itemvalue="Python.estimate_help" />
         <item itemvalue="Python.send_attempt" />
         <item itemvalue="Python.kalman_variance" />
+=======
+        <item itemvalue="Python.internal_estimate" />
+        <item itemvalue="Python.script_setup" />
+        <item itemvalue="Python.test123" />
+        <item itemvalue="Python.prov" />
+        <item itemvalue="Python.first version" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
       </list>
     </recent_temporary>
   </component>
@@ -360,6 +432,7 @@
       <option name="project" value="LOCAL" />
       <updated>1610211731615</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00025" summary="After 19/3">
       <created>1616185986712</created>
       <option name="number" value="00025" />
@@ -382,6 +455,37 @@
       <updated>1616276577809</updated>
     </task>
     <option name="localTasksCounter" value="28" />
+=======
+    <task id="LOCAL-00025" summary="Lab 15/01">
+      <created>1610744717231</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610744717231</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Experiments to be done">
+      <created>1614372534784</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1614372534784</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Experiments to be done">
+      <created>1614380629729</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1614380629729</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Experiments to be done">
+      <created>1614899517466</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1614899517466</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -419,6 +523,7 @@
     <MESSAGE value="Log improvements" />
     <MESSAGE value="Improvements after lab" />
     <MESSAGE value="Added rotation matrix" />
+<<<<<<< HEAD
     <MESSAGE value="After 19/3" />
     <MESSAGE value="Next steps" />
     <MESSAGE value="Git reformat" />
@@ -446,5 +551,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+=======
+    <MESSAGE value="Lab 15/01" />
+    <MESSAGE value="Experiments to be done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Experiments to be done" />
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
   </component>
 </project>

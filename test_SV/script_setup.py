@@ -15,7 +15,10 @@ filename = "./exp_logs/" + file_name + \
            datetime.now().strftime("__%Y%m%d_%H%M%S")
 
 logname = filename + ".log"
+<<<<<<< HEAD
 # file_desc = open(filename + ".txt", "x")
+=======
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
 # Only logs of level ERROR or above will be tracked
 # https://docs.python.org/3/library/logging.html#levels
@@ -42,9 +45,15 @@ except ViconDataStream.DataStreamException as exc:
 logging.info("Connected to Vicon!")
 
 # Setting a buffer size to work with
+<<<<<<< HEAD
 # logging.info("Setting up the buffer...")
 # vicon.SetBufferSize(sc_v.buffer_size)
 # logging.info("Buffer of %d frames created.", sc_v.buffer_size)
+=======
+logging.info("Setting up the buffer...")
+vicon.SetBufferSize(sc_v.buffer_size)
+logging.info("Buffer of %d frames created.", sc_v.buffer_size)
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
 
 # Enable all the data types (action needed to be able to use these)
 logging.info("Enabling data types...")
@@ -162,10 +171,15 @@ while attempts < 10:
     # all in Global Vicon -> RPY in global
     try:
         mat_gl = vicon.GetSegmentGlobalRotationMatrix(sc_v.drone, sc_v.drone)
+<<<<<<< HEAD
         # logging.debug("Drone rotation matrix from Vicon: %s %s %s ",
         #               str(mat_gl[0]), str(mat_gl[1]), str(mat_gl[2]))
         logging.debug("Drone rotation matrix from Vicon: %s",
                       str(mat_gl))
+=======
+        logging.debug("Drone rotation matrix from Vicon: %s %s %s ",
+                      str(mat_gl[0]), str(mat_gl[1]), str(mat_gl[2]))
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
     except ViconDataStream.DataStreamException as exc:
         exit("Error while managing the rotation: " + str(exc))
         logging.error("Error while managing the rotation! --> %s", exc)
@@ -180,7 +194,11 @@ while attempts < 10:
 
     try:
         drone_trans = vicon.GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)
+<<<<<<< HEAD
         logging.debug("Drone setpoint from global origin: %s",
+=======
+        logging.debug("Drone position from global origin: %s",
+>>>>>>> 032fbdc12721e16559a9d53207dbb6d6447f8ca6
                       str(drone_trans[0]))
     except ViconDataStream.DataStreamException as exc:
         exit("Error while getting drone translation: " + str(exc))
