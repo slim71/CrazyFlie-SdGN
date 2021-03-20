@@ -23,6 +23,7 @@ DELTA_HEIGHT = 0.01  # [m]
 # the last setpoint of the drone
 SUBTRACTED_HEIGHT = 0.01  # [m]
 
+
 # The height the drone has to reach at the end of the take-off. This can't
 # be higher than the "MC_HEIGHT" used in the class of the
 # Motion Commander. We suggest to set it at least at 90% of its value.
