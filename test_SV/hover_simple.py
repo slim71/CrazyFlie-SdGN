@@ -23,20 +23,6 @@ with SyncCrazyflie(sc_v.uri, cf=Crazyflie(rw_cache='./cache')) as scf:
     datalog = crazy.datalog(scf)
     datalog.start()
 
-    poslog = LogConfig(name='Position', period_in_ms=1000)
-    poslog.add_variable('stateEstimate.x', 'float')
-    poslog.add_variable('stateEstimate.y', 'float')
-    poslog.add_variable('stateEstimate.z', 'float')
-    scf.cf.log.add_config(poslog)
-    orlog = LogConfig(name='Stabilizer', period_in_ms=1000)
-    orlog.add_variable('stabilizer.roll', 'float')
-    orlog.add_variable('stabilizer.pitch', 'float')
-    orlog.add_variable('stabilizer.yaw', 'float')
-    scf.cf.log.add_config(orlog)
-
-    poslog.start()
-    orlog.start()
-
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
 
         logging.info("Take-off!")
