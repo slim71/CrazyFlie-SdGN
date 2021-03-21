@@ -1,0 +1,7 @@
+x -> front  |
+y -> left   |-> right-handed!
+z -> up     |
+
+send_setpoint: dare più volte sennò watchdog ferma il drone (due: 0.5-1s)
+send_extpos: in coordinate del drone
+movimento drone: rispetto al sdr iniziale

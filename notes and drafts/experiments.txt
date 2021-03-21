@@ -10,3 +10,19 @@ try to connect and use the client!
 use this to observe variables and other stuff
 
 try to check channel usage? lower log rates
+
+collision avoidance brainstorming:
+- drone hovering
+- object in space
+- simplest solution: collision/warning sphere
+- two collision triangles? hor/vert
+- maybe use Rdot and Thetadot?
+- Rdot < 0 --> collision
+- Thetadot = 0 --> collision
+- xz plane for collision:
+    theta > 0 && thetadot < 0
+    theta < 0 && thetadot > 0
+- xy plane for collision:
+    theta from x axis
+- dangerous if thetadot = 0
+- dangerous if thetadot = 0
