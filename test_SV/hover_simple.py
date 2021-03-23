@@ -1,6 +1,5 @@
 import logging
 import time
-from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
@@ -8,7 +7,7 @@ from own_module import crazyfun as crazy
 import script_variables as sc_v
 import script_setup as sc_s
 
-with SyncCrazyflie(sc_v.uri, cf=Crazyflie(rw_cache='./cache')) as scf:
+with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     poselog = LogConfig(name='PoseLog', period_in_ms=1000)
     poselog.add_variable('stateEstimate.x', 'float')

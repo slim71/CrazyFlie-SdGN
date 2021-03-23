@@ -11,7 +11,7 @@ from vicon_dssdk import ViconDataStream
 # -----------------------------------DEBUG------------------------------------
 file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
-filename = "./exp_logs/" + file_name + \
+filename = "../exp_logs/" + file_name + \
            datetime.now().strftime("__%Y%m%d_%H%M%S")
 logname = filename + ".log"
 

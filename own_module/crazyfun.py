@@ -135,9 +135,27 @@ def config_logging(sync_crazyflie):
     return log_stab
 
 
-def print_callback(timestamp, data, log_conf):
+def matlab_print(*args):
+    # Create a string with all data passed to the function
+    s = ""
+    for arg in args:
+        s = s + "{} ".format(str(arg))
+
+    file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
+
+    mat_file = "../matlab_logs/" + file_name \
+               + datetime.now().strftime("__%Y%m%d_%H%M")
+    mat_file = mat_file + ".txt"
+    ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
+                                       mat_file))
+    with open(ff, 'a') as descriptor:
+        print(s, file=descriptor)
+
+
+# def print_callback(timestamp, data, log_conf):
+def print_callback(data):
     """
-    Prints out gathered data.
+    Prints gathered data to a specific file.
 
         :param timestamp: Timestamp for the log file
         :param data: Data to be logged
@@ -146,22 +164,22 @@ def print_callback(timestamp, data, log_conf):
 
     """
 
-    data_file = "../test_SV/data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M")
+    file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
+
+    data_file = "../data_logs/" + file_name + \
+                datetime.now().strftime("__%Y%m%d_%H%M")
     data_file = data_file + ".txt"
 
     ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
                                        data_file))
     with open(ff, 'a') as descriptor:
-        # Setting estimated state variables
         pos_x = data['stateEstimate.x']
         pos_y = data['stateEstimate.y']
         pos_z = data['stateEstimate.z']
         roll = data['stabilizer.roll']
         pitch = data['stabilizer.pitch']
         yaw = data['stabilizer.yaw']
-
         print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
-        print(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
 
 def data_log_async(sync_crazyflie, log_conf):
