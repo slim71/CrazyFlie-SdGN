@@ -15,6 +15,7 @@ from cflib.crazyflie.log import LogConfig
 import numpy as np
 import math
 import time
+import __main__
 
 # Max number of consecutive loss allowed during acquisition of the setpoint
 # of the Wand or drone
@@ -136,6 +137,7 @@ def config_logging(sync_crazyflie):
 
 
 def matlab_print(*args):
+    # can use a \n as argument to get a newline
     # Create a string with all data passed to the function
     s = ""
     for arg in args:
