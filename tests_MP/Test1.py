@@ -42,7 +42,7 @@ if __name__ == '__main__':
                 time.sleep(1)
                 mc.start_back()
                 while 1:
-                    pos_dr_vic = vicon.get_drone_pos()
+                    pos_dr_vic, quat_drone = vicon.get_drone_pose()
                     cf.extpos.send_extpos(pos_dr_vic[0],
                                           pos_dr_vic[1],
                                           pos_dr_vic[2])

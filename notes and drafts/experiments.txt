@@ -26,3 +26,10 @@ collision avoidance brainstorming:
     theta from x axis
 - dangerous if thetadot = 0
 - dangerous if thetadot = 0
+
+
+    Test2
+references in global frame (drone's initial frame), to Vicon's only for KF
+	- same origins and frames: works as expected
+	- same origins, 90° between frames: drone drifts while taking off, then comes back and works ok
+	- same origins, 180°: same

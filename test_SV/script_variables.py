@@ -2,7 +2,7 @@ import numpy as np
 
 VICON_IP = "192.168.0.2"  # Set the IP of the Vicon server to connect to
 VICON_PORT = "801"  # Set the port of the Vicon server to connect to
-drone = "Crazyflie"  # Set the "Vicon name" of the object relative to the drone
+drone = "Crazyflie2"  # Set the "Vicon name" of the object linked to the drone
 
 # Set the "Vicon-name" of the object relative to the Wand
 Wand = "Active Wand v2 (Origin Tracking)"
@@ -49,6 +49,7 @@ CONSEC_LOSSES = 0
 last_gamma = 0
 
 # Used in the generation of the position reference for the drone
+# TODO: to delete?
 last_trans = np.array([0.0, 0.0, 0.0])
 last_drone_pos = np.array([0.0, 0.0, 0.0])
 last_drone_ref = np.array([0.0, 0.0, 0.0])
@@ -61,4 +62,5 @@ wand_pos = np.array([0.0, 0.0, 0.0])
 Wand_Translation = np.array([0.0, 0.0, 0.0])
 
 is_deck_attached = False
+# TODO: to delete?
 position_estimate = [0, 0]

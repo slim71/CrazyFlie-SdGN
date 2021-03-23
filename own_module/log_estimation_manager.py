@@ -9,7 +9,7 @@ class LogEstimationManager:
     # We create a configuration and add all the variables to log and
     # their logging period
     def __init__(self):
-        self._logconf = LogConfig(name='Estimation', period_in_ms=500)
+        self._logconf = LogConfig(name='Estimation', period_in_ms=200)
         self._position_estimate = [0, 0, 0]
         self._attitude_estimate = [0, 0, 0]
 
@@ -28,14 +28,14 @@ class LogEstimationManager:
         self._logconf.add_variable('stateEstimate.x', 'float')
         self._logconf.add_variable('stateEstimate.y', 'float')
         self._logconf.add_variable('stateEstimate.z', 'float')
-        # self._logconf.add_variable('stabilizer.roll', 'float')
-        # self._logconf.add_variable('stabilizer.pitch', 'float')
-        # self._logconf.add_variable('stabilizer.yaw', 'float')
+        self._logconf.add_variable('stabilizer.roll', 'float')
+        self._logconf.add_variable('stabilizer.pitch', 'float')
+        self._logconf.add_variable('stabilizer.yaw', 'float')
         logging.info("variables added")
 
     # Callback function to print the contents of logs
     def callback(self, timestamp, data, _logconf):
-        print(data)
+        # print(data)
         self._position_estimate[0] = data['stateEstimate.x']
         self._position_estimate[1] = data['stateEstimate.y']
         self._position_estimate[2] = data['stateEstimate.z']

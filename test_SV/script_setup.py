@@ -13,9 +13,7 @@ file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
 filename = "./exp_logs/" + file_name + \
            datetime.now().strftime("__%Y%m%d_%H%M%S")
-
 logname = filename + ".log"
-# file_desc = open(filename + ".txt", "x")
 
 # Only logs of level ERROR or above will be tracked
 # https://docs.python.org/3/library/logging.html#levels
@@ -148,43 +146,43 @@ for each_sub in subs:
 logging.debug("===Checking functions without flying===")
 attempts = 0
 got_frame = 0  # reset flag
-while attempts < 10:
-    try:
-        got_frame = vicon.GetFrame()
-        logging.debug("Fetched! Pulled frame number: %d" if got_frame
-                      else "Vicon is not streaming!", vicon.GetFrameNumber())
-        if not got_frame:
-            continue
-    except ViconDataStream.DataStreamException as exc:
-        exit("Error while getting frame in check mode: " + str(exc))
-        logging.error("Error while getting frame in check mode! --> %s", exc)
-
-    # all in Global Vicon -> RPY in global
-    try:
-        mat_gl = vicon.GetSegmentGlobalRotationMatrix(sc_v.drone, sc_v.drone)
-        # logging.debug("Drone rotation matrix from Vicon: %s %s %s ",
-        #               str(mat_gl[0]), str(mat_gl[1]), str(mat_gl[2]))
-        logging.debug("Drone rotation matrix from Vicon: %s",
-                      str(mat_gl))
-    except ViconDataStream.DataStreamException as exc:
-        exit("Error while managing the rotation: " + str(exc))
-        logging.error("Error while managing the rotation! --> %s", exc)
-
-    try:
-        eul = vicon.GetSegmentGlobalRotationEulerXYZ(sc_v.drone, sc_v.drone)
-        eul = np.array(eul[0])
-        logging.debug("Drone Euler XYZ from Vicon as given: %s", str(eul))
-    except ViconDataStream.DataStreamException as exc:
-        exit("Error while managing Euler angles: " + str(exc))
-        logging.error("Error while managing Euler angles! --> %s", exc)
-
-    try:
-        drone_trans = vicon.GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)
-        logging.debug("Drone position from global origin: %s",
-                      str(drone_trans[0]))
-    except ViconDataStream.DataStreamException as exc:
-        exit("Error while getting drone translation: " + str(exc))
-        logging.error("Error while getting drone translation! --> %s", exc)
-    attempts += 1
+# while attempts < 10:
+#     try:
+#         got_frame = vicon.GetFrame()
+#         logging.debug("Fetched! Pulled frame number: %d" if got_frame
+#                       else "Vicon is not streaming!", vicon.GetFrameNumber())
+#         if not got_frame:
+#             continue
+#     except ViconDataStream.DataStreamException as exc:
+#         exit("Error while getting frame in check mode: " + str(exc))
+#         logging.error("Error while getting frame in check mode! --> %s", exc)
+#
+#     # all in Global Vicon -> RPY in global
+#     try:
+#         mat_gl = vicon.GetSegmentGlobalRotationMatrix(sc_v.drone, sc_v.drone)
+#         # logging.debug("Drone rotation matrix from Vicon: %s %s %s ",
+#         #               str(mat_gl[0]), str(mat_gl[1]), str(mat_gl[2]))
+#         logging.debug("Drone rotation matrix from Vicon: %s",
+#                       str(mat_gl))
+#     except ViconDataStream.DataStreamException as exc:
+#         exit("Error while managing the rotation: " + str(exc))
+#         logging.error("Error while managing the rotation! --> %s", exc)
+#
+#     try:
+#         eul = vicon.GetSegmentGlobalRotationEulerXYZ(sc_v.drone, sc_v.drone)
+#         eul = np.array(eul[0])
+#         logging.debug("Drone Euler XYZ from Vicon as given: %s", str(eul))
+#     except ViconDataStream.DataStreamException as exc:
+#         exit("Error while managing Euler angles: " + str(exc))
+#         logging.error("Error while managing Euler angles! --> %s", exc)
+#
+#     try:
+#         drone_trans = vicon.GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)
+#         logging.debug("Drone position from global origin: %s",
+#                       str(drone_trans[0]))
+#     except ViconDataStream.DataStreamException as exc:
+#         exit("Error while getting drone translation: " + str(exc))
+#         logging.error("Error while getting drone translation! --> %s", exc)
+#     attempts += 1
 
 logging.debug("===============Offline check done=================")

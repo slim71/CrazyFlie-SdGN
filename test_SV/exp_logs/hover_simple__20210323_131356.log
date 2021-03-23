@@ -1,0 +1,291 @@
+2021-03-23 13:13:56,488 [INFO]: Connecting to the Vicon...
+2021-03-23 13:13:56,489 [INFO]: Connected to Vicon!
+2021-03-23 13:13:56,489 [INFO]: Enabling data types...
+2021-03-23 13:13:56,489 [DEBUG]: Segments: True
+2021-03-23 13:13:56,489 [DEBUG]: Markers: True
+2021-03-23 13:13:56,489 [DEBUG]: Unlabeled Markers: True
+2021-03-23 13:13:56,489 [DEBUG]: Marker Rays: True
+2021-03-23 13:13:56,490 [DEBUG]: Devices: True
+2021-03-23 13:13:56,490 [DEBUG]: Centroids: True 
+2021-03-23 13:13:56,490 [INFO]: Testing stream modes...
+2021-03-23 13:13:56,490 [INFO]: Getting a frame in ClientPull mode...
+2021-03-23 13:13:57,490 [ERROR]: Error using ClientPull mode. --> NoFrame
+2021-03-23 13:13:57,490 [INFO]: Getting a frame in PreFetch mode...
+2021-03-23 13:13:58,491 [ERROR]: Error using ClientPreFetch mode. --> NoFrame
+2021-03-23 13:13:58,491 [INFO]: Getting a frame in ServerPush mode...
+2021-03-23 13:13:58,492 [DEBUG]: Fetched! Pulled frame number: 394313
+2021-03-23 13:13:58,492 [INFO]: ServerPush mode set.
+2021-03-23 13:13:58,492 [INFO]: Getting available framerates...
+2021-03-23 13:13:58,492 [INFO]: Current Vicon frame rate: 100.0 Hz.
+2021-03-23 13:13:58,492 [INFO]: Available frame rates: 
+2021-03-23 13:13:58,492 [INFO]: Process Rate : 99 Hz 
+
+2021-03-23 13:13:58,492 [INFO]: Setting axis...
+2021-03-23 13:13:58,493 [INFO]: X Axis: AxisMapping.EForward
+2021-03-23 13:13:58,493 [INFO]: Y Axis: AxisMapping.ELeft
+2021-03-23 13:13:58,493 [INFO]: Z Axis: AxisMapping.EUp
+2021-03-23 13:13:58,493 [INFO]: Initializing drivers...
+2021-03-23 13:13:58,493 [INFO]: Drivers initialized.
+2021-03-23 13:13:58,493 [INFO]: Connecting to the Crazyflie...
+2021-03-23 13:13:58,494 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x00000212652F03C8>>]
+2021-03-23 13:13:58,494 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x00000212652F0548>>]
+2021-03-23 13:13:58,494 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x00000212652F0608>>]
+2021-03-23 13:13:58,494 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-7, initial daemon)>>]
+2021-03-23 13:13:58,495 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x00000212652F0B48>>]
+2021-03-23 13:13:58,496 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000212652F0A48>>]
+2021-03-23 13:13:58,496 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000212652F0A48>>]
+2021-03-23 13:13:58,496 [INFO]: Crazyflie2 has the following segments: ['Crazyflie2']
+2021-03-23 13:13:58,496 [INFO]: Crazyflie2 has root: Crazyflie2
+2021-03-23 13:13:58,496 [DEBUG]: ===Checking functions without flying===
+2021-03-23 13:13:58,496 [DEBUG]: ===============Offline check done=================
+2021-03-23 13:13:58,497 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x00000212652F0BC8>>]
+2021-03-23 13:13:58,497 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x00000212652FD308>>]
+2021-03-23 13:13:58,497 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x00000212652FD448>>]
+2021-03-23 13:13:58,497 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-9, initial daemon)>>]
+2021-03-23 13:13:58,498 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x00000212652FD988>>]
+2021-03-23 13:13:58,498 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000212652FDA88>>]
+2021-03-23 13:13:58,499 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x00000212652FDA88>>]
+2021-03-23 13:13:58,499 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2021-03-23 13:13:58,506 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2021-03-23 13:13:58,507 [INFO]: Callback->Connected to [radio://0/80/2M]
+2021-03-23 13:13:58,509 [WARNING]: Error no LogEntry to handle id=2
+2021-03-23 13:13:58,511 [INFO]: Have successfully stopped logging for id=2
+2021-03-23 13:13:58,517 [INFO]: Protocol  version: 4
+2021-03-23 13:13:58,520 [DEBUG]: Logging reset, continue with TOC download
+2021-03-23 13:13:58,520 [DEBUG]: [5]: Using V2 protocol: 1
+2021-03-23 13:13:58,521 [DEBUG]: [5]: Start fetching...
+2021-03-23 13:13:58,521 [DEBUG]: Adding callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002126531CB48>>]
+2021-03-23 13:13:58,525 [DEBUG]: [5]: Got TOC CRC, 317 items and crc=0x05C5AF70
+2021-03-23 13:13:58,530 [INFO]: TOC for port [5] found in cache
+2021-03-23 13:13:58,530 [DEBUG]: Removing callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002126531CB48>>]
+2021-03-23 13:13:58,530 [DEBUG]: [5]: Done!
+2021-03-23 13:13:58,531 [INFO]: Log TOC finished updating
+2021-03-23 13:13:58,531 [DEBUG]: Requesting number of memories
+2021-03-23 13:13:58,535 [INFO]: 9 memories found
+2021-03-23 13:13:58,536 [DEBUG]: Requesting first id
+2021-03-23 13:13:58,539 [DEBUG]: Requesting information about memory 1
+2021-03-23 13:13:58,544 [DEBUG]: Memory: id=1, type=LED driver, size=24
+2021-03-23 13:13:58,544 [DEBUG]: Requesting information about memory 2
+2021-03-23 13:13:58,548 [DEBUG]: Memory: id=2, type=Loco Positioning, size=6144
+2021-03-23 13:13:58,548 [DEBUG]: Requesting information about memory 3
+2021-03-23 13:13:58,552 [DEBUG]: Memory: id=3, type=Trajectory, size=4096
+2021-03-23 13:13:58,552 [DEBUG]: Requesting information about memory 4
+2021-03-23 13:13:58,557 [DEBUG]: Memory: id=4, type=Loco Positioning 2, size=69632
+2021-03-23 13:13:58,557 [DEBUG]: Requesting information about memory 5
+2021-03-23 13:13:58,562 [DEBUG]: Memory: id=5, type=Lighthouse positioning, size=96
+2021-03-23 13:13:58,562 [DEBUG]: Requesting information about memory 6
+2021-03-23 13:13:58,567 [DEBUG]: Memory: id=6, type=Memory tester, size=4096
+2021-03-23 13:13:58,568 [DEBUG]: Requesting information about memory 7
+2021-03-23 13:13:58,572 [DEBUG]: Memory: id=7, type=Unknown, size=0
+2021-03-23 13:13:58,572 [DEBUG]: Requesting information about memory 8
+2021-03-23 13:13:58,577 [DEBUG]: Done getting all the memories, start reading the OWs
+2021-03-23 13:13:58,578 [DEBUG]: Updating content of memory 8
+2021-03-23 13:13:58,578 [DEBUG]: Requesting new chunk of 11bytes at 0x0
+2021-03-23 13:13:58,590 [DEBUG]: READ: Mem=8, addr=0x0, status=0x0, data=(235, 12, 0, 0, 0, 188, 15, 205, 0, 12, 1)
+2021-03-23 13:13:58,591 [DEBUG]: READING: We are still interested in request for mem 8
+2021-03-23 13:13:58,591 [DEBUG]: Requesting new chunk of 15bytes at 0x8
+2021-03-23 13:13:58,596 [DEBUG]: READ: Mem=8, addr=0x8, status=0x0, data=(0, 12, 1, 7, 98, 99, 70, 108, 111, 119, 50, 2, 1, 65, 84)
+2021-03-23 13:13:58,596 [DEBUG]: READING: We are still interested in request for mem 8
+2021-03-23 13:13:58,596 [DEBUG]: OW 0DD9203F00000040 (BC:0F): {'Board name': 'bcFlow2', 'Board revision': 'A'}
+2021-03-23 13:13:58,597 [INFO]: Memories finished updating
+2021-03-23 13:13:58,597 [DEBUG]: [2]: Using V2 protocol: 1
+2021-03-23 13:13:58,597 [DEBUG]: [2]: Start fetching...
+2021-03-23 13:13:58,597 [DEBUG]: Adding callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002126534F988>>]
+2021-03-23 13:13:58,600 [DEBUG]: [2]: Got TOC CRC, 164 items and crc=0x1042AFA8
+2021-03-23 13:13:58,603 [INFO]: TOC for port [2] found in cache
+2021-03-23 13:13:58,603 [DEBUG]: Removing callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002126534F988>>]
+2021-03-23 13:13:58,603 [DEBUG]: [2]: Done!
+2021-03-23 13:13:58,604 [INFO]: Param TOC finished updating
+2021-03-23 13:13:58,604 [INFO]: Callback->Connection setup finished [radio://0/80/2M]
+2021-03-23 13:13:58,604 [DEBUG]: Requesting request to update param [6]
+2021-03-23 13:13:58,605 [DEBUG]: Adding stateEstimate.x with id=121 and type=0x77
+2021-03-23 13:13:58,605 [DEBUG]: Requesting request to update param [1]
+2021-03-23 13:13:58,606 [DEBUG]: Adding stateEstimate.y with id=122 and type=0x77
+2021-03-23 13:13:58,606 [DEBUG]: Requesting request to update param [2]
+2021-03-23 13:13:58,606 [DEBUG]: Adding stateEstimate.z with id=123 and type=0x77
+2021-03-23 13:13:58,607 [DEBUG]: Requesting request to update param [3]
+2021-03-23 13:13:58,607 [DEBUG]: Adding stabilizer.roll with id=117 and type=0x77
+2021-03-23 13:13:58,607 [DEBUG]: Requesting request to update param [4]
+2021-03-23 13:13:58,607 [DEBUG]: Adding stabilizer.pitch with id=118 and type=0x77
+2021-03-23 13:13:58,608 [DEBUG]: Requesting request to update param [5]
+2021-03-23 13:13:58,608 [DEBUG]: Adding stabilizer.yaw with id=119 and type=0x77
+2021-03-23 13:13:58,608 [DEBUG]: Requesting request to update param [7]
+2021-03-23 13:13:58,608 [DEBUG]: Adding/appending log block id 1
+2021-03-23 13:13:58,609 [DEBUG]: Requesting request to update param [8]
+2021-03-23 13:13:58,609 [DEBUG]: First time block is started, add block
+2021-03-23 13:13:58,609 [DEBUG]: Requesting request to update param [9]
+2021-03-23 13:13:58,610 [DEBUG]: Adding stateEstimate.x with id=121 and type=0x77
+2021-03-23 13:13:58,610 [DEBUG]: Requesting request to update param [10]
+2021-03-23 13:13:58,610 [DEBUG]: Adding stateEstimate.y with id=122 and type=0x77
+2021-03-23 13:13:58,611 [DEBUG]: Requesting request to update param [11]
+2021-03-23 13:13:58,611 [DEBUG]: Adding stateEstimate.z with id=123 and type=0x77
+2021-03-23 13:13:58,611 [DEBUG]: Requesting request to update param [16]
+2021-03-23 13:13:58,611 [DEBUG]: Adding stabilizer.roll with id=117 and type=0x77
+2021-03-23 13:13:58,611 [DEBUG]: Requesting request to update param [12]
+2021-03-23 13:13:58,611 [DEBUG]: Adding stabilizer.pitch with id=118 and type=0x77
+2021-03-23 13:13:58,612 [DEBUG]: Requesting request to update param [13]
+2021-03-23 13:13:58,612 [DEBUG]: Adding stabilizer.yaw with id=119 and type=0x77
+2021-03-23 13:13:58,612 [DEBUG]: Requesting request to update param [14]
+2021-03-23 13:13:58,612 [DEBUG]: Adding/appending log block id 2
+2021-03-23 13:13:58,612 [DEBUG]: Requesting request to update param [15]
+2021-03-23 13:13:58,613 [DEBUG]: First time block is started, add block
+2021-03-23 13:13:58,613 [DEBUG]: Requesting request to update param [17]
+2021-03-23 13:13:58,614 [DEBUG]: Requesting request to update param [18]
+2021-03-23 13:13:58,614 [DEBUG]: Requesting request to update param [19]
+2021-03-23 13:13:58,614 [DEBUG]: Requesting request to update param [20]
+2021-03-23 13:13:58,614 [DEBUG]: Requesting request to update param [21]
+2021-03-23 13:13:58,615 [DEBUG]: Requesting request to update param [22]
+2021-03-23 13:13:58,615 [DEBUG]: Requesting request to update param [23]
+2021-03-23 13:13:58,615 [DEBUG]: Requesting request to update param [24]
+2021-03-23 13:13:58,615 [DEBUG]: Requesting request to update param [25]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [26]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [27]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [28]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [29]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [30]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [31]
+2021-03-23 13:13:58,616 [DEBUG]: Requesting request to update param [32]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [33]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [34]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [35]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [36]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [37]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [38]
+2021-03-23 13:13:58,617 [DEBUG]: Requesting request to update param [39]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [40]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [41]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [42]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [43]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [44]
+2021-03-23 13:13:58,618 [DEBUG]: Requesting request to update param [45]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [46]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [47]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [48]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [49]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [50]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [51]
+2021-03-23 13:13:58,619 [DEBUG]: Requesting request to update param [52]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [53]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [54]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [55]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [56]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [57]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [58]
+2021-03-23 13:13:58,620 [DEBUG]: Requesting request to update param [59]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [60]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [61]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [62]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [63]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [64]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [65]
+2021-03-23 13:13:58,621 [DEBUG]: Requesting request to update param [66]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [67]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [68]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [69]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [70]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [71]
+2021-03-23 13:13:58,622 [DEBUG]: Requesting request to update param [72]
+2021-03-23 13:13:58,623 [DEBUG]: Requesting request to update param [73]
+2021-03-23 13:13:58,623 [DEBUG]: Requesting request to update param [74]
+2021-03-23 13:13:58,623 [DEBUG]: Requesting request to update param [75]
+2021-03-23 13:13:58,623 [DEBUG]: Requesting request to update param [76]
+2021-03-23 13:13:58,624 [DEBUG]: Requesting request to update param [77]
+2021-03-23 13:13:58,624 [DEBUG]: Requesting request to update param [78]
+2021-03-23 13:13:58,624 [DEBUG]: Requesting request to update param [79]
+2021-03-23 13:13:58,624 [DEBUG]: Requesting request to update param [80]
+2021-03-23 13:13:58,625 [DEBUG]: Requesting request to update param [81]
+2021-03-23 13:13:58,625 [DEBUG]: Requesting request to update param [82]
+2021-03-23 13:13:58,625 [DEBUG]: Requesting request to update param [83]
+2021-03-23 13:13:58,625 [DEBUG]: Requesting request to update param [84]
+2021-03-23 13:13:58,626 [DEBUG]: Requesting request to update param [85]
+2021-03-23 13:13:58,626 [DEBUG]: Requesting request to update param [86]
+2021-03-23 13:13:58,626 [DEBUG]: Requesting request to update param [87]
+2021-03-23 13:13:58,626 [DEBUG]: Requesting request to update param [88]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [89]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [90]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [91]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [92]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [93]
+2021-03-23 13:13:58,627 [DEBUG]: Requesting request to update param [94]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [95]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [96]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [97]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [98]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [99]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [100]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [101]
+2021-03-23 13:13:58,628 [DEBUG]: Requesting request to update param [102]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [103]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [104]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [105]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [106]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [107]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [108]
+2021-03-23 13:13:58,629 [DEBUG]: Requesting request to update param [109]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [110]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [111]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [112]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [113]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [114]
+2021-03-23 13:13:58,630 [DEBUG]: Requesting request to update param [115]
+2021-03-23 13:13:58,631 [DEBUG]: Requesting request to update param [116]
+2021-03-23 13:13:58,631 [DEBUG]: Requesting request to update param [117]
+2021-03-23 13:13:58,631 [DEBUG]: Requesting request to update param [118]
+2021-03-23 13:13:58,631 [DEBUG]: Requesting request to update param [119]
+2021-03-23 13:13:58,631 [DEBUG]: Requesting request to update param [120]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [121]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [122]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [123]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [124]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [125]
+2021-03-23 13:13:58,632 [DEBUG]: Requesting request to update param [126]
+2021-03-23 13:13:58,633 [DEBUG]: Requesting request to update param [127]
+2021-03-23 13:13:58,633 [DEBUG]: Requesting request to update param [128]
+2021-03-23 13:13:58,633 [DEBUG]: Requesting request to update param [140]
+2021-03-23 13:13:58,633 [DEBUG]: Requesting request to update param [141]
+2021-03-23 13:13:58,634 [DEBUG]: Requesting request to update param [142]
+2021-03-23 13:13:58,634 [DEBUG]: Requesting request to update param [143]
+2021-03-23 13:13:58,634 [DEBUG]: Requesting request to update param [145]
+2021-03-23 13:13:58,634 [DEBUG]: Requesting request to update param [146]
+2021-03-23 13:13:58,634 [DEBUG]: Requesting request to update param [147]
+2021-03-23 13:13:58,635 [DEBUG]: Requesting request to update param [151]
+2021-03-23 13:13:58,635 [DEBUG]: Requesting request to update param [152]
+2021-03-23 13:13:58,635 [DEBUG]: Requesting request to update param [154]
+2021-03-23 13:13:58,635 [DEBUG]: Requesting request to update param [155]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [156]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [129]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [130]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [131]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [132]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [133]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [134]
+2021-03-23 13:13:58,636 [DEBUG]: Requesting request to update param [135]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [136]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [137]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [138]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [139]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [144]
+2021-03-23 13:13:58,637 [DEBUG]: Requesting request to update param [148]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [149]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [150]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [153]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [157]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [158]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [159]
+2021-03-23 13:13:58,638 [DEBUG]: Requesting request to update param [160]
+2021-03-23 13:13:58,639 [DEBUG]: Requesting request to update param [161]
+2021-03-23 13:13:58,639 [DEBUG]: Requesting request to update param [162]
+2021-03-23 13:13:58,639 [DEBUG]: Requesting request to update param [163]
+2021-03-23 13:13:58,639 [DEBUG]: Updated parameter [imu_sensors.BMP388]
+2021-03-23 13:13:58,639 [DEBUG]: Have successfully added id=1
+2021-03-23 13:13:58,640 [DEBUG]: Have successfully added id=2
+2021-03-23 13:13:58,643 [INFO]: Have successfully started logging for id=1
+2021-03-23 13:13:58,644 [DEBUG]: Updated parameter [imu_sensors.HMC5883L]
+2021-03-23 13:13:58,645 [INFO]: Have successfully started logging for id=2
+2021-03-23 13:13:58,649 [DEBUG]: Updated parameter [imu_sensors.MS5611]
+2021-03-23 13:13:58,652 [DEBUG]: Updated parameter [imu_tests.MPU6500]
+2021-03-23 13:14:03,215 [INFO]: Take-off!
+2021-03-23 13:14:15,728 [DEBUG]: Sending stop logging for block id=1
+2021-03-23 13:14:15,731 [DEBUG]: Sending stop logging for block id=2
+2021-03-23 13:14:15,734 [INFO]: Closing link
+2021-03-23 13:14:15,741 [INFO]: Callback->Disconnected from [radio://0/80/2M]

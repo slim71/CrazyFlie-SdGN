@@ -26,7 +26,7 @@ with SyncCrazyflie(sc_v.uri, cf=Crazyflie(rw_cache='./cache')) as scf:
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
 
         logging.info("Take-off!")
-        time.sleep(10)
+        time.sleep(1)
 
     poselog.stop()
     datalog.stop()

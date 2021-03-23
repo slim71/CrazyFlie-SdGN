@@ -146,21 +146,22 @@ def print_callback(timestamp, data, log_conf):
 
     """
 
-    data_file = "./data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M%S")
+    data_file = "../test_SV/data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M")
+    data_file = data_file + ".txt"
 
-    descriptor = open(os.path.normpath(os.path.join(
-        Path(__file__).parent.absolute(), data_file + ".txt")), "x")
+    ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
+                                       data_file))
+    with open(ff, 'a') as descriptor:
+        # Setting estimated state variables
+        pos_x = data['stateEstimate.x']
+        pos_y = data['stateEstimate.y']
+        pos_z = data['stateEstimate.z']
+        roll = data['stabilizer.roll']
+        pitch = data['stabilizer.pitch']
+        yaw = data['stabilizer.yaw']
 
-    # Setting estimated state variables
-    pos_x = data['stateEstimate.x']
-    pos_y = data['stateEstimate.y']
-    pos_z = data['stateEstimate.z']
-    roll = data['stabilizer.roll']
-    pitch = data['stabilizer.pitch']
-    yaw = data['stabilizer.yaw']
-
-    print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
-    print(pos_x, pos_y, pos_z, roll, pitch, yaw)
+        print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
+        print(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
 
 def data_log_async(sync_crazyflie, log_conf):

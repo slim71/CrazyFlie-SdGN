@@ -1,5 +1,6 @@
 import logging
 import time
+from own_module import crazyfun as crazy
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
 import script_variables as sc_v
@@ -10,8 +11,8 @@ from vicon_dssdk import ViconDataStream
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
 
-    # datalog = crazy.datalog(scf)
-    # datalog.start()
+    datalog = crazy.datalog(scf)
+    datalog.start()
 
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info("Take-off!")
@@ -26,7 +27,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                     logging.error("Error while getting a frame in the core! "
                                   "--> %s", exc)
                 sc_v.drone_pos = sc_s.vicon.\
-                    GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)
+                    GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)[0]
 
                 scf.cf.extpos.send_extpos(sc_v.drone_pos[0],
                                           sc_v.drone_pos[1],
@@ -37,4 +38,4 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                                         point[3])
                 time.sleep(0.1)
 
-    # datalog.stop()
+    datalog.stop()

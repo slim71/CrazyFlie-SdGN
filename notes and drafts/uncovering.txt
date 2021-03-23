@@ -8,3 +8,8 @@ movimento drone: rispetto al sdr iniziale
 
 send_position_setpoint: m, °
 
+pitch angle is inverse wrt the "standard" convention
+
+quaternions:
+	- vicon/drone: qx,qy,qz,qw
+	- others: qw,qx,qy,qz
