@@ -181,6 +181,7 @@ def print_callback(data):
         roll = data['stabilizer.roll']
         pitch = data['stabilizer.pitch']
         yaw = data['stabilizer.yaw']
+
         print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
 
 
@@ -215,6 +216,8 @@ def datalog(sync_crazyflie):
     measure_log.add_variable('stabilizer.roll', 'float')
     measure_log.add_variable('stabilizer.pitch', 'float')
     measure_log.add_variable('stabilizer.yaw', 'float')
+    # TODO: Add more to log:
+    # kalman stddev, posi/or stddev, extQuatStdDev 0.1, extPosStdDev
 
     data_log_async(sync_crazyflie, measure_log)
 
@@ -497,3 +500,73 @@ def euler_from_quaternion(x, y, z, w):
     yaw_z = math.atan2(t3, t4)
 
     return roll_x, pitch_y, yaw_z  # in radians
+
+
+def quat_product(q0, q1):
+    """both Vicon and Crazy-Kalman use the form (x, y, z, w),
+    NOT the common (w, x, y, z)
+    """
+
+    x0, y0, z0, w0 = q0
+    x1, y1, z1, w1 = q1
+
+    q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
+    q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
+    q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1
+    q0q1_z = w0 * z1 + x0 * y1 - y0 * x1 + z0 * w1
+
+    return np.array((q0q1_x, q0q1_y, q0q1_z, q0q1_w))
+
+
+def rot_with_quat(vector, quat):
+    """
+    quat: (qx, qy, qz, qw)
+    """
+    q_conj = np.array((-quat[0], -quat[1], -quat[2], quat[3]))
+    v = np.array((vector[0], vector[1], vector[2], 0))
+    # TODO:check signs
+    return quat_product(quat_product(quat, v), q_conj)
+
+
+def quaternion_rotation_matrix(quaternion):
+    """
+    Covert a quaternion into a full three-dimensional rotation matrix.
+
+    Input
+    :param quaternion: A 4 element array representing the quaternion;
+                    normally would be (qw,qx,qy,qz), Vicon uses (qx,qy,qz, qw)
+
+    Output
+    :return: A 3x3 element matrix representing the full 3D rotation matrix.
+             This rotation matrix converts a point in the local reference
+             frame to a point in the global reference frame.
+    """
+    # Reformat Vicon quaternion
+    quat = (quaternion[3], quaternion[0], quaternion[1], quaternion[2])
+    # Extract the values from quat
+    qw = quat[0]
+    qx = quat[1]
+    qy = quat[2]
+    qz = quat[3]
+
+    # First row of the rotation matrix
+    r00 = 2 * (qw * qw + qx * qx) - 1
+    r01 = 2 * (qx * qy - qw * qz)
+    r02 = 2 * (qx * qz + qw * qy)
+
+    # Second row of the rotation matrix
+    r10 = 2 * (qx * qy + qw * qz)
+    r11 = 2 * (qw * qw + qy * qy) - 1
+    r12 = 2 * (qy * qz - qw * qx)
+
+    # Third row of the rotation matrix
+    r20 = 2 * (qx * qz - qw * qy)
+    r21 = 2 * (qy * qz + qw * qx)
+    r22 = 2 * (qw * qw + qz * qz) - 1
+
+    # 3x3 rotation matrix
+    rot_matrix = np.array([[r00, r01, r02],
+                           [r10, r11, r12],
+                           [r20, r21, r22]])
+
+    return rot_matrix
