@@ -8,6 +8,7 @@ import numpy as np
 from vicon_dssdk import ViconDataStream
 from own_module import crazyfun as crazy
 import sequences as seq
+from varname import nameof
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
@@ -17,6 +18,13 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
 
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info('===============Take-Off!================')
+
+        crazy.matlab_print("% SQUARE")
+        crazy.matlab_print("% x y z isPositionBlocked? "
+                           "qx qy qz qw isOrientationBlocked?"
+                           "roll pitch yaw"
+                           "px_v py_v pz_v"
+                           "px_cf py_cf pz_cf")
 
         for point in seq.square:
             for i in range(10):
@@ -37,7 +45,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                 quaternion = np.array(sc_v.drone_or[0])
                 # or we could use GetSegmentGlobalRotationEuler
                 angles = np.rad2deg(crazy.euler_from_quaternion(
-                    quaternion[0], quaternion[1], quaternion[2], quaternion[3]))
+                    quaternion[0], quaternion[1],
+                    quaternion[2], quaternion[3]))
                 logging.debug("Quaternion for drone orientation: %s"
                               + str(quaternion))
                 logging.debug("Converted in orientation: %s" + str(angles))
@@ -55,12 +64,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                                                         setpoint[2],
                                                         angles[3])
                 time.sleep(0.1)
-
-                crazy.matlab_print("% x y z isPositionBlocked? "
-                                   "qx qy qz qw isOrientationBlocked?"
-                                   "roll pitch yaw"
-                                   "px_v py_v pz_v"
-                                   "px_cf py_cf pz_cf")
 
                 crazy.matlab_print(position[0], position[1], position[2],
                                    sc_v.drone_pos[1],

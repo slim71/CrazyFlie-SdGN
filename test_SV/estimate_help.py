@@ -14,8 +14,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     logging.info("Connected!")
 
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
-
-    crazy.reset_estimator(sc_s.cf)
     crazy.wait_for_position_estimator(sc_s.cf)
 
     poslog = LogConfig(name='Position', period_in_ms=10)
@@ -103,7 +101,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
 
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
 
-    crazy.reset_estimator(sc_s.cf)
     crazy.wait_for_position_estimator(sc_s.cf)
 
     poslog = LogConfig(name='Position', period_in_ms=10)

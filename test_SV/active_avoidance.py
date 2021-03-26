@@ -20,23 +20,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
 
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
 
-    crazy.reset_estimator(sc_s.cf)
-    # crazy.wait_for_position_estimator(sc_s.cf)
-
-    # poslog = LogConfig(name='Position', period_in_ms=1000)
-    # poslog.add_variable('stateEstimate.x', 'float')
-    # poslog.add_variable('stateEstimate.y', 'float')
-    # poslog.add_variable('stateEstimate.z', 'float')
-    # scf.cf.log.add_config(poslog)
-    # orlog = LogConfig(name='Stabilizer', period_in_ms=1000)
-    # orlog.add_variable('stabilizer.roll', 'float')
-    # orlog.add_variable('stabilizer.pitch', 'float')
-    # orlog.add_variable('stabilizer.yaw', 'float')
-    # scf.cf.log.add_config(orlog)
-    #
-    # poslog.start()
-    # orlog.start()
-
     # AUTO TAKE-OFF to sc_v.DEFAULT_HEIGHT!
     # Class used for the setpoint control during the take-off phase:
     # take-off automatic when context created using "with"
@@ -63,7 +46,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                     GetSegmentGlobalTranslation(sc_v.drone, 'Crazyflie')
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error while getting Drone setpoint! --> %s", exc)
+                logging.error("Error while getting Drone setpoint! --> %s",
+                              exc)
                 exit("Error while getting Drone setpoint: " + str(exc))
             sc_v.drone_pos = sc_v.drone_pos[0]
             # sc_v.drone_pos_m = np.array([float(sc_v.drone_pos_m[0]) / 1000,
@@ -81,7 +65,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                     GetSegmentGlobalTranslation('Obstacle', 'OneMarker')
                 logging.info("Done.")
             except ViconDataStream.DataStreamException as exc:
-                logging.error("Error while getting Object setpoint! --> %s", exc)
+                logging.error("Error while getting Object setpoint! --> %s",
+                              exc)
                 exit("Error while getting Object setpoint: " + str(exc))
             obj_pos = obj_pos[0]
 

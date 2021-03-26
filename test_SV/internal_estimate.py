@@ -9,8 +9,6 @@ from own_module import crazyfun as crazy
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
 
-    crazy.reset_estimator(sc_s.cf)
-
     poslog = LogConfig(name='Position', period_in_ms=100)
     poslog.add_variable('stateEstimate.x', 'float')
     poslog.add_variable('stateEstimate.y', 'float')

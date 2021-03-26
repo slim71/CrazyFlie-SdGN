@@ -35,5 +35,5 @@ references in global frame (drone's initial frame), to Vicon's only for KF
 	- same origins, 180°: same
 
 ---TODO:
-- check client
+- check Crazyflie client
 - produce data for MATLAB

@@ -2,14 +2,22 @@ x -> front  |
 y -> left   |-> right-handed!
 z -> up     |
 
-send_setpoint: dare più volte sennò watchdog ferma il drone (due: 0.5-1s)
-send_extpos: in coordinate del drone (vedi sotto)
-movimento drone: rispetto al sdr iniziale
+send_setpoint: more than once, there are watchdogs to stop the drone (two: 0.5-1s)
+send_extpos: drone reference system
+drone movements: wrt its initial reference system
 
 send_position_setpoint: m, °
+Vicon: mm, °
 
 pitch angle is inverse wrt the "standard" convention
 
 quaternions:
 	- vicon/drone: qx,qy,qz,qw
 	- others: qw,qx,qy,qz
+
+pitch values entering and exiting the estimator are opposite in sign; why?
+- data coherent with conventions
+- roll and yaw acceptable
+- recheck if inverting pitch sign is ok (shouldn't)
+
+NaN values at the start for the position: because there's not flowdeck?

@@ -3,6 +3,12 @@
 
 import script_variables as sc_v
 
+line = [
+    (0.5, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (0, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (-0.5, 0, sc_v.DEFAULT_HEIGHT, 0),
+]
+
 square = [
     (0.5, 0.5, sc_v.DEFAULT_HEIGHT, 0),
     (-0.5, 0.5, sc_v.DEFAULT_HEIGHT, 0),
