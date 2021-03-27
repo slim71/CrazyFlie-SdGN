@@ -8,7 +8,6 @@ import numpy as np
 from vicon_dssdk import ViconDataStream
 from own_module import crazyfun as crazy
 import sequences as seq
-from varname import nameof
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
@@ -22,9 +21,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
         crazy.matlab_print("% SQUARE")
         crazy.matlab_print("% x y z isPositionBlocked? "
                            "qx qy qz qw isOrientationBlocked?"
-                           "roll pitch yaw"
-                           "px_v py_v pz_v"
-                           "px_cf py_cf pz_cf")
+                           "setx_v sety_v setz_v"
+                           "setx_cf sety_cf setz_cf")
 
         for point in seq.square:
             for i in range(10):
@@ -70,7 +68,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                                    quaternion[0], quaternion[1],
                                    quaternion[2], quaternion[2],
                                    sc_v.drone_or[1],
-                                   angles[0], angles[1], angles[2],
                                    point[0], point[1], point[2],
                                    setpoint[0], setpoint[1], setpoint[2])
 
