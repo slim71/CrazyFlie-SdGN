@@ -1,0 +1,57 @@
+2021-03-25 11:14:17,836 [INFO]: variables added
+2021-03-25 11:14:17,836 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x000002C38878EAC8>>]
+2021-03-25 11:14:17,836 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x000002C38878EB88>>]
+2021-03-25 11:14:17,836 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x000002C38878ECC8>>]
+2021-03-25 11:14:17,837 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2021-03-25 11:14:17,837 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x000002C38879E088>>]
+2021-03-25 11:14:17,837 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002C38879E2C8>>]
+2021-03-25 11:14:17,837 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002C38879E2C8>>]
+2021-03-25 11:14:17,837 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2021-03-25 11:14:17,860 [ERROR]: Couldn't load link driver: Cannot find a Crazyradio Dongle
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\drivers\crazyradio.py", line 128, in __init__
+    device = _find_devices()[devid]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 224, in open_link
+    link_uri, self._link_quality_cb, self._link_error_cb)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\__init__.py", line 99, in get_link_driver
+    instance.connect(uri, link_quality_callback, link_error_callback)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 158, in connect
+    address)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 97, in __init__
+    _RadioManager._radios[self._devid] = _SharedRadio(self._devid)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 66, in __init__
+    self.radio = Crazyradio(devid=devid)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\drivers\crazyradio.py", line 133, in __init__
+    raise Exception('Cannot find a Crazyradio Dongle')
+Exception: Cannot find a Crazyradio Dongle
+
+2021-03-25 11:14:17,860 [INFO]: Callback->Connected failed to [radio://0/80/2M]: Couldn't load link driver: Cannot find a Crazyradio Dongle
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\drivers\crazyradio.py", line 128, in __init__
+    device = _find_devices()[devid]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 224, in open_link
+    link_uri, self._link_quality_cb, self._link_error_cb)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\__init__.py", line 99, in get_link_driver
+    instance.connect(uri, link_quality_callback, link_error_callback)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 158, in connect
+    address)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 97, in __init__
+    _RadioManager._radios[self._devid] = _SharedRadio(self._devid)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crtp\radiodriver.py", line 66, in __init__
+    self.radio = Crazyradio(devid=devid)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\drivers\crazyradio.py", line 133, in __init__
+    raise Exception('Cannot find a Crazyradio Dongle')
+Exception: Cannot find a Crazyradio Dongle
+

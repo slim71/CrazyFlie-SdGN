@@ -12,6 +12,7 @@ class LogEstimationManager:
         self._logconf = LogConfig(name='Estimation', period_in_ms=200)
         self._position_estimate = [0, 0, 0]
         self._attitude_estimate = [0, 0, 0]
+        self._stdDevs = [0, 0, 0]
 
     def __enter__(self):
         cflib.crtp.init_drivers(enable_debug_driver=False)

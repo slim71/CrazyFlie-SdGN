@@ -2,7 +2,7 @@ import numpy as np
 
 VICON_IP = "192.168.0.2"  # Set the IP of the Vicon server to connect to
 VICON_PORT = "801"  # Set the port of the Vicon server to connect to
-drone = "Crazyflie2"  # Set the "Vicon name" of the object linked to the drone
+drone = "Crazyflie"  # Set the "Vicon name" of the object linked to the drone
 
 # Set the "Vicon-name" of the object relative to the Wand
 Wand = "Active Wand v2 (Origin Tracking)"

@@ -1,0 +1,12 @@
+2021-03-23 11:55:45,560 [INFO]: variables added
+2021-03-23 11:55:45,560 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x000002C4596C3A88>>]
+2021-03-23 11:55:45,561 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x000002C4596C3C08>>]
+2021-03-23 11:55:45,561 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x000002C4596C3CC8>>]
+2021-03-23 11:55:45,561 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-7, initial daemon)>>]
+2021-03-23 11:55:45,562 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x000002C4596D71C8>>]
+2021-03-23 11:55:45,562 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002C4596D7348>>]
+2021-03-23 11:55:45,562 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002C4596D7348>>]
+2021-03-23 11:55:45,562 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2021-03-23 11:55:45,569 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2021-03-23 11:55:45,903 [WARNING]: Got link error callback [Too many packets lost] in state [1]
+2021-03-23 11:55:45,903 [INFO]: Callback->Connected failed to [radio://0/80/2M]: Too many packets lost

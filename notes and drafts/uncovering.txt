@@ -21,3 +21,7 @@ pitch values entering and exiting the estimator are opposite in sign; why?
 - recheck if inverting pitch sign is ok (shouldn't)
 
 NaN values at the start for the position: because there's not flowdeck?
+
+
+without the flowdeck the internal estimator does not converge,
+even when manually selecting kalaman

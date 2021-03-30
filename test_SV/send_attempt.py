@@ -14,11 +14,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         logging.info("Will try to fly in a square")
 
         logging.debug("Sending 0.5m in x direction")
-        for i in range(10):
+        for i in range(20):
             scf.cf.commander.send_position_setpoint(
                 0.5, 0, sc_v.DEFAULT_HEIGHT, 0)
             # Apparently, every time people send setpoints, they also use this
-            time.sleep(0.5)
+            time.sleep(0.1)
 
         # logging.debug("Sending 0.5m in y direction")
         # for i in range(10):

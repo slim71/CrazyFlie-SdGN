@@ -43,7 +43,7 @@ def log_stab_callback(timestamp, data, log_conf):
 
     # Setting estimated state variables
     log_pos_x = data['stateEstimate.x']
-    log_pos_y = data['stateEstimate.y']
+    log_pos_y = -data['stateEstimate.y']
     log_pos_z = data['stateEstimate.z']
     log_roll = data['stabilizer.roll']
     log_pitch = data['stabilizer.pitch']
@@ -105,8 +105,7 @@ def matlab_print(*args):
         print(s, file=descriptor)
 
 
-# def print_callback(timestamp, data, log_conf):
-def print_callback(data):
+def print_callback(timestamp, data, log_conf):
     """
     Prints gathered data to a specific file.
 
@@ -176,18 +175,29 @@ def datalog(sync_crazyflie):
 def wait_for_position_estimator(scf):
     logging.info('Waiting for estimator to find setpoint...')
 
-    log_config = LogConfig(name='Kalman Variance', period_in_ms=500)
+    log_config = LogConfig(name='Kalman Pos Variance', period_in_ms=500)
     log_config.add_variable('kalman.varPX', 'float')
     log_config.add_variable('kalman.varPY', 'float')
     log_config.add_variable('kalman.varPZ', 'float')
 
+    log_config2 = LogConfig(name='Kalman Or Variance', period_in_ms=500)
+    log_config2.add_variable('kalman.q0', 'float')
+    log_config2.add_variable('kalman.q1', 'float')
+    log_config2.add_variable('kalman.q2', 'float')
+    log_config2.add_variable('kalman.q3', 'float')
+
     var_x_history = [1000] * 10
     var_y_history = [1000] * 10
     var_z_history = [1000] * 10
+    var_q0_history = [1000] * 10
+    var_q1_history = [1000] * 10
+    var_q2_history = [1000] * 10
+    var_q3_history = [1000] * 10
 
     threshold = 0.001
 
-    with SyncLogger(scf, log_config) as logger:
+    with SyncLogger(scf, log_config) as logger, \
+            SyncLogger(scf, log_config2) as logger2:
         for log_entry in logger:
             data = log_entry[1]
 
@@ -208,10 +218,41 @@ def wait_for_position_estimator(scf):
             logging.debug("dx: %s dy: %s dz: %s",
                           max_x - min_x, max_y - min_y, max_z - min_z)
 
-            if (max_x - min_x) < threshold and (
-                    max_y - min_y) < threshold and (
-                    max_z - min_z) < threshold:
+            if (max_x - min_x) < threshold and \
+                    (max_y - min_y) < threshold and \
+                    (max_z - min_z) < threshold:
                 break
+
+        # for log_entry in logger2:
+        #     data = log_entry[1]
+        #
+        #     var_q0_history.append(data['kalman.q0'])
+        #     var_q0_history.pop(0)
+        #     var_q1_history.append(data['kalman.q1'])
+        #     var_q1_history.pop(0)
+        #     var_q2_history.append(data['kalman.q2'])
+        #     var_q2_history.pop(0)
+        #     var_q3_history.append(data['kalman.q3'])
+        #     var_q3_history.pop(0)
+        #
+        #     min_q0 = min(var_q0_history)
+        #     max_q0 = max(var_q0_history)
+        #     min_q1 = min(var_q1_history)
+        #     max_q1 = max(var_q1_history)
+        #     min_q2 = min(var_q2_history)
+        #     max_q2 = max(var_q2_history)
+        #     min_q3 = min(var_q3_history)
+        #     max_q3 = max(var_q3_history)
+        #
+        #     logging.debug("dq0: %s dq1: %s dq2: %s dq3: %s",
+        #                   max_q0 - min_q0, max_q1 - min_q1, max_q2 - min_q2,
+        #                   max_q3 - min_q3)
+        #
+        #     if (max_q0 - min_q0) < threshold and \
+        #             (max_q1 - min_q1) < threshold and \
+        #             (max_q2 - min_q2) < threshold and \
+        #             (max_q3 - min_q3) < threshold:
+        #         break
 
 
 def sign(x):
@@ -287,7 +328,6 @@ def rot_with_quat(vector, quat):
     """
     q_conj = np.array((-quat[0], -quat[1], -quat[2], quat[3]))
     v = np.array((vector[0], vector[1], vector[2], 0))
-    # TODO:check signs
     return quat_product(quat_product(quat, v), q_conj)
 
 

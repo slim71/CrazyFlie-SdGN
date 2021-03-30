@@ -1,0 +1,2552 @@
+2021-03-30 14:23:45,123 [INFO]: variables added
+2021-03-30 14:23:45,123 [DEBUG]: Adding callback on port [6] to [<bound method Localization._incoming of <cflib.crazyflie.localization.Localization object at 0x000002CAD9071708>>]
+2021-03-30 14:23:45,123 [DEBUG]: Adding callback on port [5] to [<bound method Log._new_packet_cb of <cflib.crazyflie.log.Log object at 0x000002CAD9071808>>]
+2021-03-30 14:23:45,123 [DEBUG]: Adding callback on port [0] to [<bound method Console.incoming of <cflib.crazyflie.console.Console object at 0x000002CAD9071888>>]
+2021-03-30 14:23:45,123 [DEBUG]: Adding callback on port [2] to [<bound method _ParamUpdater._new_packet_cb of <_ParamUpdater(Thread-2, initial daemon)>>]
+2021-03-30 14:23:45,124 [DEBUG]: Adding callback on port [4] to [<bound method Memory._new_packet_cb of <cflib.crazyflie.mem.Memory object at 0x000002CAD9066D48>>]
+2021-03-30 14:23:45,124 [DEBUG]: Adding callback on port [13] to [<bound method PlatformService._platform_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002CAD9071BC8>>]
+2021-03-30 14:23:45,124 [DEBUG]: Adding callback on port [15] to [<bound method PlatformService._crt_service_callback of <cflib.crazyflie.platformservice.PlatformService object at 0x000002CAD9071BC8>>]
+2021-03-30 14:23:45,124 [INFO]: Callback->Connection initialized[radio://0/80/2M]
+2021-03-30 14:23:45,127 [INFO]: We are connected[radio://0/80/2M], request connection setup
+2021-03-30 14:23:45,129 [INFO]: Callback->Connected to [radio://0/80/2M]
+2021-03-30 14:23:45,137 [INFO]: Protocol  version: 4
+2021-03-30 14:23:45,140 [DEBUG]: Logging reset, continue with TOC download
+2021-03-30 14:23:45,140 [DEBUG]: [5]: Using V2 protocol: 1
+2021-03-30 14:23:45,140 [DEBUG]: [5]: Start fetching...
+2021-03-30 14:23:45,140 [DEBUG]: Adding callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002CAD90BF788>>]
+2021-03-30 14:23:45,143 [DEBUG]: [5]: Got TOC CRC, 317 items and crc=0x05C5AF70
+2021-03-30 14:23:45,143 [DEBUG]: Requesting index 0 on port 5
+2021-03-30 14:23:45,156 [DEBUG]: Added element [0]
+2021-03-30 14:23:45,156 [DEBUG]: [5]: More variables, requesting index 1
+2021-03-30 14:23:45,156 [DEBUG]: Requesting index 1 on port 5
+2021-03-30 14:23:45,160 [DEBUG]: Added element [1]
+2021-03-30 14:23:45,161 [DEBUG]: [5]: More variables, requesting index 2
+2021-03-30 14:23:45,161 [DEBUG]: Requesting index 2 on port 5
+2021-03-30 14:23:45,164 [DEBUG]: Added element [2]
+2021-03-30 14:23:45,164 [DEBUG]: [5]: More variables, requesting index 3
+2021-03-30 14:23:45,164 [DEBUG]: Requesting index 3 on port 5
+2021-03-30 14:23:45,168 [DEBUG]: Added element [3]
+2021-03-30 14:23:45,169 [DEBUG]: [5]: More variables, requesting index 4
+2021-03-30 14:23:45,169 [DEBUG]: Requesting index 4 on port 5
+2021-03-30 14:23:45,173 [DEBUG]: Added element [4]
+2021-03-30 14:23:45,173 [DEBUG]: [5]: More variables, requesting index 5
+2021-03-30 14:23:45,173 [DEBUG]: Requesting index 5 on port 5
+2021-03-30 14:23:45,177 [DEBUG]: Added element [5]
+2021-03-30 14:23:45,177 [DEBUG]: [5]: More variables, requesting index 6
+2021-03-30 14:23:45,177 [DEBUG]: Requesting index 6 on port 5
+2021-03-30 14:23:45,181 [DEBUG]: Added element [6]
+2021-03-30 14:23:45,181 [DEBUG]: [5]: More variables, requesting index 7
+2021-03-30 14:23:45,181 [DEBUG]: Requesting index 7 on port 5
+2021-03-30 14:23:45,184 [DEBUG]: Added element [7]
+2021-03-30 14:23:45,185 [DEBUG]: [5]: More variables, requesting index 8
+2021-03-30 14:23:45,185 [DEBUG]: Requesting index 8 on port 5
+2021-03-30 14:23:45,188 [DEBUG]: Added element [8]
+2021-03-30 14:23:45,189 [DEBUG]: [5]: More variables, requesting index 9
+2021-03-30 14:23:45,189 [DEBUG]: Requesting index 9 on port 5
+2021-03-30 14:23:45,192 [DEBUG]: Added element [9]
+2021-03-30 14:23:45,193 [DEBUG]: [5]: More variables, requesting index 10
+2021-03-30 14:23:45,193 [DEBUG]: Requesting index 10 on port 5
+2021-03-30 14:23:45,197 [DEBUG]: Added element [10]
+2021-03-30 14:23:45,197 [DEBUG]: [5]: More variables, requesting index 11
+2021-03-30 14:23:45,197 [DEBUG]: Requesting index 11 on port 5
+2021-03-30 14:23:45,201 [DEBUG]: Added element [11]
+2021-03-30 14:23:45,201 [DEBUG]: [5]: More variables, requesting index 12
+2021-03-30 14:23:45,201 [DEBUG]: Requesting index 12 on port 5
+2021-03-30 14:23:45,205 [DEBUG]: Added element [12]
+2021-03-30 14:23:45,205 [DEBUG]: [5]: More variables, requesting index 13
+2021-03-30 14:23:45,205 [DEBUG]: Requesting index 13 on port 5
+2021-03-30 14:23:45,208 [DEBUG]: Added element [13]
+2021-03-30 14:23:45,209 [DEBUG]: [5]: More variables, requesting index 14
+2021-03-30 14:23:45,209 [DEBUG]: Requesting index 14 on port 5
+2021-03-30 14:23:45,212 [DEBUG]: Added element [14]
+2021-03-30 14:23:45,212 [DEBUG]: [5]: More variables, requesting index 15
+2021-03-30 14:23:45,213 [DEBUG]: Requesting index 15 on port 5
+2021-03-30 14:23:45,216 [DEBUG]: Added element [15]
+2021-03-30 14:23:45,216 [DEBUG]: [5]: More variables, requesting index 16
+2021-03-30 14:23:45,216 [DEBUG]: Requesting index 16 on port 5
+2021-03-30 14:23:45,220 [DEBUG]: Added element [16]
+2021-03-30 14:23:45,220 [DEBUG]: [5]: More variables, requesting index 17
+2021-03-30 14:23:45,220 [DEBUG]: Requesting index 17 on port 5
+2021-03-30 14:23:45,224 [DEBUG]: Added element [17]
+2021-03-30 14:23:45,224 [DEBUG]: [5]: More variables, requesting index 18
+2021-03-30 14:23:45,224 [DEBUG]: Requesting index 18 on port 5
+2021-03-30 14:23:45,228 [DEBUG]: Added element [18]
+2021-03-30 14:23:45,228 [DEBUG]: [5]: More variables, requesting index 19
+2021-03-30 14:23:45,228 [DEBUG]: Requesting index 19 on port 5
+2021-03-30 14:23:45,232 [DEBUG]: Added element [19]
+2021-03-30 14:23:45,232 [DEBUG]: [5]: More variables, requesting index 20
+2021-03-30 14:23:45,232 [DEBUG]: Requesting index 20 on port 5
+2021-03-30 14:23:45,236 [DEBUG]: Added element [20]
+2021-03-30 14:23:45,236 [DEBUG]: [5]: More variables, requesting index 21
+2021-03-30 14:23:45,236 [DEBUG]: Requesting index 21 on port 5
+2021-03-30 14:23:45,240 [DEBUG]: Added element [21]
+2021-03-30 14:23:45,240 [DEBUG]: [5]: More variables, requesting index 22
+2021-03-30 14:23:45,241 [DEBUG]: Requesting index 22 on port 5
+2021-03-30 14:23:45,244 [DEBUG]: Added element [22]
+2021-03-30 14:23:45,244 [DEBUG]: [5]: More variables, requesting index 23
+2021-03-30 14:23:45,245 [DEBUG]: Requesting index 23 on port 5
+2021-03-30 14:23:45,250 [DEBUG]: Added element [23]
+2021-03-30 14:23:45,250 [DEBUG]: [5]: More variables, requesting index 24
+2021-03-30 14:23:45,250 [DEBUG]: Requesting index 24 on port 5
+2021-03-30 14:23:45,254 [DEBUG]: Added element [24]
+2021-03-30 14:23:45,254 [DEBUG]: [5]: More variables, requesting index 25
+2021-03-30 14:23:45,254 [DEBUG]: Requesting index 25 on port 5
+2021-03-30 14:23:45,258 [DEBUG]: Added element [25]
+2021-03-30 14:23:45,259 [DEBUG]: [5]: More variables, requesting index 26
+2021-03-30 14:23:45,259 [DEBUG]: Requesting index 26 on port 5
+2021-03-30 14:23:45,263 [DEBUG]: Added element [26]
+2021-03-30 14:23:45,263 [DEBUG]: [5]: More variables, requesting index 27
+2021-03-30 14:23:45,263 [DEBUG]: Requesting index 27 on port 5
+2021-03-30 14:23:45,266 [DEBUG]: Added element [27]
+2021-03-30 14:23:45,266 [DEBUG]: [5]: More variables, requesting index 28
+2021-03-30 14:23:45,266 [DEBUG]: Requesting index 28 on port 5
+2021-03-30 14:23:45,270 [DEBUG]: Added element [28]
+2021-03-30 14:23:45,270 [DEBUG]: [5]: More variables, requesting index 29
+2021-03-30 14:23:45,270 [DEBUG]: Requesting index 29 on port 5
+2021-03-30 14:23:45,283 [DEBUG]: Added element [29]
+2021-03-30 14:23:45,283 [DEBUG]: [5]: More variables, requesting index 30
+2021-03-30 14:23:45,283 [DEBUG]: Requesting index 30 on port 5
+2021-03-30 14:23:45,288 [DEBUG]: Added element [30]
+2021-03-30 14:23:45,288 [DEBUG]: [5]: More variables, requesting index 31
+2021-03-30 14:23:45,288 [DEBUG]: Requesting index 31 on port 5
+2021-03-30 14:23:45,292 [DEBUG]: Added element [31]
+2021-03-30 14:23:45,292 [DEBUG]: [5]: More variables, requesting index 32
+2021-03-30 14:23:45,292 [DEBUG]: Requesting index 32 on port 5
+2021-03-30 14:23:45,296 [DEBUG]: Added element [32]
+2021-03-30 14:23:45,296 [DEBUG]: [5]: More variables, requesting index 33
+2021-03-30 14:23:45,296 [DEBUG]: Requesting index 33 on port 5
+2021-03-30 14:23:45,300 [DEBUG]: Added element [33]
+2021-03-30 14:23:45,300 [DEBUG]: [5]: More variables, requesting index 34
+2021-03-30 14:23:45,300 [DEBUG]: Requesting index 34 on port 5
+2021-03-30 14:23:45,304 [DEBUG]: Added element [34]
+2021-03-30 14:23:45,304 [DEBUG]: [5]: More variables, requesting index 35
+2021-03-30 14:23:45,304 [DEBUG]: Requesting index 35 on port 5
+2021-03-30 14:23:45,309 [DEBUG]: Added element [35]
+2021-03-30 14:23:45,309 [DEBUG]: [5]: More variables, requesting index 36
+2021-03-30 14:23:45,309 [DEBUG]: Requesting index 36 on port 5
+2021-03-30 14:23:45,313 [DEBUG]: Added element [36]
+2021-03-30 14:23:45,313 [DEBUG]: [5]: More variables, requesting index 37
+2021-03-30 14:23:45,313 [DEBUG]: Requesting index 37 on port 5
+2021-03-30 14:23:45,316 [DEBUG]: Added element [37]
+2021-03-30 14:23:45,317 [DEBUG]: [5]: More variables, requesting index 38
+2021-03-30 14:23:45,317 [DEBUG]: Requesting index 38 on port 5
+2021-03-30 14:23:45,320 [DEBUG]: Added element [38]
+2021-03-30 14:23:45,321 [DEBUG]: [5]: More variables, requesting index 39
+2021-03-30 14:23:45,321 [DEBUG]: Requesting index 39 on port 5
+2021-03-30 14:23:45,324 [DEBUG]: Added element [39]
+2021-03-30 14:23:45,324 [DEBUG]: [5]: More variables, requesting index 40
+2021-03-30 14:23:45,324 [DEBUG]: Requesting index 40 on port 5
+2021-03-30 14:23:45,329 [DEBUG]: Added element [40]
+2021-03-30 14:23:45,329 [DEBUG]: [5]: More variables, requesting index 41
+2021-03-30 14:23:45,329 [DEBUG]: Requesting index 41 on port 5
+2021-03-30 14:23:45,333 [DEBUG]: Added element [41]
+2021-03-30 14:23:45,333 [DEBUG]: [5]: More variables, requesting index 42
+2021-03-30 14:23:45,333 [DEBUG]: Requesting index 42 on port 5
+2021-03-30 14:23:45,337 [DEBUG]: Added element [42]
+2021-03-30 14:23:45,337 [DEBUG]: [5]: More variables, requesting index 43
+2021-03-30 14:23:45,337 [DEBUG]: Requesting index 43 on port 5
+2021-03-30 14:23:45,342 [DEBUG]: Added element [43]
+2021-03-30 14:23:45,342 [DEBUG]: [5]: More variables, requesting index 44
+2021-03-30 14:23:45,342 [DEBUG]: Requesting index 44 on port 5
+2021-03-30 14:23:45,346 [DEBUG]: Added element [44]
+2021-03-30 14:23:45,346 [DEBUG]: [5]: More variables, requesting index 45
+2021-03-30 14:23:45,346 [DEBUG]: Requesting index 45 on port 5
+2021-03-30 14:23:45,351 [DEBUG]: Added element [45]
+2021-03-30 14:23:45,351 [DEBUG]: [5]: More variables, requesting index 46
+2021-03-30 14:23:45,351 [DEBUG]: Requesting index 46 on port 5
+2021-03-30 14:23:45,354 [DEBUG]: Added element [46]
+2021-03-30 14:23:45,354 [DEBUG]: [5]: More variables, requesting index 47
+2021-03-30 14:23:45,355 [DEBUG]: Requesting index 47 on port 5
+2021-03-30 14:23:45,359 [DEBUG]: Added element [47]
+2021-03-30 14:23:45,359 [DEBUG]: [5]: More variables, requesting index 48
+2021-03-30 14:23:45,359 [DEBUG]: Requesting index 48 on port 5
+2021-03-30 14:23:45,363 [DEBUG]: Added element [48]
+2021-03-30 14:23:45,363 [DEBUG]: [5]: More variables, requesting index 49
+2021-03-30 14:23:45,363 [DEBUG]: Requesting index 49 on port 5
+2021-03-30 14:23:45,367 [DEBUG]: Added element [49]
+2021-03-30 14:23:45,368 [DEBUG]: [5]: More variables, requesting index 50
+2021-03-30 14:23:45,368 [DEBUG]: Requesting index 50 on port 5
+2021-03-30 14:23:45,372 [DEBUG]: Added element [50]
+2021-03-30 14:23:45,372 [DEBUG]: [5]: More variables, requesting index 51
+2021-03-30 14:23:45,372 [DEBUG]: Requesting index 51 on port 5
+2021-03-30 14:23:45,376 [DEBUG]: Added element [51]
+2021-03-30 14:23:45,376 [DEBUG]: [5]: More variables, requesting index 52
+2021-03-30 14:23:45,376 [DEBUG]: Requesting index 52 on port 5
+2021-03-30 14:23:45,380 [DEBUG]: Added element [52]
+2021-03-30 14:23:45,381 [DEBUG]: [5]: More variables, requesting index 53
+2021-03-30 14:23:45,381 [DEBUG]: Requesting index 53 on port 5
+2021-03-30 14:23:45,385 [DEBUG]: Added element [53]
+2021-03-30 14:23:45,385 [DEBUG]: [5]: More variables, requesting index 54
+2021-03-30 14:23:45,385 [DEBUG]: Requesting index 54 on port 5
+2021-03-30 14:23:45,389 [DEBUG]: Added element [54]
+2021-03-30 14:23:45,389 [DEBUG]: [5]: More variables, requesting index 55
+2021-03-30 14:23:45,389 [DEBUG]: Requesting index 55 on port 5
+2021-03-30 14:23:45,393 [DEBUG]: Added element [55]
+2021-03-30 14:23:45,393 [DEBUG]: [5]: More variables, requesting index 56
+2021-03-30 14:23:45,393 [DEBUG]: Requesting index 56 on port 5
+2021-03-30 14:23:45,397 [DEBUG]: Added element [56]
+2021-03-30 14:23:45,398 [DEBUG]: [5]: More variables, requesting index 57
+2021-03-30 14:23:45,398 [DEBUG]: Requesting index 57 on port 5
+2021-03-30 14:23:45,412 [DEBUG]: Added element [57]
+2021-03-30 14:23:45,412 [DEBUG]: [5]: More variables, requesting index 58
+2021-03-30 14:23:45,412 [DEBUG]: Requesting index 58 on port 5
+2021-03-30 14:23:45,416 [DEBUG]: Added element [58]
+2021-03-30 14:23:45,416 [DEBUG]: [5]: More variables, requesting index 59
+2021-03-30 14:23:45,416 [DEBUG]: Requesting index 59 on port 5
+2021-03-30 14:23:45,421 [DEBUG]: Added element [59]
+2021-03-30 14:23:45,421 [DEBUG]: [5]: More variables, requesting index 60
+2021-03-30 14:23:45,421 [DEBUG]: Requesting index 60 on port 5
+2021-03-30 14:23:45,425 [DEBUG]: Added element [60]
+2021-03-30 14:23:45,425 [DEBUG]: [5]: More variables, requesting index 61
+2021-03-30 14:23:45,425 [DEBUG]: Requesting index 61 on port 5
+2021-03-30 14:23:45,430 [DEBUG]: Added element [61]
+2021-03-30 14:23:45,430 [DEBUG]: [5]: More variables, requesting index 62
+2021-03-30 14:23:45,430 [DEBUG]: Requesting index 62 on port 5
+2021-03-30 14:23:45,434 [DEBUG]: Added element [62]
+2021-03-30 14:23:45,434 [DEBUG]: [5]: More variables, requesting index 63
+2021-03-30 14:23:45,434 [DEBUG]: Requesting index 63 on port 5
+2021-03-30 14:23:45,438 [DEBUG]: Added element [63]
+2021-03-30 14:23:45,438 [DEBUG]: [5]: More variables, requesting index 64
+2021-03-30 14:23:45,438 [DEBUG]: Requesting index 64 on port 5
+2021-03-30 14:23:45,442 [DEBUG]: Added element [64]
+2021-03-30 14:23:45,442 [DEBUG]: [5]: More variables, requesting index 65
+2021-03-30 14:23:45,442 [DEBUG]: Requesting index 65 on port 5
+2021-03-30 14:23:45,447 [DEBUG]: Added element [65]
+2021-03-30 14:23:45,447 [DEBUG]: [5]: More variables, requesting index 66
+2021-03-30 14:23:45,447 [DEBUG]: Requesting index 66 on port 5
+2021-03-30 14:23:45,452 [DEBUG]: Added element [66]
+2021-03-30 14:23:45,452 [DEBUG]: [5]: More variables, requesting index 67
+2021-03-30 14:23:45,452 [DEBUG]: Requesting index 67 on port 5
+2021-03-30 14:23:45,456 [DEBUG]: Added element [67]
+2021-03-30 14:23:45,456 [DEBUG]: [5]: More variables, requesting index 68
+2021-03-30 14:23:45,456 [DEBUG]: Requesting index 68 on port 5
+2021-03-30 14:23:45,461 [DEBUG]: Added element [68]
+2021-03-30 14:23:45,461 [DEBUG]: [5]: More variables, requesting index 69
+2021-03-30 14:23:45,461 [DEBUG]: Requesting index 69 on port 5
+2021-03-30 14:23:45,465 [DEBUG]: Added element [69]
+2021-03-30 14:23:45,466 [DEBUG]: [5]: More variables, requesting index 70
+2021-03-30 14:23:45,466 [DEBUG]: Requesting index 70 on port 5
+2021-03-30 14:23:45,471 [DEBUG]: Added element [70]
+2021-03-30 14:23:45,471 [DEBUG]: [5]: More variables, requesting index 71
+2021-03-30 14:23:45,471 [DEBUG]: Requesting index 71 on port 5
+2021-03-30 14:23:45,475 [DEBUG]: Added element [71]
+2021-03-30 14:23:45,475 [DEBUG]: [5]: More variables, requesting index 72
+2021-03-30 14:23:45,475 [DEBUG]: Requesting index 72 on port 5
+2021-03-30 14:23:45,478 [DEBUG]: Added element [72]
+2021-03-30 14:23:45,479 [DEBUG]: [5]: More variables, requesting index 73
+2021-03-30 14:23:45,479 [DEBUG]: Requesting index 73 on port 5
+2021-03-30 14:23:45,482 [DEBUG]: Added element [73]
+2021-03-30 14:23:45,482 [DEBUG]: [5]: More variables, requesting index 74
+2021-03-30 14:23:45,482 [DEBUG]: Requesting index 74 on port 5
+2021-03-30 14:23:45,485 [DEBUG]: Added element [74]
+2021-03-30 14:23:45,485 [DEBUG]: [5]: More variables, requesting index 75
+2021-03-30 14:23:45,485 [DEBUG]: Requesting index 75 on port 5
+2021-03-30 14:23:45,489 [DEBUG]: Added element [75]
+2021-03-30 14:23:45,490 [DEBUG]: [5]: More variables, requesting index 76
+2021-03-30 14:23:45,490 [DEBUG]: Requesting index 76 on port 5
+2021-03-30 14:23:45,494 [DEBUG]: Added element [76]
+2021-03-30 14:23:45,494 [DEBUG]: [5]: More variables, requesting index 77
+2021-03-30 14:23:45,494 [DEBUG]: Requesting index 77 on port 5
+2021-03-30 14:23:45,498 [DEBUG]: Added element [77]
+2021-03-30 14:23:45,498 [DEBUG]: [5]: More variables, requesting index 78
+2021-03-30 14:23:45,498 [DEBUG]: Requesting index 78 on port 5
+2021-03-30 14:23:45,502 [DEBUG]: Added element [78]
+2021-03-30 14:23:45,503 [DEBUG]: [5]: More variables, requesting index 79
+2021-03-30 14:23:45,503 [DEBUG]: Requesting index 79 on port 5
+2021-03-30 14:23:45,506 [DEBUG]: Added element [79]
+2021-03-30 14:23:45,507 [DEBUG]: [5]: More variables, requesting index 80
+2021-03-30 14:23:45,507 [DEBUG]: Requesting index 80 on port 5
+2021-03-30 14:23:45,511 [DEBUG]: Added element [80]
+2021-03-30 14:23:45,511 [DEBUG]: [5]: More variables, requesting index 81
+2021-03-30 14:23:45,511 [DEBUG]: Requesting index 81 on port 5
+2021-03-30 14:23:45,515 [DEBUG]: Added element [81]
+2021-03-30 14:23:45,515 [DEBUG]: [5]: More variables, requesting index 82
+2021-03-30 14:23:45,515 [DEBUG]: Requesting index 82 on port 5
+2021-03-30 14:23:45,519 [DEBUG]: Added element [82]
+2021-03-30 14:23:45,519 [DEBUG]: [5]: More variables, requesting index 83
+2021-03-30 14:23:45,519 [DEBUG]: Requesting index 83 on port 5
+2021-03-30 14:23:45,523 [DEBUG]: Added element [83]
+2021-03-30 14:23:45,523 [DEBUG]: [5]: More variables, requesting index 84
+2021-03-30 14:23:45,523 [DEBUG]: Requesting index 84 on port 5
+2021-03-30 14:23:45,527 [DEBUG]: Added element [84]
+2021-03-30 14:23:45,528 [DEBUG]: [5]: More variables, requesting index 85
+2021-03-30 14:23:45,528 [DEBUG]: Requesting index 85 on port 5
+2021-03-30 14:23:45,532 [DEBUG]: Added element [85]
+2021-03-30 14:23:45,532 [DEBUG]: [5]: More variables, requesting index 86
+2021-03-30 14:23:45,532 [DEBUG]: Requesting index 86 on port 5
+2021-03-30 14:23:45,546 [DEBUG]: Added element [86]
+2021-03-30 14:23:45,546 [DEBUG]: [5]: More variables, requesting index 87
+2021-03-30 14:23:45,546 [DEBUG]: Requesting index 87 on port 5
+2021-03-30 14:23:45,550 [DEBUG]: Added element [87]
+2021-03-30 14:23:45,550 [DEBUG]: [5]: More variables, requesting index 88
+2021-03-30 14:23:45,551 [DEBUG]: Requesting index 88 on port 5
+2021-03-30 14:23:45,554 [DEBUG]: Added element [88]
+2021-03-30 14:23:45,555 [DEBUG]: [5]: More variables, requesting index 89
+2021-03-30 14:23:45,555 [DEBUG]: Requesting index 89 on port 5
+2021-03-30 14:23:45,559 [DEBUG]: Added element [89]
+2021-03-30 14:23:45,559 [DEBUG]: [5]: More variables, requesting index 90
+2021-03-30 14:23:45,559 [DEBUG]: Requesting index 90 on port 5
+2021-03-30 14:23:45,563 [DEBUG]: Added element [90]
+2021-03-30 14:23:45,563 [DEBUG]: [5]: More variables, requesting index 91
+2021-03-30 14:23:45,563 [DEBUG]: Requesting index 91 on port 5
+2021-03-30 14:23:45,567 [DEBUG]: Added element [91]
+2021-03-30 14:23:45,567 [DEBUG]: [5]: More variables, requesting index 92
+2021-03-30 14:23:45,567 [DEBUG]: Requesting index 92 on port 5
+2021-03-30 14:23:45,571 [DEBUG]: Added element [92]
+2021-03-30 14:23:45,571 [DEBUG]: [5]: More variables, requesting index 93
+2021-03-30 14:23:45,571 [DEBUG]: Requesting index 93 on port 5
+2021-03-30 14:23:45,575 [DEBUG]: Added element [93]
+2021-03-30 14:23:45,575 [DEBUG]: [5]: More variables, requesting index 94
+2021-03-30 14:23:45,575 [DEBUG]: Requesting index 94 on port 5
+2021-03-30 14:23:45,579 [DEBUG]: Added element [94]
+2021-03-30 14:23:45,579 [DEBUG]: [5]: More variables, requesting index 95
+2021-03-30 14:23:45,579 [DEBUG]: Requesting index 95 on port 5
+2021-03-30 14:23:45,584 [DEBUG]: Added element [95]
+2021-03-30 14:23:45,584 [DEBUG]: [5]: More variables, requesting index 96
+2021-03-30 14:23:45,584 [DEBUG]: Requesting index 96 on port 5
+2021-03-30 14:23:45,588 [DEBUG]: Added element [96]
+2021-03-30 14:23:45,588 [DEBUG]: [5]: More variables, requesting index 97
+2021-03-30 14:23:45,588 [DEBUG]: Requesting index 97 on port 5
+2021-03-30 14:23:45,592 [DEBUG]: Added element [97]
+2021-03-30 14:23:45,592 [DEBUG]: [5]: More variables, requesting index 98
+2021-03-30 14:23:45,592 [DEBUG]: Requesting index 98 on port 5
+2021-03-30 14:23:45,596 [DEBUG]: Added element [98]
+2021-03-30 14:23:45,596 [DEBUG]: [5]: More variables, requesting index 99
+2021-03-30 14:23:45,597 [DEBUG]: Requesting index 99 on port 5
+2021-03-30 14:23:45,601 [DEBUG]: Added element [99]
+2021-03-30 14:23:45,601 [DEBUG]: [5]: More variables, requesting index 100
+2021-03-30 14:23:45,601 [DEBUG]: Requesting index 100 on port 5
+2021-03-30 14:23:45,605 [DEBUG]: Added element [100]
+2021-03-30 14:23:45,605 [DEBUG]: [5]: More variables, requesting index 101
+2021-03-30 14:23:45,605 [DEBUG]: Requesting index 101 on port 5
+2021-03-30 14:23:45,609 [DEBUG]: Added element [101]
+2021-03-30 14:23:45,609 [DEBUG]: [5]: More variables, requesting index 102
+2021-03-30 14:23:45,609 [DEBUG]: Requesting index 102 on port 5
+2021-03-30 14:23:45,612 [DEBUG]: Added element [102]
+2021-03-30 14:23:45,612 [DEBUG]: [5]: More variables, requesting index 103
+2021-03-30 14:23:45,612 [DEBUG]: Requesting index 103 on port 5
+2021-03-30 14:23:45,616 [DEBUG]: Added element [103]
+2021-03-30 14:23:45,617 [DEBUG]: [5]: More variables, requesting index 104
+2021-03-30 14:23:45,617 [DEBUG]: Requesting index 104 on port 5
+2021-03-30 14:23:45,621 [DEBUG]: Added element [104]
+2021-03-30 14:23:45,621 [DEBUG]: [5]: More variables, requesting index 105
+2021-03-30 14:23:45,621 [DEBUG]: Requesting index 105 on port 5
+2021-03-30 14:23:45,625 [DEBUG]: Added element [105]
+2021-03-30 14:23:45,625 [DEBUG]: [5]: More variables, requesting index 106
+2021-03-30 14:23:45,625 [DEBUG]: Requesting index 106 on port 5
+2021-03-30 14:23:45,630 [DEBUG]: Added element [106]
+2021-03-30 14:23:45,630 [DEBUG]: [5]: More variables, requesting index 107
+2021-03-30 14:23:45,630 [DEBUG]: Requesting index 107 on port 5
+2021-03-30 14:23:45,634 [DEBUG]: Added element [107]
+2021-03-30 14:23:45,634 [DEBUG]: [5]: More variables, requesting index 108
+2021-03-30 14:23:45,634 [DEBUG]: Requesting index 108 on port 5
+2021-03-30 14:23:45,638 [DEBUG]: Added element [108]
+2021-03-30 14:23:45,638 [DEBUG]: [5]: More variables, requesting index 109
+2021-03-30 14:23:45,638 [DEBUG]: Requesting index 109 on port 5
+2021-03-30 14:23:45,643 [DEBUG]: Added element [109]
+2021-03-30 14:23:45,643 [DEBUG]: [5]: More variables, requesting index 110
+2021-03-30 14:23:45,643 [DEBUG]: Requesting index 110 on port 5
+2021-03-30 14:23:45,647 [DEBUG]: Added element [110]
+2021-03-30 14:23:45,647 [DEBUG]: [5]: More variables, requesting index 111
+2021-03-30 14:23:45,647 [DEBUG]: Requesting index 111 on port 5
+2021-03-30 14:23:45,651 [DEBUG]: Added element [111]
+2021-03-30 14:23:45,651 [DEBUG]: [5]: More variables, requesting index 112
+2021-03-30 14:23:45,651 [DEBUG]: Requesting index 112 on port 5
+2021-03-30 14:23:45,655 [DEBUG]: Added element [112]
+2021-03-30 14:23:45,656 [DEBUG]: [5]: More variables, requesting index 113
+2021-03-30 14:23:45,656 [DEBUG]: Requesting index 113 on port 5
+2021-03-30 14:23:45,660 [DEBUG]: Added element [113]
+2021-03-30 14:23:45,660 [DEBUG]: [5]: More variables, requesting index 114
+2021-03-30 14:23:45,660 [DEBUG]: Requesting index 114 on port 5
+2021-03-30 14:23:45,672 [DEBUG]: Added element [114]
+2021-03-30 14:23:45,673 [DEBUG]: [5]: More variables, requesting index 115
+2021-03-30 14:23:45,673 [DEBUG]: Requesting index 115 on port 5
+2021-03-30 14:23:45,677 [DEBUG]: Added element [115]
+2021-03-30 14:23:45,677 [DEBUG]: [5]: More variables, requesting index 116
+2021-03-30 14:23:45,677 [DEBUG]: Requesting index 116 on port 5
+2021-03-30 14:23:45,681 [DEBUG]: Added element [116]
+2021-03-30 14:23:45,681 [DEBUG]: [5]: More variables, requesting index 117
+2021-03-30 14:23:45,681 [DEBUG]: Requesting index 117 on port 5
+2021-03-30 14:23:45,685 [DEBUG]: Added element [117]
+2021-03-30 14:23:45,685 [DEBUG]: [5]: More variables, requesting index 118
+2021-03-30 14:23:45,685 [DEBUG]: Requesting index 118 on port 5
+2021-03-30 14:23:45,690 [DEBUG]: Added element [118]
+2021-03-30 14:23:45,690 [DEBUG]: [5]: More variables, requesting index 119
+2021-03-30 14:23:45,690 [DEBUG]: Requesting index 119 on port 5
+2021-03-30 14:23:45,695 [DEBUG]: Added element [119]
+2021-03-30 14:23:45,695 [DEBUG]: [5]: More variables, requesting index 120
+2021-03-30 14:23:45,695 [DEBUG]: Requesting index 120 on port 5
+2021-03-30 14:23:45,699 [DEBUG]: Added element [120]
+2021-03-30 14:23:45,699 [DEBUG]: [5]: More variables, requesting index 121
+2021-03-30 14:23:45,699 [DEBUG]: Requesting index 121 on port 5
+2021-03-30 14:23:45,704 [DEBUG]: Added element [121]
+2021-03-30 14:23:45,704 [DEBUG]: [5]: More variables, requesting index 122
+2021-03-30 14:23:45,704 [DEBUG]: Requesting index 122 on port 5
+2021-03-30 14:23:45,708 [DEBUG]: Added element [122]
+2021-03-30 14:23:45,708 [DEBUG]: [5]: More variables, requesting index 123
+2021-03-30 14:23:45,708 [DEBUG]: Requesting index 123 on port 5
+2021-03-30 14:23:45,712 [DEBUG]: Added element [123]
+2021-03-30 14:23:45,712 [DEBUG]: [5]: More variables, requesting index 124
+2021-03-30 14:23:45,712 [DEBUG]: Requesting index 124 on port 5
+2021-03-30 14:23:45,717 [DEBUG]: Added element [124]
+2021-03-30 14:23:45,717 [DEBUG]: [5]: More variables, requesting index 125
+2021-03-30 14:23:45,717 [DEBUG]: Requesting index 125 on port 5
+2021-03-30 14:23:45,721 [DEBUG]: Added element [125]
+2021-03-30 14:23:45,721 [DEBUG]: [5]: More variables, requesting index 126
+2021-03-30 14:23:45,721 [DEBUG]: Requesting index 126 on port 5
+2021-03-30 14:23:45,725 [DEBUG]: Added element [126]
+2021-03-30 14:23:45,725 [DEBUG]: [5]: More variables, requesting index 127
+2021-03-30 14:23:45,726 [DEBUG]: Requesting index 127 on port 5
+2021-03-30 14:23:45,729 [DEBUG]: Added element [127]
+2021-03-30 14:23:45,729 [DEBUG]: [5]: More variables, requesting index 128
+2021-03-30 14:23:45,729 [DEBUG]: Requesting index 128 on port 5
+2021-03-30 14:23:45,733 [DEBUG]: Added element [128]
+2021-03-30 14:23:45,733 [DEBUG]: [5]: More variables, requesting index 129
+2021-03-30 14:23:45,733 [DEBUG]: Requesting index 129 on port 5
+2021-03-30 14:23:45,737 [DEBUG]: Added element [129]
+2021-03-30 14:23:45,737 [DEBUG]: [5]: More variables, requesting index 130
+2021-03-30 14:23:45,737 [DEBUG]: Requesting index 130 on port 5
+2021-03-30 14:23:45,742 [DEBUG]: Added element [130]
+2021-03-30 14:23:45,742 [DEBUG]: [5]: More variables, requesting index 131
+2021-03-30 14:23:45,742 [DEBUG]: Requesting index 131 on port 5
+2021-03-30 14:23:45,746 [DEBUG]: Added element [131]
+2021-03-30 14:23:45,746 [DEBUG]: [5]: More variables, requesting index 132
+2021-03-30 14:23:45,746 [DEBUG]: Requesting index 132 on port 5
+2021-03-30 14:23:45,750 [DEBUG]: Added element [132]
+2021-03-30 14:23:45,751 [DEBUG]: [5]: More variables, requesting index 133
+2021-03-30 14:23:45,751 [DEBUG]: Requesting index 133 on port 5
+2021-03-30 14:23:45,755 [DEBUG]: Added element [133]
+2021-03-30 14:23:45,755 [DEBUG]: [5]: More variables, requesting index 134
+2021-03-30 14:23:45,755 [DEBUG]: Requesting index 134 on port 5
+2021-03-30 14:23:45,759 [DEBUG]: Added element [134]
+2021-03-30 14:23:45,759 [DEBUG]: [5]: More variables, requesting index 135
+2021-03-30 14:23:45,759 [DEBUG]: Requesting index 135 on port 5
+2021-03-30 14:23:45,763 [DEBUG]: Added element [135]
+2021-03-30 14:23:45,763 [DEBUG]: [5]: More variables, requesting index 136
+2021-03-30 14:23:45,763 [DEBUG]: Requesting index 136 on port 5
+2021-03-30 14:23:45,767 [DEBUG]: Added element [136]
+2021-03-30 14:23:45,767 [DEBUG]: [5]: More variables, requesting index 137
+2021-03-30 14:23:45,767 [DEBUG]: Requesting index 137 on port 5
+2021-03-30 14:23:45,771 [DEBUG]: Added element [137]
+2021-03-30 14:23:45,771 [DEBUG]: [5]: More variables, requesting index 138
+2021-03-30 14:23:45,771 [DEBUG]: Requesting index 138 on port 5
+2021-03-30 14:23:45,776 [DEBUG]: Added element [138]
+2021-03-30 14:23:45,776 [DEBUG]: [5]: More variables, requesting index 139
+2021-03-30 14:23:45,776 [DEBUG]: Requesting index 139 on port 5
+2021-03-30 14:23:45,780 [DEBUG]: Added element [139]
+2021-03-30 14:23:45,780 [DEBUG]: [5]: More variables, requesting index 140
+2021-03-30 14:23:45,780 [DEBUG]: Requesting index 140 on port 5
+2021-03-30 14:23:45,784 [DEBUG]: Added element [140]
+2021-03-30 14:23:45,784 [DEBUG]: [5]: More variables, requesting index 141
+2021-03-30 14:23:45,784 [DEBUG]: Requesting index 141 on port 5
+2021-03-30 14:23:45,789 [DEBUG]: Added element [141]
+2021-03-30 14:23:45,789 [DEBUG]: [5]: More variables, requesting index 142
+2021-03-30 14:23:45,789 [DEBUG]: Requesting index 142 on port 5
+2021-03-30 14:23:45,803 [DEBUG]: Added element [142]
+2021-03-30 14:23:45,803 [DEBUG]: [5]: More variables, requesting index 143
+2021-03-30 14:23:45,803 [DEBUG]: Requesting index 143 on port 5
+2021-03-30 14:23:45,807 [DEBUG]: Added element [143]
+2021-03-30 14:23:45,807 [DEBUG]: [5]: More variables, requesting index 144
+2021-03-30 14:23:45,808 [DEBUG]: Requesting index 144 on port 5
+2021-03-30 14:23:45,812 [DEBUG]: Added element [144]
+2021-03-30 14:23:45,812 [DEBUG]: [5]: More variables, requesting index 145
+2021-03-30 14:23:45,812 [DEBUG]: Requesting index 145 on port 5
+2021-03-30 14:23:45,816 [DEBUG]: Added element [145]
+2021-03-30 14:23:45,816 [DEBUG]: [5]: More variables, requesting index 146
+2021-03-30 14:23:45,816 [DEBUG]: Requesting index 146 on port 5
+2021-03-30 14:23:45,820 [DEBUG]: Added element [146]
+2021-03-30 14:23:45,820 [DEBUG]: [5]: More variables, requesting index 147
+2021-03-30 14:23:45,820 [DEBUG]: Requesting index 147 on port 5
+2021-03-30 14:23:45,825 [DEBUG]: Added element [147]
+2021-03-30 14:23:45,825 [DEBUG]: [5]: More variables, requesting index 148
+2021-03-30 14:23:45,825 [DEBUG]: Requesting index 148 on port 5
+2021-03-30 14:23:45,830 [DEBUG]: Added element [148]
+2021-03-30 14:23:45,830 [DEBUG]: [5]: More variables, requesting index 149
+2021-03-30 14:23:45,830 [DEBUG]: Requesting index 149 on port 5
+2021-03-30 14:23:45,834 [DEBUG]: Added element [149]
+2021-03-30 14:23:45,834 [DEBUG]: [5]: More variables, requesting index 150
+2021-03-30 14:23:45,834 [DEBUG]: Requesting index 150 on port 5
+2021-03-30 14:23:45,838 [DEBUG]: Added element [150]
+2021-03-30 14:23:45,839 [DEBUG]: [5]: More variables, requesting index 151
+2021-03-30 14:23:45,839 [DEBUG]: Requesting index 151 on port 5
+2021-03-30 14:23:45,842 [DEBUG]: Added element [151]
+2021-03-30 14:23:45,842 [DEBUG]: [5]: More variables, requesting index 152
+2021-03-30 14:23:45,842 [DEBUG]: Requesting index 152 on port 5
+2021-03-30 14:23:45,846 [DEBUG]: Added element [152]
+2021-03-30 14:23:45,846 [DEBUG]: [5]: More variables, requesting index 153
+2021-03-30 14:23:45,846 [DEBUG]: Requesting index 153 on port 5
+2021-03-30 14:23:45,850 [DEBUG]: Added element [153]
+2021-03-30 14:23:45,851 [DEBUG]: [5]: More variables, requesting index 154
+2021-03-30 14:23:45,851 [DEBUG]: Requesting index 154 on port 5
+2021-03-30 14:23:45,855 [DEBUG]: Added element [154]
+2021-03-30 14:23:45,855 [DEBUG]: [5]: More variables, requesting index 155
+2021-03-30 14:23:45,855 [DEBUG]: Requesting index 155 on port 5
+2021-03-30 14:23:45,859 [DEBUG]: Added element [155]
+2021-03-30 14:23:45,859 [DEBUG]: [5]: More variables, requesting index 156
+2021-03-30 14:23:45,859 [DEBUG]: Requesting index 156 on port 5
+2021-03-30 14:23:45,863 [DEBUG]: Added element [156]
+2021-03-30 14:23:45,863 [DEBUG]: [5]: More variables, requesting index 157
+2021-03-30 14:23:45,863 [DEBUG]: Requesting index 157 on port 5
+2021-03-30 14:23:45,867 [DEBUG]: Added element [157]
+2021-03-30 14:23:45,867 [DEBUG]: [5]: More variables, requesting index 158
+2021-03-30 14:23:45,867 [DEBUG]: Requesting index 158 on port 5
+2021-03-30 14:23:45,872 [DEBUG]: Added element [158]
+2021-03-30 14:23:45,872 [DEBUG]: [5]: More variables, requesting index 159
+2021-03-30 14:23:45,872 [DEBUG]: Requesting index 159 on port 5
+2021-03-30 14:23:45,875 [DEBUG]: Added element [159]
+2021-03-30 14:23:45,876 [DEBUG]: [5]: More variables, requesting index 160
+2021-03-30 14:23:45,876 [DEBUG]: Requesting index 160 on port 5
+2021-03-30 14:23:45,879 [DEBUG]: Added element [160]
+2021-03-30 14:23:45,880 [DEBUG]: [5]: More variables, requesting index 161
+2021-03-30 14:23:45,880 [DEBUG]: Requesting index 161 on port 5
+2021-03-30 14:23:45,883 [DEBUG]: Added element [161]
+2021-03-30 14:23:45,883 [DEBUG]: [5]: More variables, requesting index 162
+2021-03-30 14:23:45,884 [DEBUG]: Requesting index 162 on port 5
+2021-03-30 14:23:45,887 [DEBUG]: Added element [162]
+2021-03-30 14:23:45,888 [DEBUG]: [5]: More variables, requesting index 163
+2021-03-30 14:23:45,888 [DEBUG]: Requesting index 163 on port 5
+2021-03-30 14:23:45,892 [DEBUG]: Added element [163]
+2021-03-30 14:23:45,892 [DEBUG]: [5]: More variables, requesting index 164
+2021-03-30 14:23:45,892 [DEBUG]: Requesting index 164 on port 5
+2021-03-30 14:23:45,896 [DEBUG]: Added element [164]
+2021-03-30 14:23:45,896 [DEBUG]: [5]: More variables, requesting index 165
+2021-03-30 14:23:45,896 [DEBUG]: Requesting index 165 on port 5
+2021-03-30 14:23:45,900 [DEBUG]: Added element [165]
+2021-03-30 14:23:45,900 [DEBUG]: [5]: More variables, requesting index 166
+2021-03-30 14:23:45,900 [DEBUG]: Requesting index 166 on port 5
+2021-03-30 14:23:45,904 [DEBUG]: Added element [166]
+2021-03-30 14:23:45,904 [DEBUG]: [5]: More variables, requesting index 167
+2021-03-30 14:23:45,904 [DEBUG]: Requesting index 167 on port 5
+2021-03-30 14:23:45,908 [DEBUG]: Added element [167]
+2021-03-30 14:23:45,908 [DEBUG]: [5]: More variables, requesting index 168
+2021-03-30 14:23:45,908 [DEBUG]: Requesting index 168 on port 5
+2021-03-30 14:23:45,912 [DEBUG]: Added element [168]
+2021-03-30 14:23:45,912 [DEBUG]: [5]: More variables, requesting index 169
+2021-03-30 14:23:45,912 [DEBUG]: Requesting index 169 on port 5
+2021-03-30 14:23:45,916 [DEBUG]: Added element [169]
+2021-03-30 14:23:45,916 [DEBUG]: [5]: More variables, requesting index 170
+2021-03-30 14:23:45,916 [DEBUG]: Requesting index 170 on port 5
+2021-03-30 14:23:45,921 [DEBUG]: Added element [170]
+2021-03-30 14:23:45,921 [DEBUG]: [5]: More variables, requesting index 171
+2021-03-30 14:23:45,921 [DEBUG]: Requesting index 171 on port 5
+2021-03-30 14:23:45,935 [DEBUG]: Added element [171]
+2021-03-30 14:23:45,935 [DEBUG]: [5]: More variables, requesting index 172
+2021-03-30 14:23:45,935 [DEBUG]: Requesting index 172 on port 5
+2021-03-30 14:23:45,939 [DEBUG]: Added element [172]
+2021-03-30 14:23:45,939 [DEBUG]: [5]: More variables, requesting index 173
+2021-03-30 14:23:45,939 [DEBUG]: Requesting index 173 on port 5
+2021-03-30 14:23:45,943 [DEBUG]: Added element [173]
+2021-03-30 14:23:45,943 [DEBUG]: [5]: More variables, requesting index 174
+2021-03-30 14:23:45,944 [DEBUG]: Requesting index 174 on port 5
+2021-03-30 14:23:45,948 [DEBUG]: Added element [174]
+2021-03-30 14:23:45,948 [DEBUG]: [5]: More variables, requesting index 175
+2021-03-30 14:23:45,948 [DEBUG]: Requesting index 175 on port 5
+2021-03-30 14:23:45,952 [DEBUG]: Added element [175]
+2021-03-30 14:23:45,952 [DEBUG]: [5]: More variables, requesting index 176
+2021-03-30 14:23:45,953 [DEBUG]: Requesting index 176 on port 5
+2021-03-30 14:23:45,957 [DEBUG]: Added element [176]
+2021-03-30 14:23:45,957 [DEBUG]: [5]: More variables, requesting index 177
+2021-03-30 14:23:45,957 [DEBUG]: Requesting index 177 on port 5
+2021-03-30 14:23:45,962 [DEBUG]: Added element [177]
+2021-03-30 14:23:45,962 [DEBUG]: [5]: More variables, requesting index 178
+2021-03-30 14:23:45,962 [DEBUG]: Requesting index 178 on port 5
+2021-03-30 14:23:45,966 [DEBUG]: Added element [178]
+2021-03-30 14:23:45,966 [DEBUG]: [5]: More variables, requesting index 179
+2021-03-30 14:23:45,966 [DEBUG]: Requesting index 179 on port 5
+2021-03-30 14:23:45,970 [DEBUG]: Added element [179]
+2021-03-30 14:23:45,971 [DEBUG]: [5]: More variables, requesting index 180
+2021-03-30 14:23:45,971 [DEBUG]: Requesting index 180 on port 5
+2021-03-30 14:23:45,975 [DEBUG]: Added element [180]
+2021-03-30 14:23:45,975 [DEBUG]: [5]: More variables, requesting index 181
+2021-03-30 14:23:45,975 [DEBUG]: Requesting index 181 on port 5
+2021-03-30 14:23:45,980 [DEBUG]: Added element [181]
+2021-03-30 14:23:45,980 [DEBUG]: [5]: More variables, requesting index 182
+2021-03-30 14:23:45,980 [DEBUG]: Requesting index 182 on port 5
+2021-03-30 14:23:45,984 [DEBUG]: Added element [182]
+2021-03-30 14:23:45,984 [DEBUG]: [5]: More variables, requesting index 183
+2021-03-30 14:23:45,984 [DEBUG]: Requesting index 183 on port 5
+2021-03-30 14:23:45,988 [DEBUG]: Added element [183]
+2021-03-30 14:23:45,988 [DEBUG]: [5]: More variables, requesting index 184
+2021-03-30 14:23:45,988 [DEBUG]: Requesting index 184 on port 5
+2021-03-30 14:23:45,992 [DEBUG]: Added element [184]
+2021-03-30 14:23:45,993 [DEBUG]: [5]: More variables, requesting index 185
+2021-03-30 14:23:45,993 [DEBUG]: Requesting index 185 on port 5
+2021-03-30 14:23:45,997 [DEBUG]: Added element [185]
+2021-03-30 14:23:45,997 [DEBUG]: [5]: More variables, requesting index 186
+2021-03-30 14:23:45,997 [DEBUG]: Requesting index 186 on port 5
+2021-03-30 14:23:46,001 [DEBUG]: Added element [186]
+2021-03-30 14:23:46,001 [DEBUG]: [5]: More variables, requesting index 187
+2021-03-30 14:23:46,001 [DEBUG]: Requesting index 187 on port 5
+2021-03-30 14:23:46,005 [DEBUG]: Added element [187]
+2021-03-30 14:23:46,005 [DEBUG]: [5]: More variables, requesting index 188
+2021-03-30 14:23:46,005 [DEBUG]: Requesting index 188 on port 5
+2021-03-30 14:23:46,009 [DEBUG]: Added element [188]
+2021-03-30 14:23:46,009 [DEBUG]: [5]: More variables, requesting index 189
+2021-03-30 14:23:46,009 [DEBUG]: Requesting index 189 on port 5
+2021-03-30 14:23:46,012 [DEBUG]: Added element [189]
+2021-03-30 14:23:46,013 [DEBUG]: [5]: More variables, requesting index 190
+2021-03-30 14:23:46,013 [DEBUG]: Requesting index 190 on port 5
+2021-03-30 14:23:46,016 [DEBUG]: Added element [190]
+2021-03-30 14:23:46,017 [DEBUG]: [5]: More variables, requesting index 191
+2021-03-30 14:23:46,017 [DEBUG]: Requesting index 191 on port 5
+2021-03-30 14:23:46,021 [DEBUG]: Added element [191]
+2021-03-30 14:23:46,021 [DEBUG]: [5]: More variables, requesting index 192
+2021-03-30 14:23:46,021 [DEBUG]: Requesting index 192 on port 5
+2021-03-30 14:23:46,025 [DEBUG]: Added element [192]
+2021-03-30 14:23:46,025 [DEBUG]: [5]: More variables, requesting index 193
+2021-03-30 14:23:46,025 [DEBUG]: Requesting index 193 on port 5
+2021-03-30 14:23:46,030 [DEBUG]: Added element [193]
+2021-03-30 14:23:46,030 [DEBUG]: [5]: More variables, requesting index 194
+2021-03-30 14:23:46,030 [DEBUG]: Requesting index 194 on port 5
+2021-03-30 14:23:46,034 [DEBUG]: Added element [194]
+2021-03-30 14:23:46,034 [DEBUG]: [5]: More variables, requesting index 195
+2021-03-30 14:23:46,035 [DEBUG]: Requesting index 195 on port 5
+2021-03-30 14:23:46,039 [DEBUG]: Added element [195]
+2021-03-30 14:23:46,039 [DEBUG]: [5]: More variables, requesting index 196
+2021-03-30 14:23:46,039 [DEBUG]: Requesting index 196 on port 5
+2021-03-30 14:23:46,043 [DEBUG]: Added element [196]
+2021-03-30 14:23:46,043 [DEBUG]: [5]: More variables, requesting index 197
+2021-03-30 14:23:46,043 [DEBUG]: Requesting index 197 on port 5
+2021-03-30 14:23:46,047 [DEBUG]: Added element [197]
+2021-03-30 14:23:46,047 [DEBUG]: [5]: More variables, requesting index 198
+2021-03-30 14:23:46,047 [DEBUG]: Requesting index 198 on port 5
+2021-03-30 14:23:46,051 [DEBUG]: Added element [198]
+2021-03-30 14:23:46,051 [DEBUG]: [5]: More variables, requesting index 199
+2021-03-30 14:23:46,051 [DEBUG]: Requesting index 199 on port 5
+2021-03-30 14:23:46,055 [DEBUG]: Added element [199]
+2021-03-30 14:23:46,055 [DEBUG]: [5]: More variables, requesting index 200
+2021-03-30 14:23:46,055 [DEBUG]: Requesting index 200 on port 5
+2021-03-30 14:23:46,068 [DEBUG]: Added element [200]
+2021-03-30 14:23:46,068 [DEBUG]: [5]: More variables, requesting index 201
+2021-03-30 14:23:46,068 [DEBUG]: Requesting index 201 on port 5
+2021-03-30 14:23:46,072 [DEBUG]: Added element [201]
+2021-03-30 14:23:46,072 [DEBUG]: [5]: More variables, requesting index 202
+2021-03-30 14:23:46,072 [DEBUG]: Requesting index 202 on port 5
+2021-03-30 14:23:46,076 [DEBUG]: Added element [202]
+2021-03-30 14:23:46,076 [DEBUG]: [5]: More variables, requesting index 203
+2021-03-30 14:23:46,076 [DEBUG]: Requesting index 203 on port 5
+2021-03-30 14:23:46,079 [DEBUG]: Added element [203]
+2021-03-30 14:23:46,080 [DEBUG]: [5]: More variables, requesting index 204
+2021-03-30 14:23:46,080 [DEBUG]: Requesting index 204 on port 5
+2021-03-30 14:23:46,083 [DEBUG]: Added element [204]
+2021-03-30 14:23:46,084 [DEBUG]: [5]: More variables, requesting index 205
+2021-03-30 14:23:46,084 [DEBUG]: Requesting index 205 on port 5
+2021-03-30 14:23:46,087 [DEBUG]: Added element [205]
+2021-03-30 14:23:46,087 [DEBUG]: [5]: More variables, requesting index 206
+2021-03-30 14:23:46,088 [DEBUG]: Requesting index 206 on port 5
+2021-03-30 14:23:46,091 [DEBUG]: Added element [206]
+2021-03-30 14:23:46,091 [DEBUG]: [5]: More variables, requesting index 207
+2021-03-30 14:23:46,091 [DEBUG]: Requesting index 207 on port 5
+2021-03-30 14:23:46,095 [DEBUG]: Added element [207]
+2021-03-30 14:23:46,095 [DEBUG]: [5]: More variables, requesting index 208
+2021-03-30 14:23:46,095 [DEBUG]: Requesting index 208 on port 5
+2021-03-30 14:23:46,100 [DEBUG]: Added element [208]
+2021-03-30 14:23:46,100 [DEBUG]: [5]: More variables, requesting index 209
+2021-03-30 14:23:46,100 [DEBUG]: Requesting index 209 on port 5
+2021-03-30 14:23:46,103 [DEBUG]: Added element [209]
+2021-03-30 14:23:46,103 [DEBUG]: [5]: More variables, requesting index 210
+2021-03-30 14:23:46,103 [DEBUG]: Requesting index 210 on port 5
+2021-03-30 14:23:46,107 [DEBUG]: Added element [210]
+2021-03-30 14:23:46,107 [DEBUG]: [5]: More variables, requesting index 211
+2021-03-30 14:23:46,107 [DEBUG]: Requesting index 211 on port 5
+2021-03-30 14:23:46,111 [DEBUG]: Added element [211]
+2021-03-30 14:23:46,111 [DEBUG]: [5]: More variables, requesting index 212
+2021-03-30 14:23:46,111 [DEBUG]: Requesting index 212 on port 5
+2021-03-30 14:23:46,114 [DEBUG]: Added element [212]
+2021-03-30 14:23:46,114 [DEBUG]: [5]: More variables, requesting index 213
+2021-03-30 14:23:46,115 [DEBUG]: Requesting index 213 on port 5
+2021-03-30 14:23:46,118 [DEBUG]: Added element [213]
+2021-03-30 14:23:46,118 [DEBUG]: [5]: More variables, requesting index 214
+2021-03-30 14:23:46,119 [DEBUG]: Requesting index 214 on port 5
+2021-03-30 14:23:46,123 [DEBUG]: Added element [214]
+2021-03-30 14:23:46,123 [DEBUG]: [5]: More variables, requesting index 215
+2021-03-30 14:23:46,123 [DEBUG]: Requesting index 215 on port 5
+2021-03-30 14:23:46,127 [DEBUG]: Added element [215]
+2021-03-30 14:23:46,127 [DEBUG]: [5]: More variables, requesting index 216
+2021-03-30 14:23:46,127 [DEBUG]: Requesting index 216 on port 5
+2021-03-30 14:23:46,131 [DEBUG]: Added element [216]
+2021-03-30 14:23:46,131 [DEBUG]: [5]: More variables, requesting index 217
+2021-03-30 14:23:46,131 [DEBUG]: Requesting index 217 on port 5
+2021-03-30 14:23:46,135 [DEBUG]: Added element [217]
+2021-03-30 14:23:46,135 [DEBUG]: [5]: More variables, requesting index 218
+2021-03-30 14:23:46,135 [DEBUG]: Requesting index 218 on port 5
+2021-03-30 14:23:46,139 [DEBUG]: Added element [218]
+2021-03-30 14:23:46,139 [DEBUG]: [5]: More variables, requesting index 219
+2021-03-30 14:23:46,139 [DEBUG]: Requesting index 219 on port 5
+2021-03-30 14:23:46,143 [DEBUG]: Added element [219]
+2021-03-30 14:23:46,143 [DEBUG]: [5]: More variables, requesting index 220
+2021-03-30 14:23:46,143 [DEBUG]: Requesting index 220 on port 5
+2021-03-30 14:23:46,147 [DEBUG]: Added element [220]
+2021-03-30 14:23:46,147 [DEBUG]: [5]: More variables, requesting index 221
+2021-03-30 14:23:46,147 [DEBUG]: Requesting index 221 on port 5
+2021-03-30 14:23:46,152 [DEBUG]: Added element [221]
+2021-03-30 14:23:46,152 [DEBUG]: [5]: More variables, requesting index 222
+2021-03-30 14:23:46,152 [DEBUG]: Requesting index 222 on port 5
+2021-03-30 14:23:46,155 [DEBUG]: Added element [222]
+2021-03-30 14:23:46,156 [DEBUG]: [5]: More variables, requesting index 223
+2021-03-30 14:23:46,156 [DEBUG]: Requesting index 223 on port 5
+2021-03-30 14:23:46,159 [DEBUG]: Added element [223]
+2021-03-30 14:23:46,159 [DEBUG]: [5]: More variables, requesting index 224
+2021-03-30 14:23:46,159 [DEBUG]: Requesting index 224 on port 5
+2021-03-30 14:23:46,163 [DEBUG]: Added element [224]
+2021-03-30 14:23:46,163 [DEBUG]: [5]: More variables, requesting index 225
+2021-03-30 14:23:46,163 [DEBUG]: Requesting index 225 on port 5
+2021-03-30 14:23:46,167 [DEBUG]: Added element [225]
+2021-03-30 14:23:46,167 [DEBUG]: [5]: More variables, requesting index 226
+2021-03-30 14:23:46,167 [DEBUG]: Requesting index 226 on port 5
+2021-03-30 14:23:46,171 [DEBUG]: Added element [226]
+2021-03-30 14:23:46,171 [DEBUG]: [5]: More variables, requesting index 227
+2021-03-30 14:23:46,171 [DEBUG]: Requesting index 227 on port 5
+2021-03-30 14:23:46,176 [DEBUG]: Added element [227]
+2021-03-30 14:23:46,176 [DEBUG]: [5]: More variables, requesting index 228
+2021-03-30 14:23:46,176 [DEBUG]: Requesting index 228 on port 5
+2021-03-30 14:23:46,179 [DEBUG]: Added element [228]
+2021-03-30 14:23:46,180 [DEBUG]: [5]: More variables, requesting index 229
+2021-03-30 14:23:46,180 [DEBUG]: Requesting index 229 on port 5
+2021-03-30 14:23:46,193 [DEBUG]: Added element [229]
+2021-03-30 14:23:46,193 [DEBUG]: [5]: More variables, requesting index 230
+2021-03-30 14:23:46,193 [DEBUG]: Requesting index 230 on port 5
+2021-03-30 14:23:46,197 [DEBUG]: Added element [230]
+2021-03-30 14:23:46,197 [DEBUG]: [5]: More variables, requesting index 231
+2021-03-30 14:23:46,197 [DEBUG]: Requesting index 231 on port 5
+2021-03-30 14:23:46,202 [DEBUG]: Added element [231]
+2021-03-30 14:23:46,202 [DEBUG]: [5]: More variables, requesting index 232
+2021-03-30 14:23:46,202 [DEBUG]: Requesting index 232 on port 5
+2021-03-30 14:23:46,206 [DEBUG]: Added element [232]
+2021-03-30 14:23:46,206 [DEBUG]: [5]: More variables, requesting index 233
+2021-03-30 14:23:46,206 [DEBUG]: Requesting index 233 on port 5
+2021-03-30 14:23:46,210 [DEBUG]: Added element [233]
+2021-03-30 14:23:46,210 [DEBUG]: [5]: More variables, requesting index 234
+2021-03-30 14:23:46,210 [DEBUG]: Requesting index 234 on port 5
+2021-03-30 14:23:46,215 [DEBUG]: Added element [234]
+2021-03-30 14:23:46,215 [DEBUG]: [5]: More variables, requesting index 235
+2021-03-30 14:23:46,215 [DEBUG]: Requesting index 235 on port 5
+2021-03-30 14:23:46,219 [DEBUG]: Added element [235]
+2021-03-30 14:23:46,219 [DEBUG]: [5]: More variables, requesting index 236
+2021-03-30 14:23:46,219 [DEBUG]: Requesting index 236 on port 5
+2021-03-30 14:23:46,224 [DEBUG]: Added element [236]
+2021-03-30 14:23:46,224 [DEBUG]: [5]: More variables, requesting index 237
+2021-03-30 14:23:46,224 [DEBUG]: Requesting index 237 on port 5
+2021-03-30 14:23:46,228 [DEBUG]: Added element [237]
+2021-03-30 14:23:46,228 [DEBUG]: [5]: More variables, requesting index 238
+2021-03-30 14:23:46,228 [DEBUG]: Requesting index 238 on port 5
+2021-03-30 14:23:46,232 [DEBUG]: Added element [238]
+2021-03-30 14:23:46,232 [DEBUG]: [5]: More variables, requesting index 239
+2021-03-30 14:23:46,232 [DEBUG]: Requesting index 239 on port 5
+2021-03-30 14:23:46,236 [DEBUG]: Added element [239]
+2021-03-30 14:23:46,236 [DEBUG]: [5]: More variables, requesting index 240
+2021-03-30 14:23:46,236 [DEBUG]: Requesting index 240 on port 5
+2021-03-30 14:23:46,240 [DEBUG]: Added element [240]
+2021-03-30 14:23:46,241 [DEBUG]: [5]: More variables, requesting index 241
+2021-03-30 14:23:46,241 [DEBUG]: Requesting index 241 on port 5
+2021-03-30 14:23:46,245 [DEBUG]: Added element [241]
+2021-03-30 14:23:46,245 [DEBUG]: [5]: More variables, requesting index 242
+2021-03-30 14:23:46,245 [DEBUG]: Requesting index 242 on port 5
+2021-03-30 14:23:46,249 [DEBUG]: Added element [242]
+2021-03-30 14:23:46,250 [DEBUG]: [5]: More variables, requesting index 243
+2021-03-30 14:23:46,250 [DEBUG]: Requesting index 243 on port 5
+2021-03-30 14:23:46,254 [DEBUG]: Added element [243]
+2021-03-30 14:23:46,254 [DEBUG]: [5]: More variables, requesting index 244
+2021-03-30 14:23:46,254 [DEBUG]: Requesting index 244 on port 5
+2021-03-30 14:23:46,258 [DEBUG]: Added element [244]
+2021-03-30 14:23:46,258 [DEBUG]: [5]: More variables, requesting index 245
+2021-03-30 14:23:46,258 [DEBUG]: Requesting index 245 on port 5
+2021-03-30 14:23:46,262 [DEBUG]: Added element [245]
+2021-03-30 14:23:46,263 [DEBUG]: [5]: More variables, requesting index 246
+2021-03-30 14:23:46,263 [DEBUG]: Requesting index 246 on port 5
+2021-03-30 14:23:46,267 [DEBUG]: Added element [246]
+2021-03-30 14:23:46,267 [DEBUG]: [5]: More variables, requesting index 247
+2021-03-30 14:23:46,267 [DEBUG]: Requesting index 247 on port 5
+2021-03-30 14:23:46,271 [DEBUG]: Added element [247]
+2021-03-30 14:23:46,271 [DEBUG]: [5]: More variables, requesting index 248
+2021-03-30 14:23:46,271 [DEBUG]: Requesting index 248 on port 5
+2021-03-30 14:23:46,275 [DEBUG]: Added element [248]
+2021-03-30 14:23:46,275 [DEBUG]: [5]: More variables, requesting index 249
+2021-03-30 14:23:46,275 [DEBUG]: Requesting index 249 on port 5
+2021-03-30 14:23:46,281 [DEBUG]: Added element [249]
+2021-03-30 14:23:46,281 [DEBUG]: [5]: More variables, requesting index 250
+2021-03-30 14:23:46,281 [DEBUG]: Requesting index 250 on port 5
+2021-03-30 14:23:46,285 [DEBUG]: Added element [250]
+2021-03-30 14:23:46,285 [DEBUG]: [5]: More variables, requesting index 251
+2021-03-30 14:23:46,285 [DEBUG]: Requesting index 251 on port 5
+2021-03-30 14:23:46,290 [DEBUG]: Added element [251]
+2021-03-30 14:23:46,290 [DEBUG]: [5]: More variables, requesting index 252
+2021-03-30 14:23:46,290 [DEBUG]: Requesting index 252 on port 5
+2021-03-30 14:23:46,294 [DEBUG]: Added element [252]
+2021-03-30 14:23:46,294 [DEBUG]: [5]: More variables, requesting index 253
+2021-03-30 14:23:46,294 [DEBUG]: Requesting index 253 on port 5
+2021-03-30 14:23:46,298 [DEBUG]: Added element [253]
+2021-03-30 14:23:46,299 [DEBUG]: [5]: More variables, requesting index 254
+2021-03-30 14:23:46,299 [DEBUG]: Requesting index 254 on port 5
+2021-03-30 14:23:46,303 [DEBUG]: Added element [254]
+2021-03-30 14:23:46,303 [DEBUG]: [5]: More variables, requesting index 255
+2021-03-30 14:23:46,303 [DEBUG]: Requesting index 255 on port 5
+2021-03-30 14:23:46,307 [DEBUG]: Added element [255]
+2021-03-30 14:23:46,307 [DEBUG]: [5]: More variables, requesting index 256
+2021-03-30 14:23:46,307 [DEBUG]: Requesting index 256 on port 5
+2021-03-30 14:23:46,311 [DEBUG]: Added element [256]
+2021-03-30 14:23:46,311 [DEBUG]: [5]: More variables, requesting index 257
+2021-03-30 14:23:46,311 [DEBUG]: Requesting index 257 on port 5
+2021-03-30 14:23:46,315 [DEBUG]: Added element [257]
+2021-03-30 14:23:46,316 [DEBUG]: [5]: More variables, requesting index 258
+2021-03-30 14:23:46,316 [DEBUG]: Requesting index 258 on port 5
+2021-03-30 14:23:46,329 [DEBUG]: Added element [258]
+2021-03-30 14:23:46,329 [DEBUG]: [5]: More variables, requesting index 259
+2021-03-30 14:23:46,329 [DEBUG]: Requesting index 259 on port 5
+2021-03-30 14:23:46,333 [DEBUG]: Added element [259]
+2021-03-30 14:23:46,333 [DEBUG]: [5]: More variables, requesting index 260
+2021-03-30 14:23:46,333 [DEBUG]: Requesting index 260 on port 5
+2021-03-30 14:23:46,337 [DEBUG]: Added element [260]
+2021-03-30 14:23:46,338 [DEBUG]: [5]: More variables, requesting index 261
+2021-03-30 14:23:46,338 [DEBUG]: Requesting index 261 on port 5
+2021-03-30 14:23:46,342 [DEBUG]: Added element [261]
+2021-03-30 14:23:46,342 [DEBUG]: [5]: More variables, requesting index 262
+2021-03-30 14:23:46,342 [DEBUG]: Requesting index 262 on port 5
+2021-03-30 14:23:46,346 [DEBUG]: Added element [262]
+2021-03-30 14:23:46,346 [DEBUG]: [5]: More variables, requesting index 263
+2021-03-30 14:23:46,346 [DEBUG]: Requesting index 263 on port 5
+2021-03-30 14:23:46,350 [DEBUG]: Added element [263]
+2021-03-30 14:23:46,350 [DEBUG]: [5]: More variables, requesting index 264
+2021-03-30 14:23:46,350 [DEBUG]: Requesting index 264 on port 5
+2021-03-30 14:23:46,354 [DEBUG]: Added element [264]
+2021-03-30 14:23:46,355 [DEBUG]: [5]: More variables, requesting index 265
+2021-03-30 14:23:46,355 [DEBUG]: Requesting index 265 on port 5
+2021-03-30 14:23:46,359 [DEBUG]: Added element [265]
+2021-03-30 14:23:46,359 [DEBUG]: [5]: More variables, requesting index 266
+2021-03-30 14:23:46,359 [DEBUG]: Requesting index 266 on port 5
+2021-03-30 14:23:46,363 [DEBUG]: Added element [266]
+2021-03-30 14:23:46,363 [DEBUG]: [5]: More variables, requesting index 267
+2021-03-30 14:23:46,363 [DEBUG]: Requesting index 267 on port 5
+2021-03-30 14:23:46,367 [DEBUG]: Added element [267]
+2021-03-30 14:23:46,367 [DEBUG]: [5]: More variables, requesting index 268
+2021-03-30 14:23:46,367 [DEBUG]: Requesting index 268 on port 5
+2021-03-30 14:23:46,371 [DEBUG]: Added element [268]
+2021-03-30 14:23:46,371 [DEBUG]: [5]: More variables, requesting index 269
+2021-03-30 14:23:46,371 [DEBUG]: Requesting index 269 on port 5
+2021-03-30 14:23:46,375 [DEBUG]: Added element [269]
+2021-03-30 14:23:46,375 [DEBUG]: [5]: More variables, requesting index 270
+2021-03-30 14:23:46,375 [DEBUG]: Requesting index 270 on port 5
+2021-03-30 14:23:46,379 [DEBUG]: Added element [270]
+2021-03-30 14:23:46,379 [DEBUG]: [5]: More variables, requesting index 271
+2021-03-30 14:23:46,379 [DEBUG]: Requesting index 271 on port 5
+2021-03-30 14:23:46,383 [DEBUG]: Added element [271]
+2021-03-30 14:23:46,383 [DEBUG]: [5]: More variables, requesting index 272
+2021-03-30 14:23:46,384 [DEBUG]: Requesting index 272 on port 5
+2021-03-30 14:23:46,387 [DEBUG]: Added element [272]
+2021-03-30 14:23:46,388 [DEBUG]: [5]: More variables, requesting index 273
+2021-03-30 14:23:46,388 [DEBUG]: Requesting index 273 on port 5
+2021-03-30 14:23:46,392 [DEBUG]: Added element [273]
+2021-03-30 14:23:46,392 [DEBUG]: [5]: More variables, requesting index 274
+2021-03-30 14:23:46,392 [DEBUG]: Requesting index 274 on port 5
+2021-03-30 14:23:46,396 [DEBUG]: Added element [274]
+2021-03-30 14:23:46,396 [DEBUG]: [5]: More variables, requesting index 275
+2021-03-30 14:23:46,396 [DEBUG]: Requesting index 275 on port 5
+2021-03-30 14:23:46,400 [DEBUG]: Added element [275]
+2021-03-30 14:23:46,400 [DEBUG]: [5]: More variables, requesting index 276
+2021-03-30 14:23:46,400 [DEBUG]: Requesting index 276 on port 5
+2021-03-30 14:23:46,404 [DEBUG]: Added element [276]
+2021-03-30 14:23:46,405 [DEBUG]: [5]: More variables, requesting index 277
+2021-03-30 14:23:46,405 [DEBUG]: Requesting index 277 on port 5
+2021-03-30 14:23:46,409 [DEBUG]: Added element [277]
+2021-03-30 14:23:46,409 [DEBUG]: [5]: More variables, requesting index 278
+2021-03-30 14:23:46,409 [DEBUG]: Requesting index 278 on port 5
+2021-03-30 14:23:46,413 [DEBUG]: Added element [278]
+2021-03-30 14:23:46,413 [DEBUG]: [5]: More variables, requesting index 279
+2021-03-30 14:23:46,413 [DEBUG]: Requesting index 279 on port 5
+2021-03-30 14:23:46,417 [DEBUG]: Added element [279]
+2021-03-30 14:23:46,417 [DEBUG]: [5]: More variables, requesting index 280
+2021-03-30 14:23:46,417 [DEBUG]: Requesting index 280 on port 5
+2021-03-30 14:23:46,421 [DEBUG]: Added element [280]
+2021-03-30 14:23:46,421 [DEBUG]: [5]: More variables, requesting index 281
+2021-03-30 14:23:46,421 [DEBUG]: Requesting index 281 on port 5
+2021-03-30 14:23:46,426 [DEBUG]: Added element [281]
+2021-03-30 14:23:46,426 [DEBUG]: [5]: More variables, requesting index 282
+2021-03-30 14:23:46,426 [DEBUG]: Requesting index 282 on port 5
+2021-03-30 14:23:46,430 [DEBUG]: Added element [282]
+2021-03-30 14:23:46,430 [DEBUG]: [5]: More variables, requesting index 283
+2021-03-30 14:23:46,430 [DEBUG]: Requesting index 283 on port 5
+2021-03-30 14:23:46,434 [DEBUG]: Added element [283]
+2021-03-30 14:23:46,434 [DEBUG]: [5]: More variables, requesting index 284
+2021-03-30 14:23:46,434 [DEBUG]: Requesting index 284 on port 5
+2021-03-30 14:23:46,438 [DEBUG]: Added element [284]
+2021-03-30 14:23:46,438 [DEBUG]: [5]: More variables, requesting index 285
+2021-03-30 14:23:46,438 [DEBUG]: Requesting index 285 on port 5
+2021-03-30 14:23:46,442 [DEBUG]: Added element [285]
+2021-03-30 14:23:46,442 [DEBUG]: [5]: More variables, requesting index 286
+2021-03-30 14:23:46,443 [DEBUG]: Requesting index 286 on port 5
+2021-03-30 14:23:46,455 [DEBUG]: Added element [286]
+2021-03-30 14:23:46,455 [DEBUG]: [5]: More variables, requesting index 287
+2021-03-30 14:23:46,455 [DEBUG]: Requesting index 287 on port 5
+2021-03-30 14:23:46,459 [DEBUG]: Added element [287]
+2021-03-30 14:23:46,459 [DEBUG]: [5]: More variables, requesting index 288
+2021-03-30 14:23:46,459 [DEBUG]: Requesting index 288 on port 5
+2021-03-30 14:23:46,463 [DEBUG]: Added element [288]
+2021-03-30 14:23:46,464 [DEBUG]: [5]: More variables, requesting index 289
+2021-03-30 14:23:46,464 [DEBUG]: Requesting index 289 on port 5
+2021-03-30 14:23:46,468 [DEBUG]: Added element [289]
+2021-03-30 14:23:46,468 [DEBUG]: [5]: More variables, requesting index 290
+2021-03-30 14:23:46,468 [DEBUG]: Requesting index 290 on port 5
+2021-03-30 14:23:46,472 [DEBUG]: Added element [290]
+2021-03-30 14:23:46,472 [DEBUG]: [5]: More variables, requesting index 291
+2021-03-30 14:23:46,472 [DEBUG]: Requesting index 291 on port 5
+2021-03-30 14:23:46,476 [DEBUG]: Added element [291]
+2021-03-30 14:23:46,476 [DEBUG]: [5]: More variables, requesting index 292
+2021-03-30 14:23:46,476 [DEBUG]: Requesting index 292 on port 5
+2021-03-30 14:23:46,479 [DEBUG]: Added element [292]
+2021-03-30 14:23:46,479 [DEBUG]: [5]: More variables, requesting index 293
+2021-03-30 14:23:46,479 [DEBUG]: Requesting index 293 on port 5
+2021-03-30 14:23:46,484 [DEBUG]: Added element [293]
+2021-03-30 14:23:46,484 [DEBUG]: [5]: More variables, requesting index 294
+2021-03-30 14:23:46,484 [DEBUG]: Requesting index 294 on port 5
+2021-03-30 14:23:46,489 [DEBUG]: Added element [294]
+2021-03-30 14:23:46,489 [DEBUG]: [5]: More variables, requesting index 295
+2021-03-30 14:23:46,489 [DEBUG]: Requesting index 295 on port 5
+2021-03-30 14:23:46,493 [DEBUG]: Added element [295]
+2021-03-30 14:23:46,493 [DEBUG]: [5]: More variables, requesting index 296
+2021-03-30 14:23:46,493 [DEBUG]: Requesting index 296 on port 5
+2021-03-30 14:23:46,497 [DEBUG]: Added element [296]
+2021-03-30 14:23:46,497 [DEBUG]: [5]: More variables, requesting index 297
+2021-03-30 14:23:46,497 [DEBUG]: Requesting index 297 on port 5
+2021-03-30 14:23:46,502 [DEBUG]: Added element [297]
+2021-03-30 14:23:46,502 [DEBUG]: [5]: More variables, requesting index 298
+2021-03-30 14:23:46,502 [DEBUG]: Requesting index 298 on port 5
+2021-03-30 14:23:46,506 [DEBUG]: Added element [298]
+2021-03-30 14:23:46,506 [DEBUG]: [5]: More variables, requesting index 299
+2021-03-30 14:23:46,506 [DEBUG]: Requesting index 299 on port 5
+2021-03-30 14:23:46,510 [DEBUG]: Added element [299]
+2021-03-30 14:23:46,511 [DEBUG]: [5]: More variables, requesting index 300
+2021-03-30 14:23:46,511 [DEBUG]: Requesting index 300 on port 5
+2021-03-30 14:23:46,515 [DEBUG]: Added element [300]
+2021-03-30 14:23:46,515 [DEBUG]: [5]: More variables, requesting index 301
+2021-03-30 14:23:46,515 [DEBUG]: Requesting index 301 on port 5
+2021-03-30 14:23:46,519 [DEBUG]: Added element [301]
+2021-03-30 14:23:46,519 [DEBUG]: [5]: More variables, requesting index 302
+2021-03-30 14:23:46,519 [DEBUG]: Requesting index 302 on port 5
+2021-03-30 14:23:46,523 [DEBUG]: Added element [302]
+2021-03-30 14:23:46,524 [DEBUG]: [5]: More variables, requesting index 303
+2021-03-30 14:23:46,524 [DEBUG]: Requesting index 303 on port 5
+2021-03-30 14:23:46,528 [DEBUG]: Added element [303]
+2021-03-30 14:23:46,528 [DEBUG]: [5]: More variables, requesting index 304
+2021-03-30 14:23:46,528 [DEBUG]: Requesting index 304 on port 5
+2021-03-30 14:23:46,532 [DEBUG]: Added element [304]
+2021-03-30 14:23:46,532 [DEBUG]: [5]: More variables, requesting index 305
+2021-03-30 14:23:46,532 [DEBUG]: Requesting index 305 on port 5
+2021-03-30 14:23:46,536 [DEBUG]: Added element [305]
+2021-03-30 14:23:46,536 [DEBUG]: [5]: More variables, requesting index 306
+2021-03-30 14:23:46,536 [DEBUG]: Requesting index 306 on port 5
+2021-03-30 14:23:46,540 [DEBUG]: Added element [306]
+2021-03-30 14:23:46,541 [DEBUG]: [5]: More variables, requesting index 307
+2021-03-30 14:23:46,541 [DEBUG]: Requesting index 307 on port 5
+2021-03-30 14:23:46,545 [DEBUG]: Added element [307]
+2021-03-30 14:23:46,545 [DEBUG]: [5]: More variables, requesting index 308
+2021-03-30 14:23:46,545 [DEBUG]: Requesting index 308 on port 5
+2021-03-30 14:23:46,549 [DEBUG]: Added element [308]
+2021-03-30 14:23:46,549 [DEBUG]: [5]: More variables, requesting index 309
+2021-03-30 14:23:46,550 [DEBUG]: Requesting index 309 on port 5
+2021-03-30 14:23:46,553 [DEBUG]: Added element [309]
+2021-03-30 14:23:46,553 [DEBUG]: [5]: More variables, requesting index 310
+2021-03-30 14:23:46,554 [DEBUG]: Requesting index 310 on port 5
+2021-03-30 14:23:46,558 [DEBUG]: Added element [310]
+2021-03-30 14:23:46,558 [DEBUG]: [5]: More variables, requesting index 311
+2021-03-30 14:23:46,558 [DEBUG]: Requesting index 311 on port 5
+2021-03-30 14:23:46,563 [DEBUG]: Added element [311]
+2021-03-30 14:23:46,563 [DEBUG]: [5]: More variables, requesting index 312
+2021-03-30 14:23:46,563 [DEBUG]: Requesting index 312 on port 5
+2021-03-30 14:23:46,566 [DEBUG]: Added element [312]
+2021-03-30 14:23:46,566 [DEBUG]: [5]: More variables, requesting index 313
+2021-03-30 14:23:46,566 [DEBUG]: Requesting index 313 on port 5
+2021-03-30 14:23:46,579 [DEBUG]: Added element [313]
+2021-03-30 14:23:46,579 [DEBUG]: [5]: More variables, requesting index 314
+2021-03-30 14:23:46,580 [DEBUG]: Requesting index 314 on port 5
+2021-03-30 14:23:46,583 [DEBUG]: Added element [314]
+2021-03-30 14:23:46,583 [DEBUG]: [5]: More variables, requesting index 315
+2021-03-30 14:23:46,583 [DEBUG]: Requesting index 315 on port 5
+2021-03-30 14:23:46,586 [DEBUG]: Added element [315]
+2021-03-30 14:23:46,586 [DEBUG]: [5]: More variables, requesting index 316
+2021-03-30 14:23:46,586 [DEBUG]: Requesting index 316 on port 5
+2021-03-30 14:23:46,590 [DEBUG]: Added element [316]
+2021-03-30 14:23:46,590 [WARNING]: Could not save cache, no writable directory
+2021-03-30 14:23:46,590 [DEBUG]: Removing callback on port [5] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002CAD90BF788>>]
+2021-03-30 14:23:46,591 [DEBUG]: [5]: Done!
+2021-03-30 14:23:46,591 [INFO]: Log TOC finished updating
+2021-03-30 14:23:46,591 [DEBUG]: Requesting number of memories
+2021-03-30 14:23:46,593 [INFO]: 8 memories found
+2021-03-30 14:23:46,593 [DEBUG]: Requesting first id
+2021-03-30 14:23:46,597 [DEBUG]: Requesting information about memory 1
+2021-03-30 14:23:46,602 [DEBUG]: Memory: id=1, type=LED driver, size=24
+2021-03-30 14:23:46,602 [DEBUG]: Requesting information about memory 2
+2021-03-30 14:23:46,606 [DEBUG]: Memory: id=2, type=Loco Positioning, size=6144
+2021-03-30 14:23:46,606 [DEBUG]: Requesting information about memory 3
+2021-03-30 14:23:46,610 [DEBUG]: Memory: id=3, type=Trajectory, size=4096
+2021-03-30 14:23:46,610 [DEBUG]: Requesting information about memory 4
+2021-03-30 14:23:46,614 [DEBUG]: Memory: id=4, type=Loco Positioning 2, size=69632
+2021-03-30 14:23:46,614 [DEBUG]: Requesting information about memory 5
+2021-03-30 14:23:46,618 [DEBUG]: Memory: id=5, type=Lighthouse positioning, size=96
+2021-03-30 14:23:46,619 [DEBUG]: Requesting information about memory 6
+2021-03-30 14:23:46,622 [DEBUG]: Memory: id=6, type=Memory tester, size=4096
+2021-03-30 14:23:46,623 [DEBUG]: Requesting information about memory 7
+2021-03-30 14:23:46,627 [DEBUG]: Memory: id=7, type=Unknown, size=0
+2021-03-30 14:23:46,627 [DEBUG]: Done getting all the memories, start reading the OWs
+2021-03-30 14:23:46,627 [INFO]: Memories finished updating
+2021-03-30 14:23:46,627 [DEBUG]: [2]: Using V2 protocol: 1
+2021-03-30 14:23:46,627 [DEBUG]: [2]: Start fetching...
+2021-03-30 14:23:46,627 [DEBUG]: Adding callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002CAD90DFBC8>>]
+2021-03-30 14:23:46,630 [DEBUG]: [2]: Got TOC CRC, 164 items and crc=0x1042AFA8
+2021-03-30 14:23:46,630 [DEBUG]: Requesting index 0 on port 2
+2021-03-30 14:23:46,635 [DEBUG]: Added element [0]
+2021-03-30 14:23:46,635 [DEBUG]: [2]: More variables, requesting index 1
+2021-03-30 14:23:46,635 [DEBUG]: Requesting index 1 on port 2
+2021-03-30 14:23:46,639 [DEBUG]: Added element [1]
+2021-03-30 14:23:46,640 [DEBUG]: [2]: More variables, requesting index 2
+2021-03-30 14:23:46,640 [DEBUG]: Requesting index 2 on port 2
+2021-03-30 14:23:46,644 [DEBUG]: Added element [2]
+2021-03-30 14:23:46,644 [DEBUG]: [2]: More variables, requesting index 3
+2021-03-30 14:23:46,644 [DEBUG]: Requesting index 3 on port 2
+2021-03-30 14:23:46,648 [DEBUG]: Added element [3]
+2021-03-30 14:23:46,648 [DEBUG]: [2]: More variables, requesting index 4
+2021-03-30 14:23:46,648 [DEBUG]: Requesting index 4 on port 2
+2021-03-30 14:23:46,653 [DEBUG]: Added element [4]
+2021-03-30 14:23:46,653 [DEBUG]: [2]: More variables, requesting index 5
+2021-03-30 14:23:46,653 [DEBUG]: Requesting index 5 on port 2
+2021-03-30 14:23:46,658 [DEBUG]: Added element [5]
+2021-03-30 14:23:46,658 [DEBUG]: [2]: More variables, requesting index 6
+2021-03-30 14:23:46,658 [DEBUG]: Requesting index 6 on port 2
+2021-03-30 14:23:46,663 [DEBUG]: Added element [6]
+2021-03-30 14:23:46,664 [DEBUG]: [2]: More variables, requesting index 7
+2021-03-30 14:23:46,664 [DEBUG]: Requesting index 7 on port 2
+2021-03-30 14:23:46,668 [DEBUG]: Added element [7]
+2021-03-30 14:23:46,668 [DEBUG]: [2]: More variables, requesting index 8
+2021-03-30 14:23:46,668 [DEBUG]: Requesting index 8 on port 2
+2021-03-30 14:23:46,672 [DEBUG]: Added element [8]
+2021-03-30 14:23:46,672 [DEBUG]: [2]: More variables, requesting index 9
+2021-03-30 14:23:46,672 [DEBUG]: Requesting index 9 on port 2
+2021-03-30 14:23:46,675 [DEBUG]: Added element [9]
+2021-03-30 14:23:46,675 [DEBUG]: [2]: More variables, requesting index 10
+2021-03-30 14:23:46,675 [DEBUG]: Requesting index 10 on port 2
+2021-03-30 14:23:46,678 [DEBUG]: Added element [10]
+2021-03-30 14:23:46,679 [DEBUG]: [2]: More variables, requesting index 11
+2021-03-30 14:23:46,679 [DEBUG]: Requesting index 11 on port 2
+2021-03-30 14:23:46,683 [DEBUG]: Added element [11]
+2021-03-30 14:23:46,683 [DEBUG]: [2]: More variables, requesting index 12
+2021-03-30 14:23:46,683 [DEBUG]: Requesting index 12 on port 2
+2021-03-30 14:23:46,687 [DEBUG]: Added element [12]
+2021-03-30 14:23:46,687 [DEBUG]: [2]: More variables, requesting index 13
+2021-03-30 14:23:46,687 [DEBUG]: Requesting index 13 on port 2
+2021-03-30 14:23:46,691 [DEBUG]: Added element [13]
+2021-03-30 14:23:46,692 [DEBUG]: [2]: More variables, requesting index 14
+2021-03-30 14:23:46,692 [DEBUG]: Requesting index 14 on port 2
+2021-03-30 14:23:46,696 [DEBUG]: Added element [14]
+2021-03-30 14:23:46,696 [DEBUG]: [2]: More variables, requesting index 15
+2021-03-30 14:23:46,696 [DEBUG]: Requesting index 15 on port 2
+2021-03-30 14:23:46,709 [DEBUG]: Added element [15]
+2021-03-30 14:23:46,709 [DEBUG]: [2]: More variables, requesting index 16
+2021-03-30 14:23:46,709 [DEBUG]: Requesting index 16 on port 2
+2021-03-30 14:23:46,714 [DEBUG]: Added element [16]
+2021-03-30 14:23:46,714 [DEBUG]: [2]: More variables, requesting index 17
+2021-03-30 14:23:46,714 [DEBUG]: Requesting index 17 on port 2
+2021-03-30 14:23:46,718 [DEBUG]: Added element [17]
+2021-03-30 14:23:46,718 [DEBUG]: [2]: More variables, requesting index 18
+2021-03-30 14:23:46,718 [DEBUG]: Requesting index 18 on port 2
+2021-03-30 14:23:46,722 [DEBUG]: Added element [18]
+2021-03-30 14:23:46,723 [DEBUG]: [2]: More variables, requesting index 19
+2021-03-30 14:23:46,723 [DEBUG]: Requesting index 19 on port 2
+2021-03-30 14:23:46,727 [DEBUG]: Added element [19]
+2021-03-30 14:23:46,727 [DEBUG]: [2]: More variables, requesting index 20
+2021-03-30 14:23:46,727 [DEBUG]: Requesting index 20 on port 2
+2021-03-30 14:23:46,731 [DEBUG]: Added element [20]
+2021-03-30 14:23:46,731 [DEBUG]: [2]: More variables, requesting index 21
+2021-03-30 14:23:46,731 [DEBUG]: Requesting index 21 on port 2
+2021-03-30 14:23:46,736 [DEBUG]: Added element [21]
+2021-03-30 14:23:46,736 [DEBUG]: [2]: More variables, requesting index 22
+2021-03-30 14:23:46,736 [DEBUG]: Requesting index 22 on port 2
+2021-03-30 14:23:46,740 [DEBUG]: Added element [22]
+2021-03-30 14:23:46,740 [DEBUG]: [2]: More variables, requesting index 23
+2021-03-30 14:23:46,740 [DEBUG]: Requesting index 23 on port 2
+2021-03-30 14:23:46,744 [DEBUG]: Added element [23]
+2021-03-30 14:23:46,744 [DEBUG]: [2]: More variables, requesting index 24
+2021-03-30 14:23:46,744 [DEBUG]: Requesting index 24 on port 2
+2021-03-30 14:23:46,749 [DEBUG]: Added element [24]
+2021-03-30 14:23:46,749 [DEBUG]: [2]: More variables, requesting index 25
+2021-03-30 14:23:46,749 [DEBUG]: Requesting index 25 on port 2
+2021-03-30 14:23:46,753 [DEBUG]: Added element [25]
+2021-03-30 14:23:46,753 [DEBUG]: [2]: More variables, requesting index 26
+2021-03-30 14:23:46,753 [DEBUG]: Requesting index 26 on port 2
+2021-03-30 14:23:46,758 [DEBUG]: Added element [26]
+2021-03-30 14:23:46,758 [DEBUG]: [2]: More variables, requesting index 27
+2021-03-30 14:23:46,758 [DEBUG]: Requesting index 27 on port 2
+2021-03-30 14:23:46,762 [DEBUG]: Added element [27]
+2021-03-30 14:23:46,762 [DEBUG]: [2]: More variables, requesting index 28
+2021-03-30 14:23:46,762 [DEBUG]: Requesting index 28 on port 2
+2021-03-30 14:23:46,767 [DEBUG]: Added element [28]
+2021-03-30 14:23:46,767 [DEBUG]: [2]: More variables, requesting index 29
+2021-03-30 14:23:46,767 [DEBUG]: Requesting index 29 on port 2
+2021-03-30 14:23:46,771 [DEBUG]: Added element [29]
+2021-03-30 14:23:46,771 [DEBUG]: [2]: More variables, requesting index 30
+2021-03-30 14:23:46,771 [DEBUG]: Requesting index 30 on port 2
+2021-03-30 14:23:46,775 [DEBUG]: Added element [30]
+2021-03-30 14:23:46,775 [DEBUG]: [2]: More variables, requesting index 31
+2021-03-30 14:23:46,775 [DEBUG]: Requesting index 31 on port 2
+2021-03-30 14:23:46,779 [DEBUG]: Added element [31]
+2021-03-30 14:23:46,780 [DEBUG]: [2]: More variables, requesting index 32
+2021-03-30 14:23:46,780 [DEBUG]: Requesting index 32 on port 2
+2021-03-30 14:23:46,784 [DEBUG]: Added element [32]
+2021-03-30 14:23:46,784 [DEBUG]: [2]: More variables, requesting index 33
+2021-03-30 14:23:46,784 [DEBUG]: Requesting index 33 on port 2
+2021-03-30 14:23:46,788 [DEBUG]: Added element [33]
+2021-03-30 14:23:46,788 [DEBUG]: [2]: More variables, requesting index 34
+2021-03-30 14:23:46,789 [DEBUG]: Requesting index 34 on port 2
+2021-03-30 14:23:46,793 [DEBUG]: Added element [34]
+2021-03-30 14:23:46,793 [DEBUG]: [2]: More variables, requesting index 35
+2021-03-30 14:23:46,793 [DEBUG]: Requesting index 35 on port 2
+2021-03-30 14:23:46,797 [DEBUG]: Added element [35]
+2021-03-30 14:23:46,798 [DEBUG]: [2]: More variables, requesting index 36
+2021-03-30 14:23:46,798 [DEBUG]: Requesting index 36 on port 2
+2021-03-30 14:23:46,803 [DEBUG]: Added element [36]
+2021-03-30 14:23:46,803 [DEBUG]: [2]: More variables, requesting index 37
+2021-03-30 14:23:46,803 [DEBUG]: Requesting index 37 on port 2
+2021-03-30 14:23:46,807 [DEBUG]: Added element [37]
+2021-03-30 14:23:46,807 [DEBUG]: [2]: More variables, requesting index 38
+2021-03-30 14:23:46,807 [DEBUG]: Requesting index 38 on port 2
+2021-03-30 14:23:46,812 [DEBUG]: Added element [38]
+2021-03-30 14:23:46,812 [DEBUG]: [2]: More variables, requesting index 39
+2021-03-30 14:23:46,812 [DEBUG]: Requesting index 39 on port 2
+2021-03-30 14:23:46,816 [DEBUG]: Added element [39]
+2021-03-30 14:23:46,816 [DEBUG]: [2]: More variables, requesting index 40
+2021-03-30 14:23:46,817 [DEBUG]: Requesting index 40 on port 2
+2021-03-30 14:23:46,821 [DEBUG]: Added element [40]
+2021-03-30 14:23:46,821 [DEBUG]: [2]: More variables, requesting index 41
+2021-03-30 14:23:46,821 [DEBUG]: Requesting index 41 on port 2
+2021-03-30 14:23:46,826 [DEBUG]: Added element [41]
+2021-03-30 14:23:46,826 [DEBUG]: [2]: More variables, requesting index 42
+2021-03-30 14:23:46,826 [DEBUG]: Requesting index 42 on port 2
+2021-03-30 14:23:46,839 [DEBUG]: Added element [42]
+2021-03-30 14:23:46,839 [DEBUG]: [2]: More variables, requesting index 43
+2021-03-30 14:23:46,839 [DEBUG]: Requesting index 43 on port 2
+2021-03-30 14:23:46,843 [DEBUG]: Added element [43]
+2021-03-30 14:23:46,843 [DEBUG]: [2]: More variables, requesting index 44
+2021-03-30 14:23:46,843 [DEBUG]: Requesting index 44 on port 2
+2021-03-30 14:23:46,847 [DEBUG]: Added element [44]
+2021-03-30 14:23:46,847 [DEBUG]: [2]: More variables, requesting index 45
+2021-03-30 14:23:46,847 [DEBUG]: Requesting index 45 on port 2
+2021-03-30 14:23:46,850 [DEBUG]: Added element [45]
+2021-03-30 14:23:46,851 [DEBUG]: [2]: More variables, requesting index 46
+2021-03-30 14:23:46,851 [DEBUG]: Requesting index 46 on port 2
+2021-03-30 14:23:46,856 [DEBUG]: Added element [46]
+2021-03-30 14:23:46,856 [DEBUG]: [2]: More variables, requesting index 47
+2021-03-30 14:23:46,856 [DEBUG]: Requesting index 47 on port 2
+2021-03-30 14:23:46,859 [DEBUG]: Added element [47]
+2021-03-30 14:23:46,859 [DEBUG]: [2]: More variables, requesting index 48
+2021-03-30 14:23:46,859 [DEBUG]: Requesting index 48 on port 2
+2021-03-30 14:23:46,863 [DEBUG]: Added element [48]
+2021-03-30 14:23:46,863 [DEBUG]: [2]: More variables, requesting index 49
+2021-03-30 14:23:46,863 [DEBUG]: Requesting index 49 on port 2
+2021-03-30 14:23:46,868 [DEBUG]: Added element [49]
+2021-03-30 14:23:46,868 [DEBUG]: [2]: More variables, requesting index 50
+2021-03-30 14:23:46,868 [DEBUG]: Requesting index 50 on port 2
+2021-03-30 14:23:46,872 [DEBUG]: Added element [50]
+2021-03-30 14:23:46,872 [DEBUG]: [2]: More variables, requesting index 51
+2021-03-30 14:23:46,872 [DEBUG]: Requesting index 51 on port 2
+2021-03-30 14:23:46,876 [DEBUG]: Added element [51]
+2021-03-30 14:23:46,876 [DEBUG]: [2]: More variables, requesting index 52
+2021-03-30 14:23:46,876 [DEBUG]: Requesting index 52 on port 2
+2021-03-30 14:23:46,880 [DEBUG]: Added element [52]
+2021-03-30 14:23:46,881 [DEBUG]: [2]: More variables, requesting index 53
+2021-03-30 14:23:46,881 [DEBUG]: Requesting index 53 on port 2
+2021-03-30 14:23:46,885 [DEBUG]: Added element [53]
+2021-03-30 14:23:46,885 [DEBUG]: [2]: More variables, requesting index 54
+2021-03-30 14:23:46,885 [DEBUG]: Requesting index 54 on port 2
+2021-03-30 14:23:46,889 [DEBUG]: Added element [54]
+2021-03-30 14:23:46,890 [DEBUG]: [2]: More variables, requesting index 55
+2021-03-30 14:23:46,890 [DEBUG]: Requesting index 55 on port 2
+2021-03-30 14:23:46,894 [DEBUG]: Added element [55]
+2021-03-30 14:23:46,894 [DEBUG]: [2]: More variables, requesting index 56
+2021-03-30 14:23:46,894 [DEBUG]: Requesting index 56 on port 2
+2021-03-30 14:23:46,898 [DEBUG]: Added element [56]
+2021-03-30 14:23:46,898 [DEBUG]: [2]: More variables, requesting index 57
+2021-03-30 14:23:46,898 [DEBUG]: Requesting index 57 on port 2
+2021-03-30 14:23:46,902 [DEBUG]: Added element [57]
+2021-03-30 14:23:46,903 [DEBUG]: [2]: More variables, requesting index 58
+2021-03-30 14:23:46,903 [DEBUG]: Requesting index 58 on port 2
+2021-03-30 14:23:46,907 [DEBUG]: Added element [58]
+2021-03-30 14:23:46,908 [DEBUG]: [2]: More variables, requesting index 59
+2021-03-30 14:23:46,908 [DEBUG]: Requesting index 59 on port 2
+2021-03-30 14:23:46,912 [DEBUG]: Added element [59]
+2021-03-30 14:23:46,912 [DEBUG]: [2]: More variables, requesting index 60
+2021-03-30 14:23:46,912 [DEBUG]: Requesting index 60 on port 2
+2021-03-30 14:23:46,916 [DEBUG]: Added element [60]
+2021-03-30 14:23:46,916 [DEBUG]: [2]: More variables, requesting index 61
+2021-03-30 14:23:46,916 [DEBUG]: Requesting index 61 on port 2
+2021-03-30 14:23:46,920 [DEBUG]: Added element [61]
+2021-03-30 14:23:46,920 [DEBUG]: [2]: More variables, requesting index 62
+2021-03-30 14:23:46,920 [DEBUG]: Requesting index 62 on port 2
+2021-03-30 14:23:46,925 [DEBUG]: Added element [62]
+2021-03-30 14:23:46,925 [DEBUG]: [2]: More variables, requesting index 63
+2021-03-30 14:23:46,925 [DEBUG]: Requesting index 63 on port 2
+2021-03-30 14:23:46,929 [DEBUG]: Added element [63]
+2021-03-30 14:23:46,929 [DEBUG]: [2]: More variables, requesting index 64
+2021-03-30 14:23:46,929 [DEBUG]: Requesting index 64 on port 2
+2021-03-30 14:23:46,933 [DEBUG]: Added element [64]
+2021-03-30 14:23:46,933 [DEBUG]: [2]: More variables, requesting index 65
+2021-03-30 14:23:46,933 [DEBUG]: Requesting index 65 on port 2
+2021-03-30 14:23:46,937 [DEBUG]: Added element [65]
+2021-03-30 14:23:46,937 [DEBUG]: [2]: More variables, requesting index 66
+2021-03-30 14:23:46,937 [DEBUG]: Requesting index 66 on port 2
+2021-03-30 14:23:46,942 [DEBUG]: Added element [66]
+2021-03-30 14:23:46,942 [DEBUG]: [2]: More variables, requesting index 67
+2021-03-30 14:23:46,942 [DEBUG]: Requesting index 67 on port 2
+2021-03-30 14:23:46,945 [DEBUG]: Added element [67]
+2021-03-30 14:23:46,946 [DEBUG]: [2]: More variables, requesting index 68
+2021-03-30 14:23:46,946 [DEBUG]: Requesting index 68 on port 2
+2021-03-30 14:23:46,950 [DEBUG]: Added element [68]
+2021-03-30 14:23:46,950 [DEBUG]: [2]: More variables, requesting index 69
+2021-03-30 14:23:46,950 [DEBUG]: Requesting index 69 on port 2
+2021-03-30 14:23:46,954 [DEBUG]: Added element [69]
+2021-03-30 14:23:46,954 [DEBUG]: [2]: More variables, requesting index 70
+2021-03-30 14:23:46,954 [DEBUG]: Requesting index 70 on port 2
+2021-03-30 14:23:46,968 [DEBUG]: Added element [70]
+2021-03-30 14:23:46,969 [DEBUG]: [2]: More variables, requesting index 71
+2021-03-30 14:23:46,969 [DEBUG]: Requesting index 71 on port 2
+2021-03-30 14:23:46,973 [DEBUG]: Added element [71]
+2021-03-30 14:23:46,973 [DEBUG]: [2]: More variables, requesting index 72
+2021-03-30 14:23:46,973 [DEBUG]: Requesting index 72 on port 2
+2021-03-30 14:23:46,977 [DEBUG]: Added element [72]
+2021-03-30 14:23:46,977 [DEBUG]: [2]: More variables, requesting index 73
+2021-03-30 14:23:46,977 [DEBUG]: Requesting index 73 on port 2
+2021-03-30 14:23:46,982 [DEBUG]: Added element [73]
+2021-03-30 14:23:46,982 [DEBUG]: [2]: More variables, requesting index 74
+2021-03-30 14:23:46,982 [DEBUG]: Requesting index 74 on port 2
+2021-03-30 14:23:46,986 [DEBUG]: Added element [74]
+2021-03-30 14:23:46,986 [DEBUG]: [2]: More variables, requesting index 75
+2021-03-30 14:23:46,986 [DEBUG]: Requesting index 75 on port 2
+2021-03-30 14:23:46,990 [DEBUG]: Added element [75]
+2021-03-30 14:23:46,990 [DEBUG]: [2]: More variables, requesting index 76
+2021-03-30 14:23:46,991 [DEBUG]: Requesting index 76 on port 2
+2021-03-30 14:23:46,995 [DEBUG]: Added element [76]
+2021-03-30 14:23:46,995 [DEBUG]: [2]: More variables, requesting index 77
+2021-03-30 14:23:46,995 [DEBUG]: Requesting index 77 on port 2
+2021-03-30 14:23:46,999 [DEBUG]: Added element [77]
+2021-03-30 14:23:47,000 [DEBUG]: [2]: More variables, requesting index 78
+2021-03-30 14:23:47,000 [DEBUG]: Requesting index 78 on port 2
+2021-03-30 14:23:47,004 [DEBUG]: Added element [78]
+2021-03-30 14:23:47,004 [DEBUG]: [2]: More variables, requesting index 79
+2021-03-30 14:23:47,004 [DEBUG]: Requesting index 79 on port 2
+2021-03-30 14:23:47,008 [DEBUG]: Added element [79]
+2021-03-30 14:23:47,008 [DEBUG]: [2]: More variables, requesting index 80
+2021-03-30 14:23:47,008 [DEBUG]: Requesting index 80 on port 2
+2021-03-30 14:23:47,012 [DEBUG]: Added element [80]
+2021-03-30 14:23:47,012 [DEBUG]: [2]: More variables, requesting index 81
+2021-03-30 14:23:47,012 [DEBUG]: Requesting index 81 on port 2
+2021-03-30 14:23:47,017 [DEBUG]: Added element [81]
+2021-03-30 14:23:47,017 [DEBUG]: [2]: More variables, requesting index 82
+2021-03-30 14:23:47,017 [DEBUG]: Requesting index 82 on port 2
+2021-03-30 14:23:47,021 [DEBUG]: Added element [82]
+2021-03-30 14:23:47,021 [DEBUG]: [2]: More variables, requesting index 83
+2021-03-30 14:23:47,021 [DEBUG]: Requesting index 83 on port 2
+2021-03-30 14:23:47,025 [DEBUG]: Added element [83]
+2021-03-30 14:23:47,025 [DEBUG]: [2]: More variables, requesting index 84
+2021-03-30 14:23:47,026 [DEBUG]: Requesting index 84 on port 2
+2021-03-30 14:23:47,030 [DEBUG]: Added element [84]
+2021-03-30 14:23:47,030 [DEBUG]: [2]: More variables, requesting index 85
+2021-03-30 14:23:47,030 [DEBUG]: Requesting index 85 on port 2
+2021-03-30 14:23:47,034 [DEBUG]: Added element [85]
+2021-03-30 14:23:47,034 [DEBUG]: [2]: More variables, requesting index 86
+2021-03-30 14:23:47,034 [DEBUG]: Requesting index 86 on port 2
+2021-03-30 14:23:47,038 [DEBUG]: Added element [86]
+2021-03-30 14:23:47,038 [DEBUG]: [2]: More variables, requesting index 87
+2021-03-30 14:23:47,038 [DEBUG]: Requesting index 87 on port 2
+2021-03-30 14:23:47,042 [DEBUG]: Added element [87]
+2021-03-30 14:23:47,043 [DEBUG]: [2]: More variables, requesting index 88
+2021-03-30 14:23:47,043 [DEBUG]: Requesting index 88 on port 2
+2021-03-30 14:23:47,047 [DEBUG]: Added element [88]
+2021-03-30 14:23:47,047 [DEBUG]: [2]: More variables, requesting index 89
+2021-03-30 14:23:47,047 [DEBUG]: Requesting index 89 on port 2
+2021-03-30 14:23:47,051 [DEBUG]: Added element [89]
+2021-03-30 14:23:47,051 [DEBUG]: [2]: More variables, requesting index 90
+2021-03-30 14:23:47,051 [DEBUG]: Requesting index 90 on port 2
+2021-03-30 14:23:47,056 [DEBUG]: Added element [90]
+2021-03-30 14:23:47,056 [DEBUG]: [2]: More variables, requesting index 91
+2021-03-30 14:23:47,056 [DEBUG]: Requesting index 91 on port 2
+2021-03-30 14:23:47,061 [DEBUG]: Added element [91]
+2021-03-30 14:23:47,061 [DEBUG]: [2]: More variables, requesting index 92
+2021-03-30 14:23:47,061 [DEBUG]: Requesting index 92 on port 2
+2021-03-30 14:23:47,065 [DEBUG]: Added element [92]
+2021-03-30 14:23:47,065 [DEBUG]: [2]: More variables, requesting index 93
+2021-03-30 14:23:47,065 [DEBUG]: Requesting index 93 on port 2
+2021-03-30 14:23:47,069 [DEBUG]: Added element [93]
+2021-03-30 14:23:47,069 [DEBUG]: [2]: More variables, requesting index 94
+2021-03-30 14:23:47,070 [DEBUG]: Requesting index 94 on port 2
+2021-03-30 14:23:47,074 [DEBUG]: Added element [94]
+2021-03-30 14:23:47,074 [DEBUG]: [2]: More variables, requesting index 95
+2021-03-30 14:23:47,074 [DEBUG]: Requesting index 95 on port 2
+2021-03-30 14:23:47,079 [DEBUG]: Added element [95]
+2021-03-30 14:23:47,079 [DEBUG]: [2]: More variables, requesting index 96
+2021-03-30 14:23:47,079 [DEBUG]: Requesting index 96 on port 2
+2021-03-30 14:23:47,083 [DEBUG]: Added element [96]
+2021-03-30 14:23:47,083 [DEBUG]: [2]: More variables, requesting index 97
+2021-03-30 14:23:47,083 [DEBUG]: Requesting index 97 on port 2
+2021-03-30 14:23:47,096 [DEBUG]: Added element [97]
+2021-03-30 14:23:47,097 [DEBUG]: [2]: More variables, requesting index 98
+2021-03-30 14:23:47,097 [DEBUG]: Requesting index 98 on port 2
+2021-03-30 14:23:47,101 [DEBUG]: Added element [98]
+2021-03-30 14:23:47,101 [DEBUG]: [2]: More variables, requesting index 99
+2021-03-30 14:23:47,101 [DEBUG]: Requesting index 99 on port 2
+2021-03-30 14:23:47,106 [DEBUG]: Added element [99]
+2021-03-30 14:23:47,106 [DEBUG]: [2]: More variables, requesting index 100
+2021-03-30 14:23:47,106 [DEBUG]: Requesting index 100 on port 2
+2021-03-30 14:23:47,110 [DEBUG]: Added element [100]
+2021-03-30 14:23:47,110 [DEBUG]: [2]: More variables, requesting index 101
+2021-03-30 14:23:47,110 [DEBUG]: Requesting index 101 on port 2
+2021-03-30 14:23:47,114 [DEBUG]: Added element [101]
+2021-03-30 14:23:47,114 [DEBUG]: [2]: More variables, requesting index 102
+2021-03-30 14:23:47,114 [DEBUG]: Requesting index 102 on port 2
+2021-03-30 14:23:47,118 [DEBUG]: Added element [102]
+2021-03-30 14:23:47,119 [DEBUG]: [2]: More variables, requesting index 103
+2021-03-30 14:23:47,119 [DEBUG]: Requesting index 103 on port 2
+2021-03-30 14:23:47,123 [DEBUG]: Added element [103]
+2021-03-30 14:23:47,123 [DEBUG]: [2]: More variables, requesting index 104
+2021-03-30 14:23:47,123 [DEBUG]: Requesting index 104 on port 2
+2021-03-30 14:23:47,127 [DEBUG]: Added element [104]
+2021-03-30 14:23:47,127 [DEBUG]: [2]: More variables, requesting index 105
+2021-03-30 14:23:47,127 [DEBUG]: Requesting index 105 on port 2
+2021-03-30 14:23:47,132 [DEBUG]: Added element [105]
+2021-03-30 14:23:47,132 [DEBUG]: [2]: More variables, requesting index 106
+2021-03-30 14:23:47,132 [DEBUG]: Requesting index 106 on port 2
+2021-03-30 14:23:47,136 [DEBUG]: Added element [106]
+2021-03-30 14:23:47,136 [DEBUG]: [2]: More variables, requesting index 107
+2021-03-30 14:23:47,136 [DEBUG]: Requesting index 107 on port 2
+2021-03-30 14:23:47,140 [DEBUG]: Added element [107]
+2021-03-30 14:23:47,141 [DEBUG]: [2]: More variables, requesting index 108
+2021-03-30 14:23:47,141 [DEBUG]: Requesting index 108 on port 2
+2021-03-30 14:23:47,145 [DEBUG]: Added element [108]
+2021-03-30 14:23:47,145 [DEBUG]: [2]: More variables, requesting index 109
+2021-03-30 14:23:47,145 [DEBUG]: Requesting index 109 on port 2
+2021-03-30 14:23:47,149 [DEBUG]: Added element [109]
+2021-03-30 14:23:47,149 [DEBUG]: [2]: More variables, requesting index 110
+2021-03-30 14:23:47,149 [DEBUG]: Requesting index 110 on port 2
+2021-03-30 14:23:47,153 [DEBUG]: Added element [110]
+2021-03-30 14:23:47,153 [DEBUG]: [2]: More variables, requesting index 111
+2021-03-30 14:23:47,153 [DEBUG]: Requesting index 111 on port 2
+2021-03-30 14:23:47,158 [DEBUG]: Added element [111]
+2021-03-30 14:23:47,158 [DEBUG]: [2]: More variables, requesting index 112
+2021-03-30 14:23:47,158 [DEBUG]: Requesting index 112 on port 2
+2021-03-30 14:23:47,162 [DEBUG]: Added element [112]
+2021-03-30 14:23:47,163 [DEBUG]: [2]: More variables, requesting index 113
+2021-03-30 14:23:47,163 [DEBUG]: Requesting index 113 on port 2
+2021-03-30 14:23:47,167 [DEBUG]: Added element [113]
+2021-03-30 14:23:47,167 [DEBUG]: [2]: More variables, requesting index 114
+2021-03-30 14:23:47,167 [DEBUG]: Requesting index 114 on port 2
+2021-03-30 14:23:47,171 [DEBUG]: Added element [114]
+2021-03-30 14:23:47,171 [DEBUG]: [2]: More variables, requesting index 115
+2021-03-30 14:23:47,171 [DEBUG]: Requesting index 115 on port 2
+2021-03-30 14:23:47,175 [DEBUG]: Added element [115]
+2021-03-30 14:23:47,176 [DEBUG]: [2]: More variables, requesting index 116
+2021-03-30 14:23:47,176 [DEBUG]: Requesting index 116 on port 2
+2021-03-30 14:23:47,180 [DEBUG]: Added element [116]
+2021-03-30 14:23:47,180 [DEBUG]: [2]: More variables, requesting index 117
+2021-03-30 14:23:47,180 [DEBUG]: Requesting index 117 on port 2
+2021-03-30 14:23:47,184 [DEBUG]: Added element [117]
+2021-03-30 14:23:47,184 [DEBUG]: [2]: More variables, requesting index 118
+2021-03-30 14:23:47,184 [DEBUG]: Requesting index 118 on port 2
+2021-03-30 14:23:47,188 [DEBUG]: Added element [118]
+2021-03-30 14:23:47,188 [DEBUG]: [2]: More variables, requesting index 119
+2021-03-30 14:23:47,188 [DEBUG]: Requesting index 119 on port 2
+2021-03-30 14:23:47,193 [DEBUG]: Added element [119]
+2021-03-30 14:23:47,193 [DEBUG]: [2]: More variables, requesting index 120
+2021-03-30 14:23:47,193 [DEBUG]: Requesting index 120 on port 2
+2021-03-30 14:23:47,197 [DEBUG]: Added element [120]
+2021-03-30 14:23:47,197 [DEBUG]: [2]: More variables, requesting index 121
+2021-03-30 14:23:47,197 [DEBUG]: Requesting index 121 on port 2
+2021-03-30 14:23:47,202 [DEBUG]: Added element [121]
+2021-03-30 14:23:47,202 [DEBUG]: [2]: More variables, requesting index 122
+2021-03-30 14:23:47,202 [DEBUG]: Requesting index 122 on port 2
+2021-03-30 14:23:47,206 [DEBUG]: Added element [122]
+2021-03-30 14:23:47,206 [DEBUG]: [2]: More variables, requesting index 123
+2021-03-30 14:23:47,206 [DEBUG]: Requesting index 123 on port 2
+2021-03-30 14:23:47,210 [DEBUG]: Added element [123]
+2021-03-30 14:23:47,210 [DEBUG]: [2]: More variables, requesting index 124
+2021-03-30 14:23:47,210 [DEBUG]: Requesting index 124 on port 2
+2021-03-30 14:23:47,214 [DEBUG]: Added element [124]
+2021-03-30 14:23:47,214 [DEBUG]: [2]: More variables, requesting index 125
+2021-03-30 14:23:47,215 [DEBUG]: Requesting index 125 on port 2
+2021-03-30 14:23:47,228 [DEBUG]: Added element [125]
+2021-03-30 14:23:47,228 [DEBUG]: [2]: More variables, requesting index 126
+2021-03-30 14:23:47,228 [DEBUG]: Requesting index 126 on port 2
+2021-03-30 14:23:47,232 [DEBUG]: Added element [126]
+2021-03-30 14:23:47,232 [DEBUG]: [2]: More variables, requesting index 127
+2021-03-30 14:23:47,232 [DEBUG]: Requesting index 127 on port 2
+2021-03-30 14:23:47,237 [DEBUG]: Added element [127]
+2021-03-30 14:23:47,237 [DEBUG]: [2]: More variables, requesting index 128
+2021-03-30 14:23:47,237 [DEBUG]: Requesting index 128 on port 2
+2021-03-30 14:23:47,241 [DEBUG]: Added element [128]
+2021-03-30 14:23:47,241 [DEBUG]: [2]: More variables, requesting index 129
+2021-03-30 14:23:47,241 [DEBUG]: Requesting index 129 on port 2
+2021-03-30 14:23:47,245 [DEBUG]: Added element [129]
+2021-03-30 14:23:47,245 [DEBUG]: [2]: More variables, requesting index 130
+2021-03-30 14:23:47,245 [DEBUG]: Requesting index 130 on port 2
+2021-03-30 14:23:47,250 [DEBUG]: Added element [130]
+2021-03-30 14:23:47,250 [DEBUG]: [2]: More variables, requesting index 131
+2021-03-30 14:23:47,250 [DEBUG]: Requesting index 131 on port 2
+2021-03-30 14:23:47,254 [DEBUG]: Added element [131]
+2021-03-30 14:23:47,254 [DEBUG]: [2]: More variables, requesting index 132
+2021-03-30 14:23:47,254 [DEBUG]: Requesting index 132 on port 2
+2021-03-30 14:23:47,258 [DEBUG]: Added element [132]
+2021-03-30 14:23:47,258 [DEBUG]: [2]: More variables, requesting index 133
+2021-03-30 14:23:47,259 [DEBUG]: Requesting index 133 on port 2
+2021-03-30 14:23:47,263 [DEBUG]: Added element [133]
+2021-03-30 14:23:47,263 [DEBUG]: [2]: More variables, requesting index 134
+2021-03-30 14:23:47,263 [DEBUG]: Requesting index 134 on port 2
+2021-03-30 14:23:47,267 [DEBUG]: Added element [134]
+2021-03-30 14:23:47,267 [DEBUG]: [2]: More variables, requesting index 135
+2021-03-30 14:23:47,267 [DEBUG]: Requesting index 135 on port 2
+2021-03-30 14:23:47,271 [DEBUG]: Added element [135]
+2021-03-30 14:23:47,271 [DEBUG]: [2]: More variables, requesting index 136
+2021-03-30 14:23:47,271 [DEBUG]: Requesting index 136 on port 2
+2021-03-30 14:23:47,275 [DEBUG]: Added element [136]
+2021-03-30 14:23:47,275 [DEBUG]: [2]: More variables, requesting index 137
+2021-03-30 14:23:47,275 [DEBUG]: Requesting index 137 on port 2
+2021-03-30 14:23:47,279 [DEBUG]: Added element [137]
+2021-03-30 14:23:47,279 [DEBUG]: [2]: More variables, requesting index 138
+2021-03-30 14:23:47,279 [DEBUG]: Requesting index 138 on port 2
+2021-03-30 14:23:47,283 [DEBUG]: Added element [138]
+2021-03-30 14:23:47,283 [DEBUG]: [2]: More variables, requesting index 139
+2021-03-30 14:23:47,283 [DEBUG]: Requesting index 139 on port 2
+2021-03-30 14:23:47,287 [DEBUG]: Added element [139]
+2021-03-30 14:23:47,287 [DEBUG]: [2]: More variables, requesting index 140
+2021-03-30 14:23:47,287 [DEBUG]: Requesting index 140 on port 2
+2021-03-30 14:23:47,291 [DEBUG]: Added element [140]
+2021-03-30 14:23:47,291 [DEBUG]: [2]: More variables, requesting index 141
+2021-03-30 14:23:47,291 [DEBUG]: Requesting index 141 on port 2
+2021-03-30 14:23:47,296 [DEBUG]: Added element [141]
+2021-03-30 14:23:47,296 [DEBUG]: [2]: More variables, requesting index 142
+2021-03-30 14:23:47,296 [DEBUG]: Requesting index 142 on port 2
+2021-03-30 14:23:47,300 [DEBUG]: Added element [142]
+2021-03-30 14:23:47,300 [DEBUG]: [2]: More variables, requesting index 143
+2021-03-30 14:23:47,300 [DEBUG]: Requesting index 143 on port 2
+2021-03-30 14:23:47,304 [DEBUG]: Added element [143]
+2021-03-30 14:23:47,304 [DEBUG]: [2]: More variables, requesting index 144
+2021-03-30 14:23:47,304 [DEBUG]: Requesting index 144 on port 2
+2021-03-30 14:23:47,309 [DEBUG]: Added element [144]
+2021-03-30 14:23:47,309 [DEBUG]: [2]: More variables, requesting index 145
+2021-03-30 14:23:47,309 [DEBUG]: Requesting index 145 on port 2
+2021-03-30 14:23:47,313 [DEBUG]: Added element [145]
+2021-03-30 14:23:47,313 [DEBUG]: [2]: More variables, requesting index 146
+2021-03-30 14:23:47,313 [DEBUG]: Requesting index 146 on port 2
+2021-03-30 14:23:47,317 [DEBUG]: Added element [146]
+2021-03-30 14:23:47,317 [DEBUG]: [2]: More variables, requesting index 147
+2021-03-30 14:23:47,317 [DEBUG]: Requesting index 147 on port 2
+2021-03-30 14:23:47,321 [DEBUG]: Added element [147]
+2021-03-30 14:23:47,322 [DEBUG]: [2]: More variables, requesting index 148
+2021-03-30 14:23:47,322 [DEBUG]: Requesting index 148 on port 2
+2021-03-30 14:23:47,326 [DEBUG]: Added element [148]
+2021-03-30 14:23:47,326 [DEBUG]: [2]: More variables, requesting index 149
+2021-03-30 14:23:47,326 [DEBUG]: Requesting index 149 on port 2
+2021-03-30 14:23:47,330 [DEBUG]: Added element [149]
+2021-03-30 14:23:47,330 [DEBUG]: [2]: More variables, requesting index 150
+2021-03-30 14:23:47,330 [DEBUG]: Requesting index 150 on port 2
+2021-03-30 14:23:47,335 [DEBUG]: Added element [150]
+2021-03-30 14:23:47,335 [DEBUG]: [2]: More variables, requesting index 151
+2021-03-30 14:23:47,335 [DEBUG]: Requesting index 151 on port 2
+2021-03-30 14:23:47,339 [DEBUG]: Added element [151]
+2021-03-30 14:23:47,339 [DEBUG]: [2]: More variables, requesting index 152
+2021-03-30 14:23:47,339 [DEBUG]: Requesting index 152 on port 2
+2021-03-30 14:23:47,343 [DEBUG]: Added element [152]
+2021-03-30 14:23:47,344 [DEBUG]: [2]: More variables, requesting index 153
+2021-03-30 14:23:47,344 [DEBUG]: Requesting index 153 on port 2
+2021-03-30 14:23:47,357 [DEBUG]: Added element [153]
+2021-03-30 14:23:47,357 [DEBUG]: [2]: More variables, requesting index 154
+2021-03-30 14:23:47,357 [DEBUG]: Requesting index 154 on port 2
+2021-03-30 14:23:47,360 [DEBUG]: Added element [154]
+2021-03-30 14:23:47,360 [DEBUG]: [2]: More variables, requesting index 155
+2021-03-30 14:23:47,360 [DEBUG]: Requesting index 155 on port 2
+2021-03-30 14:23:47,365 [DEBUG]: Added element [155]
+2021-03-30 14:23:47,365 [DEBUG]: [2]: More variables, requesting index 156
+2021-03-30 14:23:47,365 [DEBUG]: Requesting index 156 on port 2
+2021-03-30 14:23:47,369 [DEBUG]: Added element [156]
+2021-03-30 14:23:47,369 [DEBUG]: [2]: More variables, requesting index 157
+2021-03-30 14:23:47,369 [DEBUG]: Requesting index 157 on port 2
+2021-03-30 14:23:47,373 [DEBUG]: Added element [157]
+2021-03-30 14:23:47,373 [DEBUG]: [2]: More variables, requesting index 158
+2021-03-30 14:23:47,373 [DEBUG]: Requesting index 158 on port 2
+2021-03-30 14:23:47,378 [DEBUG]: Added element [158]
+2021-03-30 14:23:47,378 [DEBUG]: [2]: More variables, requesting index 159
+2021-03-30 14:23:47,378 [DEBUG]: Requesting index 159 on port 2
+2021-03-30 14:23:47,382 [DEBUG]: Added element [159]
+2021-03-30 14:23:47,382 [DEBUG]: [2]: More variables, requesting index 160
+2021-03-30 14:23:47,382 [DEBUG]: Requesting index 160 on port 2
+2021-03-30 14:23:47,386 [DEBUG]: Added element [160]
+2021-03-30 14:23:47,386 [DEBUG]: [2]: More variables, requesting index 161
+2021-03-30 14:23:47,387 [DEBUG]: Requesting index 161 on port 2
+2021-03-30 14:23:47,391 [DEBUG]: Added element [161]
+2021-03-30 14:23:47,391 [DEBUG]: [2]: More variables, requesting index 162
+2021-03-30 14:23:47,391 [DEBUG]: Requesting index 162 on port 2
+2021-03-30 14:23:47,395 [DEBUG]: Added element [162]
+2021-03-30 14:23:47,395 [DEBUG]: [2]: More variables, requesting index 163
+2021-03-30 14:23:47,395 [DEBUG]: Requesting index 163 on port 2
+2021-03-30 14:23:47,400 [DEBUG]: Added element [163]
+2021-03-30 14:23:47,400 [WARNING]: Could not save cache, no writable directory
+2021-03-30 14:23:47,400 [DEBUG]: Removing callback on port [2] to [<bound method TocFetcher._new_packet_cb of <cflib.crazyflie.toc.TocFetcher object at 0x000002CAD90DFBC8>>]
+2021-03-30 14:23:47,400 [DEBUG]: [2]: Done!
+2021-03-30 14:23:47,400 [INFO]: Param TOC finished updating
+2021-03-30 14:23:47,400 [INFO]: Callback->Connection setup finished [radio://0/80/2M]
+2021-03-30 14:23:47,400 [DEBUG]: Requesting request to update param [6]
+2021-03-30 14:23:47,400 [DEBUG]: Adding stateEstimate.x with id=121 and type=0x77
+2021-03-30 14:23:47,400 [DEBUG]: Requesting request to update param [1]
+2021-03-30 14:23:47,401 [DEBUG]: Adding stateEstimate.y with id=122 and type=0x77
+2021-03-30 14:23:47,401 [DEBUG]: Requesting request to update param [2]
+2021-03-30 14:23:47,401 [DEBUG]: Adding stateEstimate.z with id=123 and type=0x77
+2021-03-30 14:23:47,401 [DEBUG]: Requesting request to update param [3]
+2021-03-30 14:23:47,401 [DEBUG]: Adding stabilizer.roll with id=117 and type=0x77
+2021-03-30 14:23:47,401 [DEBUG]: Requesting request to update param [4]
+2021-03-30 14:23:47,402 [DEBUG]: Adding stabilizer.pitch with id=118 and type=0x77
+2021-03-30 14:23:47,402 [DEBUG]: Requesting request to update param [5]
+2021-03-30 14:23:47,402 [DEBUG]: Adding/appending log block id 1
+2021-03-30 14:23:47,402 [DEBUG]: Requesting request to update param [7]
+2021-03-30 14:23:47,402 [DEBUG]: First time block is started, add block
+2021-03-30 14:23:47,402 [DEBUG]: Requesting request to update param [8]
+2021-03-30 14:23:47,402 [DEBUG]: Requesting request to update param [9]
+2021-03-30 14:23:47,402 [DEBUG]: Requesting request to update param [10]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [11]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [16]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [12]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [13]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [14]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [15]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [17]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [18]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [19]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [20]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [21]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [22]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [23]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [24]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [25]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [26]
+2021-03-30 14:23:47,403 [DEBUG]: Requesting request to update param [27]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [28]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [29]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [30]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [31]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [32]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [33]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [34]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [35]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [36]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [37]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [38]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [39]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [40]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [41]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [42]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [43]
+2021-03-30 14:23:47,404 [DEBUG]: Requesting request to update param [44]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [45]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [46]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [47]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [48]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [49]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [50]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [51]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [52]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [53]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [54]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [55]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [56]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [57]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [58]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [59]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [60]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [61]
+2021-03-30 14:23:47,405 [DEBUG]: Requesting request to update param [62]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [63]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [64]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [65]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [66]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [67]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [68]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [69]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [70]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [71]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [72]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [73]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [74]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [75]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [76]
+2021-03-30 14:23:47,406 [DEBUG]: Requesting request to update param [77]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [78]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [79]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [80]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [81]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [82]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [83]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [84]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [85]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [86]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [87]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [88]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [89]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [90]
+2021-03-30 14:23:47,407 [DEBUG]: Requesting request to update param [91]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [92]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [93]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [94]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [95]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [96]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [97]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [98]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [99]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [100]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [101]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [102]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [103]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [104]
+2021-03-30 14:23:47,408 [DEBUG]: Requesting request to update param [105]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [106]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [107]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [108]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [109]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [110]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [111]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [112]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [113]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [114]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [115]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [116]
+2021-03-30 14:23:47,409 [DEBUG]: Requesting request to update param [117]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [118]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [119]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [120]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [121]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [122]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [123]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [124]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [125]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [126]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [127]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [128]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [140]
+2021-03-30 14:23:47,410 [DEBUG]: Requesting request to update param [141]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [142]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [143]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [145]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [146]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [147]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [151]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [152]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [154]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [155]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [156]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [129]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [130]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [131]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [132]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [133]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [134]
+2021-03-30 14:23:47,411 [DEBUG]: Requesting request to update param [135]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [136]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [137]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [138]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [139]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [144]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [148]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [149]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [150]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [153]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [157]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [158]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [159]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [160]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [161]
+2021-03-30 14:23:47,412 [DEBUG]: Requesting request to update param [162]
+2021-03-30 14:23:47,413 [DEBUG]: Requesting request to update param [163]
+2021-03-30 14:23:47,413 [DEBUG]: Updated parameter [imu_sensors.BMP388]
+2021-03-30 14:23:47,413 [DEBUG]: Have successfully added id=1
+2021-03-30 14:23:47,415 [DEBUG]: Updated parameter [imu_sensors.HMC5883L]
+2021-03-30 14:23:47,416 [INFO]: Have successfully started logging for id=1
+2021-03-30 14:23:47,419 [DEBUG]: Updated parameter [imu_sensors.MS5611]
+2021-03-30 14:23:47,422 [DEBUG]: Updated parameter [imu_tests.MPU6500]
+2021-03-30 14:23:47,425 [DEBUG]: Updated parameter [imu_tests.HMC5883L]
+2021-03-30 14:23:47,428 [DEBUG]: Updated parameter [imu_tests.MS5611]
+2021-03-30 14:23:47,431 [DEBUG]: Updated parameter [cpu.flash]
+2021-03-30 14:23:47,434 [DEBUG]: Updated parameter [stabilizer.estimator]
+2021-03-30 14:23:47,438 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-30 14:23:47,441 [DEBUG]: Updated parameter [cpu.id0]
+2021-03-30 14:23:47,444 [DEBUG]: Updated parameter [cpu.id1]
+2021-03-30 14:23:47,448 [DEBUG]: Updated parameter [cpu.id2]
+2021-03-30 14:23:47,451 [DEBUG]: Updated parameter [system.selftestPassed]
+2021-03-30 14:23:47,454 [DEBUG]: Updated parameter [system.taskDump]
+2021-03-30 14:23:47,458 [DEBUG]: Updated parameter [sound.effect]
+2021-03-30 14:23:47,461 [DEBUG]: Updated parameter [sound.neffect]
+2021-03-30 14:23:47,465 [DEBUG]: Updated parameter [sound.freq]
+2021-03-30 14:23:47,468 [DEBUG]: Updated parameter [sound.ratio]
+2021-03-30 14:23:47,471 [DEBUG]: Updated parameter [memTst.resetW]
+2021-03-30 14:23:47,483 [DEBUG]: Updated parameter [commander.enHighLevel]
+2021-03-30 14:23:47,487 [DEBUG]: Updated parameter [flightmode.althold]
+2021-03-30 14:23:47,490 [DEBUG]: Updated parameter [flightmode.poshold]
+2021-03-30 14:23:47,493 [DEBUG]: Updated parameter [flightmode.posSet]
+2021-03-30 14:23:47,496 [DEBUG]: Updated parameter [flightmode.yawMode]
+2021-03-30 14:23:47,499 [DEBUG]: Updated parameter [flightmode.yawRst]
+2021-03-30 14:23:47,502 [DEBUG]: Updated parameter [flightmode.stabModeRoll]
+2021-03-30 14:23:47,503 [INFO]: Buffer of 10 frames created.
+2021-03-30 14:23:47,504 [DEBUG]: Fetched! Pulled frame number: 1559611
+2021-03-30 14:23:47,504 [INFO]: Getting available framerates...
+2021-03-30 14:23:47,504 [INFO]: Process Rate : 99 Hz 
+
+2021-03-30 14:23:47,504 [INFO]: X Axis: AxisMapping.EForward
+2021-03-30 14:23:47,504 [INFO]: Y Axis: AxisMapping.ELeft
+2021-03-30 14:23:47,504 [INFO]: Z Axis: AxisMapping.EUp
+2021-03-30 14:23:47,504 [INFO]: Waiting for estimator to find setpoint...
+2021-03-30 14:23:47,505 [DEBUG]: Adding kalman.varPX with id=204 and type=0x77
+2021-03-30 14:23:47,505 [DEBUG]: Adding kalman.varPY with id=205 and type=0x77
+2021-03-30 14:23:47,505 [DEBUG]: Adding kalman.varPZ with id=206 and type=0x77
+2021-03-30 14:23:47,505 [DEBUG]: Adding/appending log block id 2
+2021-03-30 14:23:47,505 [DEBUG]: First time block is started, add block
+2021-03-30 14:23:47,507 [DEBUG]: Updated parameter [flightmode.stabModePitch]
+2021-03-30 14:23:47,508 [DEBUG]: Have successfully added id=2
+2021-03-30 14:23:47,510 [DEBUG]: Updated parameter [flightmode.stabModeYaw]
+2021-03-30 14:23:47,511 [INFO]: Have successfully started logging for id=2
+2021-03-30 14:23:47,514 [DEBUG]: Updated parameter [cmdrCPPM.rateRoll]
+2021-03-30 14:23:47,518 [DEBUG]: Updated parameter [cmdrCPPM.ratePitch]
+2021-03-30 14:23:47,521 [DEBUG]: Updated parameter [cmdrCPPM.rateYaw]
+2021-03-30 14:23:47,525 [DEBUG]: Updated parameter [cmdrCPPM.angRoll]
+2021-03-30 14:23:47,529 [DEBUG]: Updated parameter [cmdrCPPM.angPitch]
+2021-03-30 14:23:47,532 [DEBUG]: Updated parameter [locSrv.enRangeStreamFP32]
+2021-03-30 14:23:47,535 [DEBUG]: Updated parameter [locSrv.extPosStdDev]
+2021-03-30 14:23:47,538 [DEBUG]: Updated parameter [locSrv.extQuatStdDev]
+2021-03-30 14:23:47,542 [DEBUG]: Updated parameter [pid_attitude.roll_kp]
+2021-03-30 14:23:47,545 [DEBUG]: Updated parameter [pid_attitude.roll_ki]
+2021-03-30 14:23:47,549 [DEBUG]: Updated parameter [pid_attitude.roll_kd]
+2021-03-30 14:23:47,552 [DEBUG]: Updated parameter [pid_attitude.pitch_kp]
+2021-03-30 14:23:47,556 [DEBUG]: Updated parameter [pid_attitude.pitch_ki]
+2021-03-30 14:23:47,559 [DEBUG]: Updated parameter [pid_attitude.pitch_kd]
+2021-03-30 14:23:47,563 [DEBUG]: Updated parameter [pid_attitude.yaw_kp]
+2021-03-30 14:23:47,566 [DEBUG]: Updated parameter [pid_attitude.yaw_ki]
+2021-03-30 14:23:47,570 [DEBUG]: Updated parameter [pid_attitude.yaw_kd]
+2021-03-30 14:23:47,574 [DEBUG]: Updated parameter [pid_rate.roll_kp]
+2021-03-30 14:23:47,578 [DEBUG]: Updated parameter [pid_rate.roll_ki]
+2021-03-30 14:23:47,581 [DEBUG]: Updated parameter [pid_rate.roll_kd]
+2021-03-30 14:23:47,585 [DEBUG]: Updated parameter [pid_rate.pitch_kp]
+2021-03-30 14:23:47,588 [DEBUG]: Updated parameter [pid_rate.pitch_ki]
+2021-03-30 14:23:47,592 [DEBUG]: Updated parameter [pid_rate.pitch_kd]
+2021-03-30 14:23:47,595 [DEBUG]: Updated parameter [pid_rate.yaw_kp]
+2021-03-30 14:23:47,599 [DEBUG]: Updated parameter [pid_rate.yaw_ki]
+2021-03-30 14:23:47,602 [DEBUG]: Updated parameter [pid_rate.yaw_kd]
+2021-03-30 14:23:47,606 [DEBUG]: Updated parameter [sensfusion6.kp]
+2021-03-30 14:23:47,620 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:47,620 [DEBUG]: Updated parameter [sensfusion6.ki]
+2021-03-30 14:23:47,624 [DEBUG]: Updated parameter [sensfusion6.baseZacc]
+2021-03-30 14:23:47,627 [DEBUG]: Updated parameter [health.startPropTest]
+2021-03-30 14:23:47,631 [DEBUG]: Updated parameter [stabilizer.estimator]
+2021-03-30 14:23:47,634 [DEBUG]: Updated parameter [stabilizer.controller]
+2021-03-30 14:23:47,637 [DEBUG]: Updated parameter [posEstAlt.estAlphaAsl]
+2021-03-30 14:23:47,641 [DEBUG]: Updated parameter [posEstAlt.estAlphaZr]
+2021-03-30 14:23:47,645 [DEBUG]: Updated parameter [posEstAlt.velFactor]
+2021-03-30 14:23:47,648 [DEBUG]: Updated parameter [posEstAlt.velZAlpha]
+2021-03-30 14:23:47,652 [DEBUG]: Updated parameter [posEstAlt.vAccDeadband]
+2021-03-30 14:23:47,656 [DEBUG]: Updated parameter [posCtlPid.xKp]
+2021-03-30 14:23:47,659 [DEBUG]: Updated parameter [posCtlPid.xKi]
+2021-03-30 14:23:47,662 [DEBUG]: Updated parameter [posCtlPid.xKd]
+2021-03-30 14:23:47,665 [DEBUG]: Updated parameter [posCtlPid.yKp]
+2021-03-30 14:23:47,669 [DEBUG]: Updated parameter [posCtlPid.yKi]
+2021-03-30 14:23:47,672 [DEBUG]: Updated parameter [posCtlPid.yKd]
+2021-03-30 14:23:47,676 [DEBUG]: Updated parameter [posCtlPid.zKp]
+2021-03-30 14:23:47,680 [DEBUG]: Updated parameter [posCtlPid.zKi]
+2021-03-30 14:23:47,683 [DEBUG]: Updated parameter [posCtlPid.zKd]
+2021-03-30 14:23:47,686 [DEBUG]: Updated parameter [posCtlPid.thrustBase]
+2021-03-30 14:23:47,690 [DEBUG]: Updated parameter [posCtlPid.thrustMin]
+2021-03-30 14:23:47,693 [DEBUG]: Updated parameter [posCtlPid.rpLimit]
+2021-03-30 14:23:47,696 [DEBUG]: Updated parameter [posCtlPid.xyVelMax]
+2021-03-30 14:23:47,699 [DEBUG]: Updated parameter [posCtlPid.zVelMax]
+2021-03-30 14:23:47,702 [DEBUG]: Updated parameter [velCtlPid.vxKp]
+2021-03-30 14:23:47,705 [DEBUG]: Updated parameter [velCtlPid.vxKi]
+2021-03-30 14:23:47,709 [DEBUG]: Updated parameter [velCtlPid.vxKd]
+2021-03-30 14:23:47,713 [DEBUG]: Updated parameter [velCtlPid.vyKp]
+2021-03-30 14:23:47,716 [DEBUG]: Updated parameter [velCtlPid.vyKi]
+2021-03-30 14:23:47,720 [DEBUG]: Updated parameter [velCtlPid.vyKd]
+2021-03-30 14:23:47,724 [DEBUG]: Updated parameter [velCtlPid.vzKp]
+2021-03-30 14:23:47,727 [DEBUG]: Updated parameter [velCtlPid.vzKi]
+2021-03-30 14:23:47,730 [DEBUG]: Updated parameter [velCtlPid.vzKd]
+2021-03-30 14:23:47,733 [DEBUG]: Updated parameter [controller.tiltComp]
+2021-03-30 14:23:47,745 [DEBUG]: Updated parameter [ctrlMel.kp_xy]
+2021-03-30 14:23:47,749 [DEBUG]: Updated parameter [ctrlMel.kd_xy]
+2021-03-30 14:23:47,754 [DEBUG]: Updated parameter [ctrlMel.ki_xy]
+2021-03-30 14:23:47,757 [DEBUG]: Updated parameter [ctrlMel.i_range_xy]
+2021-03-30 14:23:47,762 [DEBUG]: Updated parameter [ctrlMel.kp_z]
+2021-03-30 14:23:47,765 [DEBUG]: Updated parameter [ctrlMel.kd_z]
+2021-03-30 14:23:47,769 [DEBUG]: Updated parameter [ctrlMel.ki_z]
+2021-03-30 14:23:47,772 [DEBUG]: Updated parameter [ctrlMel.i_range_z]
+2021-03-30 14:23:47,776 [DEBUG]: Updated parameter [ctrlMel.mass]
+2021-03-30 14:23:47,779 [DEBUG]: Updated parameter [ctrlMel.massThrust]
+2021-03-30 14:23:47,783 [DEBUG]: Updated parameter [ctrlMel.kR_xy]
+2021-03-30 14:23:47,787 [DEBUG]: Updated parameter [ctrlMel.kR_z]
+2021-03-30 14:23:47,790 [DEBUG]: Updated parameter [ctrlMel.kw_xy]
+2021-03-30 14:23:47,794 [DEBUG]: Updated parameter [ctrlMel.kw_z]
+2021-03-30 14:23:47,797 [DEBUG]: Updated parameter [ctrlMel.ki_m_xy]
+2021-03-30 14:23:47,800 [DEBUG]: Updated parameter [ctrlMel.ki_m_z]
+2021-03-30 14:23:47,804 [DEBUG]: Updated parameter [ctrlMel.kd_omega_rp]
+2021-03-30 14:23:47,807 [DEBUG]: Updated parameter [ctrlMel.i_range_m_xy]
+2021-03-30 14:23:47,810 [DEBUG]: Updated parameter [ctrlMel.i_range_m_z]
+2021-03-30 14:23:47,813 [DEBUG]: Updated parameter [motorPowerSet.enable]
+2021-03-30 14:23:47,816 [DEBUG]: Updated parameter [motorPowerSet.m1]
+2021-03-30 14:23:47,818 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:47,819 [DEBUG]: Updated parameter [motorPowerSet.m2]
+2021-03-30 14:23:47,822 [DEBUG]: Updated parameter [motorPowerSet.m3]
+2021-03-30 14:23:47,826 [DEBUG]: Updated parameter [motorPowerSet.m4]
+2021-03-30 14:23:47,829 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-30 14:23:47,832 [DEBUG]: Updated parameter [kalman.quadIsFlying]
+2021-03-30 14:23:47,835 [DEBUG]: Updated parameter [kalman.pNAcc_xy]
+2021-03-30 14:23:47,839 [DEBUG]: Updated parameter [kalman.pNAcc_z]
+2021-03-30 14:23:47,842 [DEBUG]: Updated parameter [kalman.pNVel]
+2021-03-30 14:23:47,846 [DEBUG]: Updated parameter [kalman.pNPos]
+2021-03-30 14:23:47,849 [DEBUG]: Updated parameter [kalman.pNAtt]
+2021-03-30 14:23:47,852 [DEBUG]: Updated parameter [kalman.mNBaro]
+2021-03-30 14:23:47,855 [DEBUG]: Updated parameter [kalman.mNGyro_rollpitch]
+2021-03-30 14:23:47,860 [DEBUG]: Updated parameter [kalman.mNGyro_yaw]
+2021-03-30 14:23:47,864 [DEBUG]: Updated parameter [kalman.initialX]
+2021-03-30 14:23:47,875 [DEBUG]: Updated parameter [kalman.initialY]
+2021-03-30 14:23:47,879 [DEBUG]: Updated parameter [kalman.initialZ]
+2021-03-30 14:23:47,882 [DEBUG]: Updated parameter [kalman.initialYaw]
+2021-03-30 14:23:47,885 [DEBUG]: Updated parameter [kalman.maxPos]
+2021-03-30 14:23:47,888 [DEBUG]: Updated parameter [kalman.maxVel]
+2021-03-30 14:23:47,891 [DEBUG]: Updated parameter [deck.bcLedRing]
+2021-03-30 14:23:47,894 [DEBUG]: Updated parameter [deck.bcBuzzer]
+2021-03-30 14:23:47,897 [DEBUG]: Updated parameter [deck.bcGTGPS]
+2021-03-30 14:23:47,900 [DEBUG]: Updated parameter [deck.bcCPPM]
+2021-03-30 14:23:47,903 [DEBUG]: Updated parameter [deck.bcUSD]
+2021-03-30 14:23:47,906 [DEBUG]: Updated parameter [deck.bcZRanger]
+2021-03-30 14:23:47,910 [DEBUG]: Updated parameter [deck.bcZRanger2]
+2021-03-30 14:23:47,913 [DEBUG]: Updated parameter [deck.bcDWM1000]
+2021-03-30 14:23:47,916 [DEBUG]: Updated parameter [deck.bcFlow]
+2021-03-30 14:23:47,919 [DEBUG]: Updated parameter [deck.bcFlow2]
+2021-03-30 14:23:47,922 [DEBUG]: Updated parameter [deck.bcOA]
+2021-03-30 14:23:47,925 [DEBUG]: Updated parameter [deck.bcMultiranger]
+2021-03-30 14:23:47,928 [DEBUG]: Updated parameter [deck.bdLighthouse4]
+2021-03-30 14:23:47,932 [DEBUG]: Updated parameter [ring.effect]
+2021-03-30 14:23:47,935 [DEBUG]: Updated parameter [ring.neffect]
+2021-03-30 14:23:47,938 [DEBUG]: Updated parameter [ring.solidRed]
+2021-03-30 14:23:47,941 [DEBUG]: Updated parameter [ring.solidGreen]
+2021-03-30 14:23:47,944 [DEBUG]: Updated parameter [ring.solidBlue]
+2021-03-30 14:23:47,948 [DEBUG]: Updated parameter [ring.headlightEnable]
+2021-03-30 14:23:47,951 [DEBUG]: Updated parameter [ring.glowstep]
+2021-03-30 14:23:47,955 [DEBUG]: Updated parameter [ring.emptyCharge]
+2021-03-30 14:23:47,958 [DEBUG]: Updated parameter [ring.fullCharge]
+2021-03-30 14:23:47,962 [DEBUG]: Updated parameter [ring.fadeColor]
+2021-03-30 14:23:47,965 [DEBUG]: Updated parameter [ring.fadeTime]
+2021-03-30 14:23:47,968 [DEBUG]: Updated parameter [usd.logging]
+2021-03-30 14:23:47,971 [DEBUG]: Updated parameter [loco.mode]
+2021-03-30 14:23:47,974 [DEBUG]: Updated parameter [tdoa3.logId]
+2021-03-30 14:23:47,978 [DEBUG]: Updated parameter [tdoa3.logOthrId]
+2021-03-30 14:23:47,981 [DEBUG]: Updated parameter [motion.disable]
+2021-03-30 14:23:47,985 [DEBUG]: Updated parameter [activeMarker.front]
+2021-03-30 14:23:47,988 [DEBUG]: Updated parameter [activeMarker.back]
+2021-03-30 14:23:48,001 [DEBUG]: Updated parameter [activeMarker.left]
+2021-03-30 14:23:48,004 [DEBUG]: Updated parameter [activeMarker.right]
+2021-03-30 14:23:48,009 [DEBUG]: Updated parameter [firmware.revision0]
+2021-03-30 14:23:48,011 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:48,012 [DEBUG]: Updated parameter [firmware.revision1]
+2021-03-30 14:23:48,017 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:48,018 [DEBUG]: Updated parameter [firmware.modified]
+2021-03-30 14:23:48,021 [DEBUG]: Updated parameter [kalman.resetEstimation]
+2021-03-30 14:23:48,217 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:48,417 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:48,511 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:48,616 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:48,817 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:49,010 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:49,016 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:49,216 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:49,416 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:49,511 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:49,615 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:49,815 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:50,009 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:50,015 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:50,214 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:50,414 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:50,510 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:50,615 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:50,815 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:51,009 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:51,014 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:51,213 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:51,414 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:51,510 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:51,617 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:51,813 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:52,009 [DEBUG]: dx: 999.9965600031428 dy: 999.9965600031428 dz: 999.9993039975525
+2021-03-30 14:23:52,013 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:52,212 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:52,412 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:52,516 [DEBUG]: dx: 0.28900697408244014 dy: 0.28900691447779536 dz: 0.004732104542199522
+2021-03-30 14:23:52,612 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:52,813 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:53,006 [DEBUG]: dx: 0.3463673694059253 dy: 0.3463675184175372 dz: 0.004729397711344063
+2021-03-30 14:23:53,012 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:53,212 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:53,412 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:53,506 [DEBUG]: dx: 0.4060256015509367 dy: 0.4060261081904173 dz: 0.00472877942956984
+2021-03-30 14:23:53,612 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:53,811 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:54,005 [DEBUG]: dx: 0.46798139438033104 dy: 0.4679821692407131 dz: 0.00472672819159925
+2021-03-30 14:23:54,010 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:54,211 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:54,411 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:54,506 [DEBUG]: dx: 0.5321805328130722 dy: 0.5321807116270065 dz: 0.004726240178570151
+2021-03-30 14:23:54,610 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:54,810 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:55,005 [DEBUG]: dx: 0.5986534282565117 dy: 0.5986521318554878 dz: 0.004724978236481547
+2021-03-30 14:23:55,011 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:55,210 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:55,410 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:55,504 [DEBUG]: dx: 0.6659227907657623 dy: 0.6659217476844788 dz: 0.00471937470138073
+2021-03-30 14:23:55,610 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:55,810 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:56,004 [DEBUG]: dx: 0.7368846833705902 dy: 0.7368819117546082 dz: 0.004719372373074293
+2021-03-30 14:23:56,010 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:56,209 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:56,417 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
+2021-03-30 14:23:56,503 [DEBUG]: dx: 0.810120165348053 dy: 0.8101178109645844 dz: 0.004727568943053484
+2021-03-30 14:23:56,608 [ERROR]: Exception while doing callback on port [5]
+
+Traceback (most recent call last):
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\__init__.py", line 403, in run
+    cb.callback(pk)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 602, in _new_packet_cb
+    block.unpack_log_data(logdata, timestamp)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\crazyflie\log.py", line 332, in unpack_log_data
+    self.data_received_cb.call(timestamp, ret_data, self)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\virtual env generic\lib\site-packages\cflib\utils\callbacks.py", line 55, in call
+    cb(*args)
+  File "C:\Users\Vicon-PC\Desktop\PROGETTO CRAZYFLIE\CrazyFlie-SdGN\own_module\log_estimation_manager.py", line 48, in callback
+    self._attitude_estimate[2] = data['stabilizer.yaw']
+KeyError: 'stabilizer.yaw'
+
