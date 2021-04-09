@@ -1,4 +1,6 @@
 import math
+from datetime import time
+
 import numpy as np
 
 
@@ -26,10 +28,14 @@ def quat2yaw(q):
 
 
 setpoint = (0.2, -0.1, 0.5, -90)  # Vicon
+setpoint = np.array((setpoint[0]*1000, setpoint[1]*1000, setpoint[2]*1000, setpoint[3]))
 
-V2G_tr = np.array([0.5, 0, 0, 0])
-V2G_coord = (0, 0, -0.7071067811865475, 0.7071067811865476)
-V2G_conj_coord = (0, 0, 0.7071067811865475, 0.7071067811865476)
+V2G_tr = np.array([-29.46296348,  48.21012761,  18.95172748, 0])#[0.5, 0.2, 0, 0])
+
+# V2G_coord = (0, 0, -0.7071067811865475, 0.7071067811865476)
+V2G_coord = [-0.01954052, +0.04656694,  -0.0458679,   0.9976702] # [0, 0, -0.258819, 0.9659258]
+V2G_conj_coord = [0.01954052, -0.04656694,  0.0458679,   0.9976702] #[0, 0, 0.258819, 0.9659258]
+# (0, 0, 0.7071067811865475, 0.7071067811865476)
 
 V2B_tr = np.array([setpoint[0], setpoint[1], setpoint[2], 0])
 V2B_tr_G = quaternion_product(V2G_coord,

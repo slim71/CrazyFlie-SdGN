@@ -373,3 +373,35 @@ def quaternion_rotation_matrix(quaternion):
                            [r20, r21, r22]])
 
     return rot_matrix
+
+
+def rotz(angle):
+    angle_rad = angle*math.pi/180
+    mat = np.mat([[math.cos(angle_rad), -math.sin(angle_rad), 0],
+                 [math.sin(angle_rad), math.cos(angle_rad), 0],
+                 [0, 0, 1]])
+    return mat
+
+
+def rotx(angle):
+    angle_rad = angle*math.pi/180
+    mat= np.mat([[1, 0, 0],
+                 [0, math.cos(angle_rad), -math.sin(angle_rad)],
+                 [0, math.sin(angle_rad), math.cos(angle_rad)]])
+    return mat
+
+
+def roty(angle):
+    angle_rad = angle*math.pi/180
+    mat = np.mat([[math.cos(angle_rad), 0, math.sin(angle_rad)],
+                  [0, 1, 0],
+                  [-math.sin(angle_rad), 0, math.cos(angle_rad)]])
+    return mat
+
+
+def hom_mat(rot, pos):
+    pos_col = np.array(pos, ndmin=2).T
+    mat = np.concatenate(
+        (np.concatenate((rot, pos_col), axis=1),
+         np.array([0, 0, 0, 1],ndmin=2)), axis=0)
+    return mat
