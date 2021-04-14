@@ -36,23 +36,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         # for each setpoint in sequence
         for point in to_fly:
 
-            # quat_VtoG = np.array((-initOr_V[0], -initOr_V[1],
-            #                       -initOr_V[2], initOr_V[3]))
-            # quat_VtoG_conj = np.array(initOr_V)
-            #
-            # pointPos_V = np.array((point[0], point[1], point[2], 0))
-            # Gpos_V = np.array((initPos_V[0], initPos_V[1], initPos_V[2], 0))
-            #
-            # pointPos_G = crazy.\
-            #     quat_product(quat_VtoG,
-            #                  crazy.quat_product(pointPos_V - Gpos_V,
-            #                                     quat_VtoG_conj))
-            #
-            # setpoint_G = np.array((float(pointPos_G[0]/1000),
-            #                        float(pointPos_G[1]/1000),
-            #                        float(pointPos_G[2]/1000)))
-            # totalQuat = crazy.quat_product(quat_VtoG, initOr_V)
-
             # transform the setpoint into drone initial frame
             setpoint_G, totalQuat = crazy.\
                 to_drone_global(point, crazy.yaw2quat(point[3]),
@@ -70,19 +53,23 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
             logging.debug("setpoint to send: %s2",
                           str(finalSet_G))
 
+            # send setpoint more than once to keep the drone flying
             for i in range(20):
+                # get a new frame
                 try:
                     sc_s.vicon.GetFrame()
                 except ViconDataStream.DataStreamException as exc:
                     logging.error("Error while getting a frame in the core! "
                                   "--> %s", str(exc))
 
+                # get current position and orientation in Vicon
                 sc_v.drone_pos = sc_s.vicon. \
                     GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)[0]
                 sc_v.drone_or = sc_s.vicon. \
                     GetSegmentGlobalRotationQuaternion(sc_v.drone,
                                                        sc_v.drone)[0]
 
+                # transform current pose in Drone initial frame
                 current_pos, current_quat = crazy.\
                     to_drone_global(sc_v.drone_pos, sc_v.drone_or,
                                     initPos_V, initOr_V)
@@ -97,6 +84,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                 logging.debug("current orientation quaternion: %s",
                               str(current_quat))
 
+                # send current pose and setpoint, both in Drone initial frame
                 # scf.cf.extpos.send_extpos(current_pos[0],
                 #                           current_pos[1],
                 #                           current_pos[2])

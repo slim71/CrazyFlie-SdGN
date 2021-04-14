@@ -168,3 +168,8 @@ PLAN 15/1
 23/3
 improve file print for MATLAB
 strong oscillations around setpoint if KF uses orientations
+
+------------
+1) get Drone initial in Vicon
+2) convert setpoint to Drone initial
+3) repeadetly convert current pose to Drone initial and send it to KF
