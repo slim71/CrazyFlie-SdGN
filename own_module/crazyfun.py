@@ -405,3 +405,37 @@ def hom_mat(rot, pos):
         (np.concatenate((rot, pos_col), axis=1),
          np.array([0, 0, 0, 1],ndmin=2)), axis=0)
     return mat
+
+
+def to_drone_global(position_v, orientation_v, g_pos_v, g_or_v):
+    quat_v2g = np.array((-g_or_v[0], -g_or_v[1],
+                         -g_or_v[2], g_or_v[3]))
+    quat_v2g_conj = np.array(g_or_v)
+
+    point_pos_v = np.array((position_v[0], position_v[1], position_v[2], 0))
+    g_pos_v = np.array((g_pos_v[0], g_pos_v[1], g_pos_v[2], 0))
+
+    point_pos_g = quat_product(quat_v2g,
+                               quat_product(point_pos_v - g_pos_v,
+                                            quat_v2g_conj))
+
+    setpoint_g = np.array((float(point_pos_g[0] / 1000),
+                           float(point_pos_g[1] / 1000),
+                           float(point_pos_g[2] / 1000)))
+    final_yaw = quat_product(quat_v2g, orientation_v)
+
+    return setpoint_g, final_yaw
+
+
+def yaw2quat(yaw):
+    # input yaw in degree
+    yaw = yaw*math.pi/180
+    qx, qy = 0, 0
+    qz = math.sin(yaw/2)
+    qw = math.cos(yaw/2)
+    return np.array((qx, qy, qz, qw))
+
+
+def quat2yaw(q):
+    yaw = 2 * math.acos(q[3])
+    return yaw * 180 / math.pi  # degree
