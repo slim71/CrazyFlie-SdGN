@@ -408,6 +408,20 @@ def hom_mat(rot, pos):
 
 
 def to_drone_global(position_v, orientation_v, g_pos_v, g_or_v):
+    """
+    Converts pose into Drone initial frame.
+
+    :param position_v:
+    :type position_v:
+    :param orientation_v:
+    :type orientation_v:
+    :param g_pos_v:
+    :type g_pos_v:
+    :param g_or_v:
+    :type g_or_v:
+    :return:
+    :rtype:
+    """
     quat_v2g = np.array((-g_or_v[0], -g_or_v[1],
                          -g_or_v[2], g_or_v[3]))
     quat_v2g_conj = np.array(g_or_v)
@@ -417,6 +431,40 @@ def to_drone_global(position_v, orientation_v, g_pos_v, g_or_v):
 
     point_pos_g = quat_product(quat_v2g,
                                quat_product(point_pos_v - g_pos_v,
+                                            quat_v2g_conj))
+
+    setpoint_g = np.array((float(point_pos_g[0] / 1000),
+                           float(point_pos_g[1] / 1000),
+                           float(point_pos_g[2] / 1000)))
+    final_yaw = quat_product(quat_v2g, orientation_v)
+
+    return setpoint_g, final_yaw
+
+
+def to_drone_relative(position_v, orientation_v, g_pos_v, g_or_v):
+    """
+    Converts pose into Drone initial frame.
+
+    :param position_v:
+    :type position_v:
+    :param orientation_v:
+    :type orientation_v:
+    :param g_pos_v:
+    :type g_pos_v:
+    :param g_or_v:
+    :type g_or_v:
+    :return:
+    :rtype:
+    """
+    quat_v2g = np.array((-g_or_v[0], -g_or_v[1],
+                         -g_or_v[2], g_or_v[3]))
+    quat_v2g_conj = np.array(g_or_v)
+
+    point_pos_v = np.array((position_v[0], position_v[1], position_v[2], 0))
+    g_pos_v = np.array((g_pos_v[0], g_pos_v[1], g_pos_v[2], 0))
+
+    point_pos_g = quat_product(quat_v2g,
+                               quat_product(point_pos_v,
                                             quat_v2g_conj))
 
     setpoint_g = np.array((float(point_pos_g[0] / 1000),

@@ -5,7 +5,6 @@ from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
 import script_variables as sc_v
 import script_setup as sc_s
-import sequences as seq
 from vicon_dssdk import ViconDataStream
 import numpy as np
 
@@ -30,16 +29,23 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info("Take-off!")
 
-        # Select setpoint sequence to send
-        to_fly = seq.square
+        # continuosly
+        while 1:
 
-        # for each setpoint in sequence
-        for point in to_fly:
+            # get Wand position: it'll be the setpoint
+            WandPos_V = sc_s.vicon.GetSegmentGlobalTranslation(sc_v.Wand,
+                                                               sc_v.Wand)[0]
+            WandQuat = sc_s.vicon.\
+                GetSegmentGlobalRotationQuaternion(sc_v.Wand, sc_v.Wand)[0]
 
             # transform the setpoint into drone initial frame
-            setpoint_G, totalQuat = crazy.\
-                to_drone_global(point, crazy.yaw2quat(point[3]),
-                                initPos_V, initOr_V)
+            setpoint_G, totalQuat = crazy.to_drone_global(WandPos_V, WandQuat,
+                                                          initPos_V, initOr_V)
+            # transform the setpoint relatively to the Vicon origin
+            # setpoint_G, totalQuat = crazy.to_drone_global(WandPos_V,
+            #                                               WandQuat,
+            #                                               initPos_V,
+            #                                               initOr_V)
 
             finalSet_G = np.array((setpoint_G[0],
                                    setpoint_G[1],
@@ -95,10 +101,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                            current_quat.drone_or[1],
                                            current_quat.drone_or[2],
                                            current_quat.drone_or[3])
-                scf.cf.commander.send_position_setpoint(finalSet_G[0],
-                                                        finalSet_G[1],
+                scf.cf.commander.send_position_setpoint(-finalSet_G[0],
+                                                        -finalSet_G[1],
                                                         finalSet_G[2],
-                                                        finalSet_G[3])
+                                                        0)
                 time.sleep(0.5)
 
     datalog.stop()
