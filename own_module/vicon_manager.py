@@ -3,11 +3,13 @@ import logging
 import numpy as np
 import time
 import math
+
+from own_module import converter
 from vicon_dssdk import ViconDataStream
 
 VICON_IP = "192.168.0.2"  # Set the IP of the Vicon server to connect to
 VICON_PORT = "801"  # Set the port of the Vicon server to connect to
-Drone = "Crazyflie"  # Drone "Vicon name"
+Drone = "Crazyflie2"  # Drone "Vicon name"
 Wand = "Active Wand v2 (Origin Tracking)"  # Wand "Vicon-name"
 
 FRAME_NUM = 10
@@ -16,22 +18,6 @@ FRAME_NUM = 10
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--hostname", "--" + VICON_IP + ":" + VICON_PORT)
 args = parser.parse_args()
-
-
-def quaternion_product(q0, q1):  # both Vicon and Crazy-Kalman use the form (x, y, z, w), NOT the common (w, x, y, z)
-    x0, y0, z0, w0 = q0
-    x1, y1, z1, w1 = q1
-
-    # w0, x0, y0, z0 = q0
-    # w1, x1, y1, z1 = q1
-
-    q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
-    q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
-    q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1
-    q0q1_z = w0 * z1 + x0 * y1 - y0 * x1 + z0 * w1
-
-    return q0q1_x, q0q1_y, q0q1_z, q0q1_w
-    # return q0q1_w, q0q1_x, q0q1_y, q0q1_z
 
 
 class ViconManager:
@@ -67,48 +53,19 @@ class ViconManager:
 
         self.set_reference_system()
 
-    def yaw2quat(self, yaw):  # input yaw in degree
-        yaw = yaw*math.pi/180
-        qx, qy = 0, 0
-        qz = math.sin(yaw/2)
-        qw = math.cos(yaw/2)
-        return qx, qy, qz, qw
-
-    def quat2yaw(self, q):
-        yaw = 2 * math.acos(q[3])
-        return yaw * 180 / math.pi  # return in degree
-
-    def change2G_coord(self, V2B_transl, V2B_rot, V2G_dist, V2G_rot):
-        # transpose the rotation (conjugate the quaternion) to have a coordinate transformation from V to G
-        V2G_coord = (-V2G_rot[0], -V2G_rot[1], -V2G_rot[2], V2G_rot[3])
-        V2G_coord_conj = V2G_rot
-
-        V2B_transl = np.array((V2B_transl[0], V2B_transl[1], V2B_transl[2], 0))  # get a quaternion from position vector
-        V2G_dist = np.array((V2G_dist[0], V2G_dist[1], V2G_dist[2], 0))
-        V2B_transl_G = quaternion_product(V2G_coord,
-                                          quaternion_product(V2B_transl - V2G_dist, V2G_coord_conj))
-        Btransl_G = np.array([V2B_transl_G[0], V2B_transl_G[1], V2B_transl_G[2]])
-        Btransl_G = (float(Btransl_G[0])/1000, float(Btransl_G[1])/1000, float(Btransl_G[2])/1000)
-
-        Brot_G = quaternion_product(V2G_coord, V2B_rot)  # Body rotation in Global coordinates
-        # Doubles cast to float since packets must be limited to 32bytes: now extpose will send (7 variables)x(4 bytes)
-        Brot_G = (float(Brot_G[0]), float(Brot_G[1]), float(Brot_G[2]), float(Brot_G[3]))
-        # qy is negated since (ONLY) pitch is left-handed
-        return Btransl_G, Brot_G
-
     def get_global_frame(self):
         self._client.GetFrame()
         # initial translation and rotation of Drone Global frame (i.e. body at t0) in Vicon coordinates
-        V2G_dist = np.array(self._client.GetSegmentGlobalTranslation(Drone, "Crazyflie")[0])
-        V2G_rot = np.array(self._client.GetSegmentGlobalRotationQuaternion(Drone, "Crazyflie")[0])
+        V2G_dist = np.array(self._client.GetSegmentGlobalTranslation(Drone, Drone)[0])
+        V2G_rot = np.array(self._client.GetSegmentGlobalRotationQuaternion(Drone, Drone)[0])
         return V2G_dist, V2G_rot
 
     def get_drone_pose(self, V2G_dist, V2G_rot):  # return pose wrt its global frame (ready for Kalman)
         self._client.GetFrame()
-        V2B_transl = np.array(self._client.GetSegmentGlobalTranslation(Drone, "Crazyflie")[0])
-        V2B_rot = np.array(self._client.GetSegmentGlobalRotationQuaternion(Drone, "Crazyflie")[0])
+        V2B_transl = np.array(self._client.GetSegmentGlobalTranslation(Drone, Drone)[0])
+        V2B_rot = np.array(self._client.GetSegmentGlobalRotationQuaternion(Drone, Drone)[0])
         # print("V2B_transl: ", str(V2B_transl), " V2B_rot: ", str(V2B_rot))
-        return self.change2G_coord(V2B_transl, V2B_rot, V2G_dist, V2G_rot)
+        return converter.change2G_coord(V2B_transl, V2B_rot, V2G_dist, V2G_rot)
 
     def enable_data(self):  # Enable all data types
         try:
