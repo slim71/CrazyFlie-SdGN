@@ -179,7 +179,7 @@ zlabel("z")
 
 plot3(setx_v, sety_v, setz_v, 'o', 'Color', 'b', ...
     'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
-plot3(drone_posx, drone_posy, drone_posz, '-b')
+plot3(drone_posx, drone_posy, drone_posz, '-ob')
 plot_order(setx_v, sety_v, setz_v)
 
 legend("Setpoint", "Drone position")
@@ -198,9 +198,8 @@ xlabel("x")
 ylabel("y")
 zlabel("z")
 
-plot3(setx_cf, sety_cf, setz_cf, 'o', 'Color', 'b', ...
+plot3(setx_cf(:), sety_cf(:), setz_cf(:), 'o', 'Color', 'b', ...
     'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
 plot3(int_px, int_py, int_pz, '-b')
-plot_order(setx_cf, sety_cf, setz_cf)
 legend("Setpoint", "Drone position")
 title("Crazyflie reference system")

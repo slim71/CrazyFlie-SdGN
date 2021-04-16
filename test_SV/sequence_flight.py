@@ -81,8 +81,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                                        sc_v.drone)[0]
 
                 sc_v.drone_pos = (float(sc_v.drone_pos[0] / 1000),
-                                  float(sc_v.drone_pos[0] / 1000),
-                                  float(sc_v.drone_pos[0] / 1000))
+                                  float(sc_v.drone_pos[1] / 1000),
+                                  float(sc_v.drone_pos[2] / 1000))
 
                 # transform current pose in Drone initial frame
                 current_pos, current_quat = crazy.\
