@@ -21,17 +21,27 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     # Get initial drone frame, both position and orientation, wrt Vicon frame
     initPos_V = sc_s.vicon.GetSegmentGlobalTranslation(sc_v.drone,
                                                        sc_v.drone)[0]
-    initOr_V = sc_s.vicon.GetSegmentaGlobalRotationQuaternion(sc_v.drone,
-                                                              sc_v.drone)[0]
+    initOr_V = sc_s.vicon.GetSegmentGlobalRotationQuaternion(sc_v.drone,
+                                                             sc_v.drone)[0]
 
-    logging.debug("initial position %s, initial orientation %s",
-                  str(initPos_V), str(initOr_V))
+    initPos_V = (float(initPos_V[0]/1000),
+                 float(initPos_V[1]/1000),
+                 float(initPos_V[2]/1000))
+
+    logging.debug("initial position %s", str(initPos_V))
+    logging.debug("initial orientation %s", str(initOr_V))
 
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info("Take-off!")
 
+        crazy.matlab_print("% SQUARE")
+        crazy.matlab_print("% x y z  "
+                           "qx qy qz qw "
+                           "setx_v sety_v setz_v"
+                           "setx_cf sety_cf setz_cf")
+
         # Select setpoint sequence to send
-        to_fly = seq.square
+        to_fly = seq.triangle
 
         # for each setpoint in sequence
         for point in to_fly:
@@ -46,11 +56,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                    setpoint_G[2],
                                    crazy.quat2yaw(totalQuat)))
 
+            logging.debug("original setpoint: %s", str(point))
             logging.debug("setpoint position in drone initial frame: %s",
-                          str(setpoint_G[:2]))
+                          str(setpoint_G[:3]))
             logging.debug("total orientation quaternion: %s",
                           str(totalQuat))
-            logging.debug("setpoint to send: %s2",
+            logging.debug("setpoint to send: %s",
                           str(finalSet_G))
 
             # send setpoint more than once to keep the drone flying
@@ -69,6 +80,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                     GetSegmentGlobalRotationQuaternion(sc_v.drone,
                                                        sc_v.drone)[0]
 
+                sc_v.drone_pos = (float(sc_v.drone_pos[0] / 1000),
+                                  float(sc_v.drone_pos[0] / 1000),
+                                  float(sc_v.drone_pos[0] / 1000))
+
                 # transform current pose in Drone initial frame
                 current_pos, current_quat = crazy.\
                     to_drone_global(sc_v.drone_pos, sc_v.drone_or,
@@ -81,7 +96,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
                 logging.debug("current position in drone initial frame: %s",
                               str(current_pos))
-                logging.debug("current orientation quaternion: %s",
+                logging.debug("current orientation quaternion: %s \n",
                               str(current_quat))
 
                 # send current pose and setpoint, both in Drone initial frame
@@ -91,14 +106,20 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                 scf.cf.extpos.send_extpose(current_pos[0],
                                            current_pos[1],
                                            current_pos[2],
-                                           current_quat.drone_or[0],
-                                           current_quat.drone_or[1],
-                                           current_quat.drone_or[2],
-                                           current_quat.drone_or[3])
+                                           current_quat[0],
+                                           current_quat[1],
+                                           current_quat[2],
+                                           current_quat[3])
                 scf.cf.commander.send_position_setpoint(finalSet_G[0],
                                                         finalSet_G[1],
                                                         finalSet_G[2],
-                                                        finalSet_G[3])
-                time.sleep(0.5)
+                                                        0)
+                time.sleep(0.1)
+                crazy.matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1],
+                                   sc_v.drone_pos[2],
+                                   sc_v.drone_or[0], sc_v.drone_or[1],
+                                   sc_v.drone_or[2], sc_v.drone_or[2],
+                                   point[0], point[1], point[2],
+                                   finalSet_G[0], finalSet_G[1], finalSet_G[2])
 
     datalog.stop()

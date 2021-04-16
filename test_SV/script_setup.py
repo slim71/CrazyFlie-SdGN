@@ -81,8 +81,8 @@ except ViconDataStream.DataStreamException as exc:
 logging.info("Getting a frame in PreFetch mode...")
 try:
     vicon.SetStreamMode(ViconDataStream.Client.StreamMode.EClientPullPreFetch)
-    logging.debug("Fetched! Pulled frame number: %d" if vicon.GetFrame()
-                  else "Vicon is not streaming!", vicon.GetFrameNumber())
+    logging.debug("Fetched! Pulled frame number: %s" if vicon.GetFrame()
+                  else "Vicon is not streaming!", str(vicon.GetFrameNumber()))
 except ViconDataStream.DataStreamException as exc:
     logging.error("Error using ClientPreFetch mode. --> %s", exc)
 # "ServerPush": the servers pushes frames to the client, best for latency,

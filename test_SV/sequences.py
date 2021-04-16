@@ -3,11 +3,16 @@
 
 from test_SV import script_variables as sc_v
 
+test = [
+    (0, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (0.3, 0.3, sc_v.DEFAULT_HEIGHT, 0)
+]
+
 line = [
     (0, 0, sc_v.DEFAULT_HEIGHT, 0),
-    (0.5, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (0.3, 0, sc_v.DEFAULT_HEIGHT, 0),
     (0, 0, sc_v.DEFAULT_HEIGHT, 0),
-    (-0.5, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (-0.3, 0, sc_v.DEFAULT_HEIGHT, 0),
 ]
 
 square = [
