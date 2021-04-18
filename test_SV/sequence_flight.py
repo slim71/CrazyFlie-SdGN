@@ -1,3 +1,4 @@
+import datetime
 import logging
 import time
 from own_module import crazyfun as crazy
@@ -11,7 +12,8 @@ import numpy as np
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
-    crazy.wait_for_position_estimator(scf)
+    crazy.reset_estimator(scf)
+    # crazy.wait_for_position_estimator(scf)
 
     datalog = crazy.datalog(scf)
     datalog.start()
@@ -34,17 +36,15 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     with MotionCommander(scf, sc_v.DEFAULT_HEIGHT) as mc:
         logging.info("Take-off!")
 
-        crazy.matlab_print("% SQUARE")
+        # crazy.matlab_print("% SQUARE")
         crazy.matlab_print("% x y z  "
                            "qx qy qz qw "
                            "setx_v sety_v setz_v"
-                           "setx_cf sety_cf setz_cf")
-
-        # Select setpoint sequence to send
-        to_fly = seq.triangle
+                           "setx_cf sety_cf setz_cf"
+                           "timestamp")
 
         # for each setpoint in sequence
-        for point in to_fly:
+        for point in seq.triangle:
 
             # transform the setpoint into drone initial frame
             setpoint_G, totalQuat = crazy.\
@@ -65,7 +65,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                           str(finalSet_G))
 
             # send setpoint more than once to keep the drone flying
-            for i in range(20):
+            for i in range(50):
                 # get a new frame
                 try:
                     sc_s.vicon.GetFrame()
