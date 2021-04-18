@@ -3,7 +3,7 @@
 from __future__ import print_function
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from cflib.crazyflie.syncLogger import SyncLogger
 from cflib.crazyflie.log import LogConfig
@@ -87,12 +87,22 @@ def config_logging(sync_crazyflie):
     return log_stab
 
 
+def datetime2matlabdn(dt):
+    mdn = dt + timedelta(days=366)
+    frac_seconds = (dt-datetime(dt.year, dt.month, dt.day, 0, 0, 0)).seconds /\
+                   (24.0 * 60.0 * 60.0)
+    frac_microseconds = dt.microsecond / (24.0 * 60.0 * 60.0 * 1000000.0)
+    return mdn.toordinal() + frac_seconds + frac_microseconds
+
+
 def matlab_print(*args):
     # can use a \n as argument to get a newline
     # Create a string with all data passed to the function
     s = ""
     for arg in args:
         s = s + "{} ".format(str(arg))
+
+    s = s + " {}".format(str(datetime2matlabdn(datetime.now())))
 
     file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
@@ -130,7 +140,8 @@ def print_callback(timestamp, data, log_conf):
         pitch = data['stabilizer.pitch']
         yaw = data['stabilizer.yaw']
 
-        print(pos_x, pos_y, pos_z, roll, pitch, yaw, file=descriptor)
+        print(pos_x, pos_y, pos_z, roll, pitch, yaw,
+              str(datetime2matlabdn(datetime.now())), file=descriptor)
 
 
 def data_log_async(sync_crazyflie, log_conf):
@@ -170,6 +181,14 @@ def datalog(sync_crazyflie):
     data_log_async(sync_crazyflie, measure_log)
 
     return measure_log
+
+
+def reset_estimator(scf):
+    cf = scf.cf
+    cf.param.set_value('kalman.resetEstimation', '1')
+    time.sleep(0.1)
+
+    wait_for_position_estimator(cf)
 
 
 def wait_for_position_estimator(scf):

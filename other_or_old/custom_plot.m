@@ -1,6 +1,6 @@
 %% File loading
-internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1805.txt";
-custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1805.txt";
+internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1803.txt";
+custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1803.txt";
 
 internal_data = importdata(internal);
 custom_data = importdata(custom).data;
@@ -22,6 +22,7 @@ setz_v = custom_data(:,10);             % /
 setx_cf = custom_data(:,11);            % \
 sety_cf = custom_data(:,12);            %  |-> setpoint coordinates in Crazyflie reference system
 setz_cf = custom_data(:,13);            % /
+cust_time = datestr(datenum(custom_data(:,end)), 'YYYY-mm-DD hh:MM:ss.fff');
 
 int_px = internal_data(:,1);            % \
 int_py = internal_data(:,2);            %  |-> internal estimate of drone position
@@ -29,6 +30,7 @@ int_pz = internal_data(:,3);            % /
 int_roll = internal_data(:,4);          % \
 int_pitch = internal_data(:,5);         % |-> internal estimate of drone attitude
 int_yaw = internal_data(:,6);           % /
+int_time = datestr(datenum(internal_data(:,end)), 'YYYY-mm-DD hh:MM:ss.fff');
 
 %% Analysis
 % MATLAB uses q = [w x y z]
@@ -121,19 +123,19 @@ end
 subplot(3,1,1)
 hold on
 grid on
-plot(setx_v)
+plot(setx_v, 'o-')
 title("X coordinates")
 
 subplot(3,1,2)
 hold on
 grid on
-plot(setx_v)
+plot(setx_v, 'o-')
 title("Y coordinates")
 
 subplot(3,1,3)
 hold on
 grid on
-plot(setz_v)
+plot(setz_v, 'o-')
 title("Z coordinates")
 
 %% Setpoint visualization in Crazyflie reference system
@@ -200,7 +202,7 @@ zlabel("z")
 
 plot3(setx_cf, sety_cf, setz_cf, 'o', 'Color', 'b', ...
     'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
-plot3(int_px, int_py, int_pz, '-b')
+plot3(int_px, int_py, int_pz, '--k')
 plot_order(setx_cf, sety_cf, setz_cf)
 legend("Setpoint", "Drone position")
 title("Crazyflie reference system")
