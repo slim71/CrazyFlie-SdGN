@@ -1,6 +1,6 @@
 %% File loading
-internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1803.txt";
-custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1803.txt";
+internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1802.txt";
+custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1802.txt";
 
 internal_data = importdata(internal);
 custom_data = importdata(custom).data;
@@ -53,12 +53,14 @@ if exist('figure2') == 0  %#ok<*EXIST>
 else
     figure2()
 end
-
+% dates = '2017-02-28 21:36:51';
 subplot(3,1,1)
 hold on
 grid on
-plot(vicon_euler(:,1),'r')
+plot(dates, vicon_euler(:,1),'r')
 plot(crazy_euler(:,1),'b')
+ylabel("degree [°]")
+% set(gca,'xticklabel',cust_time, 'xticklabelrotation', 90)
 legend('Vicon', 'Estimate')
 title("Roll")
 
@@ -67,6 +69,7 @@ hold on
 grid on
 plot(vicon_euler(:,2),'r')
 plot(crazy_euler(:,2),'b')
+xlabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Pitch")
 
@@ -75,6 +78,7 @@ hold on
 grid on
 plot(vicon_euler(:,3),'r')
 plot(crazy_euler(:,3),'b')
+xlabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Yaw")
 
