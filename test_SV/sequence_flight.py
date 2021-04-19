@@ -1,4 +1,3 @@
-import datetime
 import logging
 import time
 from own_module import crazyfun as crazy

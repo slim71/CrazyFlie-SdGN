@@ -22,7 +22,7 @@ setz_v = custom_data(:,10);             % /
 setx_cf = custom_data(:,11);            % \
 sety_cf = custom_data(:,12);            %  |-> setpoint coordinates in Crazyflie reference system
 setz_cf = custom_data(:,13);            % /
-cust_time = datestr(datenum(custom_data(:,end)), 'YYYY-mm-DD hh:MM:ss.fff');
+cust_time = datetime(custom_data(:,end), 'ConvertFrom', 'datenum');
 
 int_px = internal_data(:,1);            % \
 int_py = internal_data(:,2);            %  |-> internal estimate of drone position
@@ -30,7 +30,7 @@ int_pz = internal_data(:,3);            % /
 int_roll = internal_data(:,4);          % \
 int_pitch = internal_data(:,5);         % |-> internal estimate of drone attitude
 int_yaw = internal_data(:,6);           % /
-int_time = datestr(datenum(internal_data(:,end)), 'YYYY-mm-DD hh:MM:ss.fff');
+int_time = datetime(internal_data(:,end), 'ConvertFrom', 'datenum');
 
 %% Analysis
 % MATLAB uses q = [w x y z]
@@ -53,22 +53,21 @@ if exist('figure2') == 0  %#ok<*EXIST>
 else
     figure2()
 end
-% dates = '2017-02-28 21:36:51';
+
 subplot(3,1,1)
 hold on
 grid on
-plot(dates, vicon_euler(:,1),'r')
-plot(crazy_euler(:,1),'b')
+plot(cust_time, vicon_euler(:,1),'r')
+plot(int_time, crazy_euler(:,1),'b')
 ylabel("degree [°]")
-% set(gca,'xticklabel',cust_time, 'xticklabelrotation', 90)
 legend('Vicon', 'Estimate')
 title("Roll")
 
 subplot(3,1,2)
 hold on
 grid on
-plot(vicon_euler(:,2),'r')
-plot(crazy_euler(:,2),'b')
+plot(cust_time, vicon_euler(:,2),'r')
+plot(int_time, crazy_euler(:,2),'b')
 xlabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Pitch")
@@ -76,8 +75,8 @@ title("Pitch")
 subplot(3,1,3)
 hold on
 grid on
-plot(vicon_euler(:,3),'r')
-plot(crazy_euler(:,3),'b')
+plot(cust_time, vicon_euler(:,3),'r')
+plot(int_time, crazy_euler(:,3),'b')
 xlabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Yaw")
@@ -95,24 +94,27 @@ end
 subplot(3,1,1)
 hold on
 grid on
-plot(drone_posx,'r')
-plot(int_px,'b')
+plot(cust_time, drone_posx,'r')
+plot(int_time, int_px,'b')
+ylabel("meter [m]")
 legend('Vicon', 'Estimate')
 title("X coordinates")
 
 subplot(3,1,2)
 hold on
 grid on
-plot(drone_posy,'r')
-plot(int_py,'b')
+plot(cust_time, drone_posy,'r')
+plot(int_time, int_py,'b')
+ylabel("meter [m]")
 legend('Vicon', 'Estimate')
 title("Y coordinates")
 
 subplot(3,1,3)
 hold on
 grid on
-plot(drone_posz,'r')
-plot(int_pz,'b')
+plot(cust_time, drone_posz,'r')
+plot(int_time, int_pz,'b')
+ylabel("meter [m]")
 legend('Vicon', 'Estimate')
 title("Z coordinates")
 
