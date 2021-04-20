@@ -1,9 +1,9 @@
 %% File loading
-internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1802.txt";
-custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1802.txt";
+internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1804.txt";
+custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1804.txt";
 
 internal_data = importdata(internal);
-custom_data = importdata(custom).data;
+custom_data = importdata(custom).data; % TODO: check if struct?
 
 %% Data extraction
 % Extracted data                        Variables meaning 
@@ -49,9 +49,9 @@ crazy_quat = eul2quat(crazy_euler, 'ZYX');
 % Vicon-captured angles
 
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "Comparison between Euler angles")
 else
-    figure2()
+    figure2('name', "Comparison between Euler angles")
 end
 
 subplot(3,1,1)
@@ -68,7 +68,7 @@ hold on
 grid on
 plot(cust_time, vicon_euler(:,2),'r')
 plot(int_time, crazy_euler(:,2),'b')
-xlabel("degree [°]")
+ylabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Pitch")
 
@@ -77,7 +77,7 @@ hold on
 grid on
 plot(cust_time, vicon_euler(:,3),'r')
 plot(int_time, crazy_euler(:,3),'b')
-xlabel("degree [°]")
+ylabel("degree [°]")
 legend('Vicon', 'Estimate')
 title("Yaw")
 
@@ -86,9 +86,9 @@ title("Yaw")
 % Vicon-captured position
 
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "Comparison between positions")
 else
-    figure2()
+    figure2('name', "Comparison between positions")
 end
 
 subplot(3,1,1)
@@ -121,69 +121,69 @@ title("Z coordinates")
 %% Setpoint visualization in Vicon reference system
 
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "Setpoint visualization in Vicon reference system")
 else
-    figure2()
+    figure2('name', "Setpoint visualization in Vicon reference system")
 end
 
 subplot(3,1,1)
 hold on
 grid on
-plot(setx_v, 'o-')
+plot(cust_time, setx_v, 'o-')
 title("X coordinates")
 
 subplot(3,1,2)
 hold on
 grid on
-plot(setx_v, 'o-')
+plot(cust_time, setx_v, 'o-')
 title("Y coordinates")
 
 subplot(3,1,3)
 hold on
 grid on
-plot(setz_v, 'o-')
+plot(cust_time, setz_v, 'o-')
 title("Z coordinates")
 
 %% Setpoint visualization in Crazyflie reference system
 
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "Setpoint visualization in Crazyflie reference system")
 else
-    figure2()
+    figure2('name', "Setpoint visualization in Crazyflie reference system")
 end
 
 subplot(3,1,1)
 hold on
 grid on
-plot(setx_cf)
+plot(int_time, setx_cf, 'o')
 title("X coordinates")
 
 subplot(3,1,2)
 hold on
 grid on
-plot(setx_cf)
+plot(int_time, setx_cf, 'o')
 title("Y coordinates")
 
 subplot(3,1,3)
 hold on
 grid on
-plot(setz_cf)
+plot(int_time, setz_cf, 'o')
 title("Z coordinates")
 
-%% 3D visualization
+%% 3D visualization in Vicon reference system
 
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "3D visualization in Vicon reference system")
 else
-    figure2()
+    figure2('name', "3D visualization in Vicon reference system")
 end
 
 hold on
 grid on
 view(10,45)
-xlabel("x")
-ylabel("y")
-zlabel("z")
+xlabel("Vicon x axis [m]")
+ylabel("Vicon y axis [m]")
+zlabel("Vicon z axis [m]")
 
 plot3(setx_v, sety_v, setz_v, 'o', 'Color', 'b', ...
     'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
@@ -193,10 +193,12 @@ plot_order(setx_v, sety_v, setz_v)
 legend("Setpoint", "Drone position")
 title("Vicon reference system")
 
+%% 3D visualization in Vicon reference system
+
 if exist('figure2') == 0  %#ok<*EXIST>
-    figure()
+    figure('name', "3D visualization in Vicon reference system")
 else
-    figure2()
+    figure2('name', "3D visualization in Vicon reference system")
 end
 
 hold on
@@ -210,5 +212,6 @@ plot3(setx_cf, sety_cf, setz_cf, 'o', 'Color', 'b', ...
     'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
 plot3(int_px, int_py, int_pz, '--k')
 plot_order(setx_cf, sety_cf, setz_cf)
+extremities(int_px, int_py, int_pz)
 legend("Setpoint", "Drone position")
 title("Crazyflie reference system")
