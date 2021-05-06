@@ -63,9 +63,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                        sc_v.drone_or[1],
                                        sc_v.drone_or[2],
                                        sc_v.drone_or[3])
-            pc.got_to(sc_v.drone_pos[0],
-                      sc_v.drone_pos[1],
-                      sc_v.drone_pos[2])
+            # pc.go_to(sc_v.drone_pos[0],
+            #           sc_v.drone_pos[1],
+            #           sc_v.drone_pos[2])
+            pc.go_to(point[0], point[1], point[2])
 
             crazy.matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1],
                                sc_v.drone_pos[2],
