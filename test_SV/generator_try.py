@@ -1,9 +1,7 @@
 import time
 import threading
-import numpy as np
 import datetime
 
-# global count
 count = 0
 
 
@@ -30,7 +28,7 @@ def attempt(vector, string):
     print(str(datetime.datetime.now()))
 
 
-with open("high_level.py", 'r') as ff:
+with open("HL_withConversion_WRONG.py", 'r') as ff:
     repeat_thread = threading.Thread(target=repeat_fun,
                                      args=(0.1,
                                            attempt,

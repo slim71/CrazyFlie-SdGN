@@ -2,7 +2,7 @@ import logging
 import time
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.motion_commander import MotionCommander
-import test_SV.script_variables as sc_v
+import own_module.script_variables as sc_v
 import script_setup as sc_s
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:

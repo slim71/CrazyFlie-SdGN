@@ -9,8 +9,6 @@ from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from own_module.log_estimation_manager import LogEstimationManager
 from own_module.vicon_manager import ViconManager
 from own_module import crazyfun as crazy
-import math
-from test_SV import sequences as seq
 from own_module import converter
 
 

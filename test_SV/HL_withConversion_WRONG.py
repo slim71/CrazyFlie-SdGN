@@ -1,11 +1,9 @@
 import logging
 import time
 from cflib.positioning.position_hl_commander import PositionHlCommander
-from own_module import crazyfun as crazy
+from own_module import crazyfun as crazy, script_setup as sc_s, \
+    script_variables as sc_v, sequences as seq
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
-import script_variables as sc_v
-import script_setup as sc_s
-import sequences as seq
 from vicon_dssdk import ViconDataStream
 import numpy as np
 

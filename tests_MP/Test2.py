@@ -5,9 +5,7 @@ import os
 import time
 from datetime import datetime
 from pathlib import Path
-from own_module import crazyfun as crazy
-import numpy as np
-from test_SV import sequences as seq
+from own_module import sequences as seq
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 
 from own_module.log_estimation_manager import LogEstimationManager

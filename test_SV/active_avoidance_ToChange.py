@@ -2,13 +2,11 @@ import time
 import math
 from vicon_dssdk import ViconDataStream
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
-from cflib.crazyflie.log import LogConfig
 from cflib.positioning.motion_commander import MotionCommander
 import numpy as np
 import logging
-import script_variables as sc_v
-import script_setup as sc_s
-from own_module import crazyfun as crazy
+from own_module import crazyfun as crazy, script_setup as sc_s, \
+    script_variables as sc_v
 
 safety_threshold = 10  # cm
 tv_prec = []

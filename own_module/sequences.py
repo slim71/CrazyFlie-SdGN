@@ -1,7 +1,4 @@
-# These are in the Crazyflie frame, which happens to be set as the body frame
-# of the drone when initiating before take-off
-
-from test_SV import script_variables as sc_v
+from own_module import script_variables as sc_v
 
 test = [
     (0, 0, sc_v.DEFAULT_HEIGHT, 0),

@@ -2,10 +2,9 @@ import logging
 import threading
 import time
 from cflib.positioning.position_hl_commander import PositionHlCommander
-from own_module import crazyfun as crazy
+from own_module import crazyfun as crazy, script_setup as sc_s, \
+    script_variables as sc_v
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
-import script_variables as sc_v
-import script_setup as sc_s
 from vicon_dssdk import ViconDataStream
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
