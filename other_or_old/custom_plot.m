@@ -1,21 +1,25 @@
 %% File loading
-internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\sequence_flight__20210415_1804.txt";
-custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\sequence_flight__20210415_1804.txt";
+internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\high_simple__20210506_1116.txt";
+custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\high_simple__20210506_1116.txt";
 
 internal_data = importdata(internal);
-custom_data = importdata(custom).data; % TODO: check if struct?
+raw_data = importdata(custom);
+
+if isstruct(raw_data)
+    custom_data = raw_data.data;
+else
+    custom_data = raw_data;
+end
 
 %% Data extraction
 % Extracted data                        Variables meaning 
 drone_posx = custom_data(:,1);          % \
 drone_posy = custom_data(:,2);          %  |-> drone position from Vicon, in Vicon frame [m]
 drone_posz = custom_data(:,3);          % /
-% is_pos_blocked = custom_data(:,4);      % flag passed from the Vicon tracker
 drone_quatx = custom_data(:,4);         %  \
 drone_quaty = custom_data(:,5);         %   |-> drone orientation through quaternions from Vicon 
 drone_quatz = custom_data(:,6);         %  /
 drone_quatw = custom_data(:,7);         % /
-% is_or_blocked = custom_data(:,9);       % flag passed from the Vicon tracker
 setx_v = custom_data(:,8);             % \
 sety_v = custom_data(:,9);             %  |-> setpoint coordinates in Vicon reference system
 setz_v = custom_data(:,10);             % /

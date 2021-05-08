@@ -1,16 +1,20 @@
 # Module containing all the function used in the Crazyflie project
 
 from __future__ import print_function
+import __main__
 import logging
 import os
+import math
+import numpy as np
+import time
 from datetime import datetime, timedelta
+from timeit import default_timer as timer
 from pathlib import Path
 from cflib.crazyflie.syncLogger import SyncLogger
 from cflib.crazyflie.log import LogConfig
-import numpy as np
-import math
-import time
-import __main__
+from vicon_dssdk import ViconDataStream
+import script_variables as sc_v
+import script_setup as sc_s
 
 log_pos_x = 0
 log_pos_y = 0
@@ -98,19 +102,28 @@ def datetime2matlabdn(dt):
 def matlab_print(*args):
     # can use a \n as argument to get a newline
     # Create a string with all data passed to the function
+    setpoint_flag = 0
     s = ""
     for arg in args:
-        s = s + "{} ".format(str(arg))
+        if arg == "setpoint":
+            setpoint_flag = 1
+        else:
+            s = s + "{} ".format(str(arg))
 
     s = s + " {}".format(str(datetime2matlabdn(datetime.now())))
 
     file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
-    mat_file = "../matlab_logs/" + file_name \
-               + datetime.now().strftime("__%Y%m%d_%H%M")
+    if setpoint_flag:
+        mat_file = "../setpoint_logs/" + file_name \
+                   + datetime.now().strftime("__%Y%m%d_%H%M")
+    else:
+        mat_file = "../matlab_logs/" + file_name \
+                   + datetime.now().strftime("__%Y%m%d_%H%M")
     mat_file = mat_file + ".txt"
     ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
                                        mat_file))
+    # TODO: how to have proper file usage?
     with open(ff, 'a') as descriptor:
         print(s, file=descriptor)
 
@@ -523,17 +536,35 @@ def repeat_fun(period, func, *args):
         func(*args)
 
 
-def est_sending(sync_cf, position, orientation):
-    # if at least a coordinate is not 0.0, which means we've got a
-    # position estimate from Vicon
-    if any(position):
-        sync_cf.cf.extpos.send_extpose(position[0],
-                                       position[1],
-                                       position[2],
-                                       orientation[0],
-                                       orientation[1],
-                                       orientation[2],
-                                       orientation[3])
-        logging.debug("sent pose: ", str(position), str(orientation))
-    else:
-        logging.debug("position was null: pose not sent")
+def pose_sending(sync_cf):
+    start = timer()
+    try:
+        sc_s.vicon.GetFrame()
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error while getting a frame in the core! "
+                      "--> %s", str(exc))
+
+    # get current position and orientation in Vicon
+    sc_v.drone_pos = sc_s.vicon. \
+        GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)[0]
+    sc_v.drone_or = sc_s.vicon. \
+        GetSegmentGlobalRotationQuaternion(sc_v.drone,
+                                           sc_v.drone)[0]
+
+    sc_v.drone_pos = (float(sc_v.drone_pos[0] / 1000),
+                      float(sc_v.drone_pos[1] / 1000),
+                      float(sc_v.drone_pos[2] / 1000))
+
+    sync_cf.cf.extpos.send_extpose(sc_v.drone_pos[0], sc_v.drone_pos[1],
+                                   sc_v.drone_pos[2],
+                                   sc_v.drone_or[0], sc_v.drone_or[1],
+                                   sc_v.drone_or[2], sc_v.drone_or[3])
+
+    logging.debug("sent pose: ", str(sc_v.drone_pos), str(sc_v.drone_or))
+
+    matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1], sc_v.drone_pos[2],
+                 sc_v.drone_or[0], sc_v.drone_or[1],
+                 sc_v.drone_or[2], sc_v.drone_or[2])
+
+    end = timer()
+    logging.debug("elapsed time: ", end-start)
