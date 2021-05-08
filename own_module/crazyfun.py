@@ -508,3 +508,32 @@ def yaw2quat(yaw):
 def quat2yaw(q):
     yaw = 2 * math.acos(q[3])
     return yaw * 180 / math.pi  # degree
+
+
+def repeat_fun(period, func, *args):
+    def time_tick():
+        t = time.time()
+        while True:
+            t += period
+            yield max(t - time.time(), 0)
+
+    tick = time_tick()
+    while True:
+        time.sleep(next(tick))
+        func(*args)
+
+
+def est_sending(sync_cf, position, orientation):
+    # if at least a coordinate is not 0.0, which means we've got a
+    # position estimate from Vicon
+    if any(position):
+        sync_cf.cf.extpos.send_extpose(position[0],
+                                       position[1],
+                                       position[2],
+                                       orientation[0],
+                                       orientation[1],
+                                       orientation[2],
+                                       orientation[3])
+        logging.debug("sent pose: ", str(position), str(orientation))
+    else:
+        logging.debug("position was null: pose not sent")
