@@ -1,11 +1,11 @@
 import logging
+import threading
 import time
 from cflib.positioning.position_hl_commander import PositionHlCommander
 from own_module import crazyfun as crazy
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 import script_variables as sc_v
 import script_setup as sc_s
-import sequences as seq
 from vicon_dssdk import ViconDataStream
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
@@ -18,6 +18,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     datalog.start()
 
     time.sleep(0.5)
+
+    est_thread = threading.Thread(target=crazy.repeat_fun,
+                                  args=(0.1,
+                                        crazy.est_sending,
+                                        scf, sc_v.drone_pos, sc_v.drone_or)
+                                  )
 
     with PositionHlCommander(
             scf,
