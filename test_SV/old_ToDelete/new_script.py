@@ -70,7 +70,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                               sc_v.CONSEC_LOSSES)
 
                 # Should apply the homogeneous matrix, but it's null anyway
-                sc_v.Wand_Translation = np.array([0, 0, 0])
+                sc_v.wand_trans = np.array([0, 0, 0])
                 sc_v.last_wand_pos = sc_v.wand_pos_m
 
                 if sc_v.CONSEC_LOSSES == crazy.MAX_LOSS:
@@ -132,7 +132,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                 last_wp = sc_v.last_wand_pos
 
                 sc_v.last_wand_pos = sc_v.wand_pos_m
-                sc_v.last_drone_ref += sc_v.Wand_Translation
+                sc_v.last_drone_ref += sc_v.wand_trans
                 sc_v.last_drone_pos = sc_v.drone_pos_m
 
             logging.info("Printing available data...")
@@ -140,8 +140,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
                           str(sc_v.wand_pos_m))
             logging.debug("Wand last position (in Vicon system): %s",
                           str(last_wp))
-            logging.debug("Wand_Translation (in Vicon system): %s",
-                          str(sc_v.Wand_Translation))
+            logging.debug("wand_trans (in Vicon system): %s",
+                          str(sc_v.wand_trans))
             logging.debug("Drone current position (in Vicon system): %s",
                           str(sc_v.drone_pos_m))
             logging.debug("Drone last position (in Vicon system): %s",
