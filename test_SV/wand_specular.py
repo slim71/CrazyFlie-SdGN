@@ -1,27 +1,28 @@
 import logging
 import threading
 import time
+from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.position_hl_commander import PositionHlCommander
 from own_module import crazyfun as crazy, script_setup as sc_s, \
     script_variables as sc_v
-from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
-from vicon_dssdk import ViconDataStream
+
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
     scf.cf.param.set_value('commander.enHighLevel', '1')
+
     crazy.reset_estimator(scf)
-    # crazy.wait_for_position_estimator(scf)
+    crazy.wait_for_position_estimator(scf)
 
     datalog = crazy.datalog(scf)
     datalog.start()
 
     time.sleep(0.5)
 
+    crazy.matlab_print("% x y z qx qy qz qw")
+
     est_thread = threading.Thread(target=crazy.repeat_fun,
-                                  args=(0.1,
-                                        crazy.est_sending,
-                                        scf, sc_v.drone_pos, sc_v.drone_or)
+                                  args=(0.1, crazy.pose_sending, scf)
                                   )
 
     with PositionHlCommander(
@@ -33,51 +34,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
         logging.info("Take-off!")
 
-        # crazy.matlab_print("% SQUARE")
-        crazy.matlab_print("% x y z  "
-                           "qx qy qz qw")
-
         while 1:
-
-            # get a new frame
-            try:
-                sc_s.vicon.GetFrame()
-            except ViconDataStream.DataStreamException as exc:
-                logging.error("Error while getting a frame in the core! "
-                              "--> %s", str(exc))
-
-            # get current position and orientation in Vicon
-            sc_v.drone_pos = sc_s.vicon. \
-                GetSegmentGlobalTranslation(sc_v.drone, sc_v.drone)[0]
-            sc_v.drone_or = sc_s.vicon. \
-                GetSegmentGlobalRotationQuaternion(sc_v.drone,
-                                                   sc_v.drone)[0]
-
-            sc_v.drone_pos = (float(sc_v.drone_pos[0] / 1000),
-                              float(sc_v.drone_pos[1] / 1000),
-                              float(sc_v.drone_pos[2] / 1000))
-
-            scf.cf.extpos.send_extpose(sc_v.drone_pos[0],
-                                       sc_v.drone_pos[1],
-                                       sc_v.drone_pos[2],
-                                       sc_v.drone_or[0],
-                                       sc_v.drone_or[1],
-                                       sc_v.drone_or[2],
-                                       sc_v.drone_or[3])
-
-            sc_v.wand_pos = sc_s.vicon. \
+            # new frame not needed since the other thread gets one every 0.1s?
+            sc_v.wand_pos = sc_s.vicon.\
                 GetSegmentGlobalTranslation(sc_v.Wand, sc_v.Wand)[0]
             sc_v.wand_pos_m = (float(sc_v.wand_pos[0] / 1000),
                                float(sc_v.wand_pos[1] / 1000),
                                float(sc_v.wand_pos[2] / 1000))
 
-            pc.go_to(-sc_v.Wand_Translation[0],
-                     -sc_v.Wand_Translation[1],
-                     sc_v.Wand_Translation[2])
+            pc.go_to(-sc_v.wand_trans[0],
+                     -sc_v.wand_trans[1],
+                     sc_v.wand_trans[2])
 
-            crazy.matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1],
-                               sc_v.drone_pos[2],
-                               sc_v.drone_or[0], sc_v.drone_or[1],
-                               sc_v.drone_or[2], sc_v.drone_or[2])
-
+    # unreachable due to the while, but left out for completeness
     datalog.stop()

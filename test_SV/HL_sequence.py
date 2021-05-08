@@ -50,6 +50,10 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                               float(sc_v.drone_pos[1] / 1000),
                               float(sc_v.drone_pos[2] / 1000))
 
+            # send current pose and setpoint, both in Drone initial frame
+            # scf.cf.extpos.send_extpos(current_pos[0],
+            #                           current_pos[1],
+            #                           current_pos[2])
             scf.cf.extpos.send_extpose(sc_v.drone_pos[0],
                                        sc_v.drone_pos[1],
                                        sc_v.drone_pos[2],
@@ -57,7 +61,9 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                        sc_v.drone_or[1],
                                        sc_v.drone_or[2],
                                        sc_v.drone_or[3])
-
+            # pc.go_to(sc_v.drone_pos[0],
+            #           sc_v.drone_pos[1],
+            #           sc_v.drone_pos[2])
             pc.go_to(point[0], point[1], point[2])
 
             crazy.matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1],

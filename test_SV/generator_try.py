@@ -1,6 +1,7 @@
 import time
 import threading
 import datetime
+from timeit import default_timer as timer
 
 count = 0
 
@@ -19,6 +20,7 @@ def repeat_fun(period, func, *args):
 
 
 def attempt(vector, string):
+    start = timer()
     global count
     print("the vector is ", str(vector))
     count += 1
@@ -26,6 +28,8 @@ def attempt(vector, string):
     print("the string is ", string)
     print("count = ", count)
     print(str(datetime.datetime.now()))
+    end = timer()
+    print("elapsed time: ", end - start)
 
 
 with open("HL_withConversion_WRONG.py", 'r') as ff:
