@@ -1,6 +1,6 @@
 pyusb>=1.0.0b2
 
-cflib~=0.1.12.1
+cflib>=0.1.15
 numpy~=1.19.3
 setuptools~=50.3.2
 enum34~=1.1.10

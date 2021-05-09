@@ -27,3 +27,9 @@ without the flowdeck the internal estimator does not converge,
 even when manually selecting kalaman
 
 EKF already reset at takeoff
+
+PositionHLCommander seems to be the best go-to:
+- automatically moves drone to given setpoint
+- auto-determination of sleep times
+- drone estimation converges to Vicon ref system
+Must use a different thread to send Vicon data to aid drone KF

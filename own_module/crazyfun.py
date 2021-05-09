@@ -255,20 +255,14 @@ def sign(x):
 
 
 def avoid(vehicle, dist):
-    movement = np.array([0, 0, 0])
+    movement = sc_v.drone_pos  # np.array([0, 0, 0])
 
     direction = min(dist)
     ind = dist.index(direction)
 
-    movement[ind] = -1*sign(direction)*0.5
+    movement[ind] += -1*sign(direction)*0.3
 
-    # might have to get rotation matrix
-    # might be usefule to get the Euler angles
-    vehicle.commander.send_position_setpoint(movement[0],
-                                             movement[1],
-                                             movement[2],
-                                             0)
-    time.sleep(0.1)
+    vehicle.go_to(movement[0], movement[1], movement[2])
 
 
 def euler_from_quaternion(x, y, z, w):
