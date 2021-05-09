@@ -84,7 +84,7 @@ def config_logging(sync_crazyflie):
     return log_stab
 
 
-def datetime2matlabdn(dt):
+def datetime2matlabdatenum(dt):
     mdn = dt + timedelta(days=366)
     frac_seconds = (dt-datetime(dt.year, dt.month, dt.day, 0, 0, 0)).seconds /\
                    (24.0 * 60.0 * 60.0)
@@ -103,24 +103,14 @@ def print_callback(timestamp, data, log_conf):
 
     """
 
-    file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
+    pos_x = data['stateEstimate.x']
+    pos_y = data['stateEstimate.y']
+    pos_z = data['stateEstimate.z']
+    roll = data['stabilizer.roll']
+    pitch = data['stabilizer.pitch']
+    yaw = data['stabilizer.yaw']
 
-    data_file = "../data_logs/" + file_name + \
-                datetime.now().strftime("__%Y%m%d_%H%M")
-    data_file = data_file + ".txt"
-
-    ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
-                                       data_file))
-    with open(ff, 'a') as descriptor:
-        pos_x = data['stateEstimate.x']
-        pos_y = data['stateEstimate.y']
-        pos_z = data['stateEstimate.z']
-        roll = data['stabilizer.roll']
-        pitch = data['stabilizer.pitch']
-        yaw = data['stabilizer.yaw']
-
-        print(pos_x, pos_y, pos_z, roll, pitch, yaw,
-              str(datetime2matlabdn(datetime.now())), file=descriptor)
+    int_matlab.write(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
 
 def data_log_async(sync_crazyflie, log_conf):
@@ -528,26 +518,34 @@ def pose_sending(sync_cf):
 
     logging.debug("sent pose: ", str(sc_v.drone_pos), str(sc_v.drone_or))
 
-    normal_matlab.write(sc_v.drone_pos[0], sc_v.drone_pos[1],
-                        sc_v.drone_pos[2],
-                        sc_v.drone_or[0], sc_v.drone_or[1],
-                        sc_v.drone_or[2], sc_v.drone_or[2])
+    vicon_matlab.write(sc_v.drone_pos[0], sc_v.drone_pos[1],
+                       sc_v.drone_pos[2],
+                       sc_v.drone_or[0], sc_v.drone_or[1],
+                       sc_v.drone_or[2], sc_v.drone_or[2])
 
     end = timer()
     logging.debug("elapsed time: ", end-start)
 
 
 class MatlabPrint:
+    """
+    flag = 0 -> points obtained from Vicon
+    flag = 1 -> setpoints sent to the drone
+    flag = 2 -> drone internal estimation
+    """
     descriptor = 0
 
-    def __init__(self, setpoint=0):
+    def __init__(self, flag=0):
         file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
 
-        if setpoint:
-            mat_file = "../setpoint_logs/" + file_name \
+        if flag == 2:
+            mat_file = "../internal_data/" + file_name \
                        + datetime.now().strftime("__%Y%m%d_%H%M%S")
-        else:
-            mat_file = "../matlab_logs/" + file_name \
+        elif flag == 1:
+            mat_file = "../setpoint_data/" + file_name \
+                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
+        else:  # flag == 0
+            mat_file = "../vicon_data/" + file_name \
                        + datetime.now().strftime("__%Y%m%d_%H%M%S")
         mat_file = mat_file + ".txt"
         ff = os.path.normpath(
@@ -575,7 +573,7 @@ class MatlabPrint:
             s = s + "{} ".format(str(arg))
 
         # timestamp to use in MATLAB
-        s = s + " {}".format(str(datetime2matlabdn(datetime.now())))
+        s = s + " {}".format(str(datetime2matlabdatenum(datetime.now())))
         print(s, file=self.descriptor)
 
 
@@ -586,5 +584,6 @@ log_roll = 0
 log_pitch = 0
 log_yaw = 0
 
-set_matlab = MatlabPrint(setpoint=1)
-normal_matlab = MatlabPrint()
+vicon_matlab = MatlabPrint(flag=0)
+set_matlab = MatlabPrint(flag=1)
+int_matlab = MatlabPrint(flag=2)

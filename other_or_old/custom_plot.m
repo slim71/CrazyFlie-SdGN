@@ -1,32 +1,52 @@
 %% File loading
-internal = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\data_logs\high_simple__20210506_1116.txt";
-custom = "C:\Users\User\Documents\GitHub\CrazyFlie-SdGN\matlab_logs\high_simple__20210506_1116.txt";
+name = "sequence_flight__20210415_1745.txt";
+current_file = mfilename('fullpath');
+[path, ~, ~] = fileparts(current_file);
 
-internal_data = importdata(internal);
-raw_data = importdata(custom);
+internal = fullfile(path, '..\internal_data\', name);
+setpoints = fullfile(path, '..\setpoint_data\', name);
+vicon = fullfile(path, '..\vicon_data\', name);
 
-if isstruct(raw_data)
-    custom_data = raw_data.data;
+raw_internal_data = importdata(internal);
+raw_set_data = importdata(internal);
+raw_vicon_data = importdata(vicon);
+
+if isstruct(raw_internal_data)
+    internal_data = raw_internal_data.data;
 else
-    custom_data = raw_data;
+    internal_data = raw_internal_data;
+end
+
+if isstruct(raw_set_data)
+    set_data = raw_set_data.data;
+else
+    set_data = raw_set_data;
+end
+
+if isstruct(raw_vicon_data)
+    vicon_data = raw_vicon_data.data;
+else
+    vicon_data = raw_vicon_data;
 end
 
 %% Data extraction
 % Extracted data                        Variables meaning 
-drone_posx = custom_data(:,1);          % \
-drone_posy = custom_data(:,2);          %  |-> drone position from Vicon, in Vicon frame [m]
-drone_posz = custom_data(:,3);          % /
-drone_quatx = custom_data(:,4);         %  \
-drone_quaty = custom_data(:,5);         %   |-> drone orientation through quaternions from Vicon 
-drone_quatz = custom_data(:,6);         %  /
-drone_quatw = custom_data(:,7);         % /
-setx_v = custom_data(:,8);             % \
-sety_v = custom_data(:,9);             %  |-> setpoint coordinates in Vicon reference system
-setz_v = custom_data(:,10);             % /
-setx_cf = custom_data(:,11);            % \
-sety_cf = custom_data(:,12);            %  |-> setpoint coordinates in Crazyflie reference system
-setz_cf = custom_data(:,13);            % /
-cust_time = datetime(custom_data(:,end), 'ConvertFrom', 'datenum');
+drone_posx = vicon_data(:,1);          % \
+drone_posy = vicon_data(:,2);          %  |-> drone position from Vicon, in Vicon frame [m]
+drone_posz = vicon_data(:,3);          % /
+drone_quatx = vicon_data(:,4);         %  \
+drone_quaty = vicon_data(:,5);         %   |-> drone orientation through quaternions from Vicon 
+drone_quatz = vicon_data(:,6);         %  /
+drone_quatw = vicon_data(:,7);         % /
+cust_time = datetime(vicon_data(:,end), 'ConvertFrom', 'datenum');
+
+setx_v = set_data(:,1);             % \
+sety_v = set_data(:,2);             %  |-> setpoint coordinates in Vicon reference system
+setz_v = set_data(:,3);             % /
+setx_cf = set_data(:,4);            % \
+sety_cf = set_data(:,5);            %  |-> setpoint coordinates in Crazyflie reference system
+setz_cf = set_data(:,6);            % /
+set_time = datetime(set_data(:,end), 'ConvertFrom', 'datenum');
 
 int_px = internal_data(:,1);            % \
 int_py = internal_data(:,2);            %  |-> internal estimate of drone position

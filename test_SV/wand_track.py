@@ -19,7 +19,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     time.sleep(0.5)
 
-    crazy.normal_matlab.write("% x y z qx qy qz qw")
+    crazy.int_matlab.write("% x y z qx qy qz qw")
     crazy.set_matlab.write("% set_x set_y set_z")
 
     est_thread = threading.Thread(target=crazy.repeat_fun,

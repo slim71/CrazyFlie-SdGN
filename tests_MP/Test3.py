@@ -52,7 +52,7 @@ sequence_V = [
 ]
 
 if __name__ == '__main__':
-    data_file = "./data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M")
+    data_file = "./internal_data/" + datetime.now().strftime("__%Y%m%d_%H%M")
     data_file = data_file + ".txt"
     ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
                                        data_file))
