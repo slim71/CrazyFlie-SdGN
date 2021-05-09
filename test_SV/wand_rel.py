@@ -23,7 +23,8 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     crazy.set_matlab.write("% set_x set_y set_z")
 
     est_thread = threading.Thread(target=crazy.repeat_fun,
-                                  args=(0.1, crazy.pose_sending, scf))
+                                  args=(crazy.vicon2drone_period,
+                                        crazy.pose_sending, scf))
 
     with PositionHlCommander(
             scf,

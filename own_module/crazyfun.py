@@ -584,6 +584,8 @@ log_roll = 0
 log_pitch = 0
 log_yaw = 0
 
+vicon2drone_period = 0.1  # s
+
 vicon_matlab = MatlabPrint(flag=0)
 set_matlab = MatlabPrint(flag=1)
 int_matlab = MatlabPrint(flag=2)
