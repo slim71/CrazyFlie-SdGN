@@ -19,11 +19,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     time.sleep(0.5)
 
-    crazy.matlab_print("% x y z qx qy qz qw")
+    crazy.normal_matlab.write("% x y z qx qy qz qw")
+    crazy.set_matlab.write("% set_x set_y set_z")
 
     est_thread = threading.Thread(target=crazy.repeat_fun,
-                                  args=(0.1, crazy.pose_sending, scf)
-                                  )
+                                  args=(0.1, crazy.pose_sending, scf))
 
     with PositionHlCommander(
             scf,
@@ -51,6 +51,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                      sc_v.drone_pos[2] + sc_v.wand_trans[2])
 
             sc_v.last_wand_pos = sc_v.wand_pos_m
+
+            crazy.set_matlab.write(
+                sc_v.drone_pos[0] + sc_v.wand_trans[0] - 0.3,
+                sc_v.drone_pos[1] + sc_v.wand_trans[1] - 0.3,
+                sc_v.drone_pos[2] + sc_v.wand_trans[2])
 
     # unreachable due to the while, but left out for completeness
     datalog.stop()

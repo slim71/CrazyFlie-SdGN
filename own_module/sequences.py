@@ -2,7 +2,8 @@ from own_module import script_variables as sc_v
 
 test = [
     (0, 0, sc_v.DEFAULT_HEIGHT, 0),
-    (0.3, 0.3, sc_v.DEFAULT_HEIGHT, 0)
+    (0.3, 0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (0, 0, sc_v.DEFAULT_HEIGHT, 0)  # back to the center
 ]
 
 line = [
@@ -10,6 +11,7 @@ line = [
     (0.3, 0, sc_v.DEFAULT_HEIGHT, 0),
     (0, 0, sc_v.DEFAULT_HEIGHT, 0),
     (-0.3, 0, sc_v.DEFAULT_HEIGHT, 0),
+    (0, 0, sc_v.DEFAULT_HEIGHT, 0)  # back to the center
 ]
 
 square = [

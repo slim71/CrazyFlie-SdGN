@@ -16,13 +16,6 @@ from vicon_dssdk import ViconDataStream
 import script_variables as sc_v
 import script_setup as sc_s
 
-log_pos_x = 0
-log_pos_y = 0
-log_pos_z = 0
-log_roll = 0
-log_pitch = 0
-log_yaw = 0
-
 # TODO: complete functions help
 
 
@@ -99,40 +92,13 @@ def datetime2matlabdn(dt):
     return mdn.toordinal() + frac_seconds + frac_microseconds
 
 
-def matlab_print(*args):
-    # can use a \n as argument to get a newline
-    # Create a string with all data passed to the function
-    setpoint_flag = 0
-    s = ""
-    for arg in args:
-        if arg == "setpoint":
-            setpoint_flag = 1
-        else:
-            s = s + "{} ".format(str(arg))
-
-    s = s + " {}".format(str(datetime2matlabdn(datetime.now())))
-
-    file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
-
-    if setpoint_flag:
-        mat_file = "../setpoint_logs/" + file_name \
-                   + datetime.now().strftime("__%Y%m%d_%H%M")
-    else:
-        mat_file = "../matlab_logs/" + file_name \
-                   + datetime.now().strftime("__%Y%m%d_%H%M")
-    mat_file = mat_file + ".txt"
-    ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
-                                       mat_file))
-    # TODO: how to have proper file usage?
-    with open(ff, 'a') as descriptor:
-        print(s, file=descriptor)
-
-
 def print_callback(timestamp, data, log_conf):
     """
     Prints gathered data to a specific file.
 
         :param data: Data to be logged
+        :param timestamp
+        :param log_conf
         :return:None
 
     """
@@ -417,7 +383,7 @@ def rotz(angle):
 
 def rotx(angle):
     angle_rad = angle*math.pi/180
-    mat= np.mat([[1, 0, 0],
+    mat = np.mat([[1, 0, 0],
                  [0, math.cos(angle_rad), -math.sin(angle_rad)],
                  [0, math.sin(angle_rad), math.cos(angle_rad)]])
     return mat
@@ -435,7 +401,7 @@ def hom_mat(rot, pos):
     pos_col = np.array(pos, ndmin=2).T
     mat = np.concatenate(
         (np.concatenate((rot, pos_col), axis=1),
-         np.array([0, 0, 0, 1],ndmin=2)), axis=0)
+         np.array([0, 0, 0, 1], ndmin=2)), axis=0)
     return mat
 
 
@@ -562,9 +528,63 @@ def pose_sending(sync_cf):
 
     logging.debug("sent pose: ", str(sc_v.drone_pos), str(sc_v.drone_or))
 
-    matlab_print(sc_v.drone_pos[0], sc_v.drone_pos[1], sc_v.drone_pos[2],
-                 sc_v.drone_or[0], sc_v.drone_or[1],
-                 sc_v.drone_or[2], sc_v.drone_or[2])
+    normal_matlab.write(sc_v.drone_pos[0], sc_v.drone_pos[1],
+                        sc_v.drone_pos[2],
+                        sc_v.drone_or[0], sc_v.drone_or[1],
+                        sc_v.drone_or[2], sc_v.drone_or[2])
 
     end = timer()
     logging.debug("elapsed time: ", end-start)
+
+
+class MatlabPrint:
+    descriptor = 0
+
+    def __init__(self, setpoint=0):
+        file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
+
+        if setpoint:
+            mat_file = "../setpoint_logs/" + file_name \
+                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
+        else:
+            mat_file = "../matlab_logs/" + file_name \
+                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
+        mat_file = mat_file + ".txt"
+        ff = os.path.normpath(
+            os.path.join(Path(__file__).parent.absolute(),
+                         mat_file))
+
+        self.descriptor = open(ff, 'a')
+
+    def __del__(self):
+        if self.descriptor:
+            self.descriptor.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self):
+        if self.descriptor:
+            self.descriptor.close()
+
+    def write(self, *args):
+        # Create a string with all data passed to the function.
+        # You can use a \n as argument to get a newline
+        s = ""
+        for arg in args:
+            s = s + "{} ".format(str(arg))
+
+        # timestamp to use in MATLAB
+        s = s + " {}".format(str(datetime2matlabdn(datetime.now())))
+        print(s, file=self.descriptor)
+
+
+log_pos_x = 0
+log_pos_y = 0
+log_pos_z = 0
+log_roll = 0
+log_pitch = 0
+log_yaw = 0
+
+set_matlab = MatlabPrint(setpoint=1)
+normal_matlab = MatlabPrint()
