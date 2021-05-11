@@ -25,6 +25,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
+    est_thread.start()
 
     with PositionHlCommander(
             scf,
@@ -33,11 +34,16 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
             default_height=0.5,
             controller=PositionHlCommander.CONTROLLER_PID) as pc:
 
+        pc_thread = threading.Thread(target=crazy.position_getter, args=pc)
+        pc_thread.start()
+
         logging.info("Take-off!")
 
         for point in seq.square:
 
+            logging.info("before go_to: ", pc.get_position())
             pc.go_to(point[0], point[1], point[2])
+            logging.info("after go_to: ", pc.get_position())
 
             crazy.set_matlab.write(point[0], point[1], point[2])
 

@@ -25,6 +25,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
+    est_thread.start()
 
     with PositionHlCommander(
             scf,
