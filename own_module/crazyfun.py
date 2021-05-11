@@ -521,6 +521,10 @@ def pose_sending(sync_cf):
     logging.debug("elapsed time: ", end-start)
 
 
+def position_getter(poscom):
+    logging.info("position: ", poscom.get_position())
+
+
 class MatlabPrint:
     """
     flag = 0 -> points obtained from Vicon
