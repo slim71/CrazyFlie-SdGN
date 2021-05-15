@@ -33,3 +33,6 @@ PositionHLCommander seems to be the best go-to:
 - auto-determination of sleep times
 - drone estimation converges to Vicon ref system
 Must use a different thread to send Vicon data to aid drone KF
+
+Both Vicon and Crazy-Kalman use the form (x, y, z, w),
+    NOT the common (w, x, y, z).
