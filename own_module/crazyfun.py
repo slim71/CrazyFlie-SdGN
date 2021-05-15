@@ -1,5 +1,3 @@
-# Module containing all the function used in the Crazyflie project
-
 from __future__ import print_function
 import __main__
 import logging
@@ -13,21 +11,25 @@ from pathlib import Path
 from cflib.crazyflie.syncLogger import SyncLogger
 from cflib.crazyflie.log import LogConfig
 from vicon_dssdk import ViconDataStream
-import script_variables as sc_v
-import script_setup as sc_s
+from own_module import script_variables as sc_v, script_setup as sc_s
+import signal
+import atexit
 
 # TODO: complete functions help
 
 
 def log_stab_callback(timestamp, data, log_conf):
     """
-    Prints out data gathered from the LogTable.
+    Prints out data gathered from the drone LogTable.
 
-        :param timestamp: Timestamp for the log file
-        :param data: Data to be logged
-        :param log_conf: Representation of a log configuration
-        :return:None
-
+    :param timestamp: Timestamp to be used in the log file
+    :type timestamp:
+    :param data: Data to be logged
+    :type data:
+    :param log_conf: Representation of a log configuration
+    :type log_conf:
+    :return: None
+    :rtype: None
     """
 
     print('[%d][%s]: %s' % (timestamp, log_conf.name, data))
@@ -49,11 +51,14 @@ def log_stab_callback(timestamp, data, log_conf):
 
 def simple_log_async(sync_crazyflie, log_conf):
     """
-    Adds a callback function to the LogTable of the drone.
+    Adds a callback to the LogTable of the drone.
 
     :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :type sync_crazyflie:
     :param log_conf: Representation of a log configuration
+    :type log_conf:
     :return: None
+    :rtype: None
     """
 
     crazyflie = sync_crazyflie.cf
@@ -68,7 +73,9 @@ def config_logging(sync_crazyflie):
     logged every 10ms.
 
     :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
-    :return: log_stab: Log stabilizer
+    :type sync_crazyflie:
+    :return: log_stab:
+    :rtype:
     """
 
     log_stab = LogConfig(name='Stabilizer', period_in_ms=10)
@@ -85,6 +92,14 @@ def config_logging(sync_crazyflie):
 
 
 def datetime2matlabdatenum(dt):
+    """
+    Converts Python 'datetime' time into MATLAB datenum format.
+
+    :param dt: Python 'datetime' time data
+    :type dt: datetime.datetime
+    :return: time indication in MATLAB datenum format
+    :rtype: float
+    """
     mdn = dt + timedelta(days=366)
     frac_seconds = (dt-datetime(dt.year, dt.month, dt.day, 0, 0, 0)).seconds /\
                    (24.0 * 60.0 * 60.0)
@@ -96,11 +111,14 @@ def print_callback(timestamp, data, log_conf):
     """
     Prints gathered data to a specific file.
 
-        :param data: Data to be logged
-        :param timestamp
-        :param log_conf
-        :return:None
-
+    :param timestamp: current timestamp
+    :type timestamp:
+    :param data: Data to be logged
+    :type data:
+    :param log_conf: configuration of the logger
+    :type log_conf:
+    :return: None
+    :rtype: None
     """
 
     pos_x = data['stateEstimate.x']
@@ -110,6 +128,7 @@ def print_callback(timestamp, data, log_conf):
     pitch = data['stabilizer.pitch']
     yaw = data['stabilizer.yaw']
 
+    # Print state estimate to file
     int_matlab.write(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
 
@@ -118,8 +137,11 @@ def data_log_async(sync_crazyflie, log_conf):
     Adds a callback function to the LogTable of the drone.
 
     :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
+    :type sync_crazyflie:
     :param log_conf: Representation of a log configuration
+    :type log_conf:
     :return: None
+    :rtype: None
     """
 
     crazyflie = sync_crazyflie.cf
@@ -134,7 +156,9 @@ def datalog(sync_crazyflie):
     logged every 10ms.
 
     :param sync_crazyflie: Synchronization wrapper of the Crazyflie object
-    :return: log_stab: Log stabilizer
+    :type sync_crazyflie:
+    :return:
+    :rtype:
     """
 
     measure_log = LogConfig(name='TotalEstimate', period_in_ms=10)
@@ -144,7 +168,7 @@ def datalog(sync_crazyflie):
     measure_log.add_variable('stabilizer.roll', 'float')
     measure_log.add_variable('stabilizer.pitch', 'float')
     measure_log.add_variable('stabilizer.yaw', 'float')
-    # TODO: Add more to log:
+    # TODO: Add more to log?
     # kalman stddev, posi/or stddev, extQuatStdDev 0.1, extPosStdDev
 
     data_log_async(sync_crazyflie, measure_log)
@@ -153,6 +177,14 @@ def datalog(sync_crazyflie):
 
 
 def reset_estimator(scf):
+    """
+    Resets drone estimator.
+
+    :param scf: Synchronization wrapper of the Crazyflie object
+    :type scf:
+    :return: None
+    :rtype: None
+    """
     cf = scf.cf
     cf.param.set_value('kalman.resetEstimation', '1')
     time.sleep(0.1)
@@ -161,8 +193,18 @@ def reset_estimator(scf):
 
 
 def wait_for_position_estimator(scf):
+    """
+    Waits for the state estimation variance to have a small variation, under a
+    given threshold.
+
+    :param scf: Synchronization wrapper of the Crazyflie object
+    :type scf:
+    :return: None
+    :rtype: None
+    """
     logging.info('Waiting for estimator to find setpoint...')
 
+    # Setting some logging configurations
     log_config = LogConfig(name='Kalman Pos Variance', period_in_ms=500)
     log_config.add_variable('kalman.varPX', 'float')
     log_config.add_variable('kalman.varPY', 'float')
@@ -174,6 +216,7 @@ def wait_for_position_estimator(scf):
     log_config2.add_variable('kalman.q2', 'float')
     log_config2.add_variable('kalman.q3', 'float')
 
+    # Initial variance values
     var_x_history = [1000] * 10
     var_y_history = [1000] * 10
     var_z_history = [1000] * 10
@@ -182,13 +225,17 @@ def wait_for_position_estimator(scf):
     var_q2_history = [1000] * 10
     var_q3_history = [1000] * 10
 
-    threshold = 0.001
+    # Given threshold
+    threshold = 0.3  # 001
 
+    # TODO: consider only position estimation?
     with SyncLogger(scf, log_config) as logger, \
             SyncLogger(scf, log_config2) as logger2:
         for log_entry in logger:
             data = log_entry[1]
 
+            # add current variance values, keeping the vector of the
+            # same length
             var_x_history.append(data['kalman.varPX'])
             var_x_history.pop(0)
             var_y_history.append(data['kalman.varPY'])
@@ -196,6 +243,7 @@ def wait_for_position_estimator(scf):
             var_z_history.append(data['kalman.varPZ'])
             var_z_history.pop(0)
 
+            # Compute max and min variance values
             min_x = min(var_x_history)
             max_x = max(var_x_history)
             min_y = min(var_y_history)
@@ -481,9 +529,19 @@ def repeat_fun(period, func, *args):
             yield max(t - time.time(), 0)
 
     tick = time_tick()
-    while True:
+    while run:
         time.sleep(next(tick))
         func(*args)
+
+
+def handler_stop_signal(signum, frame):
+    global run
+    run = False
+
+
+def final_stop():
+    global run
+    run = False
 
 
 def pose_sending(sync_cf):
@@ -510,7 +568,7 @@ def pose_sending(sync_cf):
                                    sc_v.drone_or[0], sc_v.drone_or[1],
                                    sc_v.drone_or[2], sc_v.drone_or[3])
 
-    logging.debug("sent pose: ", str(sc_v.drone_pos), str(sc_v.drone_or))
+    # logging.debug("sent pose: %s %s", str(sc_v.drone_pos), str(sc_v.drone_or))
 
     vicon_matlab.write(sc_v.drone_pos[0], sc_v.drone_pos[1],
                        sc_v.drone_pos[2],
@@ -518,11 +576,11 @@ def pose_sending(sync_cf):
                        sc_v.drone_or[2], sc_v.drone_or[2])
 
     end = timer()
-    logging.debug("elapsed time: ", end-start)
+    # logging.debug("elapsed time: %s", str(end-start))
 
 
 def position_getter(poscom):
-    logging.info("position: ", poscom.get_position())
+    logging.info("position: %s", str(poscom.get_position()))
 
 
 class MatlabPrint:
@@ -584,6 +642,11 @@ log_yaw = 0
 
 vicon2drone_period = 0.1  # s
 
+run = True
+signal.signal(signal.SIGINT, handler_stop_signal)
+signal.signal(signal.SIGTERM, handler_stop_signal)
+
 vicon_matlab = MatlabPrint(flag=0)
 set_matlab = MatlabPrint(flag=1)
 int_matlab = MatlabPrint(flag=2)
+atexit.register(final_stop)

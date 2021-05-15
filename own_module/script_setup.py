@@ -2,7 +2,7 @@ import os
 import logging
 from datetime import datetime
 from cflib import crazyflie
-import script_variables as sc_v
+from own_module import script_variables as sc_v
 from cflib import crtp
 from vicon_dssdk import ViconDataStream
 

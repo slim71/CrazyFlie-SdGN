@@ -80,3 +80,23 @@ triangle = [
     (0, -0.5, sc_v.DEFAULT_HEIGHT + 0.5, 0),
     (0, 0, sc_v.DEFAULT_HEIGHT, 0)  # back to the center
 ]
+
+hover = [
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+    (0, -1.5, sc_v.DEFAULT_HEIGHT, 0),
+]
+
+other_square = [
+    (0, 0-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (0.3, 0.3-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (-0.3, 0.3-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (-0.3, -0.3-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (0.3, -0.3-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (0.3, 0.3-0.3, sc_v.DEFAULT_HEIGHT, 0),
+    (0, 0-0.3, sc_v.DEFAULT_HEIGHT, 0),  # back to the center
+(0, 0-0.3, 0.3, 0)
+]

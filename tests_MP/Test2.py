@@ -5,11 +5,13 @@ import os
 import time
 from datetime import datetime
 from pathlib import Path
-from own_module import sequences as seq
+from own_module import crazyfun as crazy
+import numpy as np
+# from test_SV import sequences as seq
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 
 from own_module.log_estimation_manager import LogEstimationManager
-from own_module.vicon_manager import ViconManager
+from own_module.vicon_manager_old import ViconManager
 
 URI = 'radio://0/80/2M'
 DEFAULT_HEIGHT = 0.4
@@ -39,9 +41,9 @@ sequence = [
     (0, 0, 0.3, 0)
 ]
 
-Vicon_tr = []
+
 if __name__ == '__main__':
-    data_file = "./internal_data/" + datetime.now().strftime("__%Y%m%d_%H%M")
+    data_file = "./data_logs/" + datetime.now().strftime("__%Y%m%d_%H%M")
     data_file = data_file + ".txt"
     ff = os.path.normpath(os.path.join(Path(__file__).parent.absolute(),
                                        data_file))
@@ -53,30 +55,15 @@ if __name__ == '__main__':
             log_est.reset_estimator(cf)
             vicon = ViconManager()
             time.sleep(0.5)
-            V2G_dist, V2G_rot = vicon.get_global_frame()
 
             with open(ff, 'a') as descr:
                 print("% x, y, z, qx, qy, qz, qw", file=descr)
-                for setpoint in seq.square:
+                for setpoint in sequence:
                     for i in range(20):
-                # while 1:
-                        pos_drone, quat_drone = vicon.get_drone_pose(V2G_dist, V2G_rot)
-                        # print("Btransl_G: ", str(pos_drone), " Brot_G: ",
-                        #       str(quat_drone))
-                        print(pos_drone[0], pos_drone[1], pos_drone[2],
-                              quat_drone[0], quat_drone[1], quat_drone[2], quat_drone[3],
-                              file=descr)
-                        pos_est, att_est = log_est.get_estimation()
-                        # print("pos: ", str(pos_est), "att: ", str(att_est))
-                        print(pos_est[0], pos_est[1], pos_est[2],
-                              att_est[0], att_est[1], att_est[2],
-                              file=descr)
-                        # cf.extpos.send_extpos(pos_drone[0], pos_drone[1], pos_drone[2])
+                        pos_drone, quat_drone = vicon.get_drone_pose()
                         cf.extpos.send_extpose(pos_drone[0], pos_drone[1], pos_drone[2],
                                                quat_drone[0], quat_drone[1], quat_drone[2], quat_drone[3])
                         cf.commander.send_position_setpoint(setpoint[0], setpoint[1], setpoint[2], setpoint[3])
                         time.sleep(0.1)
-                    Vicon_tr.append(vicon.get_global_frame()[0])
 
             cf.commander.send_stop_setpoint()
-            print(Vicon_tr)
