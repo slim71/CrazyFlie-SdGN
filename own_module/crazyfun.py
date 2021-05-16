@@ -267,6 +267,7 @@ def repeat_fun(period, func, *args):
         func(*args)
 
 
+# standard argument for signal handler calls
 # def handler_stop_signal(signum, frame):
 def handler_stop_signal():
     """
@@ -445,9 +446,17 @@ vicon2drone_period = 0.1  # s
 datalog_period = 10  # ms
 posvar_period = 500  # ms
 
+# Parameters used in the collision avoidance script
+safety_threshold = 10  # cm
+tv_prec = []
+th_prec = []
+
 run = True
 
 # Signal handling
+# A PyCharm registry option has to be changed, according to
+# https://youtrack.jetbrains.com/issue/PY-13316#focus=Comments-27-4240420.0-0,
+# in order to catch the red 'Stop program' button press in the console
 signal.signal(signal.SIGINT, handler_stop_signal)
 signal.signal(signal.SIGTERM, handler_stop_signal)
 
@@ -457,4 +466,5 @@ set_matlab = MatlabPrint(flag=1)
 int_matlab = MatlabPrint(flag=2)
 
 # To specify which function to execute at the termination of the program
+# TODO: not needed?
 atexit.register(final_stop)

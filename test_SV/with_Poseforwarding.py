@@ -34,12 +34,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
             default_height=0.5,
             controller=PositionHlCommander.CONTROLLER_PID) as pc:
 
-        pc_thread = threading.Thread(target=crazy.repeat_fun,
-                                     args=(crazy.vicon2drone_period,
-                                           crazy.position_getter,
-                                           pc))
-        pc_thread.start()
-
         logging.info("Take-off!")
 
         for point in seq.other_square:

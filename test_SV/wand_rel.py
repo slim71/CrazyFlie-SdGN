@@ -3,7 +3,6 @@ import threading
 import time
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.position_hl_commander import PositionHlCommander
-from timeit import default_timer as timer
 from own_module import crazyfun as crazy, script_setup as sc_s, \
     script_variables as sc_v
 

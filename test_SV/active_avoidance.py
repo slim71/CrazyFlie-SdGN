@@ -3,15 +3,11 @@ import threading
 import logging
 import math
 import numpy as np
-from vicon_dssdk import ViconDataStream
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.position_hl_commander import PositionHlCommander
 from own_module import crazyfun as crazy, script_setup as sc_s, \
     script_variables as sc_v
 
-safety_threshold = 10  # cm
-tv_prec = []
-th_prec = []
 
 # Class used to start the synchronization with the drone
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
@@ -54,15 +50,15 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             theta_hor = math.atan2(dist_array[1], dist_array[0])
 
             # if it's not the first time the object has been registered
-            if len(tv_prec) and len(th_prec):
-                ver_warning = (0 < theta_ver < tv_prec[-1]) or\
-                              (0 > theta_ver > tv_prec[-1])
-                hor_warning = (0 < theta_hor < th_prec[-1]) or\
-                              (0 > theta_hor > th_prec[-1])
+            if len(crazy.tv_prec) and len(crazy.th_prec):
+                ver_warning = (0 < theta_ver < crazy.tv_prec[-1]) or\
+                              (0 > theta_ver > crazy.tv_prec[-1])
+                hor_warning = (0 < theta_hor < crazy.th_prec[-1]) or\
+                              (0 > theta_hor > crazy.th_prec[-1])
 
                 if ver_warning and hor_warning and\
-                        (np.linalg.norm(dist_array) <= safety_threshold):
+                        (np.linalg.norm(dist_array) <= crazy.safety_threshold):
                     crazy.avoid(pc, dist_array)
 
-            tv_prec.append(theta_ver)
-            th_prec.append(theta_hor)
+            crazy.tv_prec.append(theta_ver)
+            crazy.th_prec.append(theta_hor)
