@@ -28,7 +28,8 @@ def datetime2matlabdatenum(dt):
     # different point in time)
     mdn = dt + timedelta(days=366)
     # Computes seconds...
-    frac_seconds = (dt-datetime(dt.year, dt.month, dt.day, 0, 0, 0)).seconds /\
+    frac_seconds = (dt - datetime(dt.year, dt.month, dt.day, 0, 0,
+                                  0)).seconds / \
                    (24.0 * 60.0 * 60.0)
     # ... and microseconds
     frac_microseconds = dt.microsecond / (24.0 * 60.0 * 60.0 * 1000000.0)
@@ -223,7 +224,7 @@ def avoid(vehicle, dist):
     ind = dist.index(direction)
 
     # Update the coordinate
-    movement[ind] += -1*sign(direction)*0.3
+    movement[ind] += -1 * sign(direction) * 0.3
 
     # Move the Crazyflie
     vehicle.go_to(movement[0], movement[1], movement[2])
@@ -281,7 +282,7 @@ def handler_stop_signal():
     run = False
 
 
-# TODO: do we need both handler_stop_signla and final_stop?
+# TODO: do we need both handler_stop_signal and final_stop?
 def final_stop():
     """
     Sets the global flag 'run' to False to stop other threads.
@@ -359,19 +360,26 @@ class MatlabPrint:
         :type flag: integer
         """
 
-        file_name = os.path.normpath(__main__.__file__).split(os.sep)[-1][:-3]
+        file_name = os.path.normpath(__main__.__file__). \
+            split(os.sep)[-1][:-3]
 
         # TODO: make sure to log even if path does not exist
         # TODO: handle other values for 'flag'
-        if flag == 2:
-            mat_file = "../internal_data/" + file_name \
-                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
-        elif flag == 1:
-            mat_file = "../setpoint_data/" + file_name \
-                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
-        else:  # flag == 0
-            mat_file = "../vicon_data/" + file_name \
-                       + datetime.now().strftime("__%Y%m%d_%H%M%S")
+        print_type = {
+            0: "vicon_data",
+            1: "setpoint_data",
+            2: "internal_data",
+            3: "wand_data"
+        }
+
+        folder = print_type.get(flag, "Unmanaged")
+
+        # Creates folder if it does not exist
+        if not os.path.exists("../" + folder):
+            os.makedirs("../" + folder)
+
+        mat_file = "../" + folder + "/" + file_name \
+                   + datetime.now().strftime("__%Y%m%d_%H%M%S")
 
         mat_file = mat_file + ".txt"
         ff = os.path.normpath(
@@ -467,4 +475,4 @@ int_matlab = MatlabPrint(flag=2)
 
 # To specify which function to execute at the termination of the program
 # TODO: not needed?
-atexit.register(final_stop)
+# atexit.register(final_stop)
