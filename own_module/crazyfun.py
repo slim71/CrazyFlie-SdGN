@@ -360,11 +360,9 @@ class MatlabPrint:
         :type flag: integer
         """
 
-        file_name = os.path.normpath(__main__.__file__). \
-            split(os.sep)[-1][:-3]
+        file_name = os.path.normpath(__file__).split(os.sep)[-1][:-3]
 
-        # TODO: make sure to log even if path does not exist
-        # TODO: handle other values for 'flag'
+        # Different kind of data to manage
         print_type = {
             0: "vicon_data",
             1: "setpoint_data",
