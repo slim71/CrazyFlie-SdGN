@@ -245,7 +245,7 @@ class TunerControlCF:
             self.stop_gui()
 
     def stop_gui(self):
-        self.pid_gui.master.quit()
+        self.pid_gui.master.quit_fun(,
         self.land_and_stop()
 
     # parameter update

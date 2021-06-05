@@ -113,7 +113,7 @@ if __name__ == "__main__":
     parser.add_argument("destination", help="Destination version file", nargs="?",default=None)
     parser.add_argument("--crazyflie-base", help="base folder of the crazyflie firmware",
                         action="store", default="./")
-    parser.add_argument('--print-version', help="Print version and exit",
+    parser.add_argument('--print-version', help="Print version and exit_event",
                         action="store_true")
     args = parser.parse_args()
 
