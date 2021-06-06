@@ -7,7 +7,6 @@ from cflib import crtp
 from vicon_dssdk import ViconDataStream
 
 # -----------------------------------DEBUG------------------------------------
-# TODO: add name manager for console launch
 file_name = os.path.normpath(__file__).split(os.sep)[-1][:-3]
 
 filename = "../experiment_logs/" + file_name + \

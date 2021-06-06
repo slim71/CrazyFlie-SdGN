@@ -43,10 +43,13 @@ def print_callback(data):
     Prints gathered data to a specific file.
 
     :param data: Data to be logged.
-    :type data: TODO
+    :type data:
     :return: None.
     :rtype: None
     """
+
+    # TODO: check this, then remove
+    print(type(data))
 
     pos_x = data['stateEstimate.x']
     pos_y = data['stateEstimate.y']
@@ -98,8 +101,6 @@ def datalog(sync_crazyflie):
     measure_log.add_variable('stabilizer.roll', 'float')
     measure_log.add_variable('stabilizer.pitch', 'float')
     measure_log.add_variable('stabilizer.yaw', 'float')
-    # TODO: Add more to log?
-    # kalman stddev, posi/or stddev, extQuatStdDev 0.1, extPosStdDev
 
     datalog_async(sync_crazyflie, measure_log)
 
