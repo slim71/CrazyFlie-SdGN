@@ -341,6 +341,41 @@ def pose_sending(sync_cf):
                        sc_v.drone_or[2], sc_v.drone_or[2])
 
 
+def wand_sending():
+    """
+    Sends the Crazyflie pose taken from the Vicon system to the drone
+    estimator.
+
+    :param sync_cf: Synchronization wrapper of the Crazyflie object.
+    :type sync_cf: SyncCrazyflie object
+    :return: None.
+    :rtype: None
+    """
+
+    # Get a new frame from Vicon
+    try:
+        sc_s.vicon.GetFrame()
+    except ViconDataStream.DataStreamException as exc:
+        logging.error("Error while getting a frame in the core! "
+                      "--> %s", str(exc))
+
+    # Get current drone position and orientation in Vicon
+    sc_v.wand_pos = sc_s.vicon. \
+        GetSegmentGlobalTranslation(sc_v.Wand, "Root")[0]
+
+    # Converts in meters
+    sc_v.wand_pos = (float(sc_v.wand_pos[0] / 1000),
+                     float(sc_v.wand_pos[1] / 1000),
+                     float(sc_v.wand_pos[2] / 1000))
+
+    logging.debug("aquired Wand position: %s", str(sc_v.wand_pos))
+
+    # Log to file
+    wand_matlab.write(sc_v.wand_pos[0],
+                      sc_v.wand_pos[1],
+                      sc_v.wand_pos[2])
+
+
 class MatlabPrint:
     """
     Class for datafile handling.
@@ -364,7 +399,7 @@ class MatlabPrint:
 
         # Different kind of data to manage
         print_type = {
-            0: "vicon_data",
+            0: "vicon_data",  # TODO: Redundant?
             1: "setpoint_data",
             2: "internal_data",
             3: "wand_data"
@@ -447,6 +482,7 @@ log_yaw = 0
 
 # Period at which Vicon data will be sent to the Crazyflie
 vicon2drone_period = 0.1  # s
+wand_period = 0.1  # s
 
 # Period used in Log configurations
 datalog_period = 10  # ms
@@ -470,6 +506,7 @@ signal.signal(signal.SIGTERM, handler_stop_signal)
 vicon_matlab = MatlabPrint(flag=0)
 set_matlab = MatlabPrint(flag=1)
 int_matlab = MatlabPrint(flag=2)
+wand_matlab = MatlabPrint(flag=3)
 
 # To specify which function to execute at the termination of the program
 # TODO: not needed?
