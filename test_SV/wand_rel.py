@@ -12,7 +12,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('commander.enHighLevel', '1')
 
     crazy.reset_estimator(scf)
-    crazy.wait_for_position_estimator(scf)
+    # crazy.wait_for_position_estimator(scf)  # included in reset_estimator
 
     datalog = crazy.datalog(scf)
     datalog.start()
@@ -21,6 +21,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     crazy.int_matlab.write("% x y z qx qy qz qw")
     crazy.set_matlab.write("% set_x set_y set_z")
+    crazy.wand_matlab.write("% wand_x wand_y wand_z")
 
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
@@ -41,8 +42,9 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         sc_v.wand_pos_m = (float(sc_v.wand_pos[0] / 1000),
                            float(sc_v.wand_pos[1] / 1000),
                            float(sc_v.wand_pos[2] / 1000))
-        app = sc_v.wand_pos_m
-        sc_v.last_wand_pos = (app[0], app[1], app[2])
+        sc_v.last_wand_pos = (sc_v.wand_pos_m[0],
+                              sc_v.wand_pos_m[1],
+                              sc_v.wand_pos_m[2])
         logging.debug("wand reference: %s", str(sc_v.last_wand_pos))
 
         while 1:
@@ -68,8 +70,9 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
             pc.go_to(setpoint[0], setpoint[1], setpoint[2])
             logging.debug("sepoint sent: %s", str(setpoint))
 
-            app = sc_v.wand_pos_m
-            sc_v.last_wand_pos = (app[0], app[1], app[2])
+            sc_v.last_wand_pos = (sc_v.wand_pos_m[0],
+                                  sc_v.wand_pos_m[1],
+                                  sc_v.wand_pos_m[2])
 
             crazy.set_matlab.write(
                 sc_v.drone_pos[0] + sc_v.wand_trans[0],
