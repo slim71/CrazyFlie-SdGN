@@ -5,11 +5,13 @@ current_file = mfilename('fullpath');
 
 internal = fullfile(path, '..\internal_data\', name);
 setpoints = fullfile(path, '..\setpoint_data\', name);
-vicon = fullfile(path, '..\vicon_data\', name);
+vicon = fullfile(path, '..\vicon_data\', name); % TODO: redundant?
+wand = fullfile(path, '..\wand_data\', name);
 
 raw_internal_data = importdata(internal);
 raw_set_data = importdata(internal);
-raw_vicon_data = importdata(vicon);
+raw_vicon_data = importdata(vicon); % TODO: redundant?
+raw_wand = impordata(wand);
 
 if isstruct(raw_internal_data)
     internal_data = raw_internal_data.data;
@@ -29,23 +31,29 @@ else
     vicon_data = raw_vicon_data;
 end
 
+if isstruct(raw_wand)
+    wand_data = raw_wand.data;
+else
+    wand_data = raw_wand;
+end
+
 %% Data extraction
 % Extracted data                        Variables meaning 
-drone_posx = vicon_data(:,1);          % \
-drone_posy = vicon_data(:,2);          %  |-> drone position from Vicon, in Vicon frame [m]
-drone_posz = vicon_data(:,3);          % /
-drone_quatx = vicon_data(:,4);         %  \
-drone_quaty = vicon_data(:,5);         %   |-> drone orientation through quaternions from Vicon 
-drone_quatz = vicon_data(:,6);         %  /
-drone_quatw = vicon_data(:,7);         % /
+drone_posx = vicon_data(:,1);           % \
+drone_posy = vicon_data(:,2);           %  |-> drone position from Vicon, in Vicon frame [m]
+drone_posz = vicon_data(:,3);           % /
+drone_quatx = vicon_data(:,4);          %  \
+drone_quaty = vicon_data(:,5);          %   |-> drone orientation through quaternions from Vicon 
+drone_quatz = vicon_data(:,6);          %  /
+drone_quatw = vicon_data(:,7);          % /
 cust_time = datetime(vicon_data(:,end), 'ConvertFrom', 'datenum');
 
-setx_v = set_data(:,1);             % \
-sety_v = set_data(:,2);             %  |-> setpoint coordinates in Vicon reference system
-setz_v = set_data(:,3);             % /
-setx_cf = set_data(:,4);            % \
-sety_cf = set_data(:,5);            %  |-> setpoint coordinates in Crazyflie reference system
-setz_cf = set_data(:,6);            % /
+setx_v = set_data(:,1);                 % \
+sety_v = set_data(:,2);                 %  |-> setpoint coordinates in Vicon reference system
+setz_v = set_data(:,3);                 % /
+setx_cf = set_data(:,4);                % \
+sety_cf = set_data(:,5);                %  |-> setpoint coordinates in Crazyflie reference system
+setz_cf = set_data(:,6);                % /
 set_time = datetime(set_data(:,end), 'ConvertFrom', 'datenum');
 
 int_px = internal_data(:,1);            % \
@@ -55,6 +63,11 @@ int_roll = internal_data(:,4);          % \
 int_pitch = internal_data(:,5);         % |-> internal estimate of drone attitude
 int_yaw = internal_data(:,6);           % /
 int_time = datetime(internal_data(:,end), 'ConvertFrom', 'datenum');
+
+wand_px = wand_data(:,1);               % \
+wand_py = wand_data(:,2);               %  |-> Wand position in Vicon frame
+wand_pz = wand_data(:,3);               % /
+wand_time = datetime(wand_data(:,end), 'ConvertFrom', 'datenum');
 
 %% Analysis
 % MATLAB uses q = [w x y z]
@@ -239,3 +252,26 @@ plot_order(setx_cf, sety_cf, setz_cf)
 extremities(int_px, int_py, int_pz)
 legend("Setpoint", "Drone position")
 title("Crazyflie reference system")
+
+%% Wand position visualization, with drone Vicon position
+
+if exist('figure2') == 0  %#ok<*EXIST>
+    figure('name', "Wand and drone position visualization, in Vicon frame");
+else
+    figure2('name', "Wand and drone position visualization, in Vicon frame");
+end
+
+hold on
+grid on
+view(10,45)
+xlabel("x")
+ylabel("y")
+zlabel("z")
+
+plot3(wand_px, wand_py, wand_pz, '--k')
+plot3(setx_cf, sety_cf, setz_cf, 'o', 'Color', 'b', ...
+    'MarkerSize', 10, 'MarkerFaceColor', '#D9FFFF')
+plot_order(setx_cf, sety_cf, setz_cf)
+extremities(int_px, int_py, int_pz)
+legend("Wand position", "Drone position")
+title("Vicon reference system")
