@@ -14,12 +14,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     crazy.reset_estimator(scf)
     # crazy.wait_for_position_estimator(scf)  # included in reset_estimator
 
+    crazy.int_matlab.write("% x y z qx qy qz qw")
     datalog = crazy.datalog(scf)
     datalog.start()
 
     time.sleep(0.5)
 
-    crazy.int_matlab.write("% x y z qx qy qz qw")
     crazy.set_matlab.write("% set_x set_y set_z")
     crazy.wand_matlab.write("% wand_x wand_y wand_z")
 

@@ -1,5 +1,5 @@
 %% File loading
-name = "sequence_flight__20210415_1745.txt";
+name = "crazyfun__20210608_121852.txt";
 current_file = mfilename('fullpath');
 [path, ~, ~] = fileparts(current_file);
 
@@ -11,7 +11,7 @@ wand = fullfile(path, '..\wand_data\', name);
 raw_internal_data = importdata(internal);
 raw_set_data = importdata(internal);
 raw_vicon_data = importdata(vicon); % TODO: redundant?
-raw_wand = impordata(wand);
+raw_wand = importdata(wand);
 
 if isstruct(raw_internal_data)
     internal_data = raw_internal_data.data;
