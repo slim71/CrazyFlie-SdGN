@@ -1,6 +1,3 @@
-pyusb>=1.0.0b2
-
-cflib>=0.1.15
-numpy~=1.19.3
-setuptools~=50.3.2
-enum34~=1.1.10
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8f01f1800f716db26bf0b6d3b130cbb93f54774e40464951e4c474f52726b76
+size 77

@@ -1,23 +1,3 @@
-function plot_order(px, py, pz)
-    ax = gca;
-    prev = [0, 0, 0];
-    prev_i = 0;
-    for ii = 1:length(px)
-        if (px(ii) ~= prev(1)) || ...
-                (py(ii) ~= prev(2)) || ...
-                (pz(ii) ~= prev(3))
-            prev_i = prev_i + 1;
-            text(px(ii)+(ax.XLim(2)-ax.XLim(1))*0.01, ...
-                py(ii)+(ax.YLim(2)-ax.YLim(1))*0.01, ...
-                pz(ii)+(ax.ZLim(2)-ax.ZLim(1))*0.01, ...
-                num2str(prev_i),'Color','b')
-            prev = [px(ii), py(ii), pz(ii)];
-        end
-    end
-    plot3(px(1), py(1), pz(1), 'o', 'Color', '#D9FFFF', ...
-        'MarkerSize', 12, 'MarkerFaceColor', '#D9FFFF')
-    plot3(px(length(px)), py(length(px)), ...
-        pz(length(px)), 'o', 'Color', 'b', ...
-        'MarkerSize', 12, 'MarkerFaceColor', 'blue')
-
-end
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d22ec6df29383517bade9eb4f1458f62657e28e8bc49c62b1fae140edff8880
+size 808

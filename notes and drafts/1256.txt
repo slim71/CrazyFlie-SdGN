@@ -1,17 +1,3 @@
-frame cf e vicon allineati
-------
-su
--y
-y
--y con roll pos
-0 con roll neg
-x con pitch pos
--x con pitch neg
-0 con pitch pos
-stabile
-giù
------
-pitch di log di segno inverso al vero
-stima del roll non vede quello dato
-positioni tornano
-oscillazioni su stima z dati da flowdeck?
+version https://git-lfs.github.com/spec/v1
+oid sha256:c93afc93a3c3d2eb424179518b69a6a9320cf27a4f46853f9ece45f23fe45c07
+size 275
