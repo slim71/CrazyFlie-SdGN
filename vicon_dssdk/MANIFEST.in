@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1011bc1bae93e5658eb534d4caa32523e4edfe3ac324b9e095be6a534d39d812
-size 103
+include CHANGES.rst
+include LICENSE
+include README.rst
+include VERSION
+recursive-include vicon_dssdk *

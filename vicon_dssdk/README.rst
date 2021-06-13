@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d5455810ae1794fc03c23cd3cf307ec1ba901fd28d97bf224b598ff5c86efd8
-size 250
+Vicon DataStream SDK
+====================
+
+This is the python version of the Vicon DataStream SDK. The API has been changed from the C++/.NET 
+version to make it more familiar to Python users. All documentation is contained inline within the
+module
+

@@ -1,3 +1,113 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b5411364fa484f98f190ed70714f15fed3eabd34744181cac1f4d2aeb7bd63d1
-size 4271
+import logging
+import time
+import cflib.crtp
+from cflib.crazyflie.log import LogConfig
+from cflib.crazyflie.syncLogger import SyncLogger
+
+
+class LogEstimationManager:
+
+    # We create a configuration and add all the variables to log and
+    # their logging period
+    def __init__(self):
+        self._logconf = LogConfig(name='Estimation', period_in_ms=500)
+        self._position_estimate = [0, 0, 0]
+        self._attitude_estimate = [0, 0, 0]
+        self._stdDevs = [0, 0, 0]
+
+    def __enter__(self):
+        cflib.crtp.init_drivers(enable_debug_driver=False)
+        self.config_logging()
+        # self.simple_log_async()
+        # self.reset_estimator()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("disconnecting")
+        self._logconf.stop()
+
+    def config_logging(self):
+        self._logconf.add_variable('stateEstimate.x', 'float')
+        self._logconf.add_variable('stateEstimate.y', 'float')
+        self._logconf.add_variable('stateEstimate.z', 'float')
+        self._logconf.add_variable('stabilizer.roll', 'float')
+        self._logconf.add_variable('stabilizer.pitch', 'float')
+        self._logconf.add_variable('stabilizer.yaw', 'float')
+        logging.info("variables added")
+
+    # Callback function to print the contents of logs
+    def callback(self, timestamp, data, _logconf):
+        # print(data)
+        self._position_estimate[0] = data['stateEstimate.x']
+        self._position_estimate[1] = data['stateEstimate.y']
+        self._position_estimate[2] = data['stateEstimate.z']
+        self._attitude_estimate[0] = data['stabilizer.roll']
+        self._attitude_estimate[1] = data['stabilizer.pitch']
+        self._attitude_estimate[2] = data['stabilizer.yaw']
+
+    # We add to the Drone framework the previously defined
+    # logging configuration
+    def simple_log_async(self, cf):
+        # check if variables are allowed (i.e. are in TOC)
+        cf.log.add_config(self._logconf)
+        if self._logconf.valid:
+            self._logconf.data_received_cb.add_callback(self.callback)
+            self._logconf.start()
+        else:
+            logging.error("Could not add logconfig since some variables"
+                          " are not in TOC")
+
+    def reset_estimator(self, cf):
+        cf.param.set_value('stabilizer.estimator', 2)
+        cf.param.set_value('kalman.resetEstimation', '1')
+        time.sleep(0.1)
+        # cf.param.set_value('kalman.resetEstimation', '0')
+        self.wait_for_position_estimator(cf)
+
+    def get_estimation(self):
+        return self._position_estimate, self._attitude_estimate
+
+    def wait_for_position_estimator(self, cf):
+        log_config = LogConfig(name='Kalman Variance', period_in_ms=500)
+        log_config.add_variable('kalman.varPX', 'float')
+        log_config.add_variable('kalman.varPY', 'float')
+        log_config.add_variable('kalman.varPZ', 'float')
+
+        var_y_history = [1000] * 10
+        var_x_history = [1000] * 10
+        var_z_history = [1000] * 10
+        threshold = 0.001
+
+        with SyncLogger(cf, log_config) as logger:
+            for log_entry in logger:
+                data = log_entry[1]
+
+                var_x_history.append(data['kalman.varPX'])
+                var_x_history.pop(0)
+                var_y_history.append(data['kalman.varPY'])
+                var_y_history.pop(0)
+                var_z_history.append(data['kalman.varPZ'])
+                var_z_history.pop(0)
+
+                min_x = min(var_x_history)
+                max_x = max(var_x_history)
+                min_y = min(var_y_history)
+                max_y = max(var_y_history)
+                min_z = min(var_z_history)
+                max_z = max(var_z_history)
+
+                # print("{} {} {}".
+                #       format(max_x - min_x, max_y - min_y, max_z - min_z))
+
+                if (max_x - min_x) < threshold and (
+                        max_y - min_y) < threshold and (
+                        max_z - min_z) < threshold:
+                    break
+
+
+'''
+Limitations to be taken into account:
+1)  Each packet is limited to 32bytes, which means that both the data that is  
+    logged and the packet that is sent cannot be larger than this. 
+2)  The minimum period for a log configuration is multiples of 10ms.
+'''

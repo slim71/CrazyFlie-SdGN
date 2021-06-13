@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f6e583d55822e98d9b239797289917b3f6d7d4d611c0a28bc262aa39e6859ec
-size 279
+::Install api into Python site packages directory (e.g. C:\Python27\Lib\site-packages)
+pip install "%~dp0vicon_dssdk"
+
+:: Prompt for press any key to continue if we're not running from a command prompt
+@echo %cmdcmdline% | findstr /l "\"\"" >NUL 2>&1
+@if %errorlevel% EQU 0 pause
