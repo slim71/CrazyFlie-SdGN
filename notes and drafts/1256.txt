@@ -1,0 +1,17 @@
+frame cf e vicon allineati
+------
+su
+-y
+y
+-y con roll pos
+0 con roll neg
+x con pitch pos
+-x con pitch neg
+0 con pitch pos
+stabile
+giù
+-----
+pitch di log di segno inverso al vero
+stima del roll non vede quello dato
+positioni tornano
+oscillazioni su stima z dati da flowdeck?

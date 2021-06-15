@@ -1,0 +1,15 @@
+frame cf ruotato 90° rispetto vicon
+------
+(in cf)
+su
+-y con roll pos
+0 con roll neg
+x con pitch pos
+0 con pitch pos
+stabile
+giù
+-----
+stima posizione instabile per 50 campioni circa
+valori instabili finali forse dati dall'ostruzione del drone alle telecamere
+
+
