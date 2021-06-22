@@ -8,11 +8,6 @@ from own_module import crazyfun as crazy, script_setup as sc_s, \
 
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
-    crazy.battery(scf)
-    if crazy.vbat < 3.9:
-        logging.info("Battery voltage too low for operate")
-        print("Battery voltage too low for operate")
-        exit()
 
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
     scf.cf.param.set_value('commander.enHighLevel', '1')
@@ -52,7 +47,9 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
         logging.info("Take-off!")
 
-        while 1:
+        lowPowerCount = 0
+
+        while lowPowerCount < 5:
             # wand_pos is updated by an ad-hoc thread
             # offset of 0.3m for safety precautions
             pc.go_to(sc_v.wand_pos[0]-0.3,
@@ -63,5 +60,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
                                    sc_v.wand_pos[1]-0.3,
                                    sc_v.wand_pos[2])
 
-    # unreachable due to the while, but left out for completeness
+            logging.info("Current battery state is %d", crazy.battery)
+
+            if crazy.battery <= 3:
+                lowPowerCount = lowPowerCount + 1
+            else:
+                lowPowerCount = 0
+
+    print("LANDING!")
     datalog.stop()
