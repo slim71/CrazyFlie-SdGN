@@ -13,7 +13,6 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     scf.cf.param.set_value('commander.enHighLevel', '1')
 
     crazy.reset_estimator(scf)
-    # crazy.wait_for_position_estimator(scf)  # included in reset_estimator
 
     crazy.int_matlab.write("% x y z qx qy qz qw")
     datalog = crazy.datalog(scf)
