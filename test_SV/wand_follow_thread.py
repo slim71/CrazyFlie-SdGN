@@ -50,13 +50,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
         while lowPowerCount < 5:
             # wand_pos is updated by an ad-hoc thread
-            # offset of 0.3m for safety precautions
-            pc.go_to(sc_v.wand_pos[0]-0.3,
-                     sc_v.wand_pos[1]-0.3,
+            pc.go_to(sc_v.wand_pos[0]-crazy.safety_offset,
+                     sc_v.wand_pos[1]-crazy.safety_offset,
                      sc_v.wand_pos[2])
 
-            crazy.set_matlab.write(sc_v.wand_pos[0]-0.3,
-                                   sc_v.wand_pos[1]-0.3,
+            crazy.set_matlab.write(sc_v.wand_pos[0]-crazy.safety_offset,
+                                   sc_v.wand_pos[1]-crazy.safety_offset,
                                    sc_v.wand_pos[2])
 
             logging.info("Current battery state is %d", crazy.battery)
