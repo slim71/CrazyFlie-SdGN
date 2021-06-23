@@ -40,6 +40,8 @@ def datetime2matlabdatenum(dt):
 def battery(sync_crazyflie):
     sync_crazyflie.cf.param.add_update_callback(group='pm', name='vbat',
                                                 cb=check_battery)
+    time.sleep(1)
+    logging.debug("%s", str(sync_crazyflie.cf.param.param_update_callbacks))
     sync_crazyflie.cf.param.request_param_update("pm.vbat")
 
 
@@ -269,8 +271,6 @@ def repeat_fun(period, func, *args):
             t += period
             yield max(t - time.time(), 0)
 
-    global run
-
     # Initiates the generator function
     tick = time_tick()
 
@@ -354,14 +354,22 @@ def pose_sending(sync_cf):
                        sc_v.drone_or[2], sc_v.drone_or[2])
 
 
+def set_wand_track():
+    """
+
+    :return:
+    :rtype:
+    """
+
+    global wand_setpoint
+    wand_setpoint = wand_matlab.read_point()
+
+
 def wand_sending():
     """
-    Sends the Crazyflie pose taken from the Vicon system to the drone
-    estimator.
+    Logs the Wand position to a file.
 
-    :param sync_cf: Synchronization wrapper of the Crazyflie object.
-    :type sync_cf: SyncCrazyflie object
-    :return: None.
+    :return: None
     :rtype: None
     """
 
@@ -381,7 +389,7 @@ def wand_sending():
                      float(sc_v.wand_pos[1] / 1000),
                      float(sc_v.wand_pos[2] / 1000))
 
-    logging.debug("aquired Wand position: %s", str(sc_v.wand_pos))
+    logging.debug("Acquired Wand position: %s", str(sc_v.wand_pos))
 
     # Log to file
     wand_matlab.write(sc_v.wand_pos[0],
@@ -398,7 +406,8 @@ class MatlabPrint:
     flag = 2 -> drone internal estimation
     """
 
-    descriptor = 0
+    write_descriptor = 0
+    read_descriptor = 0
 
     def __init__(self, flag=0):
         """
@@ -431,7 +440,8 @@ class MatlabPrint:
         ff = os.path.normpath(
             os.path.join(Path(__file__).parent.absolute(), mat_file))
 
-        self.descriptor = open(ff, 'a')
+        self.write_descriptor = open(ff, 'a')
+        self.read_descriptor = open(ff, 'r')
 
     def __del__(self):
         """
@@ -441,8 +451,11 @@ class MatlabPrint:
         :rtype: None
         """
 
-        if self.descriptor:
-            self.descriptor.close()
+        if self.write_descriptor:
+            self.write_descriptor.close()
+
+        if self.read_descriptor:
+            self.read_descriptor.close()
 
     def __enter__(self):
         """
@@ -482,7 +495,32 @@ class MatlabPrint:
 
         # timestamp to use in MATLAB
         s = s + " {}".format(str(datetime2matlabdatenum(datetime.now())))
-        print(s, file=self.descriptor)
+        print(s, file=self.write_descriptor)
+
+    def read_point(self):
+        """
+        Reads a line from the class file and return an array
+        with the first three elements: this will represent a point's
+        coordinates.
+
+        :return:
+        :rtype:
+        """
+
+        line = self.read_descriptor.readline().split(" ")
+        element = line[0]
+        if element == "%":  # Skip the header line
+            line = self.read_descriptor.readline().split(" ")
+
+        point = []
+        index = 0
+        for element in line:
+            element = element.strip()
+            point.append(element)
+            index += 1
+            if index >= 3:
+                break
+        return point
 
 
 # Global variables used
@@ -505,6 +543,7 @@ posvar_period = 500  # ms
 safety_threshold = 10  # cm
 tv_prec = []
 th_prec = []
+wand_setpoint = [0, 0, 0]
 
 run = True
 vbat = 0
@@ -525,3 +564,9 @@ wand_matlab = MatlabPrint(flag=3)
 # To specify which function to execute at the termination of the program
 # TODO: not needed?
 # atexit.register(final_stop)
+
+safety_offset = 0.3
+time_limit = 60  # [s]
+tracking = True
+pos_limit = 0.001  # [m]
+max_equal_pos = 10
