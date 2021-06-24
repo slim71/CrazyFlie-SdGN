@@ -37,6 +37,20 @@ def datetime2matlabdatenum(dt):
     return mdn.toordinal() + frac_seconds + frac_microseconds
 
 
+def battery(sync_crazyflie):
+    sync_crazyflie.cf.param.add_update_callback(group='pm', name='vbat',
+                                                cb=check_battery)
+    time.sleep(1)
+    logging.debug("%s", str(sync_crazyflie.cf.param.param_update_callbacks))
+    sync_crazyflie.cf.param.request_param_update("pm.vbat")
+
+
+def check_battery(name, value):
+    global vbat
+    vbat = value
+    logging.info("Current battery value is %d", vbat)
+
+
 def print_callback(timestamp, data, log_conf):
     """
     Prints gathered data to a specific file.
@@ -57,8 +71,6 @@ def print_callback(timestamp, data, log_conf):
     pitch = data['stabilizer.pitch']
     yaw = data['stabilizer.yaw']
 
-    global battery
-    battery = data['pm.state']
     # Print state estimate to file
     int_matlab.write(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
@@ -102,7 +114,6 @@ def datalog(sync_crazyflie):
     measure_log.add_variable('stabilizer.roll', 'float')
     measure_log.add_variable('stabilizer.pitch', 'float')
     measure_log.add_variable('stabilizer.yaw', 'float')
-    measure_log.add_variable('pm.state', 'int8_t')
 
     datalog_async(sync_crazyflie, measure_log)
 
@@ -519,7 +530,6 @@ log_pos_z = 0
 log_roll = 0
 log_pitch = 0
 log_yaw = 0
-battery = 0
 
 # Period at which Vicon data will be sent to the Crazyflie
 vicon2drone_period = 0.1  # s
