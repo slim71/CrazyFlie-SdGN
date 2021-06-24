@@ -1,6 +1,8 @@
 import logging
 import threading
 import time
+import numpy as np
+from numpy import linalg
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.positioning.position_hl_commander import PositionHlCommander
 from own_module import crazyfun as crazy, script_setup as sc_s, \
@@ -19,13 +21,16 @@ wand_thread.daemon = True
 wand_thread.start()
 
 precedent = sc_v.wand_pos  # At this point this is already initialized
-equal_pos = 0
+equal_pos = 0              # counter of wand position equal to precedent
 while crazy.run:
-    precedent = sc_v.wand_pos  # update precedent
+    time.sleep(crazy.wand_period)
+    print(linalg.norm(np.array(precedent) - np.array(sc_v.wand_pos)))
+    # precedent = sc_v.wand_pos  # update precedent
     if equal_pos >= crazy.max_equal_pos:
         crazy.run = False
-    if abs(precedent - sc_v.wand_pos) <= crazy.pos_limit:  # [m]
+    if linalg.norm(np.array(precedent) - np.array(sc_v.wand_pos)) <= crazy.pos_limit:  # [m]
         equal_pos += 1
+    precedent = sc_v.wand_pos  # update precedent
 
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
@@ -43,6 +48,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     time.sleep(0.5)
 
+    crazy.run = True
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
@@ -70,9 +76,11 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         lowPowerCount = 0
 
         while lowPowerCount < 5:
-            pc.go_to(crazy.wand_setpoint[0],
-                     crazy.wand_setpoint[1],
-                     crazy.wand_setpoint[2])
+            print(crazy.wand_setpoint)
+
+            pc.go_to(float(crazy.wand_setpoint[0]),
+                     float(crazy.wand_setpoint[1]),
+                     float(crazy.wand_setpoint[2]))
 
             crazy.set_matlab.write(crazy.wand_setpoint[0],
                                    crazy.wand_setpoint[1],
@@ -80,7 +88,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
             logging.info("Current battery state is %d", crazy.battery)
 
-            if crazy.battery <= 3:
+            if crazy.battery == 3:
                 lowPowerCount = lowPowerCount + 1
             else:
                 lowPowerCount = 0
