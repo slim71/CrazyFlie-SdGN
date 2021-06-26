@@ -32,6 +32,8 @@ while crazy.run:
         equal_pos += 1
     precedent = sc_v.wand_pos  # update precedent
 
+print("10s before taking off! Prepare to take a video!")
+time.sleep(10)
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
@@ -52,17 +54,17 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
-    setpoint_thread = threading.Thread(target=crazy.repeat_fun,
-                                       args=(crazy.wand_period,
-                                             crazy.set_wand_track))
+    # setpoint_thread = threading.Thread(target=crazy.repeat_fun,
+    #                                    args=(crazy.wand_period,
+    #                                          crazy.set_wand_track))
 
     # Set threads as daemon: this way they will terminate as soon as
     # the main program terminates
     est_thread.daemon = True
-    setpoint_thread.daemon = True
+    # setpoint_thread.daemon = True
 
     est_thread.start()
-    setpoint_thread.start()
+    # setpoint_thread.start()
 
     with PositionHlCommander(
             scf,
@@ -76,6 +78,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         lowPowerCount = 0
 
         while lowPowerCount < 5:
+            crazy.wand_setpoint = crazy.wand_matlab.read_point()
             print(crazy.wand_setpoint)
 
             pc.go_to(float(crazy.wand_setpoint[0]),

@@ -496,8 +496,12 @@ class MatlabPrint:
         :rtype:
         """
 
+        if self.write_descriptor:
+            self.write_descriptor.close()
+
         line = self.read_descriptor.readline().split(" ")
         element = line[0]
+
         if element == "%":  # Skip the header line
             line = self.read_descriptor.readline().split(" ")
 
