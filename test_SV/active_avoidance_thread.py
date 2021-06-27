@@ -41,33 +41,18 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:  # automatic connection
             default_height=0.5,
             controller=PositionHlCommander.CONTROLLER_PID) as pc:
 
+        obs_thread = threading.Thread(target=crazy.repeat_fun,
+                                      args=(crazy.obstacle_period,
+                                            crazy.check_obstable, pc))
+        obs_thread.daemon = True
+        obs_thread.start()
+
         logging.info('===============Take-Off!================')
 
         lowPowerCount = 0
 
         while lowPowerCount < 5:
-            logging.info("Getting object setpoint...")
-            obj_pos = sc_s.vicon. \
-                GetSegmentGlobalTranslation('Obstacle', 'OneMarker')[0]
-
-            dist_array = np.array(sc_v.drone_pos - obj_pos)
-
-            theta_ver = math.atan2(dist_array[2], dist_array[0])
-            theta_hor = math.atan2(dist_array[1], dist_array[0])
-
-            # if it's not the first time the object has been registered
-            if len(crazy.tv_prec) and len(crazy.th_prec):
-                ver_warning = (0 < theta_ver < crazy.tv_prec[-1]) or\
-                              (0 > theta_ver > crazy.tv_prec[-1])
-                hor_warning = (0 < theta_hor < crazy.th_prec[-1]) or\
-                              (0 > theta_hor > crazy.th_prec[-1])
-
-                if ver_warning and hor_warning and\
-                        (np.linalg.norm(dist_array) <= crazy.safety_threshold):
-                    crazy.avoid(pc, dist_array)
-
-            crazy.tv_prec.append(theta_ver)
-            crazy.th_prec.append(theta_hor)
+            logging.info("Loop rpound")
 
     print("LANDING!")
     datalog.stop()
