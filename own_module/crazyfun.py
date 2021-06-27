@@ -2,12 +2,15 @@ from __future__ import print_function
 import logging
 import os
 import time
+import numpy as np
+import math
 from datetime import datetime, timedelta
 from pathlib import Path
 from cflib.crazyflie.syncLogger import SyncLogger
 from cflib.crazyflie.log import LogConfig
 from vicon_dssdk import ViconDataStream
 from own_module import script_variables as sc_v, script_setup as sc_s
+from cflib.positioning.position_hl_commander import PositionHlCommander
 import signal
 import atexit
 
@@ -207,6 +210,31 @@ def sign(x):
         raise Exception("The argument is not a number.")
 
 
+def check_obstacle(poscom):
+    logging.info("Getting object setpoint...")
+    obj_pos = sc_s.vicon. \
+        GetSegmentGlobalTranslation('Obstacle', 'OneMarker')[0]
+
+    dist_array = np.array(sc_v.drone_pos - obj_pos)
+
+    theta_ver = math.atan2(dist_array[2], dist_array[0])
+    theta_hor = math.atan2(dist_array[1], dist_array[0])
+
+    # if it's not the first time the object has been registered
+    if len(tv_prec) and len(th_prec):
+        ver_warning = (0 < theta_ver < tv_prec[-1]) or \
+                      (0 > theta_ver > tv_prec[-1])
+        hor_warning = (0 < theta_hor < th_prec[-1]) or \
+                      (0 > theta_hor > th_prec[-1])
+
+        if ver_warning and hor_warning and \
+                (np.linalg.norm(dist_array) <= safety_threshold):
+            avoid(poscom, dist_array)
+
+    tv_prec.append(theta_ver)
+    th_prec.append(theta_hor)
+
+
 def avoid(vehicle, dist):
     """
     Computes the direction the drone has to move to avoid the incoming
@@ -386,6 +414,38 @@ def wand_sending():
                       sc_v.wand_pos[2])
 
 
+# Monkey-patch; useful:
+# https://stackoverflow.com/questions/5626193/what-is-monkey-patching/6647776#6647776
+def go_to_sleep(self, x, y,
+                z=PositionHlCommander.DEFAULT,
+                velocity=PositionHlCommander.DEFAULT):
+    """
+    Monkey-patch of the PositionHlCommander standard 'go_to' method.
+
+    :param x: X coordinate [m]
+    :param y: Y coordinate [m]
+    :param z: Z coordinate [m]
+    :param velocity: the velocity (meters/second)
+    :return: None
+    """
+
+    z = self._height(z)
+
+    dx = x - self._x
+    dy = y - self._y
+    dz = z - self._z
+    distance = math.sqrt(dx * dx + dy * dy + dz * dz)
+
+    if distance > 0.0:
+        duration_s = distance / self._velocity(velocity)
+        self._hl_commander.go_to(x, y, z, 0, duration_s)
+        time.sleep(duration_s)
+
+        self._x = x
+        self._y = y
+        self._z = z
+
+
 class MatlabPrint:
     """
     Class for datafile handling.
@@ -526,8 +586,9 @@ log_yaw = 0
 battery = 0
 
 # Period at which Vicon data will be sent to the Crazyflie
-vicon2drone_period = 0.1  # s
-wand_period = 0.1  # s
+vicon2drone_period = 0.1  # [s]
+wand_period = 0.1  # [s]
+obstacle_period = 0.1  # [s]
 
 # Period used in Log configurations
 datalog_period = 10  # ms

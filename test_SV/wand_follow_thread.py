@@ -8,7 +8,6 @@ from own_module import crazyfun as crazy, script_setup as sc_s, \
 
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
-
     scf.cf.param.set_value('stabilizer.estimator', 2)  # set KF as estimator
     scf.cf.param.set_value('commander.enHighLevel', '1')
 

@@ -25,7 +25,6 @@ equal_pos = 0              # counter of wand position equal to precedent
 while crazy.run:
     time.sleep(crazy.wand_period)
     print(linalg.norm(np.array(precedent) - np.array(sc_v.wand_pos)))
-    # precedent = sc_v.wand_pos  # update precedent
     if equal_pos >= crazy.max_equal_pos:
         crazy.run = False
     if linalg.norm(np.array(precedent) - np.array(sc_v.wand_pos)) <= crazy.pos_limit:  # [m]
@@ -54,17 +53,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
-    # setpoint_thread = threading.Thread(target=crazy.repeat_fun,
-    #                                    args=(crazy.wand_period,
-    #                                          crazy.set_wand_track))
 
     # Set threads as daemon: this way they will terminate as soon as
     # the main program terminates
     est_thread.daemon = True
-    # setpoint_thread.daemon = True
 
     est_thread.start()
-    # setpoint_thread.start()
 
     with PositionHlCommander(
             scf,

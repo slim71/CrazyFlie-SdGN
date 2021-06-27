@@ -24,6 +24,8 @@ while crazy.run:
     if stop - start >= crazy.time_limit:
         crazy.run = False
 
+print("10s before taking off! Prepare to take a video!")
+time.sleep(10)
 
 with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
@@ -40,6 +42,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
     time.sleep(0.5)
 
+    crazy.run = True
     est_thread = threading.Thread(target=crazy.repeat_fun,
                                   args=(crazy.vicon2drone_period,
                                         crazy.pose_sending, scf))
@@ -67,9 +70,12 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
         lowPowerCount = 0
 
         while lowPowerCount < 5:
-            pc.go_to(crazy.wand_setpoint[0],
-                     crazy.wand_setpoint[1],
-                     crazy.wand_setpoint[2])
+            crazy.wand_setpoint = crazy.wand_matlab.read_point()
+            print(crazy.wand_setpoint)
+
+            pc.go_to(float(crazy.wand_setpoint[0]),
+                     float(crazy.wand_setpoint[1]),
+                     float(crazy.wand_setpoint[2]))
 
             crazy.set_matlab.write(crazy.wand_setpoint[0],
                                    crazy.wand_setpoint[1],
@@ -77,7 +83,7 @@ with SyncCrazyflie(sc_v.uri, sc_s.cf) as scf:
 
             logging.info("Current battery state is %d", crazy.battery)
 
-            if crazy.battery <= 3:
+            if crazy.battery == 3:
                 lowPowerCount = lowPowerCount + 1
             else:
                 lowPowerCount = 0
