@@ -368,7 +368,7 @@ def pose_sending(sync_cf):
     vicon_matlab.write(sc_v.drone_pos[0], sc_v.drone_pos[1],
                        sc_v.drone_pos[2],
                        sc_v.drone_or[0], sc_v.drone_or[1],
-                       sc_v.drone_or[2], sc_v.drone_or[2])
+                       sc_v.drone_or[2], sc_v.drone_or[3])
 
 
 def set_wand_track():
@@ -500,10 +500,15 @@ class MatlabPrint:
         :rtype: None
         """
 
+        # Useful for the flush() argument:
+        # https://stackoverflow.com/questions/15608229/what-does-prints-flush-do
+
         if self.write_descriptor:
+            self.write_descriptor.flush()  # ensures complete output to file
             self.write_descriptor.close()
 
         if self.read_descriptor:
+            self.read_descriptor.flush()  # ensures complete output to file
             self.read_descriptor.close()
 
     def __enter__(self):
@@ -544,7 +549,7 @@ class MatlabPrint:
 
         # timestamp to use in MATLAB
         s = s + " {}".format(str(datetime2matlabdatenum(datetime.now())))
-        print(s, file=self.write_descriptor)
+        print(s, file=self.write_descriptor, flush=True)
 
     def read_point(self):
         """
