@@ -12,7 +12,6 @@ from vicon_dssdk import ViconDataStream
 from own_module import script_variables as sc_v, script_setup as sc_s
 from cflib.positioning.position_hl_commander import PositionHlCommander
 import signal
-import atexit
 
 
 def datetime2matlabdatenum(dt):
@@ -50,9 +49,6 @@ def print_callback(timestamp, data, log_conf):
     :rtype: None
     """
 
-    # TODO: check this, then remove
-    print(type(data))
-
     pos_x = data['stateEstimate.x']
     pos_y = data['stateEstimate.y']
     pos_z = data['stateEstimate.z']
@@ -62,6 +58,7 @@ def print_callback(timestamp, data, log_conf):
 
     global battery
     battery = data['pm.state']
+
     # Print state estimate to file
     int_matlab.write(pos_x, pos_y, pos_z, roll, pitch, yaw)
 
@@ -121,6 +118,7 @@ def reset_estimator(scf):
     :return: None.
     :rtype: None
     """
+
     cf = scf.cf
     # Actual reset
     cf.param.set_value('kalman.resetEstimation', '1')
@@ -210,57 +208,8 @@ def sign(x):
         raise Exception("The argument is not a number.")
 
 
-def check_obstacle(poscom):
-    logging.info("Getting object setpoint...")
-    obj_pos = sc_s.vicon. \
-        GetSegmentGlobalTranslation('Obstacle', 'OneMarker')[0]
-
-    dist_array = np.array(sc_v.drone_pos - obj_pos)
-
-    theta_ver = math.atan2(dist_array[2], dist_array[0])
-    theta_hor = math.atan2(dist_array[1], dist_array[0])
-
-    # if it's not the first time the object has been registered
-    if len(tv_prec) and len(th_prec):
-        ver_warning = (0 < theta_ver < tv_prec[-1]) or \
-                      (0 > theta_ver > tv_prec[-1])
-        hor_warning = (0 < theta_hor < th_prec[-1]) or \
-                      (0 > theta_hor > th_prec[-1])
-
-        if ver_warning and hor_warning and \
-                (np.linalg.norm(dist_array) <= safety_threshold):
-            avoid(poscom, dist_array)
-
-    tv_prec.append(theta_ver)
-    th_prec.append(theta_hor)
-
-
-def avoid(vehicle, dist):
-    """
-    Computes the direction the drone has to move to avoid the incoming
-    obstacle.
-
-    :param vehicle: Drone's commander.
-    :type vehicle: PositionHLCommander
-    :param dist: 3D array containing the drone-obstacle distance.
-    :type dist: numpy.array
-    :return: None.
-    :rtype: None
-    """
-
-    movement = sc_v.drone_pos
-
-    # Decide which 3D coordinate to change
-    direction = min(dist)
-    ind = dist.index(direction)
-
-    # Update the coordinate
-    movement[ind] += -1 * sign(direction) * 0.3
-
-    # Move the Crazyflie
-    vehicle.go_to(movement[0], movement[1], movement[2])
-
-
+# Good reading for generator functions:
+# https://www.programiz.com/python-programming/generator
 def repeat_fun(period, func, *args):
     """
     Uses an internal generator function to run another function
@@ -298,27 +247,12 @@ def repeat_fun(period, func, *args):
 
 
 # standard argument for signal handler calls
-# def handler_stop_signal():
-# TODO: why this way the drone doesn't land?
 def handler_stop_signal(signum, frame):
     """
     Sets the global flag 'run' to False to stop other threads.
 
     :return: None.
     :rtype: None
-    """
-
-    global run
-    run = False
-
-
-# TODO: do we need both handler_stop_signal and final_stop?
-def final_stop():
-    """
-    Sets the global flag 'run' to False to stop other threads.
-
-    :return:
-    :rtype:
     """
 
     global run
@@ -373,9 +307,10 @@ def pose_sending(sync_cf):
 
 def set_wand_track():
     """
+    Function to set the next setpoint, read as a Wand position from a file.
 
-    :return:
-    :rtype:
+    :return: None.
+    :rtype: None
     """
 
     global wand_setpoint
@@ -386,7 +321,7 @@ def wand_sending():
     """
     Logs the Wand position to a file.
 
-    :return: None
+    :return: None.
     :rtype: None
     """
 
@@ -416,17 +351,19 @@ def wand_sending():
 
 # Monkey-patch; useful:
 # https://stackoverflow.com/questions/5626193/what-is-monkey-patching/6647776#6647776
-def go_to_sleep(self, x, y,
-                z=PositionHlCommander.DEFAULT,
-                velocity=PositionHlCommander.DEFAULT):
+def go_to_nosleep(self,
+                  x, y, z=PositionHlCommander.DEFAULT,
+                  velocity=PositionHlCommander.DEFAULT):
     """
     Monkey-patch of the PositionHlCommander standard 'go_to' method.
 
+    :param self: PositionHLCommander object
     :param x: X coordinate [m]
     :param y: Y coordinate [m]
     :param z: Z coordinate [m]
     :param velocity: the velocity (meters/second)
-    :return: None
+    :return: None.
+    :rtype: None
     """
 
     z = self._height(z)
@@ -439,7 +376,7 @@ def go_to_sleep(self, x, y,
     if distance > 0.0:
         duration_s = distance / self._velocity(velocity)
         self._hl_commander.go_to(x, y, z, 0, duration_s)
-        time.sleep(duration_s)
+        # time.sleep(duration_s)
 
         self._x = x
         self._y = y
@@ -453,6 +390,7 @@ class MatlabPrint:
     flag = 0 -> points obtained from Vicon
     flag = 1 -> setpoints sent to the drone
     flag = 2 -> drone internal estimation
+    flag = 3 -> wand position in Vicon
     """
 
     write_descriptor = 0
@@ -581,6 +519,60 @@ class MatlabPrint:
         return point
 
 
+###################################################################
+# Extra functions for incomplete scripts
+def check_obstacle(poscom):
+    logging.info("Getting object setpoint...")
+    obj_pos = sc_s.vicon. \
+        GetSegmentGlobalTranslation('Obstacle', 'OneMarker')[0]
+
+    dist_array = np.array(sc_v.drone_pos - obj_pos)
+
+    theta_ver = math.atan2(dist_array[2], dist_array[0])
+    theta_hor = math.atan2(dist_array[1], dist_array[0])
+
+    # if it's not the first time the object has been registered
+    if len(tv_prec) and len(th_prec):
+        ver_warning = (0 < theta_ver < tv_prec[-1]) or \
+                      (0 > theta_ver > tv_prec[-1])
+        hor_warning = (0 < theta_hor < th_prec[-1]) or \
+                      (0 > theta_hor > th_prec[-1])
+
+        if ver_warning and hor_warning and \
+                (np.linalg.norm(dist_array) <= safety_threshold):
+            avoid(poscom, dist_array)
+
+    tv_prec.append(theta_ver)
+    th_prec.append(theta_hor)
+
+
+def avoid(vehicle, dist):
+    """
+    Computes the direction the drone has to move to avoid the incoming
+    obstacle.
+
+    :param vehicle: Drone's commander.
+    :type vehicle: PositionHLCommander
+    :param dist: 3D array containing the drone-obstacle distance.
+    :type dist: numpy.array
+    :return: None.
+    :rtype: None
+    """
+
+    movement = sc_v.drone_pos
+
+    # Decide which 3D coordinate to change
+    direction = min(dist)
+    ind = dist.index(direction)
+
+    # Update the coordinate
+    movement[ind] += -1 * sign(direction) * 0.3
+
+    # Move the Crazyflie
+    vehicle.go_to(movement[0], movement[1], movement[2])
+###################################################################
+
+
 # Global variables used
 log_pos_x = 0
 log_pos_y = 0
@@ -612,18 +604,14 @@ vbat = 0
 # A PyCharm registry option has to be changed, according to
 # https://youtrack.jetbrains.com/issue/PY-13316#focus=Comments-27-4240420.0-0,
 # in order to catch the red 'Stop program' button press in the console
-# signal.signal(signal.SIGINT, handler_stop_signal)
-# signal.signal(signal.SIGTERM, handler_stop_signal)
+signal.signal(signal.SIGINT, handler_stop_signal)
+signal.signal(signal.SIGTERM, handler_stop_signal)
 
 # Istances of the MatlabPrint classes with relative logfile creation
 vicon_matlab = MatlabPrint(flag=0)
 set_matlab = MatlabPrint(flag=1)
 int_matlab = MatlabPrint(flag=2)
 wand_matlab = MatlabPrint(flag=3)
-
-# To specify which function to execute at the termination of the program
-# TODO: not needed?
-# atexit.register(final_stop)
 
 safety_offset = 0.3
 time_limit = 60  # [s]

@@ -1,0 +1,15 @@
+x -> front  |
+y -> left   |-> right-handed reference system!
+z -> up     |
+
+We weren't sure at first because of some incongruence in the official documentation, but then the Crazyflie forum
+helped us out: https://forum.bitcraze.io/viewtopic.php?p=21725#p21725.
+
+*******************************************************************************
+
+A periodic recalibration of the Vicon system is needed to ensure good precision while tracking objects in the
+environment
+*******************************************************************************
+
+It's a good idea to use asymmetric markers on the Crazyflie to ensure distinction from environment and to ease
+the distinction of the drone orientation.
