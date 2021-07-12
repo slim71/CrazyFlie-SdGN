@@ -1,0 +1,6 @@
+# at least Python version 3.0 is required
+
+cflib>=0.1.15
+numpy>=1.20.2
+opencv-python-headless>=4.5.1.48
+pyusb>=1.1.1
