@@ -1,5 +1,7 @@
 # CrazyFlie-SdGN
-Repo for the project of the course Navigation and Guidance systems.
+Repo for the project of the course Navigation and Guidance systems,part of the 
+Master Degree in [Robotics and Automation Engineering](http://www.aut.ing.unipi.it/),
+attended at the [University of Pisa](https://www.unipi.it/).
 
 All useful documentation is in the [docs folder](docs).
 
